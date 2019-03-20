@@ -1,0 +1,42 @@
+.admin-panel__tabs-content {
+    width:500px;
+    height:400px;
+    overflow:hidden;
+    float:left;
+}
+.admin-panel__tabs-content ul {
+    list-style: none;
+    height: 500px;
+    overflow: scroll;
+    overflow-y: hidden;
+}
+.admin-panel__tabs-content ul li {
+    width:500px;
+    height:500px;
+}
+
+.admin-panel__tabs li{
+    width:200px;
+    margin-bottom: 20px;
+    height:50px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.admin-panel__tabs li a{
+    color: blue;
+}
+.admin-panel__tabs li a:active {
+    font-size: 30px;
+    color: blue;
+}
+.admin-panel li{
+    list-style-type: none;
+}
+.admin-panel__tabs-list {
+    display: flex;
+    height: 300px;
+    width:200px;;
+    float:left;
+}
