@@ -1,0 +1,89 @@
+.card-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+} 
+@media only screen and (max-width: 992px) {
+    // body {
+    //     background-color: yellow
+    // }   
+    .card {
+        width:300px;
+        height:500px;
+        margin-left :20px;
+        margin-right :20px;
+    }
+} 
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    // body {
+    //     background-color: green
+    // } 
+    .card {
+        width:300px;
+        height:500px;
+    }
+} 
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    // body {
+    //     background-color: green
+    // }
+    .card {
+        width:300px;
+        height:500px;
+        margin-left :20px;
+        margin-right :20px;
+    }
+} 
+
+@media only screen and (max-width: 420px) {
+    // body {
+    //     background-color: red
+    // }
+    .card {
+        width:250px;
+        height:450px;
+    }
+}
+@media only screen and (min-width: 993px) {
+    // body {
+    //     background-color: grey   
+    // }
+    .card {
+        width:300px;
+        height:500px;
+        margin-top: 10px;
+        margin-left :10px;
+        margin-right :10px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    // body {
+    //     background-color: lightcoral
+    // }
+    .card {
+        width:180px;
+        height:300px;
+        margin-top: 3px;
+        margin-left :3px;
+        margin-right :3px;
+    }
+}
+@media only screen and (min-width: 1300px) {
+    // body {
+    //     background-color: blue
+    // }
+    .card {
+        width:200px;
+        height:413px;
+        margin-top: 3px;
+        margin-left :3px;
+        margin-right :3px;
+    }
+}
+@media only screen and (min-width: 1400px) {
+    body {
+        background-color: black
+    }
+}
