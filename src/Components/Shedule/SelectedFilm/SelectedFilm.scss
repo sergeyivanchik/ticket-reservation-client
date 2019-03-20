@@ -1,0 +1,211 @@
+img {
+    width:100%;
+}
+
+// @media only screen and (max-width: 992px)  {
+//     // body {
+//     //     background-color: yellow
+//     // }   
+//     .cotainer {
+//          //border: 1px solid black;
+//           display:flex;
+//           margin-top: 50px;
+//           margin-left: 130px;
+//           width: 640px;
+//       }
+//       .film-img {
+//           float:left;
+//           width:250px;
+//           height: 350px;
+//         //  border: 1px solid red;
+//       }
+//       .film-name {
+//         //  border: 1px solid lightcoral;
+//           padding: 0px;
+//           display: inline-block;
+//       }
+//       .film-name-text {
+//           margin-top: 0px;
+//           margin-left: 80px;
+//           font-size: 15px; 
+//       }
+//       .description-cotainer {
+//           float:left;
+//           width:400px;
+//          //border: 1px solid green;
+//       }
+//       .film-description-text {
+//           margin-top: -7px;
+//           margin-left: 8px;
+//           font-size: 10px;
+//           text-align: justify;
+//       }
+
+// } 
+
+//ДОДЕЛАTЬ
+// @media only screen and (max-width: 768px) and (orientation: landscape) {
+//     // body {
+//     //     background-color: green
+//     // } 
+//     .cotainer {
+//         border: 1px solid black;
+//          display:flex;
+//          margin-top: 50px;
+//          margin-left: 188px;
+//          width: 640px;
+//      }
+//      .film-img {
+//          //float:left;
+//          width:350px;
+//          height: 350px;
+//        //  border: 1px solid red;
+//      }
+//      .film-name {
+//        //  border: 1px solid lightcoral;
+//          padding: 0px;
+//          display: inline-block;
+//      }
+//      .film-name-text {
+//          margin-top: 0px;
+//          margin-left: 80px;
+//          font-size: 15px; 
+//      }
+//      .description-cotainer {
+//          //float:left;
+//          width:400px;
+//         //border: 1px solid green;
+//      }
+//      .film-description-text {
+//          margin-top: -7px;
+//          margin-left: 8px;
+//          font-size: 10px;
+//          text-align: justify;
+//      }
+// }
+
+// @media only screen and (min-width: 993px) {
+//     // body {
+//     //     background-color: grey   
+//     // }
+//     .cotainer {
+//         //  border: 1px solid yellow;
+//           display:flex;
+//           margin-top: 50px;
+//           margin-left: 70px;
+//           width: 938px;
+//       }
+//       .film-img {
+//           float:left;
+//           width:270px;
+//           height: 350px;
+//         //  border: 1px solid red;
+//       }
+//       .film-name {
+//         //  border: 1px solid lightcoral;
+//           padding: 0px;
+//           display: inline-block;
+//       }
+//       .film-name-text {
+//           margin-top: 0px;
+//           margin-left: 80px;
+//           font-size: 15px; 
+//       }
+//       .description-cotainer {
+//           float:left;
+//           width:708px;
+//          //border: 1px solid green;
+//       }
+//       .film-description-text {
+//           margin-top: -7px;
+//           margin-left: 8px;
+//           font-size: 13.8px;
+//           text-align: justify;
+//       }
+// }
+
+// @media only screen and (min-width: 1200px) {
+//     // body {
+//     //     background-color: lightcoral
+//     // }
+//     .cotainer {
+//       //  border: 1px solid yellow;
+//         display:flex;
+//         margin-top: 50px;
+//         margin-left: 144px;
+//         width: 938px;
+//     }
+//     .film-img {
+//         float:left;
+//         width:270px;
+//         height: 350px;
+//       //  border: 1px solid red;
+//     }
+//     .film-name {
+//       //  border: 1px solid lightcoral;
+//         padding: 0px;
+//         display: inline-block;
+//     }
+//     .film-name-text {
+//         margin-top: 0px;
+//         margin-left: 80px;
+//         font-size: 15px; 
+//     }
+//     .description-cotainer {
+//         float:left;
+//         width:708px;
+//        //border: 1px solid green;
+//     }
+//     .film-description-text {
+//         margin-top: -7px;
+//         margin-left: 8px;
+//         font-size: 13.8px;
+//         text-align: justify;
+//     }
+// }
+
+@media only screen and (min-width: 1300px) {
+    // body {
+    //     background-color: blue
+    // }
+        .selected-film {
+            // border: 1px solid yellow;
+            display:flex;
+            justify-content: flex-start;
+            margin-top: 50px;
+            margin-left: 58px;
+            width: 1230px;
+        }
+        .selected-film__img {
+            //float:left;
+            width:200px;
+            height: 300px;
+            border-radius: 5px;
+            // border: 1px solid red;
+        }
+        .selected-film__description {
+            //float:left;
+            width:980px;
+            // border: 1px solid green;
+        }
+        .selected-film__film-title {
+            display: flex; 
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 40px;
+            font-weight: bold;
+            color:#1976d2;
+            font-family:  Brush Script MT, Brush Script Std, cursive;
+        }
+        .selected-film__film-info {
+            display: flex;
+            align-items: flex-end;
+            font-size: 20px;
+            text-align: justify;
+            text-indent:20px; 
+            font-family: Snell Roundhand, cursive;
+            margin-left: 20px;
+            color:#2194E0;
+            line-height:1.5;
+        }
+}
