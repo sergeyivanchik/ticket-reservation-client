@@ -1,7 +1,7 @@
-import React from 'react'
-import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js'
-import Searchs from '../Search/Search.js'
-import CardList from '../CardList/CardList.js'
+import React from 'react';
+import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
+import Searchs from '../Search/Search.js';
+import CardList from '../CardList/CardList.js';
 
 
 class MainPage extends React.Component {

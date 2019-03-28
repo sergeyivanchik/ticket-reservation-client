@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import MainPage from './Components/Pages/MainPage.js'
+import ChooseSeanse from './Components/Pages/ChooseSeanse.js'
+import ChooseSeats from './Components/Pages/ChooseSeats.js'
+import SignIn from './Components/Users/SignIn/SignIn.js'
+import LogIn from './Components/Users/LogIn/LogIn.js'
+import AdminPanel from './Components/AdminPanel/AdminPanel.js'
+import {BrowserRouter as Router, Route } from 'react-router-dom'
+import TicketList from './Components/Ticket/TicketList.js'
+import './App.scss'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Router>
+        <div className = "router">
+          <Route exact path="/" component={ MainPage } />
+          <Route path="/choose_film/:id" component={ ChooseSeanse } />
+          <Route path="/choose_seats/:date/:cinema/:id/:time" component={ ChooseSeats } />
+          <Route path="/login" component={ LogIn } />
+          <Route path="/signin" component={ SignIn } />
+          <Route path="/admin-page" component={ AdminPanel } />
+          <Route path="/buy_ticket/:date/:cinema/:id/:time" component={ TicketList } />
+        </div>
+      </Router>
+    )
   }
 }
 
-export default App;
+export default App

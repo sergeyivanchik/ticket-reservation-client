@@ -2,13 +2,11 @@ import React,{Component} from 'react'
 import Card from './Card/Card.js'
 import './CardList.scss'
 import { connect } from 'react-redux'
-import {getAllCards} from '../../actions/index.js'
-import CardDescription from './Card/CardDescription.js'
-//import * as axios  from 'axios';
+import {getCards} from '../../actions/index.js'
 
 class CardList extends Component {
   componentDidMount() {
-    this.props.onGetAllCards(CardDescription);
+    this.props.onGetAllCards();
   }
   render() {
     return (
@@ -23,10 +21,9 @@ const mapStateToProps = store => ({
   allCards: store.getAllCards.allCards
 });
 const mapDispatchToProps = dispatch => ({
-  onGetAllCards(card) {
-    dispatch(getAllCards(card))
+  onGetAllCards() {
+    dispatch(getCards())
   }
-}
-);
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(CardList)

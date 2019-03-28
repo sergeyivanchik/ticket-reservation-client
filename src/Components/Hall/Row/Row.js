@@ -6,18 +6,20 @@ import Seat from './Seat.js'
 class Row extends Component {
   CreateRow  (row,coutPlaces)  {
     let places = []
+    // if(this.props.colSeat.length >0) {
     for(let place = 0; place < coutPlaces; place ++) {
       places.push(
         <Seat row = {row} number = {place+1} price = {this.props.price} chooseSeat = {this.props.chooseSeat} occupied = { 
-          this.props.selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString() 
-        } key = {`${place + 1}${row}`}  />
+          this.props.colSeat[0].selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString()} key = {`${place + 1}${row}`}  />
       )
     }
+    if(this.props.colSeat.length >0)
     return places    
   }
   render(){
     const {row, seats} = this.props
     return (
+      this.props.colSeat.length &&
       <div className = "row">
         <div className = "row__left-number" title = {`row ${row}`}>{row}</div>
         <div className = "row__seats-list">

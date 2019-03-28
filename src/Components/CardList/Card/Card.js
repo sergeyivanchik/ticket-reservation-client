@@ -8,9 +8,9 @@ class Card extends React.Component {
   const {card} = this.props
   return (
     <div className = "card" >
-      <img className = "card__img" src = {card.img}  title = {card.film} alt = {card.film}></img> 
+      <img className = "card__img" src = {card.poster}  title = {card.name} alt = {card.name}></img> 
       <div className = "card__film">
-        {card.film}
+        {card.name}
       </div>
         <div className="card__wrapper-button">
           <Link to={{ pathname: `/choose_film/${card.id}`}} className= {`card__button`}>Buy ticket</Link>

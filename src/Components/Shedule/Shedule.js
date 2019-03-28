@@ -5,10 +5,10 @@ import SeansesList from './Seanses/SeansesList.js'
 
 class Shedule extends React.Component {
   render() {
-    const { id } = this.props;
+    const {id, films} = this.props;
     return (
       <div className = "shedule">
-        <SelectedFilm id = {id} />
+        <SelectedFilm id = {id} films = {films} />
         <SeansesList id = {id}/>
       </div>
     )
