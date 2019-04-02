@@ -29,6 +29,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(ChooseSeats);
-
-// export default ChooseSeats
-

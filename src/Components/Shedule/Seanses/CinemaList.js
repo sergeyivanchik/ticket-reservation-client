@@ -8,8 +8,13 @@ class CinemaList extends React.Component {
     super(props);
     this.state = {
     cinema:{}
+    }
   }
+
+  componentWillMount() {
+    this.getCinemaById(this.props.cinema);
   }
+
   getCinemaById = (id) => {
     axios.get (`http://localhost:8080/cinemas/${id}?select=name`)
     .then ((response) =>{
@@ -21,9 +26,7 @@ class CinemaList extends React.Component {
   }
 
   render() {
-    
     const {cinema, date, seanses, id} = this.props
-    this.getCinemaById(cinema);
     return(
       <div className = "seanse-info">
         <div className = "cinema-info">
