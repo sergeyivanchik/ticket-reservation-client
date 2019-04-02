@@ -34,7 +34,7 @@ class SeansesList extends React.Component {
     //const seanseInf = SeanseInfo
     return (
       <div className = "seanses-list">
-        {this.getDatesByFilm(this.props.id, this.props.seanses).map((seanse) => <DateList id = {this.props.id} dateList={seanse} key ={seanse}/> )}
+        {this.getDatesByFilm(this.props.id, this.props.seanses).map((seanse) => <DateList id = {this.props.id} date={seanse} seanses = {this.props.seanses} key ={seanse}/> )}
       </div>
     )
   }
