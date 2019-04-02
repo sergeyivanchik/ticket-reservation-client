@@ -3,6 +3,12 @@ import axios from "axios";
 const SELECT_TICKET = 'SELECT_TICKET';
 const GET_ALL_CARDS = 'GET_ALL_CARDS';
 const GET_TICKET = 'GET_TICKET';
+const GET_ALL_CINEMAS = 'GET_ALL_CINEMAS';
+
+export const getAllCinemas = cinemas => ({
+  type: GET_ALL_CINEMAS,
+  payload: cinemas
+});
 
 export const getAllTicket = tickets => ({
   type: GET_TICKET,
@@ -28,6 +34,17 @@ export function getCards () {
     catch (error) {
       console.log(error);
     }  
+  }
+}
+export function getCinemas () {
+  return async (dispatch) => {
+    try {
+      const {data} = await axios.get('http://localhost:8080/cinemas');
+      dispatch(getAllCinemas    (data))
+    }
+    catch (error) {
+      console.log(error);
+    }    
   }
 }
 
