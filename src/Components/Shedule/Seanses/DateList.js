@@ -35,7 +35,7 @@ class DateList extends React.Component {
         <div className = "seanse-date">
           <span className = "film-date" >{date}</span>
         </div> 
-          {this.getCinemasByFilmAndDate(id, date, seanses).map((cinema) => <CinemaList cinema ={cinema} id = {this.props.id} seanses = {seanses}/>)} 
+          {this.getCinemasByFilmAndDate(id, date, seanses).map((cinema) => <CinemaList cinema ={cinema} id = {this.props.id} date = {date} seanses = {seanses}/>)} 
         {/* {dateList.seanses.map((seanse) => <CinemaList date = {dateList.date} id = {this.props.id} cinema={seanse}  key = {`${seanse.cinemaName}${dateList.date}`}/>)} */}
       </div>
     )

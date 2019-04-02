@@ -22,14 +22,14 @@ class CinemaList extends React.Component {
 
   render() {
     
-    const {cinema} = this.props
+    const {cinema, date, seanses, id} = this.props
     this.getCinemaById(cinema);
     return(
       <div className = "seanse-info">
         <div className = "cinema-info">
           <span className = "cinema">{this.state.cinema.name}</span> 
         </div>
-        {/* <TimeList date ={this.props.date} cinema = {cinema.cinemaName} id = {this.props.id} times={cinema.time} key = {`${cinema.cinemaName}${cinema.time[0]}`} /> */}
+         <TimeList date ={date} cinema = {cinema} id = {id} seanses = {seanses} key = {`${date}${cinema}`} /> 
       </div>
     )
   }
