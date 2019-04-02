@@ -4,11 +4,13 @@ import Shedule from '../Shedule/Shedule.js'
 import { connect } from 'react-redux'
 import {getCards, getTickets} from '../../actions/index.js'
 
+
 class ChooseSeanse extends React.Component {
   componentWillMount() {
     this.props.onGetAllCards();
     this.props.onGetAllTickets();
   }
+
   render() {
     return (
       this.props.allCards.length && this.props.allSelectedSeats &&

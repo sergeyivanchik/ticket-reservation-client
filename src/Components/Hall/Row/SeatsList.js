@@ -8,7 +8,7 @@ class SeatsList extends React.Component {
   render() {
     return(
       <div className = "rows-list">
-        {RowsInfo.map((rowInfo) => <Row row = {rowInfo.row} selectedSeats = {this.props.selectedSeats} colSeat = {this.props.seats} seats = {rowInfo.coutPlaces} chooseSeat = {this.props.chooseSeat} price = {rowInfo.price} key = {rowInfo.row} />)}
+        {this.props.hallSeats.map((rowInfo) => <Row row = {rowInfo.row} selectedSeats = {this.props.selectedSeats} colSeat = {this.props.seats} seats = {rowInfo.countOfSeats} chooseSeat = {this.props.chooseSeat} price = {rowInfo.cost} key = {rowInfo.row} />)}
       </div>
     )
   }

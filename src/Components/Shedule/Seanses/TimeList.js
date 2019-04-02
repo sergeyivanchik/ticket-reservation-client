@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 class TimeList extends React.Component {
+
   convertDate = (date) => {
     let convertDate = new Date(+date)
       return `${convertDate.getDate()} ${convertDate.toLocaleString('en', {month: 'long'})}, ${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
@@ -27,7 +28,7 @@ class TimeList extends React.Component {
     const {id, date, cinema, seanses} = this.props
     return (
       <div className = "time-list">
-        {this.getTimesByFilmAndDateAndCinema(id, date, cinema, seanses).map((time) => <Link to ={{ pathname: `/choose_seats/${date}/${cinema}/${id}/${time.time}`}} key = {time.id} > <span className = "film-time" title = {time.hall}>{time.time}</span></Link> )}
+        {this.getTimesByFilmAndDateAndCinema(id, date, cinema, seanses).map((time) => <Link to = {{ pathname: `/choose_seats/${id}/${cinema}/${time.hall}/${date}/${time.time}`}} key = {time.id} > <span className = "film-time" title = {time.hall}>{time.time}</span></Link> )}
       </div>
     )
   }
