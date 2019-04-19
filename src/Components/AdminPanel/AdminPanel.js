@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getFilms, getCinemas } from '../../actions/index.js';
+import { getMovies, getCinemas } from '../../actions/index.js';
 import CinemasPanel from './CinemasPanel.js';
-import FilmsPanel from './FilmsPanel.js';
+import MoviesPanel from './MoviesPanel.js';
 import SessionPanel from './SessionPanel.js';
 import './AdminPanel.scss';
 
 
 class AdminPanel extends React.Component {
   componentWillMount() {
-    this.props.onGetAllFilms();
+    this.props.onGetAllMovies();
     this.props.onGetAllCinemas();
   }
 
@@ -21,15 +21,15 @@ class AdminPanel extends React.Component {
         <div className = "admin-panel__tabs-list">
           <ul className="admin-panel__tabs">
             <li><a href="#cinemas">Cinemas</a></li>
-            <li><a href="#films">Films</a></li>
+            <li><a href="#movies">Movies</a></li>
             <li><a href="#sessions">Sessions</a></li>
           </ul>
         </div>
         <div className = "admin-panel__tabs-content">
           <ul>
             <li id="cinemas"> <CinemasPanel /></li>
-            <li id="films"><FilmsPanel/></li>
-            <li id="sessions"><SessionPanel cinemas = {this.props.allCinemas}  films = {this.props.allFilms}/></li>
+            <li id="movies"><MoviesPanel/></li>
+            <li id="sessions"><SessionPanel cinemas = {this.props.allCinemas}  movies = {this.props.allMovies}/></li>
           </ul>
         </div>
       </div>
@@ -39,12 +39,12 @@ class AdminPanel extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allFilms : store.getAllFilms.allFilms,
+  allMovies : store.getAllMovies.allMovies,
   allCinemas : store.getAllCinemas.allCinemas
 });
 const mapDispatchToProps = dispatch => ({
-  onGetAllFilms() {
-    dispatch(getFilms())
+  onGetAllMovies() {
+    dispatch(getMovies())
   },
   onGetAllCinemas() {
     dispatch(getCinemas())

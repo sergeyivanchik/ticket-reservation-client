@@ -6,7 +6,7 @@ import Shedule from '../Shedule/Shedule.js';
 import { getCards, getTickets } from '../../actions/index.js';
 
 
-class FilmProfile extends React.Component {
+class MovieProfile extends React.Component {
   componentWillMount() {
     this.props.onGetAllCards();
     this.props.onGetAllTickets();
@@ -17,7 +17,7 @@ class FilmProfile extends React.Component {
       this.props.allCards.length && this.props.allSelectedSeats &&
        <div className = "choose-session">
         <TopNavBar/>
-        <Shedule film = {this.props.match.params.film} filmsList = {this.props.allCards} sessionsList = {this.props.allSelectedSeats}/> 
+        <Shedule movie = {this.props.match.params.movie} moviesList = {this.props.allCards} sessionsList = {this.props.allSelectedSeats}/> 
       </div>
     )
            
@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(FilmProfile);
+export default connect(mapStateToProps,mapDispatchToProps)(MovieProfile);

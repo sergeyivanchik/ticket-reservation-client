@@ -3,7 +3,7 @@ import selectTicket,{getAllTicket} from './tickets.js';
 import getAllCards from './cards.js';
 import getAllCinemas, {getAllCinemasById} from './cinemas.js';
 import getAllHallsByCinema from './halls.js';
-import getAllFilms from './films';
+import getAllMovies from './movies';
 
 const allReducers = combineReducers ({
   selectTicket,
@@ -12,7 +12,7 @@ const allReducers = combineReducers ({
   getAllCinemas,
   getAllHallsByCinema,
   getAllCinemasById,
-  getAllFilms
+  getAllMovies
 })
 
 export default allReducers

@@ -22,7 +22,7 @@ class SessionPanel extends React.Component {
 
   componentDidMount() {
     setOption(this.props.cinemas, 0);
-    setOption(this.props.films, 2);
+    setOption(this.props.movies, 2);
   }
   render() {
     return (
@@ -35,8 +35,8 @@ class SessionPanel extends React.Component {
         <select name="select" className = "seanses-panel__hall"> 
           <option value="" selected disabled>Choose hall</option>
         </select>
-        <select name="select" className = "seanses-panel__film"> 
-          <option value="" selected disabled>Choose film</option>
+        <select name="select" className = "seanses-panel__movie"> 
+          <option value="" selected disabled>Choose movie</option>
         </select>
         <input type = "text" placeholder = "start time"/>
         <input type = "submit" value = "Add seanse"/>

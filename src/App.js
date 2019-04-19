@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 import MainPage from './Components/Pages/MainPage.js';
-import FilmProfile from './Components/Pages/FilmProfile.js';
+import MovieProfile from './Components/Pages/MovieProfile.js';
 import Seats from './Components/Pages/Seats.js';
 import SignIn from './Components/Users/SignIn/SignIn.js';
 import LogIn from './Components/Users/LogIn/LogIn.js';
@@ -17,8 +17,8 @@ class App extends Component {
       <Router>
         <div className = "router">
           <Route exact path="/" component={ MainPage } />
-          <Route path="/film-profile/:film" component={ FilmProfile } />
-          <Route path="/hall/:film/:cinema/:hall/:date/:time" component={ Seats } />
+          <Route path="/movie-profile/:movie" component={ MovieProfile } />
+          <Route path="/hall/:movie/:cinema/:hall/:date/:time" component={ Seats } />
           <Route path="/login" component={ LogIn } />
           <Route path="/signin" component={ SignIn } />
           <Route path="/admin-page" component={ AdminPanel } />

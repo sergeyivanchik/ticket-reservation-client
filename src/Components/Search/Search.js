@@ -51,9 +51,9 @@ import './Search.scss';
 //               ref={ref => {
 //                 this.InputLabelRef = ref
 //               }}
-//               htmlFor="outlined-film-simple"
+//               htmlFor="outlined-movie-simple"
 //             >
-//             Film
+//             Movie
 //             </InputLabel>
 //             <Select
 //               value={this.state.age}
@@ -62,7 +62,7 @@ import './Search.scss';
 //                 <OutlinedInput
 //                   labelWidth={this.state.labelWidth}
 //                   name="age"
-//                   id="outlined-film-simple"
+//                   id="outlined-movie-simple"
 //                 />
 //               }
 //             >
@@ -117,7 +117,7 @@ import './Search.scss';
 class Searchs extends React.Component {
   componentDidMount() {
     setOption(this.props.cinemas, 0);
-    setOption(this.props.films, 1);
+    setOption(this.props.movies, 1);
   }
  
   render() {
@@ -127,7 +127,7 @@ class Searchs extends React.Component {
       <option value="" selected disabled>Please choose cinema</option>
       </select>
       <select>
-      <option value="" selected disabled>Please choose film</option>
+      <option value="" selected disabled>Please choose movie</option>
       </select>
       <button>Seach</button>
       </div>

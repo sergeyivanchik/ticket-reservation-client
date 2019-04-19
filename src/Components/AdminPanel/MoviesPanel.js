@@ -1,10 +1,10 @@
 import React from 'react';
 
 import axios from "axios";
-import './FilmsPanel.scss';
+import './MoviesPanel.scss';
 
 
-class FilmsPanel extends React.Component {
+class MoviesPanel extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -24,8 +24,8 @@ class FilmsPanel extends React.Component {
     this.setState({poster : event.target.value})
   }
 
-  addFilm =() => {
-    axios.post('http://localhost:8080/films', {
+  addMovie =() => {
+    axios.post('http://localhost:8080/movies', {
       name: this.state.name,
       description: this.state.description,
       poster: this.state.poster
@@ -39,17 +39,17 @@ class FilmsPanel extends React.Component {
   }
   render() {
     return (
-      <div className = "films-panel">
-        <label >Add film</label>
-        <input type = "text" placeholder = "film title" name="name" onChange={this.updateInputName}/>
+      <div className = "movies-panel">
+        <label >Add movie</label>
+        <input type = "text" placeholder = "movie title" name="name" onChange={this.updateInputName}/>
         <label >Poster</label>
         <input type = "text" placeholder = "poster" name="poster" onChange={this.updateInputPoster}/>
         <label >Descriprion</label>
-        <textarea rows="10" cols="68" name="description" onChange={this.updateInputDescription}  className = "films-panel__description"/>
-        <input type = "submit" value = "Add cinema" onClick={this.addFilm}/>
+        <textarea rows="10" cols="68" name="description" onChange={this.updateInputDescription}  className = "movies-panel__description"/>
+        <input type = "submit" value = "Add cinema" onClick={this.addMovie}/>
       </div>    
     )
   }
 }
 
-export default FilmsPanel;
+export default MoviesPanel;

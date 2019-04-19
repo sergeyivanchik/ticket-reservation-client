@@ -14,46 +14,46 @@ export const convertDate = (date) => {
     return `${convertDate.getDate()} ${convertDate.toLocaleString('en', {month: 'long'})}, ${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
 };
 
-export const getCinemasByFilmAndDate = (film, date, dateMas) => {
-  let cinemasByFilm = [];
+export const getCinemasByMovieAndDate = (movie, date, dateMas) => {
+  let cinemasByMovie = [];
   let check = 0;
   for(let numberInDb = 0; numberInDb < dateMas.length; numberInDb++) {
     check = 0;
-    if(convertDate(dateMas[numberInDb].date) === date && dateMas[numberInDb].film === film) {
-      if(cinemasByFilm.length === 0) {
-        cinemasByFilm.push(dateMas[numberInDb].cinema);
+    if(convertDate(dateMas[numberInDb].date) === date && dateMas[numberInDb].movie === movie) {
+      if(cinemasByMovie.length === 0) {
+        cinemasByMovie.push(dateMas[numberInDb].cinema);
       } else {
-        for(let numberInResultMas = 0; numberInResultMas < cinemasByFilm.length; numberInResultMas++) {
-          if(cinemasByFilm[numberInResultMas] !== dateMas[numberInDb].cinema) 
+        for(let numberInResultMas = 0; numberInResultMas < cinemasByMovie.length; numberInResultMas++) {
+          if(cinemasByMovie[numberInResultMas] !== dateMas[numberInDb].cinema) 
             check ++;
         }
-        if (check === cinemasByFilm.length)
-          cinemasByFilm.push(dateMas[numberInDb].cinema);
+        if (check === cinemasByMovie.length)
+          cinemasByMovie.push(dateMas[numberInDb].cinema);
       }
     }			
   }			
-  return cinemasByFilm;	
+  return cinemasByMovie;	
 }
 
-export const getDatesByFilm = (film, dateMas) => {
-  let datesByFilm = [];
+export const getDatesByMovie = (movie, dateMas) => {
+  let datesByMovie = [];
   let check = 0;
   for(let numberInDb = 0; numberInDb < dateMas.length; numberInDb++) {
     check = 0;
-    if(dateMas[numberInDb].film === film) {
-      if(datesByFilm.length === 0)
-        datesByFilm.push(convertDate(dateMas[numberInDb].date));
+    if(dateMas[numberInDb].movie === movie) {
+      if(datesByMovie.length === 0)
+        datesByMovie.push(convertDate(dateMas[numberInDb].date));
       else {
-        for (let numberInResultMas = 0; numberInResultMas < datesByFilm.length; numberInResultMas ++) {
-          if (datesByFilm[numberInResultMas] !== convertDate(dateMas[numberInDb].date))
+        for (let numberInResultMas = 0; numberInResultMas < datesByMovie.length; numberInResultMas ++) {
+          if (datesByMovie[numberInResultMas] !== convertDate(dateMas[numberInDb].date))
             check++
         }
-        if (check === datesByFilm.length)
-          datesByFilm.push(convertDate(dateMas[numberInDb].date)); 
+        if (check === datesByMovie.length)
+          datesByMovie.push(convertDate(dateMas[numberInDb].date)); 
       }
     }
   }
-  return datesByFilm;	
+  return datesByMovie;	
 }
 
 export const getTime = (date) => {
@@ -63,16 +63,16 @@ export const getTime = (date) => {
   return `${hours}.${minutes}`;	
 }
 
-export const getTimesByFilmAndDateAndCinema = (film, date, cinema, dateMas) => {
-  let timesByFilm = [];
+export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, dateMas) => {
+  let timesByMovie = [];
   for(let number = 0; number < dateMas.length; number++ )
-    if(convertDate(dateMas[number].date) === date && cinema === dateMas[number].cinema && film === dateMas[number].film) 
-      timesByFilm.push({
+    if(convertDate(dateMas[number].date) === date && cinema === dateMas[number].cinema && movie === dateMas[number].movie) 
+      timesByMovie.push({
         time : getTime(dateMas[number].date), 
         hall : dateMas[number].hall, 
         id :dateMas[number].id
       });
-  return timesByFilm;
+  return timesByMovie;
 }
 
 export const sortTime = (masTime) => {

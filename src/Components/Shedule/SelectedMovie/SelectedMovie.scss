@@ -13,18 +13,18 @@ img {
 //           margin-left: 130px;
 //           width: 640px;
 //       }
-//       .film-img {
+//       .movie-img {
 //           float:left;
 //           width:250px;
 //           height: 350px;
 //         //  border: 1px solid red;
 //       }
-//       .film-name {
+//       .movie-name {
 //         //  border: 1px solid lightcoral;
 //           padding: 0px;
 //           display: inline-block;
 //       }
-//       .film-name-text {
+//       .movie-name-text {
 //           margin-top: 0px;
 //           margin-left: 80px;
 //           font-size: 15px; 
@@ -34,7 +34,7 @@ img {
 //           width:400px;
 //          //border: 1px solid green;
 //       }
-//       .film-description-text {
+//       .movie-description-text {
 //           margin-top: -7px;
 //           margin-left: 8px;
 //           font-size: 10px;
@@ -55,18 +55,18 @@ img {
 //          margin-left: 188px;
 //          width: 640px;
 //      }
-//      .film-img {
+//      .movie-img {
 //          //float:left;
 //          width:350px;
 //          height: 350px;
 //        //  border: 1px solid red;
 //      }
-//      .film-name {
+//      .movie-name {
 //        //  border: 1px solid lightcoral;
 //          padding: 0px;
 //          display: inline-block;
 //      }
-//      .film-name-text {
+//      .movie-name-text {
 //          margin-top: 0px;
 //          margin-left: 80px;
 //          font-size: 15px; 
@@ -76,7 +76,7 @@ img {
 //          width:400px;
 //         //border: 1px solid green;
 //      }
-//      .film-description-text {
+//      .movie-description-text {
 //          margin-top: -7px;
 //          margin-left: 8px;
 //          font-size: 10px;
@@ -95,18 +95,18 @@ img {
 //           margin-left: 70px;
 //           width: 938px;
 //       }
-//       .film-img {
+//       .movie-img {
 //           float:left;
 //           width:270px;
 //           height: 350px;
 //         //  border: 1px solid red;
 //       }
-//       .film-name {
+//       .movie-name {
 //         //  border: 1px solid lightcoral;
 //           padding: 0px;
 //           display: inline-block;
 //       }
-//       .film-name-text {
+//       .movie-name-text {
 //           margin-top: 0px;
 //           margin-left: 80px;
 //           font-size: 15px; 
@@ -116,7 +116,7 @@ img {
 //           width:708px;
 //          //border: 1px solid green;
 //       }
-//       .film-description-text {
+//       .movie-description-text {
 //           margin-top: -7px;
 //           margin-left: 8px;
 //           font-size: 13.8px;
@@ -135,18 +135,18 @@ img {
 //         margin-left: 144px;
 //         width: 938px;
 //     }
-//     .film-img {
+//     .movie-img {
 //         float:left;
 //         width:270px;
 //         height: 350px;
 //       //  border: 1px solid red;
 //     }
-//     .film-name {
+//     .movie-name {
 //       //  border: 1px solid lightcoral;
 //         padding: 0px;
 //         display: inline-block;
 //     }
-//     .film-name-text {
+//     .movie-name-text {
 //         margin-top: 0px;
 //         margin-left: 80px;
 //         font-size: 15px; 
@@ -156,7 +156,7 @@ img {
 //         width:708px;
 //        //border: 1px solid green;
 //     }
-//     .film-description-text {
+//     .movie-description-text {
 //         margin-top: -7px;
 //         margin-left: 8px;
 //         font-size: 13.8px;
@@ -168,7 +168,7 @@ img {
     // body {
     //     background-color: blue
     // }
-        .selected-film {
+        .selected-movie {
             //border: 1px solid yellow;
             display:flex;
             justify-content: flex-start;
@@ -176,19 +176,19 @@ img {
             margin-left: 58px;
             width: 1417px;
         }
-        .selected-film__img {
+        .selected-movie__img {
             //float:left;
             width : 200px;
             height : 300px;
             border-radius : 5px;
             // border: 1px solid red;
         }
-        .selected-film__description {
+        .selected-movie__description {
             //float:left;
             width:1200px;
             //border: 1px solid green;
         }
-        .selected-film__film-title {
+        .selected-movie__movie-title {
             display: flex; 
             justify-content: center;
             margin-bottom: 20px;
@@ -197,7 +197,7 @@ img {
             color:#1976d2;
             font-family:  Brush Script MT, Brush Script Std, cursive;
         }
-        .selected-film__film-info {
+        .selected-movie__movie-info {
             display: flex;
             align-items: flex-end;
             font-size: 20px;

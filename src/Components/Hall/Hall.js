@@ -21,7 +21,7 @@ class Hall extends React.Component {
             Цена : {this.props.selectedSeats.reduce(function(sum, price) {
             return sum + (+price.split(',')[2]) }, 0)} руб
         </div>  
-        <Link to={{ pathname: `/confirm-ticket/${this.props.film}/${this.props.date}/${this.props.cinema}/${this.props.hall}/${this.props.time}`}}><button className = '123' disabled = {(this.props.selectedSeats.length>6 || this.props.selectedSeats.length === 0) ? true : false }> Buy </button> </Link>
+        <Link to={{ pathname: `/confirm-ticket/${this.props.movie}/${this.props.date}/${this.props.cinema}/${this.props.hall}/${this.props.time}`}}><button className = '123' disabled = {(this.props.selectedSeats.length>6 || this.props.selectedSeats.length === 0) ? true : false }> Buy </button> </Link>
       </div>
     )
   }

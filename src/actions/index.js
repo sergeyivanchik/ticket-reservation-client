@@ -6,16 +6,16 @@ const GET_TICKET = 'GET_TICKET';
 const GET_ALL_CINEMAS = 'GET_ALL_CINEMAS';
 const GET_ALL_HALLS_BY_CINEMA = 'GET_ALL_HALLS_BY_CINEMA';
 const GET_ALL_CINEMAS_BY_ID = 'GET_ALL_CINEMAS_BY_ID';
-const GET_ALL_FILMS = 'GET_ALL_FILMS'
+const GET_ALL_MOVIES = 'GET_ALL_MOVIES'
 
 export const getAllCinemas = cinemas => ({
   type: GET_ALL_CINEMAS,
   payload: cinemas
 });
 
-export const getAllFilms =  films => ({
-  type: GET_ALL_FILMS,
-  payload: films
+export const getAllMovies =  movies => ({
+  type: GET_ALL_MOVIES,
+  payload: movies
 })
 
 export const getAllTicket = tickets => ({
@@ -67,11 +67,11 @@ export function getHallsByCinema () {
   }
 }
 
-export function getFilms () {
+export function getMovies () {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('http://localhost:8080/films');
-      dispatch(getAllFilms(data))
+      const {data} = await axios.get('http://localhost:8080/movies');
+      dispatch(getAllMovies(data))
     }
     catch (error) {
       console.log(error);

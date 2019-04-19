@@ -1,16 +1,16 @@
 import React from 'react';
 
-import SelectedFilm from './SelectedFilm/SelectedFilm.js';
+import SelectedMovie from './SelectedMovie/SelectedMovie.js';
 import SessionsList from './Sessions/SessionsList.js';
 
 
 class Shedule extends React.Component {
   render() {
-    const {film, filmsList, sessionsList} = this.props;
+    const {movie, moviesList, sessionsList} = this.props;
     return (
       <div className = "shedule">
-        <SelectedFilm film = {film} filmsList = {filmsList} />
-        <SessionsList film = {film} sessionsList = {sessionsList}/>
+        <SelectedMovie movie = {movie} moviesList = {moviesList} />
+        <SessionsList movie = {movie} sessionsList = {sessionsList}/>
       </div>
     )
   }
