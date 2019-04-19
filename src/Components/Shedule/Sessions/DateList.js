@@ -6,13 +6,13 @@ import { getCinemasByFilmAndDate } from '../../../functions/index.js'
 
 class DateList extends React.Component {
   render() {
-    const {date, film, seansesList} = this.props
+    const {date, film, sessionsList} = this.props
     return (
-      <div className = "seanse">
-        <div className = "seanse-date">
+      <div className = "session">
+        <div className = "session-date">
           <span className = "film-date" >{date}</span>
         </div> 
-          {getCinemasByFilmAndDate(film, date, seansesList).map((cinema) => <CinemaList cinema ={cinema} film = {film} date = {date} seansesList = {seansesList} key = {`${film}${date}${cinema}`}/>)} 
+          {getCinemasByFilmAndDate(film, date, sessionsList).map((cinema) => <CinemaList cinema ={cinema} film = {film} date = {date} sessionsList = {sessionsList} key = {`${film}${date}${cinema}`}/>)} 
       </div>
     )
   }

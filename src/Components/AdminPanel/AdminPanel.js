@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getFilms, getCinemas } from '../../actions/index.js';
 import CinemasPanel from './CinemasPanel.js';
 import FilmsPanel from './FilmsPanel.js';
-import SeansePanel from './SeansePanel.js';
+import SessionPanel from './SessionPanel.js';
 import './AdminPanel.scss';
 
 
@@ -22,14 +22,14 @@ class AdminPanel extends React.Component {
           <ul className="admin-panel__tabs">
             <li><a href="#cinemas">Cinemas</a></li>
             <li><a href="#films">Films</a></li>
-            <li><a href="#seanses">Seanses</a></li>
+            <li><a href="#sessions">Sessions</a></li>
           </ul>
         </div>
         <div className = "admin-panel__tabs-content">
           <ul>
             <li id="cinemas"> <CinemasPanel /></li>
             <li id="films"><FilmsPanel/></li>
-            <li id="seanses"><SeansePanel cinemas = {this.props.allCinemas}  films = {this.props.allFilms}/></li>
+            <li id="sessions"><SessionPanel cinemas = {this.props.allCinemas}  films = {this.props.allFilms}/></li>
           </ul>
         </div>
       </div>

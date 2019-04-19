@@ -15,9 +15,9 @@ class FilmProfile extends React.Component {
   render() {
     return (
       this.props.allCards.length && this.props.allSelectedSeats &&
-       <div className = "choose-seanse">
+       <div className = "choose-session">
         <TopNavBar/>
-        <Shedule film = {this.props.match.params.film} filmsList = {this.props.allCards} seansesList = {this.props.allSelectedSeats}/> 
+        <Shedule film = {this.props.match.params.film} filmsList = {this.props.allCards} sessionsList = {this.props.allSelectedSeats}/> 
       </div>
     )
            

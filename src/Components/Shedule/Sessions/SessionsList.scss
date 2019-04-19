@@ -1,9 +1,9 @@
-.seanses-list {
+.sessions-list {
     margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
 }
-.seanse-date {
+.session-date {
     width: 300px;
     //width : 19%;
     display: flex;
@@ -14,10 +14,10 @@
     font-family:  Brush Script MT, Brush Script Std, cursive;
     font-size: 40px;
 }
-.seanse-date:hover {
+.session-date:hover {
     cursor: pointer;
 }
-.seanse-info{
+.session-info{
 	width:1125px;
 	display:flex;
 	margin-left:330px;
@@ -64,7 +64,7 @@
     border-color: transparent;
     color: #1976d2;
 }
-.no-seanses {
+.no-sessions {
     font-family: Trattatello, fantasy;
     color:#2194E0;
     font-size: 50px;

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { setOption } from '../../functions/index.js';
-import './SeansePanel.scss';
+import './SessionPanel.scss';
 
 
-class SeansePanel extends React.Component {
+class SessionPanel extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -45,4 +45,4 @@ class SeansePanel extends React.Component {
   }
 }
 
-export default SeansePanel;
+export default SessionPanel;
