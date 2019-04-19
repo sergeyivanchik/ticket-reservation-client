@@ -15,7 +15,7 @@ class Ticket extends React.Component {
                         {this.props.ticket.match.params.cinema}
                     </div>
                     <div className = "ticket__film">
-                        <span>Film : <span className = "ticket__choise">{this.props.ticket.allCards.find((film) => film.id === +this.props.ticket.match.params.id).film}</span></span>
+                        <span>Film : <span className = "ticket__choise">{this.props.ticket.allCards.find((film) => film.id === +this.props.ticket.match.params.id)}</span></span>
                     </div>
                     <div className = "ticket__date">
                         <span>Date : <span className = "ticket__choise">{this.convertDate(this.props.ticket.match.params.date)}</span></span> <span>Time : <span className = "ticket__choise">{this.props.ticket.match.params.time}</span></span>

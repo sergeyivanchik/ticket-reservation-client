@@ -11,7 +11,7 @@ class Hall extends React.Component {
   render() { 
     return(
       <div className = "hall">
-        <SeatsList selectedSeats = {this.props.selectedSeats} chooseSeat = {this.props.onSelectTicket} />
+        <SeatsList selectedSeats = {this.props.selectedSeats} seats = {this.props.seats}  chooseSeat = {this.props.onSelectTicket} />
         <span className = "hall__choice">Ваш выбор :</span>
         <div className = "hall__choise-list">
           {this.props.selectedSeats.map((seat) => <Choice row = {seat.split(',')[0]} seat = {seat.split(',')[1]} price= {seat.split(',')[2]}  key = {seat}  /> )}
