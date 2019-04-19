@@ -1,13 +1,21 @@
-import React from 'react'
-import CinemasPanel from './CinemasPanel.js'
-import FilmsPanel from './FilmsPanel.js'
-import SeansePanel from './SeansePanel.js'
-import './AdminPanel.scss'
+import React from 'react';
+import CinemasPanel from './CinemasPanel.js';
+import FilmsPanel from './FilmsPanel.js';
+import SeansePanel from './SeansePanel.js';
+import './AdminPanel.scss';
+import {getFilms, getCinemas} from '../../actions/index.js';
+import { connect } from 'react-redux';
 
 
 class AdminPanel extends React.Component {
+  componentWillMount() {
+    this.props.onGetAllFilms();
+    this.props.onGetAllCinemas();
+  }
+
   render() {
     return (
+      this.props.allCinemas.length &&
       <div className = "admin-panel">
         <div className = "admin-panel__tabs-list">
           <ul className="admin-panel__tabs">
@@ -18,9 +26,9 @@ class AdminPanel extends React.Component {
         </div>
         <div className = "admin-panel__tabs-content">
           <ul>
-            <li id="cinemas"> <CinemasPanel/></li>
+            <li id="cinemas"> <CinemasPanel /></li>
             <li id="films"><FilmsPanel/></li>
-            <li id="seanses"><SeansePanel/></li>
+            <li id="seanses"><SeansePanel cinemas = {this.props.allCinemas}  films = {this.props.allFilms}/></li>
           </ul>
         </div>
       </div>
@@ -29,4 +37,17 @@ class AdminPanel extends React.Component {
   }
 }
 
-export default AdminPanel
+const mapStateToProps = store => ({
+  allFilms : store.getAllFilms.allFilms,
+  allCinemas : store.getAllCinemas.allCinemas
+});
+const mapDispatchToProps = dispatch => ({
+  onGetAllFilms() {
+    dispatch(getFilms())
+  },
+  onGetAllCinemas() {
+    dispatch(getCinemas())
+  }
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(AdminPanel); 

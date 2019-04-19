@@ -4,9 +4,8 @@ import './SelectedFilm.scss'
 
 
 class SelectedFilm extends React.Component {
-  
   render() {
-    const selectedFilm = this.props.films.find((film) => film.id === this.props.id)
+    const selectedFilm = this.props.filmsList.find((film) => film.id === this.props.film)
     return (
       <div className = "selected-film" > 
         <img src = {selectedFilm.poster} alt = {selectedFilm.poster} className = "selected-film__img"></img>

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from "axios";
-import TimeList from './TimeList.js'
+import TimeList from './TimeList.js';
+import {getCinemasById} from '../../../actions/index.js';
+import { connect } from 'react-redux';
 
 
 class CinemaList extends React.Component {
@@ -13,6 +15,7 @@ class CinemaList extends React.Component {
 
   componentWillMount() {
     this.getCinemaById(this.props.cinema);
+    this.props.onGetAllCinemasById(this.props.cinema);
   }
 
   getCinemaById = (id) => {
@@ -26,16 +29,25 @@ class CinemaList extends React.Component {
   }
 
   render() {
-    const {cinema, date, seanses, id} = this.props
+    const {cinema, date, seansesList, film} = this.props
     return(
+      this.props.allCinemasById &&
       <div className = "seanse-info">
         <div className = "cinema-info">
           <span className = "cinema">{this.state.cinema.name}</span> 
         </div>
-         <TimeList date ={date} cinema = {cinema} id = {id} seanses = {seanses} key = {`${date}${cinema}`} /> 
+         <TimeList date ={date} cinema = {cinema} film = {film} seansesList = {seansesList} key = {`${date}${cinema}`} /> 
       </div>
     )
   }
 }
-
-export default CinemaList
+const mapStateToProps = store => {
+  return({
+  allCinemasById : store.getAllCinemasById.allCinemasById
+})}
+const mapDispatchToProps = dispatch => ({
+  onGetAllCinemasById(id) {
+    dispatch(getCinemasById(id))
+  }
+});
+export default connect(mapStateToProps,mapDispatchToProps)(CinemaList)

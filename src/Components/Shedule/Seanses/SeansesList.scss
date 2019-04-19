@@ -4,28 +4,29 @@
     flex-wrap: wrap;
 }
 .seanse-date {
-	width: 250px;
+    width: 300px;
+    //width : 19%;
     display: flex;
     flex-wrap:wrap;
     margin-left: 56px;
     color:#1976d2;
     font-weight: bold;
     font-family:  Brush Script MT, Brush Script Std, cursive;
-    font-size: 30px;
+    font-size: 40px;
 }
 .seanse-date:hover {
     cursor: pointer;
 }
 .seanse-info{
-	width:980px;
+	width:1125px;
 	display:flex;
-	margin-left:306px;
-	// border: 1px solid green;	
+	margin-left:330px;
+	//border: 1px solid green;	
 }
 .cinema-info {
     font-family:  Brush Script MT, Brush Script Std, cursive;
     color:#2194E0;
-    font-size: 30px;
+    font-size: 40px;
 	display:flex;
     width:50%;
     padding-bottom:20px;
@@ -38,9 +39,7 @@
 .cinema-info :hover {
     cursor: pointer;
     color:#1976d2;
-    font-size: 35px;
-    border-bottom: 1px solid #1976d2;
-
+    font-size: 45px;
 }
 .time-list {
 	// border: 1px solid red;
@@ -50,10 +49,12 @@
 .film-time {
     font-family: Trattatello, fantasy;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 20px;
     display: inline-block;
     border: 1px solid #2194E0;
-    padding: 5px 10px;
+    padding: 5px 0px;
+    width: 60px;
+    text-align: center;
     margin-right: 10px;
     margin-bottom: 5px;
     line-height: initial;
@@ -62,4 +63,12 @@
 .film-time:hover {
     border-color: transparent;
     color: #1976d2;
+}
+.no-seanses {
+    font-family: Trattatello, fantasy;
+    color:#2194E0;
+    font-size: 50px;
+    display:flex;
+    margin-top: 100px;
+    justify-content: center;
 }

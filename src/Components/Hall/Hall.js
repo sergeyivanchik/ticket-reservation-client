@@ -10,9 +10,8 @@ import { Link } from 'react-router-dom'
 class Hall extends React.Component {
   render() { 
     return(
-      this.props.hallSeats &&
       <div className = "hall">
-        <SeatsList selectedSeats = {this.props.selectedSeats} seats = {this.props.seats} hallSeats = {this.props.hallSeats.places} chooseSeat = {this.props.onSelectTicket} />
+        <SeatsList selectedSeats = {this.props.selectedSeats} seats = {this.props.seats} hallSeats = {this.props.hallSeats} chooseSeat = {this.props.onSelectTicket} />
         <span className = "hall__choice">Ваш выбор :</span>
         <div className = "hall__choise-list">
           {this.props.selectedSeats.map((seat) => <Choice row = {seat.split(',')[0]} seat = {seat.split(',')[1]} price= {seat.split(',')[2]}  key = {seat}  /> )}
@@ -21,8 +20,7 @@ class Hall extends React.Component {
             Цена : {this.props.selectedSeats.reduce(function(sum, price) {
             return sum + (+price.split(',')[2]) }, 0)} руб
         </div>  
-        <Link to={{ pathname: `/buy_ticket/${this.props.date}/${this.props.cinema}/${this.props.id}/${this.props.time}` 
-}}><button className = '123' disabled = {(this.props.selectedSeats.length>6 || this.props.selectedSeats.length === 0)  ?true:false}>Buy</button></Link>
+        <Link to={{ pathname: `/buy_ticket/${this.props.film}/${this.props.date}/${this.props.cinema}/${this.props.hall}/${this.props.time}`}}><button className = '123' disabled = {(this.props.selectedSeats.length>6 || this.props.selectedSeats.length === 0) ? true : false }> Buy </button> </Link>
       </div>
     )
   }
