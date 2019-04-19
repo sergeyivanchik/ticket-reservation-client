@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import axios from "axios";
 import TimeList from './TimeList.js';
-import {getCinemasById} from '../../../actions/index.js';
-import { connect } from 'react-redux';
+import { getCinemasById } from '../../../actions/index.js';
 
 
 class CinemaList extends React.Component {
@@ -49,5 +50,6 @@ const mapDispatchToProps = dispatch => ({
   onGetAllCinemasById(id) {
     dispatch(getCinemasById(id))
   }
-});
-export default connect(mapStateToProps,mapDispatchToProps)(CinemaList)
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(CinemaList);

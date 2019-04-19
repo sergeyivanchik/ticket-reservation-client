@@ -1,6 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './SignIn.scss'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import './SignIn.scss';
 
 
 class SignUp extends React.Component {
@@ -22,4 +23,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp
+export default SignUp;

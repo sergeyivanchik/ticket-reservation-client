@@ -1,5 +1,6 @@
-import React from 'react'
-import './Choise.scss'
+import React from 'react';
+
+import './Choise.scss';
 
 
 class Choice extends React.Component {
@@ -12,4 +13,5 @@ class Choice extends React.Component {
     )
   }
 }
-export default Choice
+
+export default Choice;

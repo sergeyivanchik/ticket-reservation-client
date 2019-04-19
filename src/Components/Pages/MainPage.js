@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Searchs from '../Search/Search.js';
 import CardList from '../CardList/CardList.js';
-import { connect } from 'react-redux'
-import {getFilms, getCinemas} from '../../actions/index.js'
+import { getFilms, getCinemas } from '../../actions/index.js'
 
 
 class MainPage extends React.Component {

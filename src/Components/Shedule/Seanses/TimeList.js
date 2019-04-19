@@ -1,6 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import {sortTime, getTimesByFilmAndDateAndCinema} from '../../../functions/index.js'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { sortTime, getTimesByFilmAndDateAndCinema } from '../../../functions/index.js';
+
 
 class TimeList extends React.Component {
   render() {
@@ -13,4 +15,4 @@ class TimeList extends React.Component {
   }
 }
 
-export default TimeList
+export default TimeList;

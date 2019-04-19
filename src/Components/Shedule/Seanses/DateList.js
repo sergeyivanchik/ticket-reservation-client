@@ -1,6 +1,7 @@
 import React from 'react';
+
 import CinemaList from './CinemaList.js';
-import {getCinemasByFilmAndDate} from '../../../functions/index.js'
+import { getCinemasByFilmAndDate } from '../../../functions/index.js'
 
 
 class DateList extends React.Component {
@@ -17,4 +18,4 @@ class DateList extends React.Component {
   }
 }
 
-export default DateList
+export default DateList;

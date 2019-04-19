@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
+
 import Seat from './Seat.js'
 
 
@@ -28,4 +29,4 @@ class Row extends Component {
   }
 }
 
-export default Row
+export default Row;

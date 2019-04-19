@@ -1,9 +1,11 @@
-import React from 'react'
-import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js'
-import Hall from '../Hall/Hall.js'
-import { connect } from 'react-redux'
-import {getTickets, getHallsByCinema} from '../../actions/index.js'
+import React from 'react';
+import { connect } from 'react-redux';
+
+import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
+import Hall from '../Hall/Hall.js';
+import {getTickets, getHallsByCinema} from '../../actions/index.js';
 import axios from "axios";
+
 
 class ChooseSeats extends React.Component {
   constructor(props) {

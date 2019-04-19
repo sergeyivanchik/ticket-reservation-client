@@ -1,6 +1,7 @@
 import React from 'react';
+
+import { setOption } from '../../functions/index.js';
 import './SeansePanel.scss';
-import {setOption} from '../../functions/index.js';
 
 
 class SeansePanel extends React.Component {
@@ -44,4 +45,4 @@ class SeansePanel extends React.Component {
   }
 }
 
-export default SeansePanel
+export default SeansePanel;

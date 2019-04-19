@@ -1,6 +1,7 @@
-import React from 'react'
-import './FilmsPanel.scss'
+import React from 'react';
+
 import axios from "axios";
+import './FilmsPanel.scss';
 
 
 class FilmsPanel extends React.Component {
@@ -51,4 +52,4 @@ class FilmsPanel extends React.Component {
   }
 }
 
-export default FilmsPanel
+export default FilmsPanel;

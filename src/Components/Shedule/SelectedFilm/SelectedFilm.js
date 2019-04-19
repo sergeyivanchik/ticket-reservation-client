@@ -1,6 +1,6 @@
-import React from 'react'
-import './SelectedFilm.scss'
+import React from 'react';
 
+import './SelectedFilm.scss';
 
 
 class SelectedFilm extends React.Component {
@@ -21,6 +21,5 @@ class SelectedFilm extends React.Component {
     )
   }
 }
-
 
 export default SelectedFilm; 

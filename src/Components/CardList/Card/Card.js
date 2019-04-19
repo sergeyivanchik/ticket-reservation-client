@@ -1,6 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Card.scss'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import './Card.scss';
 
 class Card extends React.Component {
   render() {
@@ -18,4 +19,4 @@ class Card extends React.Component {
   )
 }}
 
-export default Card
+export default Card;

@@ -1,13 +1,14 @@
-import React, {Component} from 'react'
-import MainPage from './Components/Pages/MainPage.js'
-import ChooseSeanse from './Components/Pages/ChooseSeanse.js'
-import ChooseSeats from './Components/Pages/ChooseSeats.js'
-import SignIn from './Components/Users/SignIn/SignIn.js'
-import LogIn from './Components/Users/LogIn/LogIn.js'
-import AdminPanel from './Components/AdminPanel/AdminPanel.js'
-import {BrowserRouter as Router, Route } from 'react-router-dom'
-import TicketList from './Components/Ticket/TicketList.js'
-import './App.scss'
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
+
+import MainPage from './Components/Pages/MainPage.js';
+import ChooseSeanse from './Components/Pages/ChooseSeanse.js';
+import ChooseSeats from './Components/Pages/ChooseSeats.js';
+import SignIn from './Components/Users/SignIn/SignIn.js';
+import LogIn from './Components/Users/LogIn/LogIn.js';
+import AdminPanel from './Components/AdminPanel/AdminPanel.js';
+import TicketList from './Components/Ticket/TicketList.js';
+import './App.scss';
 
 
 class App extends Component {
@@ -28,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default App;

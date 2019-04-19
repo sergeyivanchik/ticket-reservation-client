@@ -1,6 +1,7 @@
-import React from 'react'
-import SelectedFilm from './SelectedFilm/SelectedFilm.js'
-import SeansesList from './Seanses/SeansesList.js'
+import React from 'react';
+
+import SelectedFilm from './SelectedFilm/SelectedFilm.js';
+import SeansesList from './Seanses/SeansesList.js';
 
 
 class Shedule extends React.Component {
@@ -15,4 +16,4 @@ class Shedule extends React.Component {
   }
 }
 
-export default Shedule
+export default Shedule;

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './LogIn.scss'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+import './LogIn.scss'
 
 
 class LogIn extends React.Component {
@@ -24,4 +24,4 @@ class LogIn extends React.Component {
   }
 }
 
-export default LogIn
+export default LogIn;

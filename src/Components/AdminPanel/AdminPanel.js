@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { getFilms, getCinemas } from '../../actions/index.js';
 import CinemasPanel from './CinemasPanel.js';
 import FilmsPanel from './FilmsPanel.js';
 import SeansePanel from './SeansePanel.js';
 import './AdminPanel.scss';
-import {getFilms, getCinemas} from '../../actions/index.js';
-import { connect } from 'react-redux';
 
 
 class AdminPanel extends React.Component {
@@ -50,4 +51,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(AdminPanel); 
+export default connect(mapStateToProps,mapDispatchToProps)(AdminPanel);

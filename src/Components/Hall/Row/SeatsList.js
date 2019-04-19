@@ -1,6 +1,7 @@
-import React from 'react'
-import Row from './Row.js'
-import './SeatsList.scss'
+import React from 'react';
+
+import Row from './Row.js';
+import './SeatsList.scss';
 
 
 class SeatsList extends React.Component {
@@ -13,5 +14,4 @@ class SeatsList extends React.Component {
   }
 }
 
-
-export default SeatsList
+export default SeatsList;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 
 class CinemasPanel extends React.Component {
@@ -13,4 +13,4 @@ class CinemasPanel extends React.Component {
   }
 }
 
-export default CinemasPanel
+export default CinemasPanel;

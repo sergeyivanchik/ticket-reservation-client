@@ -1,11 +1,11 @@
-import React,{Component} from 'react';
-import Card from './Card/Card.js';
-import './CardList.scss';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {getCards} from '../../actions/index.js';
+
+import Card from './Card/Card.js';
+import { getCards } from '../../actions/index.js';
+import './CardList.scss';
 
 class CardList extends Component {
-  
   componentDidMount() {
     this.props.onGetAllCards();
   };
@@ -29,4 +29,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(CardList)
+export default connect(mapStateToProps,mapDispatchToProps)(CardList);

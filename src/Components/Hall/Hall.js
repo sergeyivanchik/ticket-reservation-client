@@ -1,10 +1,11 @@
-import React from 'react'
-import './Hall.scss'
-import Choice from './Choice/Choice.js'
-import SeatsList from './Row/SeatsList.js'
-import {selectTicket} from '../../actions/index.js'
-import { connect } from  'react-redux'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { connect } from  'react-redux';
+import { Link } from 'react-router-dom';
+
+import Choice from './Choice/Choice.js';
+import SeatsList from './Row/SeatsList.js';
+import { selectTicket } from '../../actions/index.js';
+import './Hall.scss';
 
 
 class Hall extends React.Component {
@@ -37,5 +38,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Hall)
-
+export default connect(mapStateToProps, mapDispatchToProps)(Hall);

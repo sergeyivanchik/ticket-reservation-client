@@ -1,8 +1,9 @@
-import React from 'react'
-import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js'
-import Shedule from '../Shedule/Shedule.js'
-import { connect } from 'react-redux'
-import {getCards, getTickets} from '../../actions/index.js'
+import React from 'react';
+import { connect } from 'react-redux';
+
+import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
+import Shedule from '../Shedule/Shedule.js';
+import { getCards, getTickets } from '../../actions/index.js';
 
 
 class ChooseSeanse extends React.Component {
