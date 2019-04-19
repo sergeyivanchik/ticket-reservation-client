@@ -9,7 +9,7 @@ class TimeList extends React.Component {
     const {film, date, cinema, seansesList} = this.props;
     return (
       <div className = "time-list">
-        {sortTime(getTimesByFilmAndDateAndCinema(film, date, cinema, seansesList)).map((time) => <Link to = {{ pathname: `/choose_seats/${film}/${cinema}/${time.hall}/${date}/${time.time}`}} key = {time.id} > <span className = "film-time" title = {time.hall}> {time.time} </span> </Link> )}
+        {sortTime(getTimesByFilmAndDateAndCinema(film, date, cinema, seansesList)).map((time) => <Link to = {{ pathname: `/hall/${film}/${cinema}/${time.hall}/${date}/${time.time}`}} key = {time.id} > <span className = "film-time" title = {time.hall}> {time.time} </span> </Link> )}
       </div>
     )
   }

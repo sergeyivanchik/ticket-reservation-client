@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './SignIn.scss';
 
 
-class SignUp extends React.Component {
+class SignIn extends React.Component {
   render() {
     return (
       <div className = "signin-form">
@@ -23,4 +23,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default SignIn;

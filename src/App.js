@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 import MainPage from './Components/Pages/MainPage.js';
-import ChooseSeanse from './Components/Pages/ChooseSeanse.js';
-import ChooseSeats from './Components/Pages/ChooseSeats.js';
+import FilmProfile from './Components/Pages/FilmProfile.js';
+import Seats from './Components/Pages/Seats.js';
 import SignIn from './Components/Users/SignIn/SignIn.js';
 import LogIn from './Components/Users/LogIn/LogIn.js';
 import AdminPanel from './Components/AdminPanel/AdminPanel.js';
@@ -17,12 +17,12 @@ class App extends Component {
       <Router>
         <div className = "router">
           <Route exact path="/" component={ MainPage } />
-          <Route path="/choose_film/:film" component={ ChooseSeanse } />
-          <Route path="/choose_seats/:film/:cinema/:hall/:date/:time" component={ ChooseSeats } />
+          <Route path="/film-profile/:film" component={ FilmProfile } />
+          <Route path="/hall/:film/:cinema/:hall/:date/:time" component={ Seats } />
           <Route path="/login" component={ LogIn } />
           <Route path="/signin" component={ SignIn } />
           <Route path="/admin-page" component={ AdminPanel } />
-          <Route path="/buy_ticket/:id/:date/:cinema/:hall/:time" component={ TicketList } />
+          <Route path="/confirm-ticket/:id/:date/:cinema/:hall/:time" component={ TicketList } />
         </div>
       </Router>
     )

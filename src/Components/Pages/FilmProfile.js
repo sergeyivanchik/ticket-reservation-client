@@ -6,7 +6,7 @@ import Shedule from '../Shedule/Shedule.js';
 import { getCards, getTickets } from '../../actions/index.js';
 
 
-class ChooseSeanse extends React.Component {
+class FilmProfile extends React.Component {
   componentWillMount() {
     this.props.onGetAllCards();
     this.props.onGetAllTickets();
@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(ChooseSeanse);
+export default connect(mapStateToProps,mapDispatchToProps)(FilmProfile);

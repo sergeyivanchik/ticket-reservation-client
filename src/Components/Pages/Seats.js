@@ -7,7 +7,7 @@ import {getTickets, getHallsByCinema} from '../../actions/index.js';
 import axios from "axios";
 
 
-class ChooseSeats extends React.Component {
+class Seats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(ChooseSeats);
+export default connect(mapStateToProps,mapDispatchToProps)(Seats);
