@@ -25,7 +25,7 @@ class Row extends Component {
   render(){
     const {row, seats} = this.props
     return (
-      this.props.colSeat.length &&
+      this.props.amountOfSeats.length &&
       <div className="row">
         <div className="row__left-number" title={`row ${row}`}>
           {row}
