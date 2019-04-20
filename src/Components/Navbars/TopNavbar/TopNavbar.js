@@ -19,7 +19,7 @@ function TopNavBar() {
             <Link to="/admin-page"><MenuIcon /></Link>
           </IconButton>
           <Typography variant="h6" color="inherit" className="typography">
-            <Link to ="/"> Cinema </Link>
+            <Link to="/">Cinema</Link>
           </Typography>
           <Link to="/login">
             <Button color="inherit">Login</Button>

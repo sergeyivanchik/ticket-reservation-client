@@ -18,12 +18,12 @@ class Row extends Component {
     const {row, seats} = this.props
     return (
       this.props.colSeat.length &&
-      <div className = "row">
-        <div className = "row__left-number" title = {`row ${row}`}>{row}</div>
-        <div className = "row__seats-list">
-          { this.CreateRow(row, seats) }
+      <div className="row">
+        <div className="row__left-number" title={`row ${row}`}>{row}</div>
+        <div className="row__seats-list">
+          {this.CreateRow(row, seats)}
         </div>
-        <div className = "row__right-number" title = {`row ${row}`}>{row}</div>
+        <div className="row__right-number" title={`row ${row}`}>{row}</div>
       </div>
     )
   }

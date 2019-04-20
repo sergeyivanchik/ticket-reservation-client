@@ -12,7 +12,7 @@ class Seat extends Component {
   render() {
     const {row,number,occupied, price} = this.props 
     return (
-      <span onClick = {this.selectSeat} occupied = {occupied} price ={price}  className = {`seat occupied-${occupied}`} title = {`row ${row} seat ${number} price ${price}`}>{number}</span>      
+      <span onClick={this.selectSeat} occupied={occupied} price={price}  className={`seat occupied-${occupied}`} title={`row ${row} seat ${number} price ${price}`}>{number}</span>      
     )
   }
 }

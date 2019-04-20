@@ -8,9 +8,9 @@ class Shedule extends React.Component {
   render() {
     const {movie, moviesList, sessionsList} = this.props;
     return (
-      <div className = "shedule">
-        <SelectedMovie movie = {movie} moviesList = {moviesList} />
-        <SessionsList movie = {movie} sessionsList = {sessionsList}/>
+      <div className="shedule">
+        <SelectedMovie movie={movie} moviesList={moviesList} />
+        <SessionsList movie={movie} sessionsList={sessionsList}/>
       </div>
     )
   }

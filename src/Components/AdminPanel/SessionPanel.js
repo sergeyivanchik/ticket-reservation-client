@@ -27,19 +27,19 @@ class SessionPanel extends React.Component {
   render() {
     return (
       <div className = "seanses-panel">
-        <label >Add seanse</label>
-        <select name="select" className = "seanses-panel__cinema" onChange={this.changeSelect}> 
+        <label>Add seanse</label>
+        <select name="select" className="seanses-panel__cinema" onChange={this.changeSelect}> 
           <option value="" selected disabled>Choose cinema</option>
         </select>
-        <input type = "text" placeholder = "price"/>
-        <select name="select" className = "seanses-panel__hall"> 
+        <input type="text" placeholder="price"/>
+        <select name="select" className="seanses-panel__hall"> 
           <option value="" selected disabled>Choose hall</option>
         </select>
-        <select name="select" className = "seanses-panel__movie"> 
+        <select name="select" className="seanses-panel__movie"> 
           <option value="" selected disabled>Choose movie</option>
         </select>
-        <input type = "text" placeholder = "start time"/>
-        <input type = "submit" value = "Add seanse"/>
+        <input type="text" placeholder="start time"/>
+        <input type="submit" value="Add seanse"/>
       </div>    
     )
   }

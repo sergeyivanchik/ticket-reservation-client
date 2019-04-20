@@ -17,19 +17,19 @@ class AdminPanel extends React.Component {
   render() {
     return (
       this.props.allCinemas.length &&
-      <div className = "admin-panel">
-        <div className = "admin-panel__tabs-list">
+      <div className="admin-panel">
+        <div className="admin-panel__tabs-list">
           <ul className="admin-panel__tabs">
             <li><a href="#cinemas">Cinemas</a></li>
             <li><a href="#movies">Movies</a></li>
             <li><a href="#sessions">Sessions</a></li>
           </ul>
         </div>
-        <div className = "admin-panel__tabs-content">
+        <div className="admin-panel__tabs-content">
           <ul>
-            <li id="cinemas"> <CinemasPanel /></li>
+            <li id="cinemas"><CinemasPanel /></li>
             <li id="movies"><MoviesPanel/></li>
-            <li id="sessions"><SessionPanel cinemas = {this.props.allCinemas}  movies = {this.props.allMovies}/></li>
+            <li id="sessions"><SessionPanel cinemas={this.props.allCinemas}  movies={this.props.allMovies}/></li>
           </ul>
         </div>
       </div>
@@ -39,8 +39,8 @@ class AdminPanel extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allMovies : store.getAllMovies.allMovies,
-  allCinemas : store.getAllCinemas.allCinemas
+  allMovies: store.getAllMovies.allMovies,
+  allCinemas: store.getAllCinemas.allCinemas
 });
 const mapDispatchToProps = dispatch => ({
   onGetAllMovies() {

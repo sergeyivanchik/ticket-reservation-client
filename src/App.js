@@ -15,14 +15,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className = "router">
-          <Route exact path="/" component={ MainPage } />
-          <Route path="/movie-profile/:movie" component={ MovieProfile } />
-          <Route path="/hall/:movie/:cinema/:hall/:date/:time" component={ Seats } />
-          <Route path="/login" component={ LogIn } />
-          <Route path="/signin" component={ SignIn } />
-          <Route path="/admin-page" component={ AdminPanel } />
-          <Route path="/confirm-ticket/:id/:date/:cinema/:hall/:time" component={ TicketList } />
+        <div className="router">
+          <Route exact path="/" component={MainPage}/>
+          <Route path="/movie-profile/:movie" component={MovieProfile}/>
+          <Route path="/hall/:movie/:cinema/:hall/:date/:time" component={Seats}/>
+          <Route path="/login" component={LogIn}/>
+          <Route path="/signin" component={SignIn}/>
+          <Route path="/admin-page" component={AdminPanel}/>
+          <Route path="/confirm-ticket/:id/:date/:cinema/:hall/:time" component={TicketList}/>
         </div>
       </Router>
     )
