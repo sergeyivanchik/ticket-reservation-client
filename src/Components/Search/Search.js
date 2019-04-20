@@ -141,7 +141,7 @@ class Searchs extends React.Component {
         Please choose movie
       </option>
       </select>
-      <button>Seach</button>
+      <button>Search</button>
       </div>
     )
   }
