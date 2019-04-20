@@ -18,7 +18,7 @@ class Hall extends React.Component {
           hallSeats={this.props.hallSeats} 
           chooseSeat={this.props.onSelectTicket}
         />
-        <span className="hall__choice">Ваш выбор:</span>
+        <span className="hall__choice">Your choice:</span>
         <div className="hall__choice-list">
           {this.props.selectedSeats.map(seat => 
             <Choice 
@@ -30,7 +30,7 @@ class Hall extends React.Component {
           )}
         </div>
         <div>
-            Цена :{this.props.selectedSeats.reduce(function(sum, price) {
+            Cost :{this.props.selectedSeats.reduce(function(sum, price) {
             return sum + (+price.split(',')[2]) }, 0)} руб
         </div>  
         <Link to={{ pathname: `/confirm-ticket/`+

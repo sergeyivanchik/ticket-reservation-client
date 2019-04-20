@@ -22,7 +22,7 @@ class SessionsList extends React.Component {
       }  
       </div> : 
       <div className="no-sessions">
-        На данный фильм нет сеансов!
+        There are no sessions for this movie!
       </div>
     )
   }
