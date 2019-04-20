@@ -13,7 +13,7 @@ class SelectedMovie extends React.Component {
         <img 
           src={selectedMovie.poster} 
           alt={selectedMovie.poster} 
-          className="selected-movie__img"
+          className="selected-movie__poster"
         >
         </img>
         <div className="selected-movie__description">
