@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
-import Shedule from '../Shedule/Shedule.js';
+import Schedule from '../Schedule/Schedule.js';
 import { getCards, getTickets } from '../../actions/index.js';
 
 
@@ -17,7 +17,7 @@ class MovieProfile extends React.Component {
       this.props.allCards.length && this.props.allSelectedSeats &&
        <div className="choose-session">
         <TopNavBar/>
-        <Shedule 
+        <Schedule 
           movie={this.props.match.params.movie} 
           moviesList={this.props.allCards} 
           sessionsList={this.props.allSelectedSeats}

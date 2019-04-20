@@ -4,11 +4,11 @@ import SelectedMovie from './SelectedMovie/SelectedMovie.js';
 import SessionsList from './Sessions/SessionsList.js';
 
 
-class Shedule extends React.Component {
+class Schedule extends React.Component {
   render() {
     const {movie, moviesList, sessionsList} = this.props;
     return (
-      <div className="shedule">
+      <div className="schedule">
         <SelectedMovie 
           movie={movie} 
           moviesList={moviesList} 
@@ -22,4 +22,4 @@ class Shedule extends React.Component {
   }
 }
 
-export default Shedule;
+export default Schedule;
