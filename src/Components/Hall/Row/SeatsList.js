@@ -15,7 +15,7 @@ class SeatsList extends React.Component {
             amountOfSeats={this.props.seats} 
             seats={row.countOfSeats} 
             chooseSeat={this.props.chooseSeat} 
-            price={row.cost.toString()} 
+            price={row.cost} 
             key={row.row}
           />
         )}

@@ -14,7 +14,7 @@ class Row extends Component {
           price = {this.props.price} 
           chooseSeat = {this.props.chooseSeat} 
           occupied = { 
-         /*{ this.props.colSeat[0].selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString() || }*/          this.props.selectedSeats.includes(`${row},${i + 1},${this.props.price}`).toString()
+         /*{ this.props.colSeat[0].selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString() || }*/          this.props.selectedSeats.includes(`${row},${i + 1},${this.props.price}`)
           } 
           key = {`${i + 1}${row}`}  
         />
