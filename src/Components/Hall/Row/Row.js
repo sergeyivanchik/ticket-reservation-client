@@ -6,17 +6,17 @@ import Seat from './Seat.js'
 class Row extends Component {
   CreateRow  (row,coutPlaces)  {
     let places = []
-    for(let place = 0; place < coutPlaces; place ++) {
+    for(let i = 0; i < coutPlaces; i ++) {
       places.push(
         <Seat 
           row = {row} 
-          number = {place+1} 
+          number = {i+1} 
           price = {this.props.price} 
           chooseSeat = {this.props.chooseSeat} 
           occupied = { 
-         /*{ this.props.colSeat[0].selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString() || }*/          this.props.selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString()
+         /*{ this.props.colSeat[0].selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString() || }*/          this.props.selectedSeats.includes(`${row},${i + 1},${this.props.price}`).toString()
           } 
-          key = {`${place + 1}${row}`}  
+          key = {`${i + 1}${row}`}  
         />
       )
     }
