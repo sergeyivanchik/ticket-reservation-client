@@ -15,7 +15,7 @@ class TicketList extends React.Component {
         return (
             this.props.allCinemas.length && this.props.allCards.length &&
             <div className = "tickets-list">
-                {ticket.map((ticket) => 
+                {ticket.map(ticket => 
                 <Ticket row = {ticket.split(',')[0]} seat = {ticket.split(',')[1]} price = {ticket.split(',')[2]} ticket = {this.props} hall = {this.props.match.params.hall}  key = {ticket} />
                 )}
             </div>

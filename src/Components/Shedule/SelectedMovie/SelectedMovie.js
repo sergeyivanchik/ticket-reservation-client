@@ -5,7 +5,7 @@ import './SelectedMovie.scss';
 
 class SelectedMovie extends React.Component {
   render() {
-    const selectedMovie = this.props.moviesList.find((movie) => movie.id === this.props.movie)
+    const selectedMovie = this.props.moviesList.find(movie => movie.id === this.props.movie)
     return (
       <div className = "selected-movie" > 
         <img src = {selectedMovie.poster} alt = {selectedMovie.poster} className = "selected-movie__img"></img>

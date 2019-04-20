@@ -19,7 +19,7 @@ class CinemaList extends React.Component {
     this.props.onGetAllCinemasById(this.props.cinema);
   }
 
-  getCinemaById = (id) => {
+  getCinemaById = id => {
     axios.get (`http://localhost:8080/cinemas/${id}?select=name`)
     .then ((response) =>{
       this.setState({cinema:response.data})

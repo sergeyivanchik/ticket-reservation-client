@@ -9,7 +9,7 @@ export const setOption = (data, index) => {
   }
 }
 
-export const convertDate = (date) => {
+export const convertDate = date => {
   let convertDate = new Date(+date)
     return `${convertDate.getDate()} ${convertDate.toLocaleString('en', {month: 'long'})}, ${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
 };
@@ -56,7 +56,7 @@ export const getDatesByMovie = (movie, dateMas) => {
   return datesByMovie;	
 }
 
-export const getTime = (date) => {
+export const getTime = date => {
   let currentDate = new Date(+date);
   let hours = currentDate.getHours().toString().length === 2 ? `${currentDate.getHours()}` : `0${currentDate.getHours()}`;
   let minutes = currentDate.getMinutes().toString().length === 2 ? `${currentDate.getMinutes()}` : `${currentDate.getMinutes()}0`;
@@ -75,7 +75,7 @@ export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, dateMas) =>
   return timesByMovie;
 }
 
-export const sortTime = (masTime) => {
+export const sortTime = masTime => {
   let result = [];
   for ( let number = 0; number < masTime.length; number++ )
       result[number] = masTime[number];

@@ -13,7 +13,7 @@ class CardList extends Component {
   render() {
     return (
       <div className="card-list">
-        {this.props.allCards.map((card) => <Card card = {card} key = {card.id} />)}
+        {this.props.allCards.map(card => <Card card = {card} key = {card.id} />)}
       </div> 
     )
   }

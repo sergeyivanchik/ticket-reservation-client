@@ -12,7 +12,7 @@ class DateList extends React.Component {
         <div className = "session-date">
           <span className = "movie-date" >{date}</span>
         </div> 
-          {getCinemasByMovieAndDate(movie, date, sessionsList).map((cinema) => <CinemaList cinema ={cinema} movie = {movie} date = {date} sessionsList = {sessionsList} key = {`${movie}${date}${cinema}`}/>)} 
+          {getCinemasByMovieAndDate(movie, date, sessionsList).map(cinema => <CinemaList cinema ={cinema} movie = {movie} date = {date} sessionsList = {sessionsList} key = {`${movie}${date}${cinema}`}/>)} 
       </div>
     )
   }

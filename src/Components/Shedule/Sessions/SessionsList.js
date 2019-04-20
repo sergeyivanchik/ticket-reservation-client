@@ -11,7 +11,7 @@ class SessionsList extends React.Component {
     return (
       getDatesByMovie(movie, sessionsList).length > 0 ? 
       <div className = "sessions-list">
-        {getDatesByMovie(movie, sessionsList).map((date) => <DateList movie = {movie} date = {date} sessionsList = {sessionsList} key ={date}/> ) 
+        {getDatesByMovie(movie, sessionsList).map(date => <DateList movie = {movie} date = {date} sessionsList = {sessionsList} key ={date}/> ) 
       }  
       </div> : <div className = "no-sessions"> На данный фильм нет сеансов! </div>
     )

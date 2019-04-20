@@ -12,7 +12,7 @@ class SessionPanel extends React.Component {
     }
   }
 
-  changeSelect = (e) => {
+  changeSelect = e => {
     this.setState({cinema : e.target.value});
     console.log(this.state.cinema);
     if (this.state.cinema !== '') {
