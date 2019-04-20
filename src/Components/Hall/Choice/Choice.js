@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Choise.scss';
+import './Choice.scss';
 
 
 class Choice extends React.Component {

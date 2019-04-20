@@ -19,7 +19,7 @@ class Hall extends React.Component {
           chooseSeat={this.props.onSelectTicket}
         />
         <span className="hall__choice">Ваш выбор:</span>
-        <div className="hall__choise-list">
+        <div className="hall__choice-list">
           {this.props.selectedSeats.map(seat => 
             <Choice 
               row={seat.split(',')[0]} 
