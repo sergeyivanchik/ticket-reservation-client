@@ -20,7 +20,7 @@ class Card extends React.Component {
         <div className="card__wrapper-button">
           <Link 
             to={{ pathname: `/movie-profile/${card.id}`}}  
-            className={`card__button`}
+            className="card__button"
           >
             Buy ticket
           </Link>
