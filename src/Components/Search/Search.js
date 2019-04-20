@@ -124,10 +124,22 @@ class Searchs extends React.Component {
     return (
       <div>
       <select>
-      <option value="" selected disabled>Please choose cinema</option>
+      <option 
+        value="" 
+        selected 
+        disabled
+      >
+        Please choose cinema
+      </option>
       </select>
       <select>
-      <option value="" selected disabled>Please choose movie</option>
+      <option 
+        value="" 
+        selected 
+        disabled
+      >
+        Please choose movie
+      </option>
       </select>
       <button>Seach</button>
       </div>

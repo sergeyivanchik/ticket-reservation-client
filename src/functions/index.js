@@ -11,7 +11,9 @@ export const setOption = (data, index) => {
 
 export const convertDate = date => {
   let convertDate = new Date(+date)
-    return `${convertDate.getDate()} ${convertDate.toLocaleString('en', {month: 'long'})}, ${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
+    return `${convertDate.getDate()}`+ 
+      `${convertDate.toLocaleString('en', {month: 'long'})},`+
+      `${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
 };
 
 export const getCinemasByMovieAndDate = (movie, date, dateMas) => {
@@ -19,7 +21,8 @@ export const getCinemasByMovieAndDate = (movie, date, dateMas) => {
   let check = 0;
   for(let numberInDb = 0; numberInDb < dateMas.length; numberInDb++) {
     check = 0;
-    if(convertDate(dateMas[numberInDb].date) === date && dateMas[numberInDb].movie === movie) {
+    if(convertDate(dateMas[numberInDb].date) === date && 
+      dateMas[numberInDb].movie === movie) {
       if(cinemasByMovie.length === 0) {
         cinemasByMovie.push(dateMas[numberInDb].cinema);
       } else {
@@ -58,15 +61,20 @@ export const getDatesByMovie = (movie, dateMas) => {
 
 export const getTime = date => {
   let currentDate = new Date(+date);
-  let hours = currentDate.getHours().toString().length === 2 ? `${currentDate.getHours()}` : `0${currentDate.getHours()}`;
-  let minutes = currentDate.getMinutes().toString().length === 2 ? `${currentDate.getMinutes()}` : `${currentDate.getMinutes()}0`;
+  let hours = currentDate.getHours().toString().length === 2 ?
+    `${currentDate.getHours()}` : `0${currentDate.getHours()}`;
+  let minutes = currentDate.getMinutes().toString().length === 2 ?
+    `${currentDate.getMinutes()}` : `${currentDate.getMinutes()}0`;
   return `${hours}.${minutes}`;	
 }
 
 export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, dateMas) => {
   let timesByMovie = [];
   for(let number = 0; number < dateMas.length; number++ )
-    if(convertDate(dateMas[number].date) === date && cinema === dateMas[number].cinema && movie === dateMas[number].movie) 
+    if(convertDate(dateMas[number].date) === date &&
+      cinema === dateMas[number].cinema && 
+      movie === dateMas[number].movie
+      ) 
       timesByMovie.push({
         time : getTime(dateMas[number].date), 
         hall : dateMas[number].hall, 
@@ -85,7 +93,9 @@ export const sortTime = masTime => {
         let change = result[i];
         result[i] = result[i+1];
         result[i+1] = change;
-      } else if (result[i].time.split('.')[0] === result[i+1].time.split('.')[0]) {
+      } else if (result[i].time.split('.')[0] === 
+        result[i+1].time.split('.')[0]
+        ) {
         if(result[i].time.split('.')[1] > result[i+1].time.split('.')[1]) {
           let change = result[i];
           result[i] = result[i+1];

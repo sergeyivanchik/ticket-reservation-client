@@ -4,7 +4,11 @@ const initialState = {
   const  GET_ALL_CINEMAS = 'GET_ALL_CINEMAS';
   const GET_ALL_CINEMAS_BY_ID = 'GET_ALL_CINEMAS_BY_ID';
   
-  export function getAllCinemasById (state = { allCinemasById : [] }, action ) {
+  export function getAllCinemasById (state = { 
+      allCinemasById : [] 
+    }, 
+    action 
+  ) {
     switch (action.type) {
       case GET_ALL_CINEMAS_BY_ID : 
       {

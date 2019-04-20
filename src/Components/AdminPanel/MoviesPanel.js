@@ -41,11 +41,27 @@ class MoviesPanel extends React.Component {
     return (
       <div className="movies-panel">
         <label>Add movie</label>
-        <input type="text" placeholder="movie title" name="name" onChange={this.updateInputName}/>
+        <input 
+          type="text" 
+          placeholder="movie title" 
+          name="name" 
+          onChange={this.updateInputName}
+        />
         <label>Poster</label>
-        <input type="text" placeholder="poster" name="poster" onChange={this.updateInputPoster}/>
+        <input
+          type="text"
+          placeholder="poster" 
+          name="poster" 
+          onChange={this.updateInputPoster}
+        />
         <label>Descriprion</label>
-        <textarea rows="10" cols="68" name="description" onChange={this.updateInputDescription}  className="movies-panel__description"/>
+        <textarea 
+          rows="10" 
+          cols="68" 
+          name="description" 
+          onChange={this.updateInputDescription}
+          className="movies-panel__description"
+        />
         <input type="submit" value="Add cinema" onClick={this.addMovie}/>
       </div>    
     )

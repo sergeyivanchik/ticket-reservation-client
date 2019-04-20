@@ -35,9 +35,17 @@ class CinemaList extends React.Component {
       this.props.allCinemasById &&
       <div className="session-info">
         <div className="cinema-info">
-          <span className="cinema">{this.state.cinema.name}</span> 
+          <span className="cinema">
+            {this.state.cinema.name}
+          </span> 
         </div>
-         <TimeList date={date} cinema={cinema} movie={movie} sessionsList={sessionsList} key={`${date}${cinema}`}/> 
+         <TimeList 
+            date={date} 
+            cinema={cinema} 
+            movie={movie} 
+            sessionsList={sessionsList} 
+            key={`${date}${cinema}`}
+          /> 
       </div>
     )
   }
