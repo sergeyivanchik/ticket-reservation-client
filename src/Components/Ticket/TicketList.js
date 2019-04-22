@@ -10,6 +10,7 @@ class TicketList extends React.Component {
         this.props.onGetAllCinemas();
         this.props.onGetAllCards();
     }
+    
     render() {
         const ticket = this.props.selectedSeats;
         return (

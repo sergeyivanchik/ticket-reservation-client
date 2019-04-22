@@ -50,10 +50,12 @@ class CinemaList extends React.Component {
     )
   }
 }
+
 const mapStateToProps = store => {
   return({
   allCinemasById : store.getAllCinemasById.allCinemasById
 })}
+
 const mapDispatchToProps = dispatch => ({
   onGetAllCinemasById(id) {
     dispatch(getCinemasById(id))

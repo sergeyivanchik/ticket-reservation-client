@@ -29,6 +29,7 @@ const mapStateToProps = store => ({
   allMovies : store.getAllMovies.allMovies,
   allCinemas : store.getAllCinemas.allCinemas
 });
+
 const mapDispatchToProps = dispatch => ({
   onGetAllMovies() {
     dispatch(getMovies())

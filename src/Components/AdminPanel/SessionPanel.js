@@ -24,9 +24,10 @@ class SessionPanel extends React.Component {
     setOption(this.props.cinemas, 0);
     setOption(this.props.movies, 2);
   }
+
   render() {
     return (
-      <div className = "seanses-panel">
+      <div className="seanses-panel">
         <label>Add seanse</label>
         <select name="select" className="seanses-panel__cinema" onChange={this.changeSelect}> 
           <option value="" selected disabled>Choose cinema</option>

@@ -22,6 +22,7 @@ class Row extends Component {
     }
     return places    
   }
+  
   render(){
     const {row, seats} = this.props
     return (
