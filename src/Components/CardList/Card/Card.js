@@ -5,21 +5,21 @@ import './Card.scss';
 
 class Card extends React.Component {
   render() {
-  const {card} = this.props
+  const { card } = this.props
   return (
-    <div className="card" >
-      <img 
-        className="card__img" 
-        src={card.poster} 
-        title={card.name} 
+    <div className="card">
+      <img
+        className="card__img"
+        src={card.poster}
+        title={card.name}
         alt={card.name}>
-      </img> 
+      </img>
       <div className="card__movie">
         {card.name}
       </div>
         <div className="card__wrapper-button">
-          <Link 
-            to={{ pathname: `/movie-profile/${card.id}`}}  
+          <Link
+            to={{ pathname: `/movie-profile/${card.id}` }}
             className="card__button"
           >
             Buy ticket

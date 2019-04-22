@@ -8,7 +8,7 @@ class CinemasPanel extends React.Component {
         <label>Add cinema</label>
         <input type="text" placeholder="cinema name"/>
         <input type="submit" value="Add cinema"/>
-      </div>    
+      </div>
     )
   }
 }

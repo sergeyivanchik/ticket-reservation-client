@@ -5,14 +5,14 @@ import './SelectedMovie.scss';
 
 class SelectedMovie extends React.Component {
   render() {
-    const selectedMovie = this.props.moviesList.find(movie => 
+    const selectedMovie = this.props.moviesList.find(movie =>
       movie.id === this.props.movie
     )
     return (
-      <div className="selected-movie" > 
-        <img 
-          src={selectedMovie.poster} 
-          alt={selectedMovie.poster} 
+      <div className="selected-movie" >
+        <img
+          src={selectedMovie.poster}
+          alt={selectedMovie.poster}
           className="selected-movie__poster"
         >
         </img>
@@ -29,4 +29,4 @@ class SelectedMovie extends React.Component {
   }
 }
 
-export default SelectedMovie; 
+export default SelectedMovie;

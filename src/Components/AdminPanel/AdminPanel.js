@@ -27,13 +27,14 @@ class AdminPanel extends React.Component {
         </div>
         <div className="admin-panel__tabs-content">
           <ul>
-            <li id="cinemas"><CinemasPanel /></li>
+            <li id="cinemas"><CinemasPanel/></li>
             <li id="movies"><MoviesPanel/></li>
-            <li id="sessions"><SessionPanel cinemas={this.props.allCinemas} movies={this.props.allMovies}/></li>
+            <li id="sessions">
+              <SessionPanel cinemas={this.props.allCinemas} movies={this.props.allMovies}/>
+            </li>
           </ul>
         </div>
       </div>
-
     )
   }
 }

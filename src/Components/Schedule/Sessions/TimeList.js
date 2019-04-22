@@ -6,11 +6,11 @@ import { sortTime, getTimesByMovieAndDateAndCinema } from '../../../functions/in
 
 class TimeList extends React.Component {
   render() {
-    const {movie, date, cinema, sessionsList} = this.props;
+    const { movie, date, cinema, sessionsList } = this.props;
     return (
       <div className="time-list">
         {sortTime(getTimesByMovieAndDateAndCinema(movie, date, cinema, sessionsList)).map(
-          time => 
+          time =>
             <Link to={{ pathname: `/hall/`+
               `${movie}/`+
               `${cinema}/`+

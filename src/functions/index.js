@@ -47,7 +47,7 @@ export const getDatesByMovie = (movie, dateMas) => {
       if(datesByMovie.length === 0)
         datesByMovie.push(convertDate(dateMas[i].date));
       else {
-        for (let j = 0; j < datesByMovie.length; j ++) {
+        for (let j = 0; j < datesByMovie.length; j++) {
           if (datesByMovie[j] !== convertDate(dateMas[i].date))
             check++
         }

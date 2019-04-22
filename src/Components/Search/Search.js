@@ -119,23 +119,23 @@ class Searchs extends React.Component {
     setOption(this.props.cinemas, 0);
     setOption(this.props.movies, 1);
   }
- 
+
   render() {
     return (
       <div>
       <select>
-      <option 
-        value="" 
-        selected 
+      <option
+        value=""
+        selected
         disabled
       >
         Please choose cinema
       </option>
       </select>
       <select>
-      <option 
-        value="" 
-        selected 
+      <option
+        value=""
+        selected
         disabled
       >
         Please choose movie

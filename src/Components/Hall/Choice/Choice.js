@@ -5,11 +5,11 @@ import './Choice.scss';
 
 class Choice extends React.Component {
   render() {
-    const {row, seat, price} = this.props
+    const { row, seat, price } = this.props
     return (
       <div className="choice">
-        <span 
-          className="choice__place" 
+        <span
+          className="choice__place"
           title={`price ${price}`}
         >
         {`row ${row} seat ${seat}`}

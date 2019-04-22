@@ -13,7 +13,7 @@ export const getAllCinemas = cinemas => ({
   payload: cinemas
 });
 
-export const getAllMovies =  movies => ({
+export const getAllMovies = movies => ({
   type: GET_ALL_MOVIES,
   payload: movies
 })
@@ -21,7 +21,7 @@ export const getAllMovies =  movies => ({
 export const getAllTicket = tickets => ({
   type: GET_TICKET,
   payload: tickets
-}); 
+});
 
 export const selectTicket = ticket => ({
   type: SELECT_TICKET,
@@ -43,73 +43,73 @@ export const getAllCinemasById = cinema => ({
   payload: cinema
 });
 
-export function getCinemasById (cinemaId) {
+export function getCinemasById(cinemaId) {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get(`http://localhost:8080/cinemas/${cinemaId}?select=name`);
+      const { data } = await axios.get(`http://localhost:8080/cinemas/${cinemaId}?select=name`);
       dispatch(getAllCinemasById(data))
     }
     catch (error) {
       console.log(error);
-    }  
+    }
   }
 }
 
-export function getHallsByCinema () {
+export function getHallsByCinema() {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get(`http://localhost:8080/cinemas/5c98af99ef0e720b148e1643?select=halls`);
+      const { data } = await axios.get(`http://localhost:8080/cinemas/5c98af99ef0e720b148e1643?select=halls`);
       dispatch(getAllHallsByCinema(data))
     }
     catch (error) {
       console.log(error);
-    }  
+    }
   }
 }
 
-export function getMovies () {
+export function getMovies() {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('http://localhost:8080/movies');
+      const { data } = await axios.get('http://localhost:8080/movies');
       dispatch(getAllMovies(data))
     }
     catch (error) {
       console.log(error);
-    }  
+    }
   }
 }
 
-export function getCards () {
+export function getCards() {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('http://localhost:8080');
+      const { data } = await axios.get('http://localhost:8080');
       dispatch(getAllCards(data))
     }
     catch (error) {
       console.log(error);
-    }  
+    }
   }
 }
-export function getCinemas () {
+export function getCinemas() {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('http://localhost:8080/cinemas');
+      const { data } = await axios.get('http://localhost:8080/cinemas');
       dispatch(getAllCinemas(data))
     }
     catch (error) {
       console.log(error);
-    }    
+    }
   }
 }
 
-export function getTickets () {
+export function getTickets() {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('http://localhost:8080/sessions');
+      const { data } = await axios.get('http://localhost:8080/sessions');
       dispatch(getAllTicket(data))
     }
     catch (error) {
       console.log(error);
-    }    
+    }
   }
 }

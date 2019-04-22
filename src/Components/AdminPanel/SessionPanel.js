@@ -13,10 +13,10 @@ class SessionPanel extends React.Component {
   }
 
   changeSelect = event => {
-    this.setState({cinema : event.target.value});
+    this.setState({ cinema: event.target.value });
     console.log(this.state.cinema);
     if (this.state.cinema !== '') {
-      setOption(this.props.cinemas.find(cinema => cinema.id === this.state.cinema).halls,1)
+      setOption(this.props.cinemas.find(cinema => cinema.id === this.state.cinema).halls, 1)
     }
   }
 
@@ -29,19 +29,19 @@ class SessionPanel extends React.Component {
     return (
       <div className="seanses-panel">
         <label>Add seanse</label>
-        <select name="select" className="seanses-panel__cinema" onChange={() => this.changeSelect}> 
+        <select name="select" className="seanses-panel__cinema" onChange={() => this.changeSelect}>
           <option value="" selected disabled>Choose cinema</option>
         </select>
         <input type="text" placeholder="price"/>
-        <select name="select" className="seanses-panel__hall"> 
+        <select name="select" className="seanses-panel__hall">
           <option value="" selected disabled>Choose hall</option>
         </select>
-        <select name="select" className="seanses-panel__movie"> 
+        <select name="select" className="seanses-panel__movie">
           <option value="" selected disabled>Choose movie</option>
         </select>
         <input type="text" placeholder="start time"/>
         <input type="submit" value="Add seanse"/>
-      </div>    
+      </div>
     )
   }
 }

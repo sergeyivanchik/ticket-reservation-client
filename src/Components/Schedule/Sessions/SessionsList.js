@@ -7,20 +7,20 @@ import './SessionsList.scss';
 
 class SessionsList extends React.Component {
   render() {
-    const {movie, sessionsList} = this.props;
+    const { movie, sessionsList } = this.props;
     return (
       getDatesByMovie(movie, sessionsList).length > 0 ? 
       <div className="sessions-list">
-        {getDatesByMovie(movie, sessionsList).map(date => 
-          <DateList 
-            movie={movie} 
-            date={date} 
-            sessionsList={sessionsList} 
+        {getDatesByMovie(movie, sessionsList).map(date =>
+          <DateList
+            movie={movie}
+            date={date}
+            sessionsList={sessionsList}
             key={date}
-          /> 
+          />
         ) 
       }  
-      </div> : 
+      </div> :
       <div className="no-sessions">
         There are no sessions for this movie!
       </div>

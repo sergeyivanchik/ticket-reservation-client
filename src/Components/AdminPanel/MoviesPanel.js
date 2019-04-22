@@ -5,25 +5,25 @@ import './MoviesPanel.scss';
 
 
 class MoviesPanel extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
-      name : '',
-      description : '',
-      poster : ''
+      name: '',
+      description: '',
+      poster: ''
     };
   }
 
-  updateInputName= event =>{
-    this.setState({name : event.target.value})
+  updateInputName= event => {
+    this.setState({ name: event.target.value })
   }
 
-  updateInputDescription= event =>{
-    this.setState({description : event.target.value})
+  updateInputDescription= event => {
+    this.setState({ description : event.target.value })
   }
-  
-  updateInputPoster= event =>{
-    this.setState({poster : event.target.value})
+
+  updateInputPoster= event => {
+    this.setState({ poster : event.target.value })
   }
 
   addMovie =() => {
@@ -37,35 +37,35 @@ class MoviesPanel extends React.Component {
     })
     .catch(function (error) {
       console.log(error);
-    });    
+    });
   }
   render() {
     return (
       <div className="movies-panel">
         <label>Add movie</label>
-        <input 
-          type="text" 
-          placeholder="movie title" 
-          name="name" 
+        <input
+          type="text"
+          placeholder="movie title"
+          name="name"
           onChange={() => this.updateInputName()}
         />
         <label>Poster</label>
         <input
           type="text"
-          placeholder="poster" 
-          name="poster" 
+          placeholder="poster"
+          name="poster"
           onChange={() => this.updateInputPoster()}
         />
         <label>Descriprion</label>
-        <textarea 
-          rows="10" 
-          cols="68" 
-          name="description" 
+        <textarea
+          rows="10"
+          cols="68"
+          name="description"
           onChange={() => this.updateInputDescription()}
           className="movies-panel__description"
         />
         <input type="submit" value="Add cinema" onClick={() => this.addMovie()}/>
-      </div>    
+      </div>
     )
   }
 }

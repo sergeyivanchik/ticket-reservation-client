@@ -14,7 +14,7 @@ class MainPage extends React.Component {
   }
 
   render() {
-    return(
+    return (
       this.props.allMovies.length && this.props.allCinemas.length &&
       <div className = "main-page">
         <TopNavBar/>
@@ -26,8 +26,8 @@ class MainPage extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allMovies : store.getAllMovies.allMovies,
-  allCinemas : store.getAllCinemas.allCinemas
+  allMovies: store.getAllMovies.allMovies,
+  allCinemas: store.getAllCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({

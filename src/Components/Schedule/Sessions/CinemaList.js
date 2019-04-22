@@ -10,7 +10,7 @@ class CinemaList extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-    cinema:{}
+    cinema: {}
     }
   }
 
@@ -22,28 +22,28 @@ class CinemaList extends React.Component {
   getCinemaById = id => {
     axios.get (`http://localhost:8080/cinemas/${id}?select=name`)
     .then ((response) =>{
-      this.setState({cinema:response.data})
+      this.setState({cinema: response.data})
     })
-    .catch(error => 
+    .catch(error =>
       console.log(error)
-    )  
+    )
   }
 
   render() {
-    const {cinema, date, sessionsList, movie} = this.props
+    const { cinema, date, sessionsList, movie } = this.props
     return(
       this.props.allCinemasById &&
       <div className="session-info">
         <div className="cinema-info">
           <span className="cinema">
             {this.state.cinema.name}
-          </span> 
+          </span>
         </div>
-         <TimeList 
-            date={date} 
-            cinema={cinema} 
-            movie={movie} 
-            sessionsList={sessionsList} 
+         <TimeList
+            date={date}
+            cinema={cinema}
+            movie={movie}
+            sessionsList={sessionsList}
             key={`${date}${cinema}`}
           /> 
       </div>
@@ -53,7 +53,7 @@ class CinemaList extends React.Component {
 
 const mapStateToProps = store => {
   return({
-  allCinemasById : store.getAllCinemasById.allCinemasById
+  allCinemasById: store.getAllCinemasById.allCinemasById
 })}
 
 const mapDispatchToProps = dispatch => ({

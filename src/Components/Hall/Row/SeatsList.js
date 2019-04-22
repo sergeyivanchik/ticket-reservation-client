@@ -6,16 +6,16 @@ import './SeatsList.scss';
 
 class SeatsList extends React.Component {
   render() {
-    return(
+    return (
       <div className="rows-list">
-        {this.props.hallSeats.map(row => 
-          <Row 
-            row={row.row} 
-            selectedSeats={this.props.selectedSeats} 
-            amountOfSeats={this.props.seats} 
-            seats={row.countOfSeats} 
-            chooseSeat={this.props.chooseSeat} 
-            price={row.cost} 
+        {this.props.hallSeats.map(row =>
+          <Row
+            row={row.row}
+            selectedSeats={this.props.selectedSeats}
+            amountOfSeats={this.props.seats}
+            seats={row.countOfSeats}
+            chooseSeat={this.props.chooseSeat}
+            price={row.cost}
             key={row.row}
           />
         )}

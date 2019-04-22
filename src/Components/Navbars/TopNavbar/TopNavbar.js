@@ -23,7 +23,7 @@ function TopNavBar() {
           </Typography>
           <Link to="/login">
             <Button color="inherit">Login</Button>
-          </Link>  
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

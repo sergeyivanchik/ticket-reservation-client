@@ -21,9 +21,9 @@ class Seats extends React.Component {
       this.setState({halls:response.data.halls})
       console.log(response.data.halls)
     })
-    .catch(error => 
+    .catch(error =>
       console.log(error)
-    )  
+    )
   }
 
   componentWillMount() {
@@ -37,15 +37,15 @@ class Seats extends React.Component {
       this.state.halls.length &&
       <div className="choose-seats">
         <TopNavBar/>
-        <Hall  
-          movie={this.props.match.params.movie} 
-          cinema={this.props.match.params.cinema} 
-          hall={this.props.match.params.hall} 
-          date={this.props.match.params.date} 
-          time={this.props.match.params.time} 
-          hallSeats={this.state.halls.find( hall => 
+        <Hall
+          movie={this.props.match.params.movie}
+          cinema={this.props.match.params.cinema}
+          hall={this.props.match.params.hall}
+          date={this.props.match.params.date}
+          time={this.props.match.params.time}
+          hallSeats={this.state.halls.find(hall =>
             hall.name === this.props.match.params.hall).places
-          } 
+          }
           seats={this.props.allSelectedSeats}
         />
       </div>

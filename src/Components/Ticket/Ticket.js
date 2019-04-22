@@ -9,14 +9,14 @@ class Ticket extends React.Component {
             <div className="ticket">
                 <div className="ticket__info">
                     <div className="ticket__cinema">
-                        {this.props.ticket.allCinemas.find( cinema =>
+                        {this.props.ticket.allCinemas.find(cinema =>
                             cinema.id === this.props.ticket.match.params.cinema).name
                         }
                     </div>
                     <div className="ticket__movie">
                         <span>Movie:
                             <span className="ticket__choice">
-                                {this.props.ticket.allCards.find( movie => 
+                                {this.props.ticket.allCards.find(movie =>
                                     movie.id === this.props.ticket.match.params.id).name
                                 }
                             </span>
@@ -56,7 +56,7 @@ class Ticket extends React.Component {
                             </span>
                         </span>
                     </div>
-                </div>    
+                </div>
                 <div className="ticket__control">
                    <p className="ticket__text-control">Control</p>
                 </div>

@@ -4,27 +4,27 @@ import Seat from './Seat.js'
 
 
 class Row extends Component {
-  CreateRow  (row,coutPlaces)  {
+  CreateRow(row,coutPlaces) {
     let places = []
-    for(let i = 0; i < coutPlaces; i ++) {
+    for(let i = 0; i < coutPlaces; i++) {
       places.push(
-        <Seat 
-          row = {row} 
-          number = {i+1} 
-          price = {this.props.price} 
-          chooseSeat = {this.props.chooseSeat} 
-          occupied = { 
+        <Seat
+          row={row}
+          number={i+1}
+          price={this.props.price}
+          chooseSeat={this.props.chooseSeat}
+          occupied={
          /*{ this.props.colSeat[0].selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString() || }*/          this.props.selectedSeats.includes(`${row},${i + 1},${this.props.price}`)
-          } 
-          key = {`${i + 1}${row}`}  
+          }
+          key={`${i + 1}${row}`}
         />
       )
     }
-    return places    
+    return places
   }
   
-  render(){
-    const {row, seats} = this.props
+  render() {
+    const { row, seats } = this.props
     return (
       this.props.amountOfSeats.length &&
       <div className="row">

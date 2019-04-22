@@ -10,39 +10,39 @@ class SignIn extends React.Component {
       <div className="signin-form">
         <form method="get">
           <label className="signin-form__title">Sign in</label>
-          <input 
-            type="text" 
-            className="signin-form__name" 
-            placeholder="name" 
+          <input
+            type="text"
+            className="signin-form__name"
+            placeholder="name"
             required
           />
-          <input 
-            type="text" 
-            className="signin-form__name" 
-            placeholder="login" 
+          <input
+            type="text"
+            className="signin-form__name"
+            placeholder="login"
             required
           />
-          <input 
-            type="text" 
-            className="signin-form__password" 
-            placeholder="password" 
+          <input
+            type="text"
+            className="signin-form__password"
+            placeholder="password"
             required
           />
-          <input 
-            type="text" 
-            className="signin-form__email" 
-            placeholder="email" 
+          <input
+            type="text"
+            className="signin-form__email"
+            placeholder="email"
             required
           />
           <Link to="/login">
-            <input 
-              type="submit" 
-              className="signin-form__button" 
+            <input
+              type="submit"
+              className="signin-form__button"
               value="Sign in"
             />
           </Link>
         </form>
-      </div>  
+      </div>
     )
   }
 }
