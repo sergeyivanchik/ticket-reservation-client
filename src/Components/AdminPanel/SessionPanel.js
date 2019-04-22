@@ -29,7 +29,7 @@ class SessionPanel extends React.Component {
     return (
       <div className="seanses-panel">
         <label>Add seanse</label>
-        <select name="select" className="seanses-panel__cinema" onChange={this.changeSelect}> 
+        <select name="select" className="seanses-panel__cinema" onChange={ () => this.changeSelect}> 
           <option value="" selected disabled>Choose cinema</option>
         </select>
         <input type="text" placeholder="price"/>
