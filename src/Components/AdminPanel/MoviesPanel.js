@@ -17,9 +17,11 @@ class MoviesPanel extends React.Component {
   updateInputName= event =>{
     this.setState({name : event.target.value})
   }
+
   updateInputDescription= event =>{
     this.setState({description : event.target.value})
   }
+  
   updateInputPoster= event =>{
     this.setState({poster : event.target.value})
   }
