@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Card from './Card/Card.js';
-import { getCards } from '../../actions/index.js';
+import { getCards } from '../../actions/cards.js';
 import './CardList.scss';
 
 class CardList extends Component {

@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from  'react-redux';
 
 import Ticket from './Ticket.js';
-import { getCinemas, getCards } from '../../actions/index.js';
+import {  getCards } from '../../actions/cards.js';
+import { getCinemas } from '../../actions/cinemas.js';
 import './TicketList.scss';
 
 class TicketList extends React.Component {

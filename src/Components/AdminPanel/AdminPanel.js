@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getMovies, getCinemas } from '../../actions/index.js';
+import { getCinemas } from '../../actions/cinemas.js';
+import { getMovies } from '../../actions/movies.js';
 import CinemasPanel from './CinemasPanel.js';
 import MoviesPanel from './MoviesPanel.js';
 import SessionPanel from './SessionPanel.js';

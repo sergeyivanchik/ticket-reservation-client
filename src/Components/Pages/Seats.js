@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
-import {getTickets, getHallsByCinema} from '../../actions/index.js';
+import { getHallsByCinema } from '../../actions/halls';
+import { getTickets } from '../../actions/tickets.js';
 import axios from "axios";
 
 

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Searchs from '../Search/Search.js';
 import CardList from '../CardList/CardList.js';
-import { getMovies, getCinemas } from '../../actions/index.js'
+import { getMovies } from '../../actions/movies.js';
+import { getCinemas } from '../../actions/cinemas.js';
 
 
 class MainPage extends React.Component {

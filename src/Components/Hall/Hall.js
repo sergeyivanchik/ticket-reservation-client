@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Choice from './Choice/Choice.js';
 import SeatsList from './Row/SeatsList.js';
-import { selectTicket } from '../../actions/index.js';
+import { selectTicket } from '../../actions/tickets.js';
 import './Hall.scss';
 
 

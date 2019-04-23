@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { getCards, getTickets } from '../../actions/index.js';
+import { getCards } from '../../actions/cards.js';
+import { getTickets } from '../../actions/tickets.js';
 
 
 class MovieProfile extends React.Component {

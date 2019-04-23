@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import axios from "axios";
 import TimeList from './TimeList.js';
-import { getCinemasById } from '../../../actions/index.js';
+import { getCinemasById } from '../../../actions/cinemas.js';
 
 
 class CinemaList extends React.Component {

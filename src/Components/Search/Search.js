@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import axios from "axios";
-import { getCinemas } from '../../actions';
+import { getCinemas } from '../../actions/cinemas.js';
 import {setOption} from '../../functions/index.js'
 import './Search.scss';
 
