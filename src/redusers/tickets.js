@@ -1,5 +1,5 @@
-const SELECT_TICKET = 'SELECT_TICKET';
-const GET_TICKET = 'GET_TICKET';
+import { SELECT_TICKET, GET_TICKET } from '../constants/tickets.js';
+
 
 const initialState = {
   selectedSeats: []

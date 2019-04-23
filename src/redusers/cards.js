@@ -1,7 +1,9 @@
+import { GET_ALL_CARDS } from '../constants/cards.js';
+
+
 const initialState = {
   allCards: []
 }
-const  GET_ALL_CARDS = 'GET_ALL_CARDS';
 
 export default function getAllCards(state = initialState,action) {
     switch (action.type) {

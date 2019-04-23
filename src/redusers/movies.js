@@ -1,7 +1,9 @@
+import { GET_ALL_MOVIES } from '../constants/movies.js';
+
+
 const initialState = {
     allMovies: []
 }
-const  GET_ALL_MOVIES = 'GET_ALL_MOVIES';
 
 export default function getAllMovies(state = initialState, action) {
     switch (action.type) {

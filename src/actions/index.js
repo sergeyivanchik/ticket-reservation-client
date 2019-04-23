@@ -1,12 +1,10 @@
 import axios from "axios";
+import { GET_ALL_MOVIES } from '../constants/movies.js';
+import { SELECT_TICKET, GET_TICKET } from '../constants/tickets.js';
+import { GET_ALL_CINEMAS, GET_ALL_CINEMAS_BY_ID } from '../constants/cinemas.js';
+import { GET_ALL_HALLS_BY_CINEMA } from '../constants/halls.js';
+import { GET_ALL_CARDS } from '../constants/cards.js';
 
-const SELECT_TICKET = 'SELECT_TICKET';
-const GET_ALL_CARDS = 'GET_ALL_CARDS';
-const GET_TICKET = 'GET_TICKET';
-const GET_ALL_CINEMAS = 'GET_ALL_CINEMAS';
-const GET_ALL_HALLS_BY_CINEMA = 'GET_ALL_HALLS_BY_CINEMA';
-const GET_ALL_CINEMAS_BY_ID = 'GET_ALL_CINEMAS_BY_ID';
-const GET_ALL_MOVIES = 'GET_ALL_MOVIES'
 
 export const getAllCinemas = cinemas => ({
   type: GET_ALL_CINEMAS,

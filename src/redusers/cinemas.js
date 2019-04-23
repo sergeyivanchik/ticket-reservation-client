@@ -1,8 +1,9 @@
+import { GET_ALL_CINEMAS, GET_ALL_CINEMAS_BY_ID } from '../constants/cinemas.js';
+
+
 const initialState = {
     allCinemas: []
   }
-  const  GET_ALL_CINEMAS = 'GET_ALL_CINEMAS';
-  const GET_ALL_CINEMAS_BY_ID = 'GET_ALL_CINEMAS_BY_ID';
   
   export function getAllCinemasById (state = {
       allCinemasById: []

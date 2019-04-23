@@ -1,4 +1,6 @@
-const  GET_ALL_HALLS_BY_CINEMA = 'GET_ALL_HALLS_BY_CINEMA';
+import { GET_ALL_HALLS_BY_CINEMA } from '../constants/halls.js';
+
+
 const initialState = {
     allHallsByCinema: []
   }
