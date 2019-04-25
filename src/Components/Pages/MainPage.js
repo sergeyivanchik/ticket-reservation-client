@@ -9,9 +9,9 @@ import { getCinemasAsync } from '../../actions/cinemas.js';
 
 
 class MainPage extends React.Component {
-  componentWillMount() {
-    this.props.onGetMovies();
-    this.props.onGetCinemas();
+  async componentWillMount() {
+    await this.props.onGetMovies();
+    await this.props.onGetCinemas();
   }
 
   render() {
@@ -21,7 +21,7 @@ class MainPage extends React.Component {
       <div className = "main-page">
         <TopNavBar/>
         <Searchs movies={this.props.allMovies} cinemas={this.props.allCinemas}/>
-        <CardList/>
+        <CardList moviesList={this.props.allMovies}/>
       </div>
     )
   }
@@ -34,10 +34,10 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   onGetMovies() {
-    dispatch(getMoviesAsync())
+    return dispatch(getMoviesAsync())
   },
   onGetCinemas() {
-    dispatch(getCinemasAsync())
+    return dispatch(getCinemasAsync())
   }
 });
 

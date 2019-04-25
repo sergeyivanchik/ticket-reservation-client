@@ -37,7 +37,7 @@ class Seats extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allHallsByCinema: store.getHallsByCinema.allHallsByCinema,
+  allHallsByCinema: store.getHalls.allHallsByCinema,
   allSelectedSeats: store.getTickets.allSelectedSeats,
   allCinemas: store.getCinemas.allCinemas
 });

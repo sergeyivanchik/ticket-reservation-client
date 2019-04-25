@@ -1,25 +1,33 @@
-import { SELECT_TICKET, GET_TICKETS } from '../constants/tickets.js';
+import {
+  SELECT_TICKET_SUCCESS,
+  GET_TICKETS_SUCCESS,
+  GET_TICKETS_FAILURE
+} from '../constants/tickets.js';
 
 
 const initialState = {
-  selectedSeats: []
+  selectedSeats: [],
+  allSelectedSeats: [],
+  error: ''
 }
 
-export function getTickets(state = { allSelectedSeats: [] }, action) {
+export default function getTickets(state = initialState, action) {
   switch (action.type) {
-    case GET_TICKETS:
+    case GET_TICKETS_SUCCESS:
     {
       return Object.assign({}, state, {
         allSelectedSeats: action.payload
-    })
+      })
     }
-    default: return state;
-  }
-}
 
-export default function selectTicket(state = initialState, action) {
-  switch (action.type) {
-    case SELECT_TICKET:
+    case GET_TICKETS_FAILURE:
+    {
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+    }
+
+    case SELECT_TICKET_SUCCESS:
     {
         return Object.assign({}, state, {
             selectedSeats: state.selectedSeats.includes(action.payload)
@@ -27,6 +35,7 @@ export default function selectTicket(state = initialState, action) {
                 : [...state.selectedSeats, action.payload]
         })
     }
+
     default: return state;
   }
 }

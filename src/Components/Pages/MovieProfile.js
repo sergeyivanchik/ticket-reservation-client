@@ -32,7 +32,7 @@ class MovieProfile extends React.Component {
 }
 const mapStateToProps = store => ({
   allSelectedSeats: store.getTickets.allSelectedSeats,
-  movieById: store.getMovieById.movieById,
+  movieById: store.getMovies.movieById,
   allCinemas: store.getCinemas.allCinemas
 });
 

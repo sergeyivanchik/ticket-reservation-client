@@ -54,7 +54,7 @@ class Hall extends React.Component {
 
 const mapStateToProps = store => {
   return ({
-  selectedSeats: store.selectTicket.selectedSeats
+  selectedSeats: store.getTickets.selectedSeats
 })}
 
 const mapDispatchToProps = dispatch => ({

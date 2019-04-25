@@ -1,37 +1,28 @@
 import axios from "axios";
-import { GET_CINEMAS, GET_CINEMA_BY_ID } from '../constants/cinemas.js';
+import {
+  GET_CINEMAS_SUCCESS,
+  GET_CINEMAS_FAILURE
+} from '../constants/cinemas.js';
 
 
-export const getCinemas = cinemas => ({
-  type: GET_CINEMAS,
+export const getCinemasSuccess = cinemas => ({
+  type: GET_CINEMAS_SUCCESS,
   payload: cinemas
 })
 
-export const getCinemasById = cinema => ({
-  type: GET_CINEMA_BY_ID,
-  payload: cinema
+export const getCinemasFailure = error => ({
+  type: GET_CINEMAS_FAILURE,
+  payload: error
 })
 
 export const getCinemasAsync = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get('http://localhost:8080/cinemas');
-      dispatch(getCinemas(data))
+      dispatch(getCinemasSuccess(data))
     }
     catch (error) {
-      console.log(error);
-    }
-  }
-}
-
-export const getCinemasByIdAsync = cinemaId => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.get(`http://localhost:8080/cinemas/${cinemaId}?select=name`);
-      dispatch(getCinemasById(data))
-    }
-    catch (error) {
-      console.log(error);
+      dispatch(getCinemasFailure(error))
     }
   }
 }
