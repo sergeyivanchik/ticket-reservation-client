@@ -1,2 +1,2 @@
-export const GET_ALL_CINEMAS_BY_ID = 'GET_ALL_CINEMAS_BY_ID';
-export const GET_ALL_CINEMAS = 'GET_ALL_CINEMAS';
+export const GET_CINEMA_BY_ID = 'GET_ALL_CINEMAS_BY_ID';
+export const GET_CINEMAS = 'GET_ALL_CINEMAS';

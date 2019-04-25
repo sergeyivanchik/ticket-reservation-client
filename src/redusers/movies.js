@@ -1,13 +1,13 @@
-import { GET_ALL_MOVIES, GET_MOVIE_BY_ID } from '../constants/movies.js';
+import { GET_MOVIES, GET_MOVIE_BY_ID } from '../constants/movies.js';
 
 
 const initialState = {
     allMovies: []
 }
 
-export default function getAllMovies(state = initialState, action) {
+export default function getMovies(state = initialState, action) {
     switch (action.type) {
-        case GET_ALL_MOVIES:
+        case GET_MOVIES:
         {
             return Object.assign({}, state, {
                 allMovies: action.payload

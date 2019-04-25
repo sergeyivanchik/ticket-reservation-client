@@ -1,17 +1,17 @@
 import axios from "axios";
-import { GET_ALL_CARDS } from '../constants/cards.js';
+import { GET_CARDS } from '../constants/cards.js';
 
 
-export const getAllCards = card => ({
-  type: GET_ALL_CARDS,
+export const getCards = card => ({
+  type: GET_CARDS,
   payload: card
 })
 
-export const getCards = () => {
+export const getCardsAsync = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get('http://localhost:8080');
-      dispatch(getAllCards(data))
+      dispatch(getCards(data))
     }
     catch (error) {
       console.log(error);

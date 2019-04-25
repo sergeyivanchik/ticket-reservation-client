@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Searchs from '../Search/Search.js';
 import CardList from '../CardList/CardList.js';
-import { getMovies } from '../../actions/movies.js';
-import { getCinemas } from '../../actions/cinemas.js';
+import { getMoviesAsync } from '../../actions/movies.js';
+import { getCinemasAsync } from '../../actions/cinemas.js';
 
 
 class MainPage extends React.Component {
   componentWillMount() {
-    this.props.onGetAllMovies();
-    this.props.onGetAllCinemas();
+    this.props.onGetMovies();
+    this.props.onGetCinemas();
   }
 
   render() {
@@ -28,16 +28,16 @@ class MainPage extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allMovies: store.getAllMovies.allMovies,
-  allCinemas: store.getAllCinemas.allCinemas
+  allMovies: store.getMovies.allMovies,
+  allCinemas: store.getCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetAllMovies() {
-    dispatch(getMovies())
+  onGetMovies() {
+    dispatch(getMoviesAsync())
   },
-  onGetAllCinemas() {
-    dispatch(getCinemas())
+  onGetCinemas() {
+    dispatch(getCinemasAsync())
   }
 });
 

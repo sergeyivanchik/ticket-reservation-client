@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Card from './Card/Card.js';
-import { getCards } from '../../actions/cards.js';
+import { getCardsAsync } from '../../actions/cards.js';
 import './CardList.scss';
 
 class CardList extends Component {
   componentDidMount() {
-    this.props.onGetAllCards();
+    this.props.onGetCards();
   };
 
   render() {
@@ -22,12 +22,12 @@ class CardList extends Component {
 }
 
 const mapStateToProps = store => ({
-  allCards: store.getAllCards.allCards
+  allCards: store.getCards.allCards
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetAllCards() {
-    dispatch(getCards())
+  onGetCards() {
+    dispatch(getCardsAsync())
   }
 });
 

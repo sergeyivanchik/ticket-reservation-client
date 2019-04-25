@@ -1,13 +1,13 @@
-import { SELECT_TICKET, GET_TICKET } from '../constants/tickets.js';
+import { SELECT_TICKET, GET_TICKETS } from '../constants/tickets.js';
 
 
 const initialState = {
   selectedSeats: []
 }
 
-export function getAllTicket(state = { allSelectedSeats: [] }, action) {
+export function getTickets(state = { allSelectedSeats: [] }, action) {
   switch (action.type) {
-    case GET_TICKET:
+    case GET_TICKETS:
     {
       return Object.assign({}, state, {
         allSelectedSeats: action.payload

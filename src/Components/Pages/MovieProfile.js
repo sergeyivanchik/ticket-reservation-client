@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { getTickets } from '../../actions/tickets.js';
+import { getTicketsAsync } from '../../actions/tickets.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
-import { getCinemas } from '../../actions/cinemas.js';
+import { getCinemasAsync } from '../../actions/cinemas.js';
 
 
 class MovieProfile extends React.Component {
   componentWillMount() {
-    this.props.onGetAllCinemas();
-    this.props.onGetAllTickets();
+    this.props.onGetCinemas();
+    this.props.onGetTickets();
     this.props.onGetMovieById(this.props.match.params.movie);
   }
   render() {
@@ -31,20 +31,20 @@ class MovieProfile extends React.Component {
   }
 }
 const mapStateToProps = store => ({
-  allSelectedSeats: store.getAllTicket.allSelectedSeats,
+  allSelectedSeats: store.getTickets.allSelectedSeats,
   movieById: store.getMovieById.movieById,
-  allCinemas: store.getAllCinemas.allCinemas
+  allCinemas: store.getCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetAllTickets() {
-    dispatch(getTickets())
+  onGetTickets() {
+    dispatch(getTicketsAsync())
   },
   onGetMovieById(id) {
     dispatch(getMovieByIdAsync(id))
   },
-  onGetAllCinemas() {
-    dispatch(getCinemas())
+  onGetCinemas() {
+    dispatch(getCinemasAsync())
   }
 });
 

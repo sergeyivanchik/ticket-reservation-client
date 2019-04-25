@@ -1,17 +1,17 @@
-import { GET_ALL_CINEMAS, GET_ALL_CINEMAS_BY_ID } from '../constants/cinemas.js';
+import { GET_CINEMAS, GET_CINEMA_BY_ID } from '../constants/cinemas.js';
 
 
 const initialState = {
     allCinemas: []
   }
   
-  export function getAllCinemasById (state = {
+  export function getCinemasById (state = {
       allCinemasById: []
     },
     action
   ) {
     switch (action.type) {
-      case GET_ALL_CINEMAS_BY_ID:
+      case GET_CINEMA_BY_ID:
       {
           return Object.assign({}, state, {
             allCinemasById: action.payload
@@ -22,9 +22,9 @@ const initialState = {
   }
   }
 
-  export default function getAllCinemas(state = initialState,action) {
+  export default function getCinemas(state = initialState,action) {
       switch (action.type) {
-          case GET_ALL_CINEMAS:
+          case GET_CINEMAS:
           {
               return Object.assign({}, state, {
                 allCinemas: action.payload

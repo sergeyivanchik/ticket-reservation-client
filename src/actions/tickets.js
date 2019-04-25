@@ -1,9 +1,9 @@
 import axios from "axios";
-import { SELECT_TICKET, GET_TICKET } from '../constants/tickets.js';
+import { SELECT_TICKET, GET_TICKETS } from '../constants/tickets.js';
 
 
-export const getAllTicket = tickets => ({
-  type: GET_TICKET,
+export const getTickets = tickets => ({
+  type: GET_TICKETS,
   payload: tickets
 });
 
@@ -12,11 +12,11 @@ export const selectTicket = ticket => ({
   payload: ticket
 });
 
-export const getTickets = () => {
+export const getTicketsAsync = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`http://localhost:8080/sessions`);
-      dispatch(getAllTicket(data))
+      dispatch(getTickets(data))
     }
     catch (error) {
       console.log(error);

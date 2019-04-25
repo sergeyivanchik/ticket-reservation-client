@@ -1,8 +1,8 @@
 import axios from "axios";
-import { GET_ALL_MOVIES, GET_MOVIE_BY_ID } from '../constants/movies.js';
+import { GET_MOVIES, GET_MOVIE_BY_ID } from '../constants/movies.js';
 
-export const getAllMovies = movies => ({
-  type: GET_ALL_MOVIES,
+export const getMovies = movies => ({
+  type: GET_MOVIES,
   payload: movies
 })
 
@@ -23,11 +23,11 @@ export const getMovieByIdAsync = movieId => {
   }
 }
 
-export const getMovies = () => {
+export const getMoviesAsync = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get('http://localhost:8080/movies');
-      dispatch(getAllMovies(data))
+      dispatch(getMovies(data))
     }
     catch (error) {
       console.log(error);

@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
-import { getHallsByCinema } from '../../actions/halls.js';
-import { getTickets } from '../../actions/tickets.js';
-import { getCinemas } from '../../actions/cinemas.js';
+import { getHallsByCinemaAsync } from '../../actions/halls.js';
+import { getTicketsAsync } from '../../actions/tickets.js';
+import { getCinemasAsync } from '../../actions/cinemas.js';
 
 
 class Seats extends React.Component {
   async componentDidMount() {
-    await this.props.onGetAllCinemas();
-    await this.props.onGetAllTickets();
+    await this.props.onGetCinemas();
+    await this.props.onGetTickets();
   }
 
   render() {
@@ -37,20 +37,20 @@ class Seats extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allHallsByCinema: store.getAllHallsByCinema.allHallsByCinema,
-  allSelectedSeats: store.getAllTicket.allSelectedSeats,
-  allCinemas: store.getAllCinemas.allCinemas
+  allHallsByCinema: store.getHallsByCinema.allHallsByCinema,
+  allSelectedSeats: store.getTickets.allSelectedSeats,
+  allCinemas: store.getCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetAllHallsByCinema(cinemaId) {
-    return dispatch(getHallsByCinema(cinemaId))
+  onGetHallsByCinema(cinemaId) {
+    return dispatch(getHallsByCinemaAsync(cinemaId))
   },
-  onGetAllTickets() {
-    return dispatch(getTickets())
+  onGetTickets() {
+    return dispatch(getTicketsAsync())
   },
-  onGetAllCinemas() {
-    return dispatch(getCinemas())
+  onGetCinemas() {
+    return dispatch(getCinemasAsync())
   }
 });
 

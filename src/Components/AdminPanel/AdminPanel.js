@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getCinemas } from '../../actions/cinemas.js';
-import { getMovies } from '../../actions/movies.js';
+import { getCinemasAsync } from '../../actions/cinemas.js';
+import { getMoviesAsync } from '../../actions/movies.js';
 import CinemasPanel from './CinemasPanel.js';
 import MoviesPanel from './MoviesPanel.js';
 import SessionPanel from './SessionPanel.js';
@@ -11,8 +11,8 @@ import './AdminPanel.scss';
 
 class AdminPanel extends React.Component {
   componentWillMount() {
-    this.props.onGetAllMovies();
-    this.props.onGetAllCinemas();
+    this.props.onGetMovies();
+    this.props.onGetCinemas();
   }
 
   render() {
@@ -41,15 +41,15 @@ class AdminPanel extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allMovies: store.getAllMovies.allMovies,
-  allCinemas: store.getAllCinemas.allCinemas
+  allMovies: store.getMovies.allMovies,
+  allCinemas: store.getCinemas.allCinemas
 });
 const mapDispatchToProps = dispatch => ({
-  onGetAllMovies() {
-    dispatch(getMovies())
+  onGetMovies() {
+    dispatch(getMoviesAsync())
   },
-  onGetAllCinemas() {
-    dispatch(getCinemas())
+  onGetCinemas() {
+    dispatch(getCinemasAsync())
   }
 });
 

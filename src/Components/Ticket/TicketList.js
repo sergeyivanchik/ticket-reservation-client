@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from  'react-redux';
 
 import Ticket from './Ticket.js';
-import {  getCards } from '../../actions/cards.js';
-import { getCinemas } from '../../actions/cinemas.js';
+import {  getCardsAsync } from '../../actions/cards.js';
+import { getCinemasAsync } from '../../actions/cinemas.js';
 import './TicketList.scss';
 
 class TicketList extends React.Component {
     componentDidMount() {
-        this.props.onGetAllCinemas();
-        this.props.onGetAllCards();
+        this.props.onGetCinemas();
+        this.props.onGetCards();
     }
     
     render() {
@@ -35,16 +35,16 @@ class TicketList extends React.Component {
 const mapStateToProps = store => {
     return({
     selectedSeats: store.selectTicket.selectedSeats,
-    allCards: store.getAllCards.allCards,
-    allCinemas : store.getAllCinemas.allCinemas
+    allCards: store.getCards.allCards,
+    allCinemas : store.getCinemas.allCinemas
   })}
 
   const mapDispatchToProps = dispatch => ({
-    onGetAllCinemas() {
-      dispatch(getCinemas())
+    onGetCinemas() {
+      dispatch(getCinemasAsync())
     },
-    onGetAllCards() {
-        dispatch(getCards())
+    onGetCards() {
+        dispatch(getCardsAsync())
       }
   });
 
