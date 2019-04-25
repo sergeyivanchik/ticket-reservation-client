@@ -14,7 +14,6 @@ class SessionPanel extends React.Component {
 
   changeSelect = event => {
     this.setState({ cinema: event.target.value });
-    console.log(this.state.cinema);
     if (this.state.cinema !== '') {
       setOption(this.props.cinemas.find(cinema => cinema.id === this.state.cinema).halls, 1)
     }
