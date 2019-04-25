@@ -12,7 +12,7 @@ export const getAllCinemasById = cinema => ({
   payload: cinema
 })
 
-export function getCinemas() {
+export const getCinemas = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get('http://localhost:8080/cinemas');
@@ -24,7 +24,7 @@ export function getCinemas() {
   }
 }
 
-export function getCinemasById(cinemaId) {
+export const getCinemasById = cinemaId => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`http://localhost:8080/cinemas/${cinemaId}?select=name`);

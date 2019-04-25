@@ -1,4 +1,4 @@
-import { GET_ALL_MOVIES } from '../constants/movies.js';
+import { GET_ALL_MOVIES, GET_MOVIE_BY_ID } from '../constants/movies.js';
 
 
 const initialState = {
@@ -15,4 +15,18 @@ export default function getAllMovies(state = initialState, action) {
         }
         default:
             return state;
-    }} 
+    }
+}
+
+export function getMovieById( state = { movieById: [] }, action) {
+    switch (action.type) {
+        case GET_MOVIE_BY_ID:
+        {
+            return Object.assign({}, state, {
+                movieById: action.payload
+            })
+        }
+        default:
+            return state;
+    }  
+}

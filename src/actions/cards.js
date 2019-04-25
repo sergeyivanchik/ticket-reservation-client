@@ -7,7 +7,7 @@ export const getAllCards = card => ({
   payload: card
 })
 
-export function getCards() {
+export const getCards = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get('http://localhost:8080');

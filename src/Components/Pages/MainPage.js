@@ -16,7 +16,8 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      this.props.allMovies.length && this.props.allCinemas.length &&
+      this.props.allMovies.length && 
+      this.props.allCinemas.length &&
       <div className = "main-page">
         <TopNavBar/>
         <Searchs movies={this.props.allMovies} cinemas={this.props.allCinemas}/>

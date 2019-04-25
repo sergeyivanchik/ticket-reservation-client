@@ -12,10 +12,10 @@ export const selectTicket = ticket => ({
   payload: ticket
 });
 
-export function getTickets() {
+export const getTickets = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get('http://localhost:8080/sessions');
+      const { data } = await axios.get(`http://localhost:8080/sessions`);
       dispatch(getAllTicket(data))
     }
     catch (error) {

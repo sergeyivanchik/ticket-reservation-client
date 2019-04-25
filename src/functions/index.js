@@ -10,7 +10,7 @@ export const setOption = (data, index) => {
 }
 
 export const convertDate = date => {
-  let convertDate = new Date(+date)
+  let convertDate = new Date(+date);
     return `${convertDate.getDate()}`+ 
       `${convertDate.toLocaleString('en', {month: 'long'})},`+
       `${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()

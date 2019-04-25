@@ -5,23 +5,21 @@ import './SelectedMovie.scss';
 
 class SelectedMovie extends React.Component {
   render() {
-    const selectedMovie = this.props.moviesList.find(movie =>
-      movie.id === this.props.movie
-    )
+    const { movie } = this.props;
     return (
       <div className="selected-movie" >
         <img
-          src={selectedMovie.poster}
-          alt={selectedMovie.poster}
+          src={movie.poster}
+          alt={movie.name}
           className="selected-movie__poster"
         >
         </img>
         <div className="selected-movie__description">
           <p className="selected-movie__movie-title">
-            {selectedMovie.name}
+            {movie.name}
           </p>
           <p className="selected-movie__movie-info">
-          {selectedMovie.description}
+          {movie.description}
           </p>
         </div>
       </div>

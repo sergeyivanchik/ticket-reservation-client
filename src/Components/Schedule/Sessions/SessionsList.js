@@ -7,16 +7,17 @@ import './SessionsList.scss';
 
 class SessionsList extends React.Component {
   render() {
-    const { movie, sessionsList } = this.props;
+    const { movie, sessionsList, cinemasList } = this.props;
     return (
-      getDatesByMovie(movie, sessionsList).length > 0 ? 
+      getDatesByMovie(movie.id, sessionsList).length > 0 ? 
       <div className="sessions-list">
-        {getDatesByMovie(movie, sessionsList).map(date =>
+        {getDatesByMovie(movie.id, sessionsList).map(date =>
           <DateList
-            movie={movie}
+            movie={movie.id}
             date={date}
             sessionsList={sessionsList}
             key={date}
+            cinemasList={cinemasList}
           />
         ) 
       }  

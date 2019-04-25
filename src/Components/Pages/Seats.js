@@ -3,39 +3,23 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
-import { getHallsByCinema } from '../../actions/halls';
+import { getHallsByCinema } from '../../actions/halls.js';
 import { getTickets } from '../../actions/tickets.js';
-import axios from "axios";
+import { getCinemas } from '../../actions/cinemas.js';
 
 
 class Seats extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      halls: [],
-    }
-  }
-
-  getHalls = (id) => {
-    axios.get (`http://localhost:8080/cinemas/${id}?select=halls`)
-    .then ((response) =>{
-      this.setState({halls:response.data.halls})
-      console.log(response.data.halls)
-    })
-    .catch(error =>
-      console.log(error)
-    )
-  }
-
-  componentWillMount() {
-    this.props.onGetAllTickets();
-    this.getHalls(this.props.match.params.cinema);
-    this.props.onGetAllHallsByCinema(this.props.match.params.cinema)
+  async componentDidMount() {
+    await this.props.onGetAllCinemas();
+    await this.props.onGetAllTickets();
   }
 
   render() {
+    const seatsList = this.props.allCinemas.find(cinema => 
+      cinema.id === this.props.match.params.cinema).halls.find(hall => 
+        hall.name === this.props.match.params.hall).places;
     return (
-      this.state.halls.length &&
+      this.props.allSelectedSeats.length && this.props.allCinemas.length &&
       <div className="choose-seats">
         <TopNavBar/>
         <Hall
@@ -44,9 +28,7 @@ class Seats extends React.Component {
           hall={this.props.match.params.hall}
           date={this.props.match.params.date}
           time={this.props.match.params.time}
-          hallSeats={this.state.halls.find(hall =>
-            hall.name === this.props.match.params.hall).places
-          }
+          hallSeats={seatsList}
           seats={this.props.allSelectedSeats}
         />
       </div>
@@ -55,16 +37,20 @@ class Seats extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allSelectedSeats : store.getAllTicket.allSelectedSeats,
-  allHallsByCinema : store.getAllHallsByCinema.allHallsByCinema
+  allHallsByCinema: store.getAllHallsByCinema.allHallsByCinema,
+  allSelectedSeats: store.getAllTicket.allSelectedSeats,
+  allCinemas: store.getAllCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetAllTickets() {
-    dispatch(getTickets())
+  onGetAllHallsByCinema(cinemaId) {
+    return dispatch(getHallsByCinema(cinemaId))
   },
-  onGetAllHallsByCinema(cinemaID) {
-    dispatch(getHallsByCinema(cinemaID))
+  onGetAllTickets() {
+    return dispatch(getTickets())
+  },
+  onGetAllCinemas() {
+    return dispatch(getCinemas())
   }
 });
 

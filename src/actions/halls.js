@@ -7,10 +7,10 @@ export const getAllHallsByCinema = hall => ({
   payload: hall
 })
 
-export function getHallsByCinema() {
+export const getHallsByCinema = cinemaId => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/cinemas/5c98af99ef0e720b148e1643?select=halls`);
+      const { data } = await axios.get(`http://localhost:8080/cinemas/${cinemaId}?select=halls`);
       dispatch(getAllHallsByCinema(data))
     }
     catch (error) {

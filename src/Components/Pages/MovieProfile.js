@@ -3,41 +3,48 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { getCards } from '../../actions/cards.js';
 import { getTickets } from '../../actions/tickets.js';
+import { getMovieByIdAsync } from '../../actions/movies.js';
+import { getCinemas } from '../../actions/cinemas.js';
 
 
 class MovieProfile extends React.Component {
   componentWillMount() {
-    this.props.onGetAllCards();
+    this.props.onGetAllCinemas();
     this.props.onGetAllTickets();
+    this.props.onGetMovieById(this.props.match.params.movie);
   }
-
   render() {
     return (
-      this.props.allCards.length && this.props.allSelectedSeats &&
-       <div className="choose-session">
+        this.props.allSelectedSeats && 
+        this.props.movieById &&
+        this.props.allCinemas &&
+        <div className="choose-session">
         <TopNavBar/>
         <Schedule
-          movie={this.props.match.params.movie}
-          moviesList={this.props.allCards}
+          movie={this.props.movieById}
           sessionsList={this.props.allSelectedSeats}
+          cinemasList={this.props.allCinemas} 
         />
       </div>
     )
   }
 }
 const mapStateToProps = store => ({
-  allCards: store.getAllCards.allCards,
-  allSelectedSeats: store.getAllTicket.allSelectedSeats
+  allSelectedSeats: store.getAllTicket.allSelectedSeats,
+  movieById: store.getMovieById.movieById,
+  allCinemas: store.getAllCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetAllCards() {
-    dispatch(getCards())
-  },
   onGetAllTickets() {
     dispatch(getTickets())
+  },
+  onGetMovieById(id) {
+    dispatch(getMovieByIdAsync(id))
+  },
+  onGetAllCinemas() {
+    dispatch(getCinemas())
   }
 });
 
