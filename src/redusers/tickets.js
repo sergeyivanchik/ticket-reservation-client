@@ -29,10 +29,17 @@ export default function getTickets(state = initialState, action) {
 
     case SELECT_TICKET_SUCCESS:
     {
-        return Object.assign({}, state, {
-            selectedSeats: state.selectedSeats.includes(action.payload)
-                ? state.selectedSeats.filter( seat => seat !== action.payload)
-                : [...state.selectedSeats, action.payload]
+      const currentTicket = state.selectedSeats.find(ticket => 
+        action.payload.row === ticket.row &&
+        action.payload.seat === ticket.seat &&
+        action.payload.price === ticket.price
+      )
+      const boughtTicket = currentTicket
+      ? state.selectedSeats.filter(ticket => ticket !== currentTicket)
+      : [...state.selectedSeats, action.payload]
+
+      return Object.assign({}, state, {
+        selectedSeats: boughtTicket
         })
     }
 

@@ -19,9 +19,9 @@ class TicketList extends React.Component {
             <div className = "tickets-list">
                 {selectedSeats.map(ticket =>
                     <Ticket
-                        row={ticket.split(',')[0]}
-                        seat={ticket.split(',')[1]}
-                        price={ticket.split(',')[2]}
+                        row={ticket.row}
+                        seat={ticket.seat}
+                        price={ticket.price}
                         date={date}
                         time={time}
                         hall={hall}

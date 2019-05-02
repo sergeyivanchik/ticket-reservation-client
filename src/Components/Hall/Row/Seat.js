@@ -6,7 +6,7 @@ class Seat extends Component {
     const row = this.props.row
     const seat = this.props.number
     const price = this.props.price
-    this.props.chooseSeat(`${row},${seat},${price}`)
+    this.props.chooseSeat({row: row, seat: seat, price: price})
   }
   
   render() {

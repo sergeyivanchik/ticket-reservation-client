@@ -20,18 +20,18 @@ class Hall extends React.Component {
         />
         <span className="hall__choice">Your choice:</span>
         <div className="hall__choice-list">
-          {this.props.selectedSeats.map(seat =>
+          {this.props.selectedSeats.map(selectedSeat =>
             <Choice
-              row={seat.split(',')[0]}
-              seat={seat.split(',')[1]}
-              price={seat.split(',')[2]}
-              key={seat}
+              row={selectedSeat.row}
+              seat={selectedSeat.seat}
+              price={selectedSeat.price}
+              key={selectedSeat}
             />
           )}
         </div>
         <div>
             Cost :{this.props.selectedSeats.reduce(function(sum, price) {
-            return sum + (+price.split(',')[2]) }, 0)} руб
+            return sum + (+price) }, 0)} руб
         </div>
         <Link to={{ pathname: `/confirm-ticket/`+
           `${this.props.movie}/`+
@@ -41,7 +41,7 @@ class Hall extends React.Component {
           `${this.props.time}`
         }}>
           <button
-            className='123'
+            className='buy'
             disabled={(this.props.selectedSeats.length > 6 || this.props.selectedSeats.length === 0) ? true : false}
           >
             Buy

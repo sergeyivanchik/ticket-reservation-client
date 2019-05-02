@@ -8,15 +8,15 @@ class SeatsList extends React.Component {
   render() {
     return (
       <div className="rows-list">
-        {this.props.hallSeats.map(row =>
+        {this.props.hallSeats.map(hallRow =>
           <Row
-            row={row.row}
+            row={hallRow.row}
             selectedSeats={this.props.selectedSeats}
             amountOfSeats={this.props.seats}
-            seats={row.countOfSeats}
+            seats={hallRow.countOfSeats}
             chooseSeat={this.props.chooseSeat}
-            price={row.cost}
-            key={row.row}
+            price={hallRow.cost}
+            key={hallRow.row}
           />
         )}
       </div>

@@ -4,7 +4,7 @@ import Seat from './Seat.js'
 
 
 class Row extends Component {
-  CreateRow(row,coutPlaces) {
+  CreateRow(row, coutPlaces) {
     let places = []
     for(let i = 0; i < coutPlaces; i++) {
       places.push(
@@ -14,7 +14,10 @@ class Row extends Component {
           price={this.props.price}
           chooseSeat={this.props.chooseSeat}
           occupied={
-            this.props.selectedSeats.includes(`${row},${i + 1},${this.props.price}`).toString()
+            this.props.selectedSeats.find(ticket => 
+              ticket.row === row && 
+              ticket.seat === i+1 && 
+              ticket.price === this.props.price) ? 'true' : 'false'
           }
           key={`${i + 1}${row}`}
         />
