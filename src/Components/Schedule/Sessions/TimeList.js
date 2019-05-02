@@ -10,18 +10,18 @@ class TimeList extends React.Component {
     return (
       <div className="time-list">
         {sortTime(getTimesByMovieAndDateAndCinema(movie, date, cinema, sessionsList)).map(
-          time =>
+          session =>
             <Link to={{ pathname: `/hall/`+
               `${movie}/`+
               `${cinema}/`+
-              `${time.hall}/`+
+              `${session.hall}/`+
               `${date}/`+
-              `${time.time}`
+              `${session.time}`
             }} 
-              key={time.id}
+              key={session.id}
             >
-              <span className="movie-time" title={time.hall}>
-              {time.time}
+              <span className="movie-time" title={session.hall}>
+              {session.time}
               </span>
             </Link>)}
       </div>
