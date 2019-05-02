@@ -6,10 +6,10 @@
     justify-content: center;
     align-items: center;
     padding: 5px;
-    width:20px;
+    width: 20px;
     height: 18px;
     border-radius: 0 5px;
-    font-family:  Brush Script MT, Brush Script Std, cursive; 
+    font-family: Brush Script MT, Brush Script Std, cursive; 
     margin-right: 10px;
     margin-bottom: 10px;
     line-height: initial;
@@ -22,25 +22,30 @@
     -ms-user-select: none; 
     user-select: none;
 }
+
 .occupied-false {
-    background-color:  $light-blue;
+    background-color: $light-blue;
 }
+
 .occupied-true {
     background-color: $dark-blue ;
 }
+
 .seat:hover {
     background-color: $indigo;
     cursor: pointer;
 }
+
 .row{
     display: flex;
     justify-content: space-between;   
 }
+
 .row__left-number, .row__right-number {
     font-weight: bold;
     cursor: default;
     color: $dark-blue;
-    font-family:  Brush Script MT, Brush Script Std, cursive;
+    font-family: Brush Script MT, Brush Script Std, cursive;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,15 +56,19 @@
     -ms-user-select: none; 
     user-select: none;
 }
+
 .row__left-number {
     margin-left: 50px;
 }
+
 .row__right-number {
     margin-right: 50px;
 }
+
 .rows-list {
     margin-top: 50px;
 }
+
 a {
     text-decoration: none;
 }

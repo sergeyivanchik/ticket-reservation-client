@@ -9,56 +9,62 @@
     margin-bottom: 20px;
     background-color: $milk;
 }
+
 .ticket__info {
     display: flex;
     flex-direction: column;
 }
+
 .ticket__cinema {
-    font-family:  Brush Script MT, Brush Script Std, cursive;
+    font-family: Brush Script MT, Brush Script Std, cursive;
     font-size: 55px;
     font-weight: bold;
     color: $medium-blue;
-    display:flex;
-    height:60px;
+    display: flex;
+    height: 60px;
     width: 630px;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
+
 .ticket__movie {
     font-family: Snell Roundhand, cursive;
     font-size: 20px;
     color: $medium-blue;
-    display:flex;
-    height:60px;
+    display: flex;
+    height: 60px;
     width: 630px;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
+
 .ticket__date {
     font-family: Snell Roundhand, cursive;
     font-size: 20px;
     color: $medium-blue;
-    display:flex;
-    height:40px;
+    display: flex;
+    height: 40px;
     width: 630px;
-    align-items:center;
+    align-items: center;
     justify-content: space-around;
 }
+
 .ticket__seat {
-    display:flex;
-    height:40px;
+    display: flex;
+    height: 40px;
     width: 630px;
-    align-items:center;
+    align-items: center;
     justify-content: space-evenly;
     font-family: Snell Roundhand, cursive;
     font-size: 20px;
     color: $medium-blue;
 }
+
 .ticket__control {
-    display:flex;
+    display: flex;
     border-left: 2px dashed $white;
-    align-items:center;
-    align-self:flex-end;
+    align-items: center;
+    align-self: flex-end;
     width: 70px;
     height: 200px;
     background-color: $medium-blue;
@@ -66,10 +72,12 @@
     font-size: 20px;
     color: $white;
 }
+
 .ticket__choice {
     font-size: 25px;
     font-weight: bold;
 }
+
 .ticket__text-control {
     -webkit-transform: rotate(-90deg); 
     -moz-transform: rotate(-90deg); 
