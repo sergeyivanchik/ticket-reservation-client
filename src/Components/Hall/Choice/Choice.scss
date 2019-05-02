@@ -1,10 +1,11 @@
+@import '../../variables.scss';
+
+
 .choice {
     display: flex;
-    //width: 150px;
-   // flex-wrap: wrap;
 }
 .choice__place {
-    border : 1px solid #00bcd4;
+    border : 1px solid $light-blue;
     border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -13,7 +14,7 @@
     width :120px;
     margin-right: 5px;
     display: flex;
-    color:#0d47a1;
+    color:$blue;
     cursor: pointer;
     -webkit-touch-callout: none; 
     -webkit-user-select: none; 
@@ -23,6 +24,6 @@
     user-select: none;
 }
 .choice__place:hover{
-    color: #00bcd4;
-    border : 1px solid #0d47a1;
+    color: $light-blue;
+    border : 1px solid $blue;
 }

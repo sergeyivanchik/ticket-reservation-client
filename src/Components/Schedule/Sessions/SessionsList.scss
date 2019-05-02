@@ -1,3 +1,6 @@
+@import '../../variables.scss';
+
+
 .sessions-list {
     margin-top: 70px;
     display: flex;
@@ -5,13 +8,12 @@
 }
 .session-date {
     width: 300px;
-    //width : 19%;
     display: flex;
     flex-wrap:wrap;
     margin-left: 56px;
-    color:#1976d2;
+    color: $medium-blue;
     font-weight: bold;
-    font-family:  Brush Script MT, Brush Script Std, cursive;
+    font-family: Brush Script MT, Brush Script Std, cursive;
     font-size: 40px;
 }
 .session-date:hover {
@@ -21,16 +23,14 @@
 	width:1125px;
 	display:flex;
 	margin-left:330px;
-	//border: 1px solid green;	
 }
 .cinema-info {
     font-family:  Brush Script MT, Brush Script Std, cursive;
-    color:#2194E0;
+    color: $bright-blue;
     font-size: 40px;
 	display:flex;
     width:50%;
     padding-bottom:20px;
-	// border: 1px solid coral;
 }
 .cinema-info span {
     margin-left: 50%;
@@ -38,11 +38,10 @@
 }
 .cinema-info :hover {
     cursor: pointer;
-    color:#1976d2;
+    color: $medium-blue;
     font-size: 45px;
 }
 .time-list {
-	// border: 1px solid red;
     width:50%;
     margin-bottom: 30px;
 }
@@ -51,22 +50,22 @@
     border-radius: 10px;
     font-size: 20px;
     display: inline-block;
-    border: 1px solid #2194E0;
+    border: 1px solid $bright-blue;
     padding: 5px 0px;
     width: 60px;
     text-align: center;
     margin-right: 10px;
     margin-bottom: 5px;
     line-height: initial;
-    color: rgb(92, 170, 223);
+    color: $bright-blue;
 }
 .movie-time:hover {
-    border-color: transparent;
-    color: #1976d2;
+    border-color: $transparent;
+    color: $medium-blue;
 }
 .no-sessions {
     font-family: Trattatello, fantasy;
-    color:#2194E0;
+    color: $bright-blue;
     font-size: 50px;
     display:flex;
     margin-top: 100px;

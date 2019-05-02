@@ -1,20 +1,23 @@
+@import '../variables.scss';
+
+
 .ticket {
-    display:flex;
-    height:200px;
+    display: flex;
+    height: 200px;
     width: 700px;
-    border: 2px solid #1976d2;   
+    border: 2px solid $medium-blue;   
     margin-bottom: 20px;
-    background-color: #e6f7f7;
+    background-color: $milk;
 }
 .ticket__info {
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 .ticket__cinema {
     font-family:  Brush Script MT, Brush Script Std, cursive;
     font-size: 55px;
     font-weight: bold;
-    color:#1976d2;
+    color: $medium-blue;
     display:flex;
     height:60px;
     width: 630px;
@@ -24,7 +27,7 @@
 .ticket__movie {
     font-family: Snell Roundhand, cursive;
     font-size: 20px;
-    color:#1976d2;
+    color: $medium-blue;
     display:flex;
     height:60px;
     width: 630px;
@@ -34,7 +37,7 @@
 .ticket__date {
     font-family: Snell Roundhand, cursive;
     font-size: 20px;
-    color:#1976d2;
+    color: $medium-blue;
     display:flex;
     height:40px;
     width: 630px;
@@ -49,28 +52,28 @@
     justify-content: space-evenly;
     font-family: Snell Roundhand, cursive;
     font-size: 20px;
-    color:#1976d2;
+    color: $medium-blue;
 }
 .ticket__control {
     display:flex;
-    border-left: 2px dashed white;
+    border-left: 2px dashed $white;
     align-items:center;
     align-self:flex-end;
     width: 70px;
     height: 200px;
-    background-color: #1976d2;
+    background-color: $medium-blue;
     font-family: Snell Roundhand, cursive;
     font-size: 20px;
-    color:white;
+    color: $white;
 }
 .ticket__choice {
     font-size: 25px;
     font-weight: bold;
 }
 .ticket__text-control {
-    -webkit-transform: rotate(-90deg); //Chrome, Safari
-    -moz-transform: rotate(-90deg); //Firefox
-    -o-transform: rotate(-90deg); //Opera
-    -ms-transform: rotate(-90deg); //IE
-    transform: rotate(-90deg); //браузеры без префексов
+    -webkit-transform: rotate(-90deg); 
+    -moz-transform: rotate(-90deg); 
+    -o-transform: rotate(-90deg); 
+    -ms-transform: rotate(-90deg); 
+    transform: rotate(-90deg); 
 }

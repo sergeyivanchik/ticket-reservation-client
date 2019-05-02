@@ -10,7 +10,7 @@ class DateList extends React.Component {
     return (
       <div className="session">
         <div className="session-date">
-          <span className="movie-date">{date}</span>
+          <span>{date}</span>
         </div> 
           {getCinemasByMovieAndDate(movie, date, sessionsList).map(cinema =>
             <CinemaList

@@ -1,17 +1,20 @@
+@import '../../variables.scss';
+
+
 .signin-form__title {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
     font-size: 30px;
-    color: #03a9f4;
+    color: $light-blue;
     font-weight: bold;
 }
 .signin-form {
     display: flex;
     width: 300px;
     height:450px;
-    border: 1px solid #03a9f4;
+    border: 1px solid $light-blue;
     border-radius: 10px;
     justify-content: center;
     margin-right: auto;
@@ -20,13 +23,13 @@
     align-items:center;
 }
 input[type="text"] {
-    border: 1px solid #e1f5fe;
+    border: 1px solid $milk;
     height: 30px;
     font-size: 20px;
     display: flex;
     text-align: center;
     justify-content: center;
-    background-color: #e1f5fe;
+    background-color: $milk;
     width:100%;
     margin-bottom: 30px;
  }
@@ -39,8 +42,8 @@ input[type="text"] {
  input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
  input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
  input[type="text"]:focus {
-    color: #000000;
-    border: 1px solid#78909c;
+    color: $black;
+    border: 1px solid $grey;
     outline: none;
   }
   input[type="submit"] {
@@ -50,15 +53,15 @@ input[type="text"] {
     display: flex;
     text-align: center;
     justify-content: center;
-    background-color: #03a9f4;
-    border: 1px solid #03a9f4;
-    color: #0d47a1;
+    background-color: $light-blue;
+    border: 1px solid $light-blue;
+    color: $blue;
     font-weight: bold;
   }
   input[type="submit"]:hover {
     font-weight: bold;
-    border: 1px solid #0d47a1;
-    background-color: #0d47a1;
-    color: #03a9f4;
+    border: 1px solid $blue;
+    background-color: $blue;
+    color: $light-blue;
     cursor: pointer;
   }

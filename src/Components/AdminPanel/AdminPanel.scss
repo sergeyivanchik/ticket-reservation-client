@@ -1,3 +1,6 @@
+@import '../variables.scss';
+
+
 .admin-panel__tabs-content {
     width:500px;
     height:400px;
@@ -25,11 +28,11 @@
     align-items: center;
 }
 .admin-panel__tabs li a{
-    color: blue;
+    color: $blue;
 }
 .admin-panel__tabs li a:active {
     font-size: 30px;
-    color: blue;
+    color: $blue;
 }
 .admin-panel li{
     list-style-type: none;

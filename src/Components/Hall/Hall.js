@@ -42,7 +42,7 @@ class Hall extends React.Component {
         }}>
           <button
             className='123'
-            disabled={(this.props.selectedSeats.length>6 || this.props.selectedSeats.length === 0) ? true : false}
+            disabled={(this.props.selectedSeats.length > 6 || this.props.selectedSeats.length === 0) ? true : false}
           >
             Buy
           </button>

@@ -14,11 +14,11 @@ class SelectedMovie extends React.Component {
           className="selected-movie__poster"
         >
         </img>
-        <div className="selected-movie__description">
-          <p className="selected-movie__movie-title">
+        <div className="selected-movie__info">
+          <p className="selected-movie__title">
             {movie.name}
           </p>
-          <p className="selected-movie__movie-info">
+          <p className="selected-movie__description">
           {movie.description}
           </p>
         </div>

@@ -9,12 +9,12 @@ class Card extends React.Component {
   return (
     <div className="card">
       <img
-        className="card__img"
+        className="card__poster"
         src={card.poster}
         title={card.name}
         alt={card.name}>
       </img>
-      <div className="card__movie">
+      <div className="card__tittle">
         {card.name}
       </div>
         <div className="card__wrapper-button">
