@@ -5,6 +5,7 @@ import { getCinemasAsync } from '../../actions/cinemas.js';
 import { getMoviesAsync } from '../../actions/movies.js';
 import TicketList from '../Ticket/TicketList.js';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
+import Loader from '../Loader/Loader.js';
 
 class ConfirmTickets extends React.Component {
   componentDidMount() {
@@ -14,8 +15,8 @@ class ConfirmTickets extends React.Component {
 
   render() {
     return (
-      this.props.allCinemas.length && 
-      this.props.allMovies.length &&
+      !this.props.allCinemas.length || !this.props.allMovies.length ?
+      <Loader/> :
       <div>
         <TopNavBar/>
         <TicketList 

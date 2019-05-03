@@ -10,6 +10,7 @@ import './Hall.scss';
 
 class Hall extends React.Component {
   render() { 
+    const countOfTickets = 10;
     return (
       <div className="hall">
         <SeatsList
@@ -30,8 +31,8 @@ class Hall extends React.Component {
           )}
         </div>
         <div>
-            Cost :{this.props.selectedSeats.reduce(function(sum, price) {
-            return sum + (+price) }, 0)} руб
+            Cost: {this.props.selectedSeats.reduce(function(sum, ticket) {
+            return sum + (+ticket.price) }, 0)} руб
         </div>
         <Link to={{ pathname: `/confirm-ticket/`+
           `${this.props.movie}/`+
@@ -42,7 +43,7 @@ class Hall extends React.Component {
         }}>
           <button
             className='buy'
-            disabled={(this.props.selectedSeats.length > 6 || this.props.selectedSeats.length === 0) ? true : false}
+            disabled={(this.props.selectedSeats.length > countOfTickets || this.props.selectedSeats.length === 0) ? true : false}
           >
             Buy
           </button>

@@ -6,6 +6,7 @@ import Hall from '../Hall/Hall.js';
 import { getHallsByCinemaAsync } from '../../actions/halls.js';
 import { getTicketsAsync } from '../../actions/tickets.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
+import Loader from '../Loader/Loader.js';
 
 
 class Seats extends React.Component {
@@ -16,7 +17,8 @@ class Seats extends React.Component {
 
   render() {
     return (
-      this.props.allSelectedSeats.length && this.props.allCinemas.length && 
+      !this.props.allSelectedSeats.length || !this.props.allCinemas.length ?
+      <Loader/> : 
       <div className="choose-seats">
         <TopNavBar/>
         <Hall

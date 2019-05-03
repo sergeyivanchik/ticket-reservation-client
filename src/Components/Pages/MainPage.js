@@ -6,6 +6,7 @@ import Searchs from '../Search/Search.js';
 import CardList from '../CardList/CardList.js';
 import { getMoviesAsync } from '../../actions/movies.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
+import Loader from '../Loader/Loader.js';
 
 
 class MainPage extends React.Component {
@@ -16,8 +17,8 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      this.props.allMovies.length && 
-      this.props.allCinemas.length &&
+      !this.props.allMovies.length || !this.props.allCinemas.length ? 
+      <Loader/> :
       <div className = "main-page">
         <TopNavBar/>
         <Searchs movies={this.props.allMovies} cinemas={this.props.allCinemas}/>

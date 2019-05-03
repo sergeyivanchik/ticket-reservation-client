@@ -6,6 +6,7 @@ import Schedule from '../Schedule/Schedule.js';
 import { getTicketsAsync } from '../../actions/tickets.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
+import Loader from '../Loader/Loader.js'; 
 
 
 class MovieProfile extends React.Component {
@@ -16,9 +17,8 @@ class MovieProfile extends React.Component {
   }
   render() {
     return (
-        this.props.allSelectedSeats && 
-        this.props.movieById &&
-        this.props.allCinemas &&
+        !this.props.allSelectedSeats || !this.props.movieById || !this.props.allCinemas ?
+        <Loader/> :
         <div className="choose-session">
         <TopNavBar/>
         <Schedule
