@@ -9,7 +9,6 @@ class SessionsList extends React.Component {
   render() {
     const { movie, sessionsList, cinemasList } = this.props;
     return (
-      getDatesByMovie(movie.id, sessionsList).length > 0 ? 
       <div className="sessions-list">
         {getDatesByMovie(movie.id, sessionsList).map(date =>
           <DateList
@@ -21,10 +20,7 @@ class SessionsList extends React.Component {
           />
         ) 
       }  
-      </div> :
-      <div className="no-sessions">
-        There are no sessions for this movie!
-      </div>
+      </div> 
     )
   }
 }

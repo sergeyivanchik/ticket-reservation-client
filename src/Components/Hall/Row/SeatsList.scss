@@ -21,6 +21,11 @@
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
+
+    &:hover {
+        background-color: $indigo;
+        cursor: pointer;
+    }
 }
 
 .occupied-false {
@@ -29,11 +34,6 @@
 
 .occupied-true {
     background-color: $dark-blue ;
-}
-
-.seat:hover {
-    background-color: $indigo;
-    cursor: pointer;
 }
 
 .row{

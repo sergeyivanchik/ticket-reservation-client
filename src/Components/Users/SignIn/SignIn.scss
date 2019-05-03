@@ -1,16 +1,6 @@
 @import '../../variables.scss';
 
 
-.signin-form__title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-    font-size: 30px;
-    color: $light-blue;
-    font-weight: bold;
-}
-
 .signin-form {
     display: flex;
     width: 300px;
@@ -22,6 +12,16 @@
     margin-left: auto;
     font-weight: bold;
     align-items: center;
+
+    &__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+      font-size: 30px;
+      color: $light-blue;
+      font-weight: bold;
+  }
 }
 input[type="text"] {
     border: 1px solid $milk;
@@ -33,40 +33,40 @@ input[type="text"] {
     background-color: $milk;
     width: 100%;
     margin-bottom: 30px;
+
+    &:focus {
+      color: $black;
+      border: 1px solid $grey;
+      outline: none;
+    }
  }
 
- input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
- input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
- input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
- input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
- input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
- input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
- input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
- input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: $light-blue;
+  border: 1px solid $light-blue;
+  color: $blue;
+  font-weight: bold;
 
- input[type="text"]:focus {
-    color: $black;
-    border: 1px solid $grey;
-    outline: none;
-  }
-
-  input[type="submit"] {
-    width: 100%;
-    height: 40px;
-    font-size: 20px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    background-color: $light-blue;
-    border: 1px solid $light-blue;
-    color: $blue;
-    font-weight: bold;
-  }
-  
-  input[type="submit"]:hover {
+  &:hover {
     font-weight: bold;
     border: 1px solid $blue;
     background-color: $blue;
     color: $light-blue;
     cursor: pointer;
   }
+}
+
+input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}

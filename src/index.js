@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './App'
 import allReducers from './redusers';
-import './index.css'
+import './index.scss'
 
 
 const store = createStore (allReducers, composeWithDevTools(applyMiddleware(thunk)))

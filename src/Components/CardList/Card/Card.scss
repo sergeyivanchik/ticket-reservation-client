@@ -29,57 +29,58 @@
       font-family: Brush Script MT, Brush Script Std, cursive; 
       cursor: default; 
     }
-  }
 
-    @keyframes sheen {
-        0% {
-          transform: skewY(-45deg) translateX(0);
-        }
-        100% {
-          transform: skewY(-45deg) translateX(12.5em);
-        }
+    &__wrapper-button {
+      transform: translate(-50%, -50%);
+      margin-left: 66px;
+      margin-top: 20px;
+    }
+
+    &__button {
+      padding: .1em 3.855em;
+      text-align: center;
+      text-decoration: none;
+      color: $bright-blue;
+      border: 2px solid $bright-blue;
+      font-size: 20px;
+      display: inline-block;
+      border-radius: 0.3em;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+      overflow: hidden;
+
+      &:before {
+        content: "";
+        background-color: $grey;
+        height: 100%;
+        width: 3em;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -4.5em;
+        transform: skewX(-45deg) translateX(0);
+        transition: none;
       }
       
-      .card__wrapper-button {
-        transform: translate(-50%, -50%);
-        margin-left: 66px;
-        margin-top: 20px;
-      }
-      .card__button {
-        padding: .1em 3.855em;
-        text-align: center;
-        text-decoration: none;
-        color: $bright-blue;
-        border: 2px solid $bright-blue;
-        font-size: 20px;
-        display: inline-block;
-        border-radius: 0.3em;
-        transition: all 0.2s ease-in-out;
-        position: relative;
-        overflow: hidden;
+      &:hover {
+        background-color: $bright-blue;
+        color: $white;
+        border-bottom: 4px solid darken($bright-blue, 10%);
 
         &:before {
-          content: "";
-          background-color: $grey;
-          height: 100%;
-          width: 3em;
-          display: block;
-          position: absolute;
-          top: 0;
-          left: -4.5em;
-          transform: skewX(-45deg) translateX(0);
-          transition: none;
-        }
-        
-        &:hover {
-          background-color: $bright-blue;
-          color: $white;
-          border-bottom: 4px solid darken($bright-blue, 10%);
-
-          &:before {
-            transform: skewX(-45deg) translateX(13.5em);
-            transition: all 0.5s ease-in-out;
-          }
+          transform: skewX(-45deg) translateX(13.5em);
+          transition: all 0.5s ease-in-out;
         }
       }
+    }
+  }
+
+  @keyframes sheen {
+    0% {
+      transform: skewY(-45deg) translateX(0);
+    }
+    100% {
+      transform: skewY(-45deg) translateX(12.5em);
+    }
+  }
 }
