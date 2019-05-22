@@ -26,43 +26,43 @@
         background-color: $indigo;
         cursor: pointer;
     }
-}
+    
+    &_occupied-false {
+        background-color: $light-blue;
+    }
 
-.occupied-false {
-    background-color: $light-blue;
-}
-
-.occupied-true {
-    background-color: $dark-blue ;
+    &_occupied-true {
+        background-color: $dark-blue ;
+    }
 }
 
 .row{
     display: flex;
-    justify-content: space-between;   
-}
+    justify-content: space-between;
+    
+    &__number {
+        font-weight: bold;
+        cursor: default;
+        color: $dark-blue;
+        font-family: Brush Script MT, Brush Script Std, cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-touch-callout: none; 
+        -webkit-user-select: none; 
+        -khtml-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none;
 
-.row__left-number, .row__right-number {
-    font-weight: bold;
-    cursor: default;
-    color: $dark-blue;
-    font-family: Brush Script MT, Brush Script Std, cursive;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none;
-}
-
-.row__left-number {
-    margin-left: 50px;
-}
-
-.row__right-number {
-    margin-right: 50px;
+        &_left {
+            margin-left: 50px;
+        }
+        
+        &_right {
+            margin-right: 50px;
+        }
+    }
 }
 
 .rows-list {

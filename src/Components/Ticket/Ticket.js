@@ -28,45 +28,38 @@ class Ticket extends React.Component {
                         {cinema}
                     </div>
                     <div className="ticket__movie">
-                        <span>Movie:
+                        Movie :
                             <span className="ticket__choice">
                                 {movie}
                             </span>
-                        </span>
                     </div>
                     <div className="ticket__date">
-                        <span>Date :
+                        Date :
                             <span className="ticket__choice">
                                 {date}
                             </span>
-                        </span>
-                        <span>Time :
+                        Time :
                             <span className="ticket__choice">
                                 {time}
                             </span>
-                        </span>
                     </div>
                     <div className="ticket__seat">
-                        <span>Hall :
+                        Hall :
                             <span className="ticket__choice">
                                 {hall}
                             </span>
-                        </span>
-                        <span>Row :
+                        Row :
                             <span className="ticket__choice">
                                 {row}
                             </span>
-                        </span>
-                        <span>Seat :
+                        Seat :
                             <span className="ticket__choice">
                                 {seat}
                             </span>
-                        </span>
-                        <span>Price :
+                        Price :
                             <span className="ticket__choice">
                                 {price}
                             </span>
-                        </span>
                     </div>
                 </div>
                 <div className="ticket__control">

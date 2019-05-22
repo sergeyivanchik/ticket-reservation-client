@@ -8,7 +8,7 @@ class TimeList extends React.Component {
   render() {
     const { movie, date, cinema, sessionsList } = this.props;
     return (
-      <div className="time-list">
+      <div className="times-list">
         {sortTime(getTimesByMovieAndDateAndCinema(movie, date, cinema, sessionsList)).map(
           session =>
             <Link to={{ pathname: `/hall/`+
@@ -20,7 +20,7 @@ class TimeList extends React.Component {
             }} 
               key={session.id}
             >
-              <span className="movie-time" title={session.hall}>
+              <span className="times-list__movie-time" title={session.hall}>
               {session.time}
               </span>
             </Link>)}

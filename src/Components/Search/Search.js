@@ -12,8 +12,8 @@ class Searchs extends React.Component {
 
   render() {
     return (
-      <div>
-      <select>
+      <div className="search">
+      <select className="search__cinema">
       <option
         value=""
         selected
@@ -22,7 +22,7 @@ class Searchs extends React.Component {
         Please choose cinema
       </option>
       </select>
-      <select>
+      <select className="search__movie">
       <option
         value=""
         selected
@@ -31,7 +31,7 @@ class Searchs extends React.Component {
         Please choose movie
       </option>
       </select>
-      <button>Search</button>
+      <button className="search__button">Search</button>
       </div>
     )
   }

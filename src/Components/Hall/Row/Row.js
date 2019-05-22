@@ -31,13 +31,13 @@ class Row extends Component {
     return (
       this.props.amountOfSeats.length &&
       <div className="row">
-        <div className="row__left-number" title={`row ${row}`}>
+        <div className="row__number row__number_left" title={`row ${row}`}>
           {row}
         </div>
         <div className="row__seats-list">
           {this.CreateRow(row, seats)}
         </div>
-        <div className="row__right-number" title={`row ${row}`}>
+        <div className="row__number row__number_right" title={`row ${row}`}>
           {row}
         </div>
       </div>

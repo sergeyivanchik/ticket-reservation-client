@@ -17,7 +17,7 @@ class ConfirmTickets extends React.Component {
     return (
       !this.props.allCinemas.length || !this.props.allMovies.length ?
       <Loader/> :
-      <div>
+      <div className="confirm-ticket">
         <TopNavBar/>
         <TicketList 
           selectedSeats={this.props.selectedSeats}

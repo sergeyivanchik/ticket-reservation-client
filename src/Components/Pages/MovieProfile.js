@@ -19,7 +19,7 @@ class MovieProfile extends React.Component {
     return (
         !this.props.allSelectedSeats || !this.props.movieById || !this.props.allCinemas ?
         <Loader/> :
-        <div className="choose-session">
+        <div className="movie-profile">
         <TopNavBar/>
         <Schedule
           movie={this.props.movieById}

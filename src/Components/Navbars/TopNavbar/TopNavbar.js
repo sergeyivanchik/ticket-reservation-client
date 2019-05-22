@@ -15,10 +15,10 @@ function TopNavBar() {
     <div className="top-navbar">
       <AppBar  position="static">
         <Toolbar>
-          <IconButton className="menu" color="inherit" aria-label="Menu">
+          <IconButton className="top-navbar__menu" color="inherit" aria-label="Menu">
             <Link to="/admin-page"><MenuIcon /></Link>
           </IconButton>
-          <Typography variant="h6" color="inherit" className="typography">
+          <Typography variant="h6" color="inherit" className="top-navbar__typography">
             <Link to="/">Cinema</Link>
           </Typography>
           <Link to="/login">

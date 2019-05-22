@@ -7,68 +7,71 @@
     flex-wrap: wrap;
 }
 
-.session-date {
-    width: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 56px;
-    color: $medium-blue;
-    font-weight: bold;
-    font-family: Brush Script MT, Brush Script Std, cursive;
-    font-size: 40px;
-
-    &:hover {
-        cursor: pointer;
+.dates-list {
+    &__date {
+        width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 56px;
+        color: $medium-blue;
+        font-weight: bold;
+        font-family: Brush Script MT, Brush Script Std, cursive;
+        font-size: 40px;
+    
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
-.session-info{
+.cinemas-list{
 	width: 1125px;
 	display: flex;
-	margin-left: 330px;
-}
+    margin-left: 330px;
+    
+    &__cinema-info {
+        font-family: Brush Script MT, Brush Script Std, cursive;
+        color: $bright-blue;
+        font-size: 40px;
+        display: flex;
+        width: 50%;
+        padding-bottom: 20px;
+    }
 
-.cinema-info {
-    font-family: Brush Script MT, Brush Script Std, cursive;
-    color: $bright-blue;
-    font-size: 40px;
-	display: flex;
-    width: 50%;
-    padding-bottom: 20px;
-}
-
-.cinema-info span {
-    margin-left: 50%;
-    margin-right: 50%;
-
-    &:hover {
-        cursor: pointer;
-        color: $medium-blue;
-        font-size: 45px;
+    &__cinema-title {
+        margin-left: 50%;
+        margin-right: 50%;
+    
+        &:hover {
+            cursor: pointer;
+            color: $medium-blue;
+            font-size: 45px;
+        }
     }
 }
 
-.time-list {
+.times-list {
     width: 50%;
     margin-bottom: 30px;
+
+    &__movie-time {
+        font-family: Trattatello, fantasy;
+        border-radius: 10px;
+        font-size: 20px;
+        display: inline-block;
+        border: 1px solid $bright-blue;
+        padding: 5px 0px;
+        width: 60px;
+        text-align: center;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        line-height: initial;
+        color: $bright-blue;
+    
+        &:hover {
+        border-color: $transparent;
+        color: $medium-blue;
+    }
+    }
 }
 
-.movie-time {
-    font-family: Trattatello, fantasy;
-    border-radius: 10px;
-    font-size: 20px;
-    display: inline-block;
-    border: 1px solid $bright-blue;
-    padding: 5px 0px;
-    width: 60px;
-    text-align: center;
-    margin-right: 10px;
-    margin-bottom: 5px;
-    line-height: initial;
-    color: $bright-blue;
-
-    &:hover {
-    border-color: $transparent;
-    color: $medium-blue;
-}
-}

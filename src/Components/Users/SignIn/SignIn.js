@@ -18,7 +18,7 @@ class SignIn extends React.Component {
           />
           <input
             type="text"
-            className="signin-form__name"
+            className="signin-form__login"
             placeholder="login"
             required
           />

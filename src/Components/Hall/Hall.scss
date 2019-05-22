@@ -1,9 +1,11 @@
-.hall__choice-list {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.hall__choice {
-    width: 100px;
+.hall {
+    &__choice-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    &__choice {
+        width: 100px;
+    }
 }
 

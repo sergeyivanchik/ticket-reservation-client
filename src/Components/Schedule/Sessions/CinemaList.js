@@ -7,9 +7,9 @@ class CinemaList extends React.Component {
   render() {
     const { cinema, date, sessionsList, movie, cinemasList } = this.props
     return(
-      <div className="session-info">
-        <div className="cinema-info">
-          <span className="cinema">
+      <div className="cinemas-list">
+        <div className="cinemas-list__cinema-info">
+          <span className="cinemas-list__cinema-title">
             {cinemasList.find(cinemaById => cinemaById.id === cinema).name}
           </span>
         </div>

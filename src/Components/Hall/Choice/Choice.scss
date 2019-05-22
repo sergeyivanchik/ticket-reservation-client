@@ -3,30 +3,32 @@
 
 .choice {
     display: flex;
-}
-
-.choice__place {
-    border : 1px solid $light-blue;
-    border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    justify-content: center;
-    width: 120px;
-    margin-right: 5px;
-    display: flex;
-    color: $blue;
-    cursor: pointer;
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none;
-
-    &:hover{
-        color: $light-blue;
-        border : 1px solid $blue;
+    
+    &__place {
+        border : 1px solid $light-blue;
+        border-radius: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        justify-content: center;
+        width: 120px;
+        margin-right: 5px;
+        display: flex;
+        color: $blue;
+        cursor: pointer;
+        -webkit-touch-callout: none; 
+        -webkit-user-select: none; 
+        -khtml-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none;
+    
+        &:hover{
+            color: $light-blue;
+            border : 1px solid $blue;
+        }
     }
 }
+
+
 

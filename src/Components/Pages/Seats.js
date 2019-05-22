@@ -19,7 +19,7 @@ class Seats extends React.Component {
     return (
       !this.props.allSelectedSeats.length || !this.props.allCinemas.length ?
       <Loader/> : 
-      <div className="choose-seats">
+      <div className="seats">
         <TopNavBar/>
         <Hall
           movie={this.props.match.params.movie}
