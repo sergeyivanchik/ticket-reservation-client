@@ -20,7 +20,7 @@ class ConfirmTickets extends React.Component {
       <div className="confirm-ticket">
         <TopNavBar/>
         <TicketList 
-          selectedSeats={this.props.selectedSeats}
+          selectedTickets={this.props.selectedTickets}
           allMovies={this.props.allMovies}
           allCinemas={this.props.allCinemas}
           date={this.props.match.params.date}
@@ -35,7 +35,7 @@ class ConfirmTickets extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  selectedSeats: store.getTickets.selectedSeats,
+  selectedTickets: store.getTickets.selectedTickets,
   allCinemas: store.getCinemas.allCinemas,
   allMovies: store.getMovies.allMovies
 })

@@ -17,7 +17,7 @@ class Seats extends React.Component {
 
   render() {
     return (
-      !this.props.allSelectedSeats.length || !this.props.allCinemas.length ?
+      !this.props.allSelectedTickets.length || !this.props.allCinemas.length ?
       <Loader/> : 
       <div className="seats">
         <TopNavBar/>
@@ -30,7 +30,7 @@ class Seats extends React.Component {
           hallSeats={this.props.allCinemas.find(cinema => 
             cinema.id === this.props.match.params.cinema).halls.find(hall => 
               hall.name === this.props.match.params.hall).places}
-          seats={this.props.allSelectedSeats}
+          seats={this.props.allSelectedTickets}
         />
       </div>
     )
@@ -39,7 +39,7 @@ class Seats extends React.Component {
 
 const mapStateToProps = store => ({
   allHallsByCinema: store.getHalls.allHallsByCinema,
-  allSelectedSeats: store.getTickets.allSelectedSeats,
+  allSelectedTickets: store.getTickets.allSelectedTickets,
   allCinemas: store.getCinemas.allCinemas
 });
 

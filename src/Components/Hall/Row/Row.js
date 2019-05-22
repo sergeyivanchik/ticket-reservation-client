@@ -14,7 +14,7 @@ class Row extends Component {
           price={this.props.price}
           chooseSeat={this.props.chooseSeat}
           occupied={
-            this.props.selectedSeats.find(ticket => 
+            this.props.selectedTickets.find(ticket => 
               ticket.row === row && 
               ticket.seat === i+1 && 
               ticket.price === this.props.price) ? 'true' : 'false'

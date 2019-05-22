@@ -17,13 +17,13 @@ class MovieProfile extends React.Component {
   }
   render() {
     return (
-        !this.props.allSelectedSeats || !this.props.movieById || !this.props.allCinemas ?
+        !this.props.allSelectedTickets || !this.props.movieById || !this.props.allCinemas ?
         <Loader/> :
         <div className="movie-profile">
         <TopNavBar/>
         <Schedule
           movie={this.props.movieById}
-          sessionsList={this.props.allSelectedSeats}
+          sessionsList={this.props.allSelectedTickets}
           cinemasList={this.props.allCinemas} 
         />
       </div>
@@ -31,7 +31,7 @@ class MovieProfile extends React.Component {
   }
 }
 const mapStateToProps = store => ({
-  allSelectedSeats: store.getTickets.allSelectedSeats,
+  allSelectedTickets: store.getTickets.allSelectedTickets,
   movieById: store.getMovies.movieById,
   allCinemas: store.getCinemas.allCinemas
 });

@@ -6,8 +6,8 @@ import {
 
 
 const initialState = {
-  selectedSeats: [],
-  allSelectedSeats: [],
+  selectedTickets: [],
+  allSelectedTickets: [],
   error: ''
 }
 
@@ -16,7 +16,7 @@ export default function getTickets(state = initialState, action) {
     case GET_TICKETS_SUCCESS:
     {
       return Object.assign({}, state, {
-        allSelectedSeats: action.payload
+        allSelectedTickets: action.payload
       })
     }
 
@@ -29,17 +29,17 @@ export default function getTickets(state = initialState, action) {
 
     case SELECT_TICKET_SUCCESS:
     {
-      const currentTicket = state.selectedSeats.find(ticket => 
+      const currentTicket = state.selectedTickets.find(ticket => 
         action.payload.row === ticket.row &&
         action.payload.seat === ticket.seat &&
         action.payload.price === ticket.price
       )
       const boughtTicket = currentTicket
-      ? state.selectedSeats.filter(ticket => ticket !== currentTicket)
-      : [...state.selectedSeats, action.payload]
+      ? state.selectedTickets.filter(ticket => ticket !== currentTicket)
+      : [...state.selectedTickets, action.payload]
 
       return Object.assign({}, state, {
-        selectedSeats: boughtTicket
+        selectedTickets: boughtTicket
         })
     }
 

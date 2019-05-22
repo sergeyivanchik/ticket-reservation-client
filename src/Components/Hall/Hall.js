@@ -14,14 +14,14 @@ class Hall extends React.Component {
     return (
       <div className="hall">
         <SeatsList
-          selectedSeats={this.props.selectedSeats}
+          selectedTickets={this.props.selectedTickets}
           seats={this.props.seats}
           hallSeats={this.props.hallSeats}
           chooseSeat={this.props.onSelectTicket}
         />
         <label className="hall__choice">Your choice:</label>
         <div className="hall__choice-list">
-          {this.props.selectedSeats.map(selectedSeat =>
+          {this.props.selectedTickets.map(selectedSeat =>
             <Choice
               row={selectedSeat.row}
               seat={selectedSeat.seat}
@@ -31,7 +31,7 @@ class Hall extends React.Component {
           )}
         </div>
         <div>
-            Cost: {this.props.selectedSeats.reduce((sum, ticket) => 
+            Cost: {this.props.selectedTickets.reduce((sum, ticket) => 
              sum + (+ticket.price), 0)} rub
         </div>
         <Link to={{ pathname: `/confirm-ticket/`+
@@ -43,7 +43,7 @@ class Hall extends React.Component {
         }}>
           <button
             className='buy'
-            disabled={(this.props.selectedSeats.length > countOfTickets || this.props.selectedSeats.length === 0) ? true : false}
+            disabled={(this.props.selectedTickets.length > countOfTickets || this.props.selectedTickets.length === 0) ? true : false}
           >
             Buy
           </button>
@@ -55,7 +55,7 @@ class Hall extends React.Component {
 
 const mapStateToProps = store => {
   return ({
-  selectedSeats: store.getTickets.selectedSeats
+  selectedTickets: store.getTickets.selectedTickets
 })}
 
 const mapDispatchToProps = dispatch => ({

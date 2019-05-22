@@ -11,7 +11,7 @@ class SeatsList extends React.Component {
         {this.props.hallSeats.map(hallRow =>
           <Row
             row={hallRow.row}
-            selectedSeats={this.props.selectedSeats}
+            selectedTickets={this.props.selectedTickets}
             amountOfSeats={this.props.seats}
             seats={hallRow.countOfSeats}
             chooseSeat={this.props.chooseSeat}
