@@ -10,7 +10,7 @@ import './Hall.scss';
 
 class Hall extends React.Component {
   render() { 
-    const countOfTickets = 10;
+    const countOfTickets = 6;
     return (
       <div className="hall">
         <SeatsList
@@ -31,8 +31,8 @@ class Hall extends React.Component {
           )}
         </div>
         <div>
-            Cost: {this.props.selectedSeats.reduce(function(sum, ticket) {
-            return sum + (+ticket.price) }, 0)} руб
+            Cost: {this.props.selectedSeats.reduce((sum, ticket) => 
+             sum + (+ticket.price), 0)} rub
         </div>
         <Link to={{ pathname: `/confirm-ticket/`+
           `${this.props.movie}/`+
