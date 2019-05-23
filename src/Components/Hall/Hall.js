@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Choice from './Choice/Choice.js';
 import SeatsList from './Row/SeatsList.js';
 import { selectTicket } from '../../actions/tickets.js';
+import Button from '@material-ui/core/Button';
 import './Hall.scss';
 
 
@@ -41,12 +42,14 @@ class Hall extends React.Component {
           `${this.props.hall}/`+
           `${this.props.time}`
         }}>
-          <button
-            className='buy'
+          <Button 
+            variant="contained" 
+            color="primary"
+            className="hall__button"
             disabled={(this.props.selectedTickets.length > countOfTickets || this.props.selectedTickets.length === 0) ? true : false}
           >
             Buy
-          </button>
+          </Button>
         </Link>
       </div>
     )

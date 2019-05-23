@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
-import Searchs from '../Search/Search.js';
 import CardList from '../CardList/CardList.js';
 import { getMoviesAsync } from '../../actions/movies.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
@@ -21,7 +20,6 @@ class MainPage extends React.Component {
       <Loader/> :
       <div className = "main-page">
         <TopNavBar/>
-        <Searchs movies={this.props.allMovies} cinemas={this.props.allCinemas}/>
         <CardList moviesList={this.props.allMovies}/>
       </div>
     )

@@ -17,7 +17,7 @@ class MovieProfile extends React.Component {
   }
   render() {
     return (
-        !this.props.allSelectedTickets || !this.props.movieById || !this.props.allCinemas ?
+        !this.props.allSelectedTickets.length || !this.props.movieById || !this.props.allCinemas.length ?
         <Loader/> :
         <div className="movie-profile">
         <TopNavBar/>
@@ -26,7 +26,7 @@ class MovieProfile extends React.Component {
           sessionsList={this.props.allSelectedTickets}
           cinemasList={this.props.allCinemas} 
         />
-      </div>
+        </div>
     )
   }
 }

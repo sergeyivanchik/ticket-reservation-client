@@ -27,6 +27,11 @@
         cursor: pointer;
     }
     
+    &:active {
+        background-color: $dark-blue;
+        cursor: pointer;
+    }
+
     &_occupied-false {
         background-color: $light-blue;
     }
