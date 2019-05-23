@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
 import { getHallsByCinemaAsync } from '../../actions/halls.js';
-import { getTicketsAsync } from '../../actions/tickets.js';
+import { getTicketsAsync, selectTicket } from '../../actions/tickets.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import Loader from '../Loader/Loader.js';
 
@@ -31,6 +31,8 @@ class Seats extends React.Component {
             cinema.id === this.props.match.params.cinema).halls.find(hall => 
               hall.name === this.props.match.params.hall).places}
           seats={this.props.allSelectedTickets}
+          selectTicket={this.props.onSelectTicket}
+          selectedTickets={this.props.selectedTickets}
         />
       </div>
     )
@@ -40,7 +42,8 @@ class Seats extends React.Component {
 const mapStateToProps = store => ({
   allHallsByCinema: store.getHalls.allHallsByCinema,
   allSelectedTickets: store.getTickets.allSelectedTickets,
-  allCinemas: store.getCinemas.allCinemas
+  allCinemas: store.getCinemas.allCinemas,
+  selectedTickets: store.getTickets.selectedTickets
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -52,6 +55,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onGetCinemas() {
     return dispatch(getCinemasAsync())
+  },
+  onSelectTicket(ticket) {
+    dispatch(selectTicket(ticket))
   }
 });
 

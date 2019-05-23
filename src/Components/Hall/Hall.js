@@ -1,10 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Choice from './Choice/Choice.js';
 import SeatsList from './Row/SeatsList.js';
-import { selectTicket } from '../../actions/tickets.js';
 import Button from '@material-ui/core/Button';
 import './Hall.scss';
 
@@ -18,7 +16,7 @@ class Hall extends React.Component {
           selectedTickets={this.props.selectedTickets}
           seats={this.props.seats}
           hallSeats={this.props.hallSeats}
-          chooseSeat={this.props.onSelectTicket}
+          chooseSeat={this.props.selectTicket}
         />
         <label className="hall__choice">Your choice:</label>
         <div className="hall__choice-list">
@@ -56,15 +54,4 @@ class Hall extends React.Component {
   }
 }
 
-const mapStateToProps = store => {
-  return ({
-  selectedTickets: store.getTickets.selectedTickets
-})}
-
-const mapDispatchToProps = dispatch => ({
-  onSelectTicket(ticket) {
-    dispatch(selectTicket(ticket))
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Hall);
+export default Hall;
