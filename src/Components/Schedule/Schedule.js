@@ -16,6 +16,7 @@ class Schedule extends React.Component {
           movie={movie}
           sessionsList={sessionsList}
           cinemasList={cinemasList}
+          deleteTickets={this.props.deleteTickets}
         />
       </div>
     )

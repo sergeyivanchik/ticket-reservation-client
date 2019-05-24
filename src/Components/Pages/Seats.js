@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
 import { getHallsByCinemaAsync } from '../../actions/halls.js';
-import { getTicketsAsync, selectTicketSuccess } from '../../actions/tickets.js';
+import { 
+  getTicketsAsync, 
+  selectTicketSuccess
+} from '../../actions/tickets.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import Loader from '../Loader/Loader.js';
 

@@ -3,9 +3,21 @@ import {
   SELECT_TICKET_SUCCESS,
   SELECT_TICKET_FAILURE,
   GET_TICKETS_SUCCESS,
-  GET_TICKETS_FAILURE
+  GET_TICKETS_FAILURE,
+  DELETE_SELECTED_TICKETS_SUCCESS,
+  DELETE_SELECTED_TICKETS_FAILURE
 } from '../constants/tickets.js';
 
+
+export const deleteSelectedTicketsSuccess = () => ({
+  type: DELETE_SELECTED_TICKETS_SUCCESS,
+  payload: []
+})
+
+export const deleteSelectedTicketsFailure = error => ({
+  type: DELETE_SELECTED_TICKETS_FAILURE,
+  payload: error
+})
 
 export const getTicketsSuccess = tickets => ({
   type: GET_TICKETS_SUCCESS,

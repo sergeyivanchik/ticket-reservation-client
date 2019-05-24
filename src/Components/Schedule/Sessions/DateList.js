@@ -19,6 +19,7 @@ class DateList extends React.Component {
               date={date}
               sessionsList={sessionsList}
               cinemasList={cinemasList}
+              deleteTickets={this.props.deleteTickets}
               key={`${movie}${date}${cinema}`}
             />
           )}

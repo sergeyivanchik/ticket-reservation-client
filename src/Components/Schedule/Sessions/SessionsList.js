@@ -17,6 +17,7 @@ class SessionsList extends React.Component {
             sessionsList={sessionsList}
             key={date}
             cinemasList={cinemasList}
+            deleteTickets={this.props.deleteTickets}
           />
         ) 
       }  

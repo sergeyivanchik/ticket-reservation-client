@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { getTicketsAsync } from '../../actions/tickets.js';
+import { getTicketsAsync, deleteSelectedTicketsSuccess } from '../../actions/tickets.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import Loader from '../Loader/Loader.js'; 
@@ -24,7 +24,8 @@ class MovieProfile extends React.Component {
         <Schedule
           movie={this.props.movieById}
           sessionsList={this.props.allSelectedTickets}
-          cinemasList={this.props.allCinemas} 
+          cinemasList={this.props.allCinemas}
+          deleteTickets={this.props.onDeleteTickets}
         />
         </div>
     )
@@ -45,6 +46,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onGetCinemas() {
     dispatch(getCinemasAsync())
+  },
+  onDeleteTickets() {
+    dispatch(deleteSelectedTicketsSuccess())
   }
 });
 

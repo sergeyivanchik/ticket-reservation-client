@@ -18,6 +18,7 @@ class CinemaList extends React.Component {
             cinema={cinema}
             movie={movie}
             sessionsList={sessionsList}
+            deleteTickets={this.props.deleteTickets}
             key={`${date}${cinema}`}
           /> 
       </div>

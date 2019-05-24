@@ -2,7 +2,9 @@ import {
   SELECT_TICKET_SUCCESS,
   SELECT_TICKET_FAILURE,
   GET_TICKETS_SUCCESS,
-  GET_TICKETS_FAILURE
+  GET_TICKETS_FAILURE,
+  DELETE_SELECTED_TICKETS_SUCCESS,
+  DELETE_SELECTED_TICKETS_FAILURE
 } from '../constants/tickets.js';
 
 
@@ -20,6 +22,16 @@ export default function getTickets(state = initialState, action) {
       })
 
     case GET_TICKETS_FAILURE:
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+
+      case DELETE_SELECTED_TICKETS_SUCCESS:
+      return Object.assign({}, state, {
+        selectedTickets: action.payload
+      })
+
+    case DELETE_SELECTED_TICKETS_FAILURE:
       return Object.assign({}, state, {
         error: action.payload
       })

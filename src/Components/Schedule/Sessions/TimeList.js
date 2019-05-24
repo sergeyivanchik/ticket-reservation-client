@@ -5,6 +5,10 @@ import { sortTime, getTimesByMovieAndDateAndCinema } from '../../../functions/in
 
 
 class TimeList extends React.Component {
+  deleteTickets = () => {
+    this.props.deleteTickets();
+  }
+
   render() {
     const { movie, date, cinema, sessionsList } = this.props;
     return (
@@ -19,6 +23,7 @@ class TimeList extends React.Component {
               `${session.time}`
             }} 
               key={session.id}
+              onClick={() => this.deleteTickets()}
             >
               <span className="times-list__movie-time" title={session.hall}>
               {session.time}
