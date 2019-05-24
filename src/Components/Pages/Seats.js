@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
 import { getHallsByCinemaAsync } from '../../actions/halls.js';
-import { getTicketsAsync, selectTicket } from '../../actions/tickets.js';
+import { getTicketsAsync, selectTicketSuccess } from '../../actions/tickets.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import Loader from '../Loader/Loader.js';
 
@@ -57,7 +57,7 @@ const mapDispatchToProps = dispatch => ({
     return dispatch(getCinemasAsync())
   },
   onSelectTicket(ticket) {
-    dispatch(selectTicket(ticket))
+    dispatch(selectTicketSuccess(ticket))
   }
 });
 

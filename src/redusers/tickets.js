@@ -1,5 +1,6 @@
 import {
   SELECT_TICKET_SUCCESS,
+  SELECT_TICKET_FAILURE,
   GET_TICKETS_SUCCESS,
   GET_TICKETS_FAILURE
 } from '../constants/tickets.js';
@@ -14,21 +15,16 @@ const initialState = {
 export default function getTickets(state = initialState, action) {
   switch (action.type) {
     case GET_TICKETS_SUCCESS:
-    {
       return Object.assign({}, state, {
         allSelectedTickets: action.payload
       })
-    }
 
     case GET_TICKETS_FAILURE:
-    {
       return Object.assign({}, state, {
         error: action.payload
       })
-    }
 
-    case SELECT_TICKET_SUCCESS:
-    {
+    case SELECT_TICKET_SUCCESS: {
       const currentTicket = state.selectedTickets.find(ticket => 
         action.payload.row === ticket.row &&
         action.payload.seat === ticket.seat &&
@@ -43,6 +39,12 @@ export default function getTickets(state = initialState, action) {
         })
     }
 
-    default: return state;
+    case SELECT_TICKET_FAILURE:
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+
+    default: 
+      return state;
   }
 }
