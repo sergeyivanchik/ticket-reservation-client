@@ -19,6 +19,17 @@ export const deleteSelectedTicketsFailure = error => ({
   payload: error
 })
 
+export const deleteSelectedTicketsAsync = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(deleteSelectedTicketsSuccess())
+    }
+    catch (error) {
+      dispatch(deleteSelectedTicketsFailure(error))
+    }
+  }
+}
+
 export const getTicketsSuccess = tickets => ({
   type: GET_TICKETS_SUCCESS,
   payload: tickets
