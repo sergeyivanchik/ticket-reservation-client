@@ -50,6 +50,17 @@ export const selectTicketFailure = error => ({
   payload: error
 });
 
+export const selectTicketAsync = data => {
+  return async (dispatch) => {
+    try {
+      dispatch(selectTicketSuccess(data))
+    }
+    catch (error) {
+      dispatch(selectTicketFailure(error))
+    }
+  }
+}
+
 export const getTicketsAsync = () => {
   return async (dispatch) => {
     try {
