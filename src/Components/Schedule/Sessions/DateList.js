@@ -6,7 +6,7 @@ import { getCinemasByMovieAndDate } from '../../../functions/index.js'
 
 class DateList extends React.Component {
   render() {
-    const { date, movie, sessionsList, cinemasList } = this.props
+    const { date, movie, sessionsList, cinemasList } = this.props;
     return (
       <div className="dates-list">
         <div className="dates-list__date">

@@ -10,7 +10,7 @@ class Seat extends Component {
   }
   
   render() {
-    const { row, number, occupied, price } = this.props
+    const { row, number, occupied, price } = this.props;
     return (
       <span 
         onClick={() => this.selectSeat()}

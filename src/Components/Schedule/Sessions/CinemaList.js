@@ -5,7 +5,7 @@ import TimeList from './TimeList.js';
 
 class CinemaList extends React.Component {
   render() {
-    const { cinema, date, sessionsList, movie, cinemasList } = this.props
+    const { cinema, date, sessionsList, movie, cinemasList } = this.props;
     return(
       <div className="cinemas-list">
         <div className="cinemas-list__cinema-info">

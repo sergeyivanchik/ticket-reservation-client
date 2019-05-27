@@ -6,7 +6,6 @@ import MovieProfile from './Components/Pages/MovieProfile.js';
 import Seats from './Components/Pages/Seats.js';
 import SignIn from './Components/Users/SignIn/SignIn.js';
 import LogIn from './Components/Users/LogIn/LogIn.js';
-import AdminPanel from './Components/AdminPanel/AdminPanel.js';
 import ConfirmTickets from './Components/Pages/ConfirmTickets.js';
 import './App.scss';
 
@@ -21,7 +20,6 @@ class App extends Component {
           <Route path="/hall/:movie/:cinema/:hall/:date/:time" component={Seats}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signin" component={SignIn}/>
-          <Route path="/admin-page" component={AdminPanel}/>
           <Route path="/confirm-ticket/:movie/:date/:cinema/:hall/:time" component={ConfirmTickets}/>
         </div>
       </Router>

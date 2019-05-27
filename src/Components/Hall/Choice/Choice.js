@@ -5,7 +5,7 @@ import './Choice.scss';
 
 class Choice extends React.Component {
   render() {
-    const { row, seat, price } = this.props
+    const { row, seat, price } = this.props;
     return (
       <div className="choice">
         <span

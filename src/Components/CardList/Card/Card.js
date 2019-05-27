@@ -5,7 +5,7 @@ import './Card.scss';
 
 class Card extends React.Component {
   render() {
-  const { card } = this.props
+  const { card } = this.props;
   return (
     <div className="card">
       <img

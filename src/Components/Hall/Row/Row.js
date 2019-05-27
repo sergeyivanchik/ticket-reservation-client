@@ -27,7 +27,7 @@ class Row extends Component {
   }
   
   render() {
-    const { row, seats } = this.props
+    const { row, seats } = this.props;
     return (
       this.props.amountOfSeats.length &&
       <div className="row">
