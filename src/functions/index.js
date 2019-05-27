@@ -16,43 +16,43 @@ export const convertDate = date => {
       `${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
 };
 
-export const getCinemasByMovieAndDate = (movie, date, dateMas) => {
+export const getCinemasByMovieAndDate = (movie, date, sessions) => {
   let cinemasByMovie = [];
   let check = 0;
-  for(let i = 0; i < dateMas.length; i++) {
+  for(let i = 0; i < sessions.length; i++) {
     check = 0;
-    if(convertDate(dateMas[i].date) === date && 
-      dateMas[i].movie === movie) {
+    if(convertDate(sessions[i].date) === date && 
+      sessions[i].movie === movie) {
       if(cinemasByMovie.length === 0) {
-        cinemasByMovie.push(dateMas[i].cinema);
+        cinemasByMovie.push(sessions[i].cinema);
       } else {
         for(let j = 0; j < cinemasByMovie.length; j++) {
-          if(cinemasByMovie[j] !== dateMas[i].cinema) 
+          if(cinemasByMovie[j] !== sessions[i].cinema) 
             check ++;
         }
         if (check === cinemasByMovie.length)
-          cinemasByMovie.push(dateMas[i].cinema);
+          cinemasByMovie.push(sessions[i].cinema);
       }
     }			
   }			
   return cinemasByMovie;	
 }
 
-export const getDatesByMovie = (movie, dateMas) => {
+export const getDatesByMovie = (movie, sessions) => {
   let datesByMovie = [];
   let check = 0;
-  for(let i = 0; i < dateMas.length; i++) {
+  for(let i = 0; i < sessions.length; i++) {
     check = 0;
-    if(dateMas[i].movie === movie) {
+    if(sessions[i].movie === movie) {
       if(datesByMovie.length === 0)
-        datesByMovie.push(convertDate(dateMas[i].date));
+        datesByMovie.push(convertDate(sessions[i].date));
       else {
         for (let j = 0; j < datesByMovie.length; j++) {
-          if (datesByMovie[j] !== convertDate(dateMas[i].date))
+          if (datesByMovie[j] !== convertDate(sessions[i].date))
             check++
         }
         if (check === datesByMovie.length)
-          datesByMovie.push(convertDate(dateMas[i].date)); 
+          datesByMovie.push(convertDate(sessions[i].date)); 
       }
     }
   }
@@ -68,17 +68,17 @@ export const getTime = date => {
   return `${hours}.${minutes}`;	
 }
 
-export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, dateMas) => {
+export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, sessions) => {
   let timesByMovie = [];
-  for(let i = 0; i < dateMas.length; i++ )
-    if(convertDate(dateMas[i].date) === date &&
-      cinema === dateMas[i].cinema && 
-      movie === dateMas[i].movie
+  for(let i = 0; i < sessions.length; i++ )
+    if(convertDate(sessions[i].date) === date &&
+      cinema === sessions[i].cinema && 
+      movie === sessions[i].movie
       ) 
       timesByMovie.push({
-        time : getTime(dateMas[i].date), 
-        hall : dateMas[i].hall, 
-        id :dateMas[i].id
+        time : getTime(sessions[i].date), 
+        hall : sessions[i].hall, 
+        id :sessions[i].id
       });
   return timesByMovie;
 }
