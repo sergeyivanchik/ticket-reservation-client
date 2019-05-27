@@ -14,7 +14,6 @@ class Hall extends React.Component {
       <div className="hall">
         <SeatsList
           selectSeats={this.props.selectSeats}
-          seats={this.props.seats}
           hallSeats={this.props.hallSeats}
           chooseSeat={this.props.chooseSeat}
         />

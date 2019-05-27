@@ -12,8 +12,7 @@ class SeatsList extends React.Component {
           <Row
             row={hallRow.row}
             selectSeats={this.props.selectSeats}
-            amountOfSeats={this.props.seats}
-            seats={hallRow.countOfSeats}
+            amountOfSeats={hallRow.countOfSeats}
             chooseSeat={this.props.chooseSeat}
             price={hallRow.cost}
             key={hallRow.row}

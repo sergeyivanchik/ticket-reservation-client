@@ -27,14 +27,14 @@ class Row extends Component {
   }
   
   render() {
-    const { row, seats } = this.props;
+    const { row, amountOfSeats } = this.props;
     return (
       <div className="row">
         <div className="row__number row__number_left" title={`row ${row}`}>
           {row}
         </div>
         <div className="row__seats-list">
-          {this.CreateRow(row, seats)}
+          {this.CreateRow(row, amountOfSeats)}
         </div>
         <div className="row__number row__number_right" title={`row ${row}`}>
           {row}
