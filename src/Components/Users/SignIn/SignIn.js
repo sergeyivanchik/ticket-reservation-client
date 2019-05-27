@@ -8,7 +8,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <div className="signin-form">
-        <form method="get">
+        <form>
           <label className="signin-form__title">Sign in</label>
           <input
             type="text"

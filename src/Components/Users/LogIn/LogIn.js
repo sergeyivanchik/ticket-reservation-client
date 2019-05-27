@@ -8,7 +8,7 @@ class LogIn extends React.Component {
   render() {
     return (
       <div className="login-form">
-        <form method="get">
+        <form>
           <label className="login-form__title">Log in</label>
           <input
             type="text"
