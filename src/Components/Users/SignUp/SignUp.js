@@ -1,44 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './SignIn.scss';
+import './SignUp.scss';
 
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   render() {
     return (
-      <div className="signin-form">
+      <div className="signup-form">
         <form>
-          <label className="signin-form__title">Sign in</label>
+          <label className="signup-form__title">Sign up</label>
           <input
             type="text"
-            className="signin-form__name"
+            className="signup-form__name"
             placeholder="name"
             required
           />
           <input
             type="text"
-            className="signin-form__login"
+            className="signup-form__login"
             placeholder="login"
             required
           />
           <input
             type="text"
-            className="signin-form__password"
+            className="signup-form__password"
             placeholder="password"
             required
           />
           <input
             type="text"
-            className="signin-form__email"
+            className="signup-form__email"
             placeholder="email"
             required
           />
           <Link to="/login">
             <input
               type="submit"
-              className="signin-form__button"
-              value="Sign in"
+              className="signup-form__button"
+              value="Sign up"
             />
           </Link>
         </form>
@@ -47,4 +47,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default SignUp;

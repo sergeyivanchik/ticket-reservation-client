@@ -27,8 +27,8 @@ class LogIn extends React.Component {
               value="Log in"
             />
           </Link>
-          <Link to="/signin">
-            <span className="login-form__signup">Sign in</span>
+          <Link to="/signup">
+            <span className="login-form__signup">Sign up</span>
           </Link>
         </form>
       </div>
