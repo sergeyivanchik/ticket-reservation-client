@@ -10,7 +10,7 @@ class Row extends Component {
       places.push(
         <Seat
           row={row}
-          number={i+1}
+          seat={i+1}
           price={this.props.price}
           chooseSeat={this.props.chooseSeat}
           occupied={
