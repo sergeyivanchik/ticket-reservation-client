@@ -16,6 +16,7 @@
     text-align: center;
     color: $white;
     user-select: none;
+    background-color: $light-blue;
 
     &:hover {
         background-color: $indigo;
@@ -27,11 +28,7 @@
         cursor: pointer;
     }
 
-    &_occupied-false {
-        background-color: $light-blue;
-    }
-
-    &_occupied-true {
+    &_occupied {
         background-color: $dark-blue ;
     }
 }

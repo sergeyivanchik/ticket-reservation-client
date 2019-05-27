@@ -16,7 +16,7 @@ class Seat extends Component {
         onClick={() => this.selectSeat()}
         occupied={occupied}
         price={price}
-        className={`seat seat_occupied-${occupied}`}
+        className={`seat ${occupied ? `seat_occupied` : ``}`}
         title={`row ${row} seat ${number} price ${price}`}
       >
         {number}
