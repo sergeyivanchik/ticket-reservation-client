@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { getSeatsAsync, deleteSelectedSeats } from '../../actions/seats.js';
+import { deleteSelectedSeats } from '../../actions/seats.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
+import { getSessionsAsync } from '../../actions/sessions.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import Loader from '../Loader/Loader.js'; 
 
@@ -12,18 +13,18 @@ import Loader from '../Loader/Loader.js';
 class MovieProfile extends React.Component {
   componentWillMount() {
     this.props.onGetCinemas();
-    this.props.onGetSeats();
+    this.props.onGetSessions();
     this.props.onGetMovieById(this.props.match.params.movie);
   }
   render() {
     return (
-        !this.props.allSelectedSeats.length || !this.props.movieById || !this.props.allCinemas.length ?
+        !this.props.sessionsList.length || !this.props.movieById || !this.props.allCinemas.length ?
         <Loader/> :
         <div className="movie-profile">
           <TopNavBar/>
           <Schedule
             movie={this.props.movieById}
-            sessionsList={this.props.allSelectedSeats}
+            sessionsList={this.props.sessionsList}
             cinemasList={this.props.allCinemas}
             deleteTickets={this.props.onDeleteTickets}
           />
@@ -32,14 +33,14 @@ class MovieProfile extends React.Component {
   }
 }
 const mapStateToProps = store => ({
-  allSelectedSeats: store.getSeats.allSelectedSeats,
+  sessionsList: store.getSessions.sessionsList,
   movieById: store.getMovies.movieById,
   allCinemas: store.getCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetSeats() {
-    dispatch(getSeatsAsync())
+  onGetSessions() {
+    dispatch(getSessionsAsync())
   },
   onGetMovieById(id) {
     dispatch(getMovieByIdAsync(id))
