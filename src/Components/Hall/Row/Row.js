@@ -4,9 +4,9 @@ import Seat from './Seat.js'
 
 
 class Row extends Component {
-  CreateRow(row, coutPlaces) {
+  CreateRow(row, countPlaces) {
     let places = []
-    for(let i = 0; i < coutPlaces; i++) {
+    for(let i = 0; i < countPlaces; i++) {
       places.push(
         <Seat
           row={row}
