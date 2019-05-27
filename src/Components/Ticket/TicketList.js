@@ -6,7 +6,7 @@ import './TicketList.scss';
 class TicketList extends React.Component {
     render() {
         const { 
-            selectedTickets,
+            selectSeats,
             date,
             time,
             hall,
@@ -17,7 +17,7 @@ class TicketList extends React.Component {
         } = this.props;
         return (
             <div className="tickets-list">
-                {selectedTickets.map(ticket =>
+                {selectSeats.map(ticket =>
                     <Ticket
                         row={ticket.row}
                         seat={ticket.seat}

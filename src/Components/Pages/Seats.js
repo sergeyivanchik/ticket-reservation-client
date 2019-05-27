@@ -5,9 +5,9 @@ import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
 import { getHallsByCinemaAsync } from '../../actions/halls.js';
 import { 
-  getTicketsAsync, 
-  selectTicketAsync
-} from '../../actions/tickets.js';
+  getSeatsAsync, 
+  selectSeat
+} from '../../actions/seats.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import Loader from '../Loader/Loader.js';
 
@@ -15,12 +15,12 @@ import Loader from '../Loader/Loader.js';
 class Seats extends React.Component {
   async componentDidMount() {
     await this.props.onGetCinemas();
-    await this.props.onGetTickets();
+    await this.props.onGetSeats();
   }
 
   render() {
     return (
-      !this.props.allSelectedTickets.length || !this.props.allCinemas.length ?
+      !this.props.allSelectedSeats.length || !this.props.allCinemas.length ?
       <Loader/> : 
       <div className="seats">
         <TopNavBar/>
@@ -33,9 +33,9 @@ class Seats extends React.Component {
           hallSeats={this.props.allCinemas.find(cinema => 
             cinema.id === this.props.match.params.cinema).halls.find(hall => 
               hall.name === this.props.match.params.hall).places}
-          seats={this.props.allSelectedTickets}
-          selectTicket={this.props.onSelectTicket}
-          selectedTickets={this.props.selectedTickets}
+          seats={this.props.allSelectedSeats}
+          chooseSeat={this.props.onSelectSeat}
+          selectSeats={this.props.selectSeats}
         />
       </div>
     )
@@ -44,23 +44,23 @@ class Seats extends React.Component {
 
 const mapStateToProps = store => ({
   allHallsByCinema: store.getHalls.allHallsByCinema,
-  allSelectedTickets: store.getTickets.allSelectedTickets,
+  allSelectedSeats: store.getSeats.allSelectedSeats,
   allCinemas: store.getCinemas.allCinemas,
-  selectedTickets: store.getTickets.selectedTickets
+  selectSeats: store.getSeats.selectSeats
 });
 
 const mapDispatchToProps = dispatch => ({
   onGetHallsByCinema(cinemaId) {
     return dispatch(getHallsByCinemaAsync(cinemaId))
   },
-  onGetTickets() {
-    return dispatch(getTicketsAsync())
+  onGetSeats() {
+    return dispatch(getSeatsAsync())
   },
   onGetCinemas() {
     return dispatch(getCinemasAsync())
   },
-  onSelectTicket(ticket) {
-    dispatch(selectTicketAsync(ticket))
+  onSelectSeat(ticket) {
+    dispatch(selectSeat(ticket))
   }
 });
 

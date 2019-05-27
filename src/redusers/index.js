@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import getTickets  from './tickets.js';
+import getSeats  from './seats.js';
 import getCinemas from './cinemas.js';
 import getHalls from './halls.js';
 import getMovies from './movies';
 
 const allReducers = combineReducers ({
-  getTickets,
+  getSeats,
   getCinemas,
   getHalls,
   getMovies

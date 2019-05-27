@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { getTicketsAsync, deleteSelectedTicketsAsync } from '../../actions/tickets.js';
+import { getSeatsAsync, deleteSelectedSeats } from '../../actions/seats.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import Loader from '../Loader/Loader.js'; 
@@ -12,18 +12,18 @@ import Loader from '../Loader/Loader.js';
 class MovieProfile extends React.Component {
   componentWillMount() {
     this.props.onGetCinemas();
-    this.props.onGetTickets();
+    this.props.onGetSeats();
     this.props.onGetMovieById(this.props.match.params.movie);
   }
   render() {
     return (
-        !this.props.allSelectedTickets.length || !this.props.movieById || !this.props.allCinemas.length ?
+        !this.props.allSelectedSeats.length || !this.props.movieById || !this.props.allCinemas.length ?
         <Loader/> :
         <div className="movie-profile">
           <TopNavBar/>
           <Schedule
             movie={this.props.movieById}
-            sessionsList={this.props.allSelectedTickets}
+            sessionsList={this.props.allSelectedSeats}
             cinemasList={this.props.allCinemas}
             deleteTickets={this.props.onDeleteTickets}
           />
@@ -32,14 +32,14 @@ class MovieProfile extends React.Component {
   }
 }
 const mapStateToProps = store => ({
-  allSelectedTickets: store.getTickets.allSelectedTickets,
+  allSelectedSeats: store.getSeats.allSelectedSeats,
   movieById: store.getMovies.movieById,
   allCinemas: store.getCinemas.allCinemas
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetTickets() {
-    dispatch(getTicketsAsync())
+  onGetSeats() {
+    dispatch(getSeatsAsync())
   },
   onGetMovieById(id) {
     dispatch(getMovieByIdAsync(id))
@@ -47,8 +47,8 @@ const mapDispatchToProps = dispatch => ({
   onGetCinemas() {
     dispatch(getCinemasAsync())
   },
-  onDeleteTickets() {
-    dispatch(deleteSelectedTicketsAsync())
+  onDeleteSeats() {
+    dispatch(deleteSelectedSeats())
   }
 });
 

@@ -13,14 +13,14 @@ class Hall extends React.Component {
     return (
       <div className="hall">
         <SeatsList
-          selectedTickets={this.props.selectedTickets}
+          selectSeats={this.props.selectSeats}
           seats={this.props.seats}
           hallSeats={this.props.hallSeats}
-          chooseSeat={this.props.selectTicket}
+          chooseSeat={this.props.chooseSeat}
         />
         <label className="hall__choice">Your choice:</label>
         <div className="hall__choice-list">
-          {this.props.selectedTickets.map(selectedSeat =>
+          {this.props.selectSeats.map(selectedSeat =>
             <Choice
               row={selectedSeat.row}
               seat={selectedSeat.seat}
@@ -30,7 +30,7 @@ class Hall extends React.Component {
           )}
         </div>
         <div>
-            Cost: {this.props.selectedTickets.reduce((sum, ticket) => 
+            Cost: {this.props.selectSeats.reduce((sum, ticket) => 
              sum + ticket.price, 0)} $
         </div>
         <Link to={`/confirm-ticket/${this.props.movie}/${this.props.date}/${this.props.cinema}/${this.props.hall}/${this.props.time}`}>
@@ -38,7 +38,7 @@ class Hall extends React.Component {
             variant="contained" 
             color="primary"
             className="hall__button"
-            disabled={(this.props.selectedTickets.length > countOfTickets || !this.props.selectedTickets.length) ? true : false}
+            disabled={(this.props.selectSeats.length > countOfTickets || !this.props.selectSeats.length) ? true : false}
           >
             Buy
           </Button>
