@@ -33,13 +33,13 @@ class Hall extends React.Component {
             Cost: {this.props.selectedTickets.reduce((sum, ticket) => 
              sum + (+ticket.price), 0)} rub
         </div>
-        <Link to={{ pathname: `/confirm-ticket/`+
+        <Link to={ `/confirm-ticket/`+
           `${this.props.movie}/`+
           `${this.props.date}/`+
           `${this.props.cinema}/`+
           `${this.props.hall}/`+
           `${this.props.time}`
-        }}>
+        }>
           <Button 
             variant="contained" 
             color="primary"

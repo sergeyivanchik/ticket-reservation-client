@@ -15,13 +15,13 @@ class TimeList extends React.Component {
       <div className="times-list">
         {sortTime(getTimesByMovieAndDateAndCinema(movie, date, cinema, sessionsList)).map(
           session =>
-            <Link to={{ pathname: `/hall/`+
+            <Link to={ `/hall/`+
               `${movie}/`+
               `${cinema}/`+
               `${session.hall}/`+
               `${date}/`+
               `${session.time}`
-            }} 
+            } 
               key={session.id}
               onClick={() => this.deleteTickets()}
             >
