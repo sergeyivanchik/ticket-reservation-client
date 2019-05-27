@@ -38,7 +38,7 @@ class Hall extends React.Component {
             variant="contained" 
             color="primary"
             className="hall__button"
-            disabled={(this.props.selectedTickets.length > countOfTickets || this.props.selectedTickets.length === 0) ? true : false}
+            disabled={(this.props.selectedTickets.length > countOfTickets || !this.props.selectedTickets.length) ? true : false}
           >
             Buy
           </Button>
