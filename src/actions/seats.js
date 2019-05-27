@@ -5,8 +5,7 @@ import {
 
 
 export const deleteSelectedSeats = () => ({
-  type: DELETE_SELECTED_SEATS,
-  payload: []
+  type: DELETE_SELECTED_SEATS
 })
 
 export const selectSeat = seat => ({

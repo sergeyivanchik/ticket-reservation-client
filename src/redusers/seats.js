@@ -13,7 +13,7 @@ export default function getSeats(state = initialState, action) {
   switch (action.type) {
     case DELETE_SELECTED_SEATS:
       return Object.assign({}, state, {
-        selectSeats: action.payload
+        selectSeats: []
       })
 
     case SELECT_SEAT: {
