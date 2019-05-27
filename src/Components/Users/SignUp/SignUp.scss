@@ -13,6 +13,10 @@
     font-weight: bold;
     align-items: center;
 
+    &__link-to {
+      text-decoration: none;
+    }
+
     &__title {
       display: flex;
       justify-content: center;

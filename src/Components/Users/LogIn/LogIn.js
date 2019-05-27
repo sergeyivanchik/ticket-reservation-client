@@ -20,14 +20,14 @@ class LogIn extends React.Component {
             className="login-form__password"
             placeholder="password"
           />
-          <Link to="/">
+          <Link to="/" className='login-form__link-to'>
             <input
               type="submit"
               className="login-form__button"
               value="Log in"
             />
           </Link>
-          <Link to="/signup">
+          <Link to="/signup" className='login-form__link-to'>
             <span className="login-form__signup">Sign up</span>
           </Link>
         </form>

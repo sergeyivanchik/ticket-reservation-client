@@ -19,6 +19,7 @@ class TimeList extends React.Component {
             } 
               key={session.id}
               onClick={() => this.deleteTickets()}
+              className='times-list__link-to'
             >
               <span className="times-list__movie-time" title={session.hall}>
                 {session.time}

@@ -19,9 +19,9 @@ function TopNavBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className="top-navbar__typography">
-            <Link to="/">Cinema</Link>
+            <Link to="/" className='top-navbar__link-to'>Cinema</Link>
           </Typography>
-          <Link to="/login">
+          <Link to="/login" className='top-navbar__link-to'>
             <Button color="inherit">Login</Button>
           </Link>
         </Toolbar>

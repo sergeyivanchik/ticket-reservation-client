@@ -13,6 +13,10 @@
     margin-right: auto;
     margin-left: auto;
 
+    &__link-to {
+      text-decoration: none;
+    }
+
     &__title {
       display: flex;
       justify-content: center;

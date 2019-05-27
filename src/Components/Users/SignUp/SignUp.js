@@ -34,7 +34,7 @@ class SignUp extends React.Component {
             placeholder="email"
             required
           />
-          <Link to="/login">
+          <Link to="/login" className='signup-form__link-to'>
             <input
               type="submit"
               className="signup-form__button"
