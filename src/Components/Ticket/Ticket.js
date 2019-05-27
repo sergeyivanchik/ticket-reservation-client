@@ -28,38 +28,17 @@ class Ticket extends React.Component {
             {cinema}
           </div>
           <div className="ticket__movie">
-            Movie :
-            <span className="ticket__choice">
-              {movie}
-            </span>
+            Movie :<span className="ticket__choice">{movie}</span>
           </div>
           <div className="ticket__date">
-            Date :
-              <span className="ticket__choice">
-                {date}
-              </span>
-            Time :
-              <span className="ticket__choice">
-                {time}
-              </span>
+            Date :<span className="ticket__choice">{date}</span>
+            Time :<span className="ticket__choice">{time}</span>
           </div>
           <div className="ticket__seat">
-            Hall :
-              <span className="ticket__choice">
-                {hall}
-              </span>
-            Row :
-              <span className="ticket__choice">
-                {row}
-              </span>
-            Seat :
-              <span className="ticket__choice">
-                {seat}
-              </span>
-            Price :
-              <span className="ticket__choice">
-                {price}
-              </span>
+            Hall :<span className="ticket__choice">{hall}</span>
+            Row :<span className="ticket__choice">{row}</span>
+            Seat :<span className="ticket__choice">{seat}</span>
+            Price :<span className="ticket__choice">{price}</span>
           </div>
           </div>
             <div className="ticket__control">
