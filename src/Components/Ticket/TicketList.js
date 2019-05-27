@@ -5,16 +5,7 @@ import './TicketList.scss';
 
 class TicketList extends React.Component {
   render() {
-    const { 
-      selectSeats,
-      date,
-      time,
-      hall,
-      movieId,
-      cinemaId,
-      allMovies,
-      allCinemas
-    } = this.props;
+    const { selectSeats, date, time, hall, movieId, cinemaId, allMovies, allCinemas} = this.props;
     return (
       <div className="tickets-list">
         {selectSeats.map(ticket =>

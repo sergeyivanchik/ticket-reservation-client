@@ -5,28 +5,13 @@ import './Ticket.scss';
 
 class Ticket extends React.Component {
   render() {
-    const { 
-      row,
-      seat,
-      price,
-      date,
-      time,
-      hall,
-      allCinemas,
-      allMovies,
-      cinemaId,
-      movieId 
-    } = this.props; 
-    const cinema = allCinemas.find(cinema =>
-      cinema.id === cinemaId).name;
-    const movie = allMovies.find(movie =>
-      movie.id === movieId).name;   
+    const { row, seat, price, date, time, hall, allCinemas, allMovies, cinemaId, movieId } = this.props; 
+    const cinema = allCinemas.find(cinema => cinema.id === cinemaId).name;
+    const movie = allMovies.find(movie => movie.id === movieId).name;   
     return (
       <div className="ticket">
         <div className="ticket__info">
-          <div className="ticket__cinema">
-            {cinema}
-          </div>
+          <div className="ticket__cinema">{cinema}</div>
           <div className="ticket__movie">
             Movie :<span className="ticket__choice">{movie}</span>
           </div>
