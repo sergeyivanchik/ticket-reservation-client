@@ -16,7 +16,7 @@ class TicketList extends React.Component {
             allCinemas
         } = this.props;
         return (
-            <div className = "tickets-list">
+            <div className="tickets-list">
                 {selectedTickets.map(ticket =>
                     <Ticket
                         row={ticket.row}

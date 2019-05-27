@@ -18,7 +18,7 @@ class MainPage extends React.Component {
     return (
       !this.props.allMovies.length || !this.props.allCinemas.length ? 
       <Loader/> :
-      <div className = "main-page">
+      <div className="main-page">
         <TopNavBar/>
         <CardList moviesList={this.props.allMovies}/>
       </div>

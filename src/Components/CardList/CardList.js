@@ -11,7 +11,7 @@ class CardList extends Component {
       <div className="card-list">
         {moviesList.slice(moviesList.length > amountOfCards ?
           moviesList.length - amountOfCards : 0).map(card => 
-            <Card card = {card} key = {card.id} />
+            <Card card={card} key={card.id} />
           )
         }
       </div> 
