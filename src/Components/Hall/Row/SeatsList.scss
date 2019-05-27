@@ -15,11 +15,6 @@
     line-height: initial;
     text-align: center;
     color: $white;
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
     user-select: none;
 
     &:hover {
@@ -52,11 +47,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        -webkit-touch-callout: none; 
-        -webkit-user-select: none; 
-        -khtml-user-select: none; 
-        -moz-user-select: none; 
-        -ms-user-select: none; 
         user-select: none;
 
         &_left {
