@@ -16,20 +16,20 @@ class ConfirmTickets extends React.Component {
   render() {
     return (
       !this.props.allCinemas.length || !this.props.allMovies.length ?
-      <Loader/> :
-      <div className="confirm-ticket">
-        <TopNavBar/>
-        <TicketList 
-          selectSeats={this.props.selectSeats}
-          allMovies={this.props.allMovies}
-          allCinemas={this.props.allCinemas}
-          date={this.props.match.params.date}
-          time={this.props.match.params.time}
-          hall={this.props.match.params.hall}
-          movieId={this.props.match.params.movie}
-          cinemaId={this.props.match.params.cinema}
-        />
-      </div>
+        <Loader/> :
+        <div className="confirm-ticket">
+          <TopNavBar/>
+          <TicketList 
+            selectSeats={this.props.selectSeats}
+            allMovies={this.props.allMovies}
+            allCinemas={this.props.allCinemas}
+            date={this.props.match.params.date}
+            time={this.props.match.params.time}
+            hall={this.props.match.params.hall}
+            movieId={this.props.match.params.movie}
+            cinemaId={this.props.match.params.cinema}
+          />
+        </div>
     )
   }
 }

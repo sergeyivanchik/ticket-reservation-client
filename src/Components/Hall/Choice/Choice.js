@@ -12,8 +12,8 @@ class Choice extends React.Component {
           className="choice__place"
           title={`price ${price}`}
         >
-        {`row ${row} seat ${seat}`}
-      </span>
+          {`row ${row} seat ${seat}`}
+        </span>
       </div>
     )
   }

@@ -16,19 +16,20 @@ class MovieProfile extends React.Component {
     this.props.onGetSessions();
     this.props.onGetMovieById(this.props.match.params.movie);
   }
+  
   render() {
     return (
         !this.props.sessionsList.length || !this.props.movieById || !this.props.allCinemas.length ?
-        <Loader/> :
-        <div className="movie-profile">
-          <TopNavBar/>
-          <Schedule
-            movie={this.props.movieById}
-            sessionsList={this.props.sessionsList}
-            cinemasList={this.props.allCinemas}
-            deleteTickets={this.props.onDeleteTickets}
-          />
-        </div>
+          <Loader/> :
+          <div className="movie-profile">
+            <TopNavBar/>
+            <Schedule
+              movie={this.props.movieById}
+              sessionsList={this.props.sessionsList}
+              cinemasList={this.props.allCinemas}
+              deleteTickets={this.props.onDeleteTickets}
+            />
+          </div>
     )
   }
 }

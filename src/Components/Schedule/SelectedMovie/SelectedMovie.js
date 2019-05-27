@@ -19,7 +19,7 @@ class SelectedMovie extends React.Component {
             {movie.name}
           </p>
           <p className="movie__description">
-          {movie.description}
+            {movie.description}
           </p>
         </div>
       </div>

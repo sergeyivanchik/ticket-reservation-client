@@ -2,9 +2,9 @@ import { GET_CINEMAS_SUCCESS, GET_CINEMAS_FAILURE } from '../constants/cinemas.j
 
 
 const initialState = {
-    allCinemas: [],
-    error: ''
-  }
+  allCinemas: [],
+  error: ''
+}
 
 export default function getCinemas(state = initialState, action) {
   switch (action.type) {

@@ -5,9 +5,9 @@ import {
 
 
 const initialState = {
-    allHallsByCinema: [],
-    error: []
-  }
+  allHallsByCinema: [],
+  error: []
+}
 
 export default function getHalls(state = initialState, action) {
   switch (action.type) {
@@ -23,4 +23,5 @@ export default function getHalls(state = initialState, action) {
     
     default:
       return state;
-      }}
+  }
+}

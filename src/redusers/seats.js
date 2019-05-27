@@ -28,7 +28,7 @@ export default function getSeats(state = initialState, action) {
 
       return Object.assign({}, state, {
         selectSeats: boughtTicket
-        })
+      })
     }
 
     default: 

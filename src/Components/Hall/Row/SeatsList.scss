@@ -2,64 +2,64 @@
 
 
 .seat {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    width: 20px;
-    height: 18px;
-    border-radius: 0 5px;
-    font-family: Brush Script MT, Brush Script Std, cursive; 
-    margin-right: 10px;
-    margin-bottom: 10px;
-    line-height: initial;
-    text-align: center;
-    color: $white;
-    user-select: none;
-    background-color: $light-blue;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 20px;
+  height: 18px;
+  border-radius: 0 5px;
+  font-family: Brush Script MT, Brush Script Std, cursive; 
+  margin-right: 10px;
+  margin-bottom: 10px;
+  line-height: initial;
+  text-align: center;
+  color: $white;
+  user-select: none;
+  background-color: $light-blue;
 
     &:hover {
-        background-color: $indigo;
-        cursor: pointer;
+      background-color: $indigo;
+      cursor: pointer;
     }
     
     &:active {
-        background-color: $dark-blue;
-        cursor: pointer;
+      background-color: $dark-blue;
+      cursor: pointer;
     }
 
     &_occupied {
-        background-color: $dark-blue ;
+      background-color: $dark-blue ;
     }
 }
 
 .row{
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
     
     &__number {
-        font-weight: bold;
-        color: $dark-blue;
-        font-family: Brush Script MT, Brush Script Std, cursive;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
+      font-weight: bold;
+      color: $dark-blue;
+      font-family: Brush Script MT, Brush Script Std, cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
 
-        &_left {
-            margin-left: 50px;
-        }
+      &_left {
+        margin-left: 50px;
+      }
         
-        &_right {
-            margin-right: 50px;
-        }
+      &_right {
+        margin-right: 50px;
+      }
     }
 }
 
 .rows-list {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }

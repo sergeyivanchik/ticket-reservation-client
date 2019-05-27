@@ -21,20 +21,20 @@ class Seats extends React.Component {
   render() {
     return (
      !this.props.allCinemas.length ?
-      <Loader/> : 
-      <div className="seats">
-        <TopNavBar/>
-        <Hall
-          movie={this.props.match.params.movie}
-          cinema={this.props.match.params.cinema}
-          hall={this.props.match.params.hall}
-          date={this.props.match.params.date}
-          time={this.props.match.params.time}
-          hallSeats={this.seats()}
-          chooseSeat={this.props.onSelectSeat}
-          selectSeats={this.props.selectSeats}
-        />
-      </div>
+        <Loader/> : 
+        <div className="seats">
+          <TopNavBar/>
+          <Hall
+            movie={this.props.match.params.movie}
+            cinema={this.props.match.params.cinema}
+            hall={this.props.match.params.hall}
+            date={this.props.match.params.date}
+            time={this.props.match.params.time}
+            hallSeats={this.seats()}
+            chooseSeat={this.props.onSelectSeat}
+            selectSeats={this.props.selectSeats}
+          />
+        </div>
     )
   }
 }

@@ -29,8 +29,8 @@ class Hall extends React.Component {
           )}
         </div>
         <div>
-            Cost: {this.props.selectSeats.reduce((sum, ticket) => 
-             sum + ticket.price, 0)} $
+          Cost: {this.props.selectSeats.reduce((sum, ticket) => 
+            sum + ticket.price, 0)} $
         </div>
         <Link to={`/confirm-ticket/${this.props.movie}/${this.props.date}/${this.props.cinema}/${this.props.hall}/${this.props.time}`}>
           <Button 
