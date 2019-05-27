@@ -26,7 +26,6 @@
       width: 200px;
       height: 70px;
       color: $bright-blue; 
-      font-family: Brush Script MT, Brush Script Std, cursive; 
     }
 
     &__wrapper-button {
@@ -47,6 +46,9 @@
       transition: all 0.2s ease-in-out;
       position: relative;
       overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
 
       &:before {
         content: "";

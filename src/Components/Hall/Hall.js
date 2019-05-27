@@ -28,7 +28,7 @@ class Hall extends React.Component {
             />
           )}
         </div>
-        <div>
+        <div className='hall__cost'>
           Cost: {this.props.selectSeats.reduce((sum, ticket) => 
             sum + ticket.price, 0)} $
         </div>

@@ -9,7 +9,6 @@
   width: 20px;
   height: 18px;
   border-radius: 0 5px;
-  font-family: Brush Script MT, Brush Script Std, cursive; 
   margin-right: 10px;
   margin-bottom: 10px;
   line-height: initial;
@@ -40,7 +39,6 @@
     &__number {
       font-weight: bold;
       color: $dark-blue;
-      font-family: Brush Script MT, Brush Script Std, cursive;
       display: flex;
       justify-content: center;
       align-items: center;
