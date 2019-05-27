@@ -1,71 +1,34 @@
-export const setOption = (data, index) => {
-  let select = document.getElementsByTagName('select')[index];
-  select.options.length = 1;
-  for (let i = 0; i < data.length; i++) {
-    let option = document.createElement('option');
-    option.value = data[i].id;
-    option.innerHTML = data[i].name;
-    select.appendChild(option);
-  }
-}
-
 export const convertDate = date => {
   let convertDate = new Date(+date);
-    return `${convertDate.getDate()}`+ 
-      `${convertDate.toLocaleString('en', {month: 'long'})},`+
+    return `${convertDate.toLocaleString('en', {day: 'numeric'})} `+ 
+      `${convertDate.toLocaleString('en', {month: 'long'})}, `.toLowerCase() +
       `${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
 };
 
 export const getCinemasByMovieAndDate = (movie, date, sessions) => {
   let cinemasByMovie = [];
-  let check = 0;
   for(let i = 0; i < sessions.length; i++) {
-    check = 0;
     if(convertDate(sessions[i].date) === date && 
-      sessions[i].movie === movie) {
-      if(cinemasByMovie.length === 0) {
-        cinemasByMovie.push(sessions[i].cinema);
-      } else {
-        for(let j = 0; j < cinemasByMovie.length; j++) {
-          if(cinemasByMovie[j] !== sessions[i].cinema) 
-            check ++;
-        }
-        if (check === cinemasByMovie.length)
-          cinemasByMovie.push(sessions[i].cinema);
-      }
-    }			
-  }			
-  return cinemasByMovie;	
+      sessions[i].movie === movie) 
+        cinemasByMovie.push(sessions[i].cinema); 
+    }
+  return cinemasByMovie.filter((item, pos) => 
+    cinemasByMovie.indexOf(item) === pos);	
 }
 
 export const getDatesByMovie = (movie, sessions) => {
   let datesByMovie = [];
-  let check = 0;
   for(let i = 0; i < sessions.length; i++) {
-    check = 0;
-    if(sessions[i].movie === movie) {
-      if(datesByMovie.length === 0)
+    if(sessions[i].movie === movie) 
         datesByMovie.push(convertDate(sessions[i].date));
-      else {
-        for (let j = 0; j < datesByMovie.length; j++) {
-          if (datesByMovie[j] !== convertDate(sessions[i].date))
-            check++
-        }
-        if (check === datesByMovie.length)
-          datesByMovie.push(convertDate(sessions[i].date)); 
-      }
-    }
   }
-  return datesByMovie;	
+  return datesByMovie.filter((item, pos) => 
+    datesByMovie.indexOf(item) === pos);	
 }
 
 export const getTime = date => {
   let currentDate = new Date(+date);
-  let hours = currentDate.getHours().toString().length === 2 ?
-    `${currentDate.getHours()}` : `0${currentDate.getHours()}`;
-  let minutes = currentDate.getMinutes().toString().length === 2 ?
-    `${currentDate.getMinutes()}` : `${currentDate.getMinutes()}0`;
-  return `${hours}.${minutes}`;	
+  return `${currentDate.toLocaleString('ru', {hour:'2-digit', minute:'2-digit'})}`;	
 }
 
 export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, sessions) => {
