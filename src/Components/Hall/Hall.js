@@ -31,7 +31,7 @@ class Hall extends React.Component {
         </div>
         <div>
             Cost: {this.props.selectedTickets.reduce((sum, ticket) => 
-             sum + (+ticket.price), 0)} rub
+             sum + ticket.price, 0)} $
         </div>
         <Link to={ `/confirm-ticket/`+
           `${this.props.movie}/`+
