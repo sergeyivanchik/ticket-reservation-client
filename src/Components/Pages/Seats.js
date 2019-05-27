@@ -10,6 +10,10 @@ import Loader from '../Loader/Loader.js';
 
 
 class Seats extends React.Component {
+  seats = () => this.props.allCinemas.find(cinema => 
+    cinema.id === this.props.match.params.cinema).halls.find(hall => 
+      hall.name === this.props.match.params.hall).places ;
+
   async componentDidMount() {
     await this.props.onGetCinemas();
   }
@@ -26,9 +30,7 @@ class Seats extends React.Component {
           hall={this.props.match.params.hall}
           date={this.props.match.params.date}
           time={this.props.match.params.time}
-          hallSeats={this.props.allCinemas.find(cinema => 
-            cinema.id === this.props.match.params.cinema).halls.find(hall => 
-              hall.name === this.props.match.params.hall).places}
+          hallSeats={this.seats()}
           chooseSeat={this.props.onSelectSeat}
           selectSeats={this.props.selectSeats}
         />
