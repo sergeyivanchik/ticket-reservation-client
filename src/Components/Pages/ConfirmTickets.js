@@ -5,17 +5,20 @@ import { getCinemasAsync } from '../../actions/cinemas.js';
 import { getMoviesAsync } from '../../actions/movies.js';
 import TicketList from '../Ticket/TicketList.js';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
+import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js';
 
 class ConfirmTickets extends React.Component {
-  componentDidMount() {
-    this.props.onGetMovies()
-    this.props.onGetCinemas();
+  async componentDidMount() {
+    this.props.onShowLoader()
+    await this.props.onGetMovies()
+    await this.props.onGetCinemas();
+    this.props.onHideLoader();
 }
 
   render() {
     return (
-      !this.props.allCinemas.length || !this.props.allMovies.length ?
+       !this.props.allCinemas.length || !this.props.allMovies.length || this.props.loading ?
         <Loader/> :
         <div className="confirm-ticket">
           <TopNavBar/>
@@ -36,15 +39,22 @@ class ConfirmTickets extends React.Component {
 const mapStateToProps = store => ({
   selectSeats: store.getSeats.selectSeats,
   allCinemas: store.getCinemas.allCinemas,
-  allMovies: store.getMovies.allMovies
+  allMovies: store.getMovies.allMovies,
+  loading: store.getLoader.loading
 })
 
 const mapDispatchToProps = dispatch => ({
   onGetMovies() {
-    dispatch(getMoviesAsync())
+    return dispatch(getMoviesAsync())
   },
   onGetCinemas() {
-    dispatch(getCinemasAsync())
+    return dispatch(getCinemasAsync())
+  },
+  onShowLoader() {
+    dispatch(showLoader())
+  },
+  onHideLoader() {
+    dispatch(hideLoader())
   }
 });
 

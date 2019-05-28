@@ -7,19 +7,22 @@ import { deleteSelectedSeats } from '../../actions/seats.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
 import { getSessionsAsync } from '../../actions/sessions.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
+import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js'; 
 
 
 class MovieProfile extends React.Component {
-  componentWillMount() {
-    this.props.onGetCinemas();
-    this.props.onGetSessions();
-    this.props.onGetMovieById(this.props.match.params.movie);
+  async componentDidMount() {
+    this.props.onShowLoader();
+    await this.props.onGetCinemas();
+    await this.props.onGetSessions();
+    await this.props.onGetMovieById(this.props.match.params.movie);
+    this.props.onHideLoader();
   }
   
   render() {
     return (
-        !this.props.sessionsList.length || !this.props.movieById || !this.props.allCinemas.length ?
+        this.props.loading ?
           <Loader/> :
           <div className="movie-profile">
             <TopNavBar/>
@@ -36,21 +39,28 @@ class MovieProfile extends React.Component {
 const mapStateToProps = store => ({
   sessionsList: store.getSessions.sessionsList,
   movieById: store.getMovies.movieById,
-  allCinemas: store.getCinemas.allCinemas
+  allCinemas: store.getCinemas.allCinemas,
+  loading: store.getLoader.loading
 });
 
 const mapDispatchToProps = dispatch => ({
   onGetSessions() {
-    dispatch(getSessionsAsync())
+    return dispatch(getSessionsAsync())
   },
   onGetMovieById(id) {
-    dispatch(getMovieByIdAsync(id))
+    return dispatch(getMovieByIdAsync(id))
   },
   onGetCinemas() {
-    dispatch(getCinemasAsync())
+    return dispatch(getCinemasAsync())
   },
   onDeleteSeats() {
     dispatch(deleteSelectedSeats())
+  },
+  onShowLoader() {
+    dispatch(showLoader())
+  },
+  onHideLoader() {
+    dispatch(hideLoader())
   }
 });
 

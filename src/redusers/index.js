@@ -4,13 +4,15 @@ import getCinemas from './cinemas.js';
 import getHalls from './halls.js';
 import getMovies from './movies.js';
 import getSessions from './sessions.js';
+import getLoader from './loader.js';
 
 const allReducers = combineReducers ({
   getSeats,
   getCinemas,
   getHalls,
   getMovies,
-  getSessions
+  getSessions,
+  getLoader
 })
 
 export default allReducers

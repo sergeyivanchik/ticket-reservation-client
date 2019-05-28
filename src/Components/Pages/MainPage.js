@@ -5,18 +5,21 @@ import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import CardList from '../CardList/CardList.js';
 import { getMoviesAsync } from '../../actions/movies.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
+import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js';
 
 
 class MainPage extends React.Component {
-  async componentWillMount() {
+  async componentDidMount() {
+    this.props.onShowLoader();
     await this.props.onGetMovies();
     await this.props.onGetCinemas();
+    this.props.onHideLoader();
   }
 
   render() {
     return (
-      !this.props.allMovies.length || !this.props.allCinemas.length ? 
+      this.props.loading ? 
       <Loader/> :
       <div className="main-page">
         <TopNavBar/>
@@ -28,7 +31,8 @@ class MainPage extends React.Component {
 
 const mapStateToProps = store => ({
   allMovies: store.getMovies.allMovies,
-  allCinemas: store.getCinemas.allCinemas
+  allCinemas: store.getCinemas.allCinemas,
+  loading: store.getLoader.loading
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -37,6 +41,12 @@ const mapDispatchToProps = dispatch => ({
   },
   onGetCinemas() {
     return dispatch(getCinemasAsync())
+  },
+  onShowLoader() {
+    dispatch(showLoader())
+  },
+  onHideLoader() {
+    dispatch(hideLoader())
   }
 });
 
