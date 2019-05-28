@@ -14,7 +14,7 @@ class DateList extends React.Component {
         </div> 
           {getCinemasByMovieAndDate(movie, date, sessionsList).map(cinema =>
             <CinemaList
-              cinema={cinema}
+              cinemaId={cinema}
               movie={movie}
               date={date}
               sessionsList={sessionsList}
