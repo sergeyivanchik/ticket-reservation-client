@@ -5,9 +5,8 @@
   .movie {
     display: flex;
     justify-content: flex-start;
-    margin-top: 50px;
-    margin-left: 58px;
-    margin-right:58px;
+    margin: 50px 58px;
+    margin-bottom: 0px;
 
       &__poster {
         width: 200px;
