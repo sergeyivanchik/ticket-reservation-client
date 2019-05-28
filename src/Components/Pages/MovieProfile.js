@@ -22,9 +22,9 @@ class MovieProfile extends React.Component {
   
   render() {
     return (
-        this.props.isLoading ?
-          <Loader/> :
-          <div className="movie-profile">
+      this.props.isLoading
+        ? <Loader/>
+        : <div className="movie-profile">
             <TopNavBar/>
             <Schedule
               movie={this.props.movieById}

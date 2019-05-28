@@ -18,22 +18,22 @@ class Seats extends React.Component {
 
   render() {
     return (
-      !this.props.allCinemas.length || this.props.isLoading ?
-        <Loader/> : 
-        <div className="seats">
-          <TopNavBar/>
-          <Hall
-            movieId={this.props.match.params.movieId}
-            cinemaId={this.props.match.params.cinemaId}
-            hall={this.props.match.params.hall}
-            date={this.props.match.params.date}
-            hallSeats={this.props.allCinemas.find(cinema => 
-              cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
-                hall.name === this.props.match.params.hall).places}
-            chooseSeat={this.props.onSelectSeat}
-            selectSeats={this.props.selectSeats}
-          />
-        </div>
+      !this.props.allCinemas.length || this.props.isLoading
+        ? <Loader/>
+        : <div className="seats">
+            <TopNavBar/>
+            <Hall
+              movieId={this.props.match.params.movieId}
+              cinemaId={this.props.match.params.cinemaId}
+              hall={this.props.match.params.hall}
+              date={this.props.match.params.date}
+              hallSeats={this.props.allCinemas.find(cinema => 
+                cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
+                  hall.name === this.props.match.params.hall).places}
+              chooseSeat={this.props.onSelectSeat}
+              selectSeats={this.props.selectSeats}
+            />
+          </div>
     )
   }
 }

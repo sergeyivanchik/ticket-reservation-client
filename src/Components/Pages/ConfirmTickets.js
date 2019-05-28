@@ -18,19 +18,19 @@ class ConfirmTickets extends React.Component {
 
   render() {
     return (
-       !this.props.allCinemas.length || !this.props.allMovies.length || this.props.isLoading ?
-        <Loader/> :
-        <div className="confirm-ticket">
-          <TopNavBar/>
-          <TicketList 
-            selectSeats={this.props.selectSeats}
-            allMovies={this.props.allMovies}
-            allCinemas={this.props.allCinemas}
-            date={this.props.match.params.date}
-            hall={this.props.match.params.hall}
-            movieId={this.props.match.params.movieId}
-            cinemaId={this.props.match.params.cinemaId}
-          />
+      !this.props.allCinemas.length || !this.props.allMovies.length || this.props.isLoading 
+        ? <Loader/>
+        : <div className="confirm-ticket">
+            <TopNavBar/>
+            <TicketList 
+              selectSeats={this.props.selectSeats}
+              allMovies={this.props.allMovies}
+              allCinemas={this.props.allCinemas}
+              date={this.props.match.params.date}
+              hall={this.props.match.params.hall}
+              movieId={this.props.match.params.movieId}
+              cinemaId={this.props.match.params.cinemaId}
+            />
         </div>
     )
   }

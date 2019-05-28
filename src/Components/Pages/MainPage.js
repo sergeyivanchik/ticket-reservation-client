@@ -19,12 +19,12 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      this.props.isLoading ? 
-      <Loader/> :
-      <div className="main-page">
-        <TopNavBar/>
-        <CardList moviesList={this.props.allMovies}/>
-      </div>
+      this.props.isLoading
+        ? <Loader/>
+        : <div className="main-page">
+            <TopNavBar/>
+            <CardList moviesList={this.props.allMovies}/>
+          </div>
     )
   }
 }
