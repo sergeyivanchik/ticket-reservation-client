@@ -35,11 +35,7 @@ class SignUp extends React.Component {
             required
           />
           <Link to="/login" className='signup__link-to'>
-            <input
-              type="submit"
-              className="signup__button"
-              value="Sign up"
-            />
+            <input className="signup__button" value="Sign up"/>
           </Link>
         </form>
       </div>

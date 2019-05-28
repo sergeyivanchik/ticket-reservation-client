@@ -21,11 +21,7 @@ class LogIn extends React.Component {
             placeholder="password"
           />
           <Link to="/" className='login__link-to'>
-            <input
-              type="submit"
-              className="login__button"
-              value="Log in"
-            />
+            <input className="login__button" value="Log in"/>
           </Link>
           <Link to="/signup" className='login__link-to'>
             <span className="login__signup">Sign up</span>
