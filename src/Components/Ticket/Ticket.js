@@ -1,37 +1,38 @@
 import React from 'react';
+
+import { convertDate, convertTime } from '../../functions/index.js';
 import './Ticket.scss';
 
 
 class Ticket extends React.Component {
-    convertDate (date)  {
-        let convertDate = new Date(+date)
-        return `${convertDate.toLocaleString('en', {day: 'numeric'})}.${convertDate.toLocaleString('en', {month: 'numeric'})}.${convertDate.toLocaleString('en', {year: 'numeric'})}`
-      }
-    render() {
-        return (
-            <div className = "ticket">
-                <div className = "ticket__info">
-                    <div className = "ticket__cinema">
-                        {this.props.ticket.match.params.cinema}
-                    </div>
-                    <div className = "ticket__film">
-                        <span>Film : <span className = "ticket__choise">{this.props.ticket.allCards.find((film) => film.id === +this.props.ticket.match.params.id)}</span></span>
-                    </div>
-                    <div className = "ticket__date">
-                        <span>Date : <span className = "ticket__choise">{this.convertDate(this.props.ticket.match.params.date)}</span></span> <span>Time : <span className = "ticket__choise">{this.props.ticket.match.params.time}</span></span>
-                    </div>
-                    <div className = "ticket__seat">
-                        <span>Row : <span className = "ticket__choise">{this.props.row}</span> </span>
-                        <span>Seat : <span className = "ticket__choise">{this.props.seat}</span></span>
-                        <span>Price : <span className = "ticket__choise">{this.props.price}</span></span>
-                    </div>
-                </div>    
-                <div className = "ticket__control">
-                   <p className = "ticket__text-control"> Control</p>
-                </div>
+  render() {
+    const { row, seat, price, date, hall, allCinemas, allMovies, cinemaId, movieId } = this.props; 
+    const cinema = allCinemas.find(cinema => cinema.id === cinemaId).name;
+    const movie = allMovies.find(movie => movie.id === movieId).name;   
+    return (
+      <div className="ticket">
+        <div className="ticket__info">
+          <div className="ticket__cinema">{cinema}</div>
+          <div className="ticket__movie">
+            Movie :<span className="ticket__choice">{movie}</span>
+          </div>
+          <div className="ticket__date">
+            Date :<span className="ticket__choice">{convertDate(date)}</span>
+            Time :<span className="ticket__choice">{convertTime(date)}</span>
+          </div>
+          <div className="ticket__seat">
+            Hall :<span className="ticket__choice">{hall}</span>
+            Row :<span className="ticket__choice">{row}</span>
+            Seat :<span className="ticket__choice">{seat}</span>
+            Price :<span className="ticket__choice">{price}</span>
+          </div>
+          </div>
+            <div className="ticket__control">
+              <p className="ticket__text-control">Control</p>
             </div>
-        )
-    }
+      </div>
+    )
+  }
 }
 
 export default Ticket;

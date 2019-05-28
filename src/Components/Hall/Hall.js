@@ -1,43 +1,51 @@
-import React from 'react'
-import './Hall.scss'
-import Choice from './Choice/Choice.js'
-import SeatsList from './Row/SeatsList.js'
-import {selectTicket} from '../../actions/index.js'
-import { connect } from  'react-redux'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import Choice from './Choice/Choice.js';
+import SeatsList from './Row/SeatsList.js';
+import Button from '@material-ui/core/Button';
+import './Hall.scss';
 
 
 class Hall extends React.Component {
   render() { 
-    return(
-      this.props.hallSeats &&
-      <div className = "hall">
-        <SeatsList selectedSeats = {this.props.selectedSeats} seats = {this.props.seats} hallSeats = {this.props.hallSeats.places} chooseSeat = {this.props.onSelectTicket} />
-        <span className = "hall__choice">Ваш выбор :</span>
-        <div className = "hall__choise-list">
-          {this.props.selectedSeats.map((seat) => <Choice row = {seat.split(',')[0]} seat = {seat.split(',')[1]} price= {seat.split(',')[2]}  key = {seat}  /> )}
+    const countOfTickets = 6;
+    return (
+      <div className="hall">
+        <SeatsList
+          selectSeats={this.props.selectSeats}
+          hallSeats={this.props.hallSeats}
+          chooseSeat={this.props.chooseSeat}
+        />
+        <label className="hall__choice">Your choice:</label>
+        <div className="hall__choice-list">
+          {this.props.selectSeats.map(selectedSeat =>
+            <Choice
+              row={selectedSeat.row}
+              seat={selectedSeat.seat}
+              price={selectedSeat.price}
+              key={selectedSeat}
+            />
+          )}
         </div>
-        <div>
-            Цена : {this.props.selectedSeats.reduce(function(sum, price) {
-            return sum + (+price.split(',')[2]) }, 0)} руб
-        </div>  
-        <Link to={{ pathname: `/buy_ticket/${this.props.date}/${this.props.cinema}/${this.props.id}/${this.props.time}` 
-}}><button className = '123' disabled = {(this.props.selectedSeats.length>6 || this.props.selectedSeats.length === 0)  ?true:false}>Buy</button></Link>
+        <div className='hall__cost'>
+          Cost: {this.props.selectSeats.reduce((sum, ticket) => 
+            sum + ticket.price, 0)} $
+        </div>
+        <Link to={`/confirm-ticket/${this.props.movieId}/${this.props.cinemaId}/${this.props.hall}/${this.props.date}`}
+          className='hall__link-to'>
+          <Button 
+            variant="contained" 
+            color="primary"
+            className="hall__button"
+            disabled={(this.props.selectSeats.length > countOfTickets || !this.props.selectSeats.length) ? true : false}
+          >
+            Buy
+          </Button>
+        </Link>
       </div>
     )
   }
 }
 
-const mapStateToProps = store => {
-  return({
-  selectedSeats: store.selectTicket.selectedSeats
-})}
-
-const mapDispatchToProps = dispatch => ({
-  onSelectTicket(ticket) {
-    dispatch(selectTicket(ticket))
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Hall)
-
+export default Hall;

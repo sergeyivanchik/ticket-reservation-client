@@ -1,31 +1,30 @@
-import React, {Component} from 'react'
-import MainPage from './Components/Pages/MainPage.js'
-import ChooseSeanse from './Components/Pages/ChooseSeanse.js'
-import ChooseSeats from './Components/Pages/ChooseSeats.js'
-import SignIn from './Components/Users/SignIn/SignIn.js'
-import LogIn from './Components/Users/LogIn/LogIn.js'
-import AdminPanel from './Components/AdminPanel/AdminPanel.js'
-import {BrowserRouter as Router, Route } from 'react-router-dom'
-import TicketList from './Components/Ticket/TicketList.js'
-import './App.scss'
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
+
+import MainPage from './Components/Pages/MainPage.js';
+import MovieProfile from './Components/Pages/MovieProfile.js';
+import Seats from './Components/Pages/Seats.js';
+import SignUp from './Components/Users/SignUp/SignUp.js';
+import LogIn from './Components/Users/LogIn/LogIn.js';
+import ConfirmTickets from './Components/Pages/ConfirmTickets.js';
+import './App.scss';
 
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className = "router">
-          <Route exact path="/" component={ MainPage } />
-          <Route path="/choose_film/:id" component={ ChooseSeanse } />
-          <Route path="/choose_seats/:film/:cinema/:hall/:date/:time" component={ ChooseSeats } />
-          <Route path="/login" component={ LogIn } />
-          <Route path="/signin" component={ SignIn } />
-          <Route path="/admin-page" component={ AdminPanel } />
-          <Route path="/buy_ticket/:date/:cinema/:id/:time" component={ TicketList } />
+        <div className="router">
+          <Route exact path="/" component={MainPage}/>
+          <Route path="/movie-profile/:movieId" component={MovieProfile}/>
+          <Route path="/hall/:movieId/:cinemaId/:hall/:date" component={Seats}/>
+          <Route path="/login" component={LogIn}/>
+          <Route path="/signup" component={SignUp}/>
+          <Route path="/confirm-ticket/:movieId/:cinemaId/:hall/:date" component={ConfirmTickets}/>
         </div>
       </Router>
     )
   }
 }
 
-export default App
+export default App;

@@ -1,27 +1,35 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './LogIn.scss'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+import './LogIn.scss'
 
 
 class LogIn extends React.Component {
   render() {
     return (
-      <div className = "login-form">
-        <form method = "get">
-          <label className = "login-form__title">Log in</label>
-          <input type = "text" className = "login-form__username" placeholder = "username"/>
-          <input type = "password" className = "login-form__password" placeholder = "password"/>
-          <Link to="/">
-            <input type = "submit" className = "login-form__button" value = "Log in"/>
+      <div className="login">
+        <form className="login__form">
+          <label className="login__title">Log in</label>
+          <input
+            type="text"
+            className="login__username"
+            placeholder="username"
+          />
+          <input
+            type="password"
+            className="login__password"
+            placeholder="password"
+          />
+          <Link to="/" className='login__link-to'>
+            <input className="login__button" value="Log in"/>
           </Link>
-          <Link to="/signin">
-            <span className = "login-form__signup" >Sign in</span>
+          <Link to="/signup" className='login__link-to'>
+            <span className="login__signup">Sign up</span>
           </Link>
         </form>
-      </div>  
+      </div>
     )
   }
 }
 
-export default LogIn
+export default LogIn;

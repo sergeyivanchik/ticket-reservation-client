@@ -1,258 +1,87 @@
-// @media only screen and (max-width: 992px) {
-//     // body {
-//     //     background-color: yellow
-//     // }
-//     .card-img {
-//         width:300px;
-//         height:400px
-//     }
-//     .card-name {
-//         width:300px;
-//         height:50px;
-//     }
-//     .card-button {
-//         width:300px;
-//         height:50px;
-//         display: flex;
-//         justify-content: center;
-//         border-bottom: 1px solid black;
-//         border-right: 1px solid black;
-//         border-left: 1px solid black;
-//     }
-//     .name {
-//         display: inline-block;
-//         width:300px;
-//         text-align: center;
-//         justify-content: center;
-//         font-weight: bold; 
-//     }
-// } 
+@import '../../variables.scss';
 
-// @media only screen and (max-width: 768px) and (orientation: portrait) {
-//     // body {
-//     //     background-color: green
-//     // }
-//     .card-img {
-//         width:300px;
-//         height:400px
-//     }
-//     .card-name {
-//         width:300px;
-//         height:50px;
-//     }
-//     .card-button {
-//         width:300px;
-//         height:50px;
-//         display: flex;
-//         justify-content: center;
-//         border-bottom: 1px solid black;
-//         border-right: 1px solid black;
-//         border-left: 1px solid black;
-//     }
-//     .name {
-//         display: inline-block;
-//         width:300px;
-//         text-align: center;
-//         justify-content: center;
-//         font-weight: bold; 
-//     }
-// } 
-
-// @media only screen and (max-width: 768px) and (orientation: landscape) {
-//     // body {
-//     //     background-color: green
-//     // }
-//     .card-img {
-//         width:300px;
-//         height:400px
-//     }
-//     .card-name {
-//         width:300px;
-//         height:50px;
-//     }
-//     .card-button {
-//         width:300px;
-//         height:50px;
-//         display: flex;
-//         justify-content: center;
-//         border-bottom: 1px solid black;
-//         border-right: 1px solid black;
-//         border-left: 1px solid black;
-//     }
-//     .name {
-//         display: inline-block;
-//         width:300px;
-//         text-align: center;
-//         justify-content: center;
-//         font-weight: bold; 
-//     }
-// } 
-
-// @media only screen and (max-width: 420px) {
-//     // body {
-//     //     background-color: red
-//     // }
-//     .card-img {
-//         width:250px;
-//         height:350px
-//     }
-//     .card-name {
-//         width:250px;
-//         height:50px;
-//     }
-//     .card-button {
-//         width:250px;
-//         height:50px;
-//         display: flex;
-//         justify-content: center;
-//         border-bottom: 1px solid black;
-//         border-right: 1px solid black;
-//         border-left: 1px solid black;
-//     }
-//     .name {
-//         display: inline-block;
-//         width:250px;
-//         text-align: center;
-//         justify-content: center;
-//         font-weight: bold; 
-//     }
-// }
-
-// @media only screen and (min-width: 993px) {
-//     // body {
-//     //     background-color: grey
-        
-//     // }
-//     .card-img {
-//         width:300px;
-//         height:400px
-//     }
-//     .card-name {
-//         width:300px;
-//         height:50px;
-//     }
-//     .card-button {
-//         width:300px;
-//         height:50px;
-//         display: flex;
-//         justify-content: center;
-//         border-bottom: 1px solid black;
-//         border-right: 1px solid black;
-//         border-left: 1px solid black;
-//     }
-//     .name {
-//         display: inline-block;
-//         width:300px;
-//         text-align: center;
-//         justify-content: center;
-//         font-weight: bold; 
-//     }
-// }
-
-// @media only screen and (min-width: 1200px) {
-//     // body {
-//     //     background-color: lightcoral
-//     // }
-//     .card__img {
-//         width:300px;
-//         height:400px
-//     }
-//     .card__film {
-//         width:300px;
-//         height:50px;
-//     }
-//     .card-button {
-//         width:300px;
-//         height:50px;
-//         display: flex;
-//         justify-content: center;
-//         border-bottom: 1px solid black;
-//         border-right: 1px solid black;
-//         border-left: 1px solid black;
-//     }
-//     .name {
-//         display: inline-block;
-//         width:300px;
-//         text-align: center;
-//         justify-content: center;
-//         font-weight: bold; 
-//     }
-// }
 
 @media only screen and (min-width: 1300px) {
-    // body {
-    //     background-color: blue
-    // }
-    .card {
-        width: 200px;
-        height :413px;
+  .card {
+    width: 200px;
+    height: 413px;
+
+    &__poster {
+      width: 200px;
+      height: 300px;  
+      border-radius: 5px; 
+      opacity: .88;
+
+      &:hover {
+        opacity: 1;
+      }
     }
-    .card__img {
-        width:200px;
-        height:300px;  
-        border-radius:5px; 
-        opacity:.88;
+
+    &__tittle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      text-align: center;
+      width: 200px;
+      height: 70px;
+      color: $bright-blue; 
     }
-    .card__img:hover {
-      opacity:1;
+
+    &__wrapper-button {
+      transform: translate(-50%, -50%);
+      margin-left: 66px;
+      margin-top: 20px;
     }
-    .card__film {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        width:200px;
-        height:70px;
-        color:#1976d2; 
-        font-family: Brush Script MT, Brush Script Std, cursive; 
-        cursor:default; 
-    }
-    @keyframes sheen {
-        0% {
-          transform: skewY(-45deg) translateX(0);
-        }
-        100% {
-          transform: skewY(-45deg) translateX(12.5em);
-        }
+
+    &__button {
+      padding: .1em 3.855em;
+      text-align: center;
+      text-decoration: none;
+      color: $bright-blue;
+      border: 2px solid $bright-blue;
+      font-size: 20px;
+      display: inline-block;
+      border-radius: 0.3em;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+
+      &:before {
+        content: "";
+        background-color: $grey;
+        height: 100%;
+        width: 3em;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -4.5em;
+        transform: skewX(-45deg) translateX(0);
+        transition: none;
       }
       
-      .card__wrapper-button {
-        transform: translate(-50%, -50%);
-        margin-left: 66px;
-        margin-top: 20px;
-      }
-      .card__button {
-        padding: 0em 3.855em;
-        text-align: center;
-        text-decoration: none;
-        color: #2194E0;
-        border: 2px solid #2194E0;
-        font-size: 20px;
-        display: inline-block;
-        border-radius: 0.3em;
-        transition: all 0.2s ease-in-out;
-        position: relative;
-        overflow: hidden;
+      &:hover {
+        background-color: $bright-blue;
+        color: $white;
+        border-bottom: 4px solid darken($bright-blue, 10%);
+
         &:before {
-          content: "";
-          background-color: rgba(255,255,255,0.5);
-          height: 100%;
-          width: 3em;
-          display: block;
-          position: absolute;
-          top: 0;
-          left: -4.5em;
-          transform: skewX(-45deg) translateX(0);
-          transition: none;
-        }
-        &:hover {
-          background-color: #2194E0;
-          color: #fff;
-          border-bottom: 4px solid darken(#2194E0, 10%);
-          &:before {
-            transform: skewX(-45deg) translateX(13.5em);
-            transition: all 0.5s ease-in-out;
-          }
+          transform: skewX(-45deg) translateX(13.5em);
+          transition: all 0.5s ease-in-out;
         }
       }
+    }
+  }
+
+  @keyframes sheen {
+    0% {
+      transform: skewY(-45deg) translateX(0);
+    }
+    100% {
+      transform: skewY(-45deg) translateX(12.5em);
+    }
+  }
 }

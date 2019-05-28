@@ -1,0 +1,3 @@
+export const SELECT_SEAT = 'SELECT_SEAT';
+export const DELETE_SELECTED_SEATS = 'DELETE_SELECTED_SEATS';
+

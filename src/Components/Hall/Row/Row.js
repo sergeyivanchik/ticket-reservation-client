@@ -1,36 +1,47 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+
 import Seat from './Seat.js'
 
 
 class Row extends Component {
-  CreateRow  (row,coutPlaces)  {
-    let places = []
-    for(let place = 0; place < coutPlaces; place ++) {
+  CreateRow(row, countPlaces) {
+    let places = [];
+    for(let i = 0; i < countPlaces; i++) {
       places.push(
-        <Seat row = {row} number = {place+1} price = {this.props.price} chooseSeat = {this.props.chooseSeat} occupied = { 
-          this.props.colSeat[0].selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString() || this.props.selectedSeats.includes(`${row},${place + 1},${this.props.price}`).toString()} key = {`${place + 1}${row}`}  />
+        <Seat
+          row={row}
+          seat={i+1}
+          price={this.props.price}
+          chooseSeat={this.props.chooseSeat}
+          occupied={
+            this.props.selectSeats.find(ticket => 
+              ticket.row === row && 
+              ticket.seat === i+1 && 
+              ticket.price === this.props.price)
+          }
+          key={i + 1+row}
+        />
       )
     }
-    return places    
+    return places
   }
-  render(){
-    const {row, seats} = this.props
+  
+  render() {
+    const { row, amountOfSeats } = this.props;
     return (
-      this.props.colSeat.length &&
-      <div className = "row">
-        <div className = "row__left-number" title = {`row ${row}`}>{row}</div>
-        <div className = "row__seats-list">
-          { this.CreateRow(row, seats) }
+      <div className="row">
+        <div className="row__number" title={`row ${row}`}>
+          {row}
         </div>
-        <div className = "row__right-number" title = {`row ${row}`}>{row}</div>
+        <div className="row__seats-list">
+          {this.CreateRow(row, amountOfSeats)}
+        </div>
+        <div className="row__number" title={`row ${row}`}>
+          {row}
+        </div>
       </div>
     )
   }
 }
 
-Row.propTypes = {
-  price: PropTypes.string,
-}
-
-export default Row
+export default Row;

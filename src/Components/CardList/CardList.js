@@ -1,29 +1,22 @@
-import React,{Component} from 'react'
-import Card from './Card/Card.js'
-import './CardList.scss'
-import { connect } from 'react-redux'
-import {getCards} from '../../actions/index.js'
+import React, { Component } from 'react';
+
+import Card from './Card/Card.js';
+import './CardList.scss';
 
 class CardList extends Component {
-  componentDidMount() {
-    this.props.onGetAllCards();
-  }
   render() {
+    const { moviesList } = this.props;
+    const amountOfCards = 6;
     return (
       <div className="card-list">
-        {this.props.allCards.map((card) => <Card selectedFilm = {this.props.selectedFilm} selectFilm = {this.props.onSelectFilm}  card = {card} key = {card.id} />)}
+        {moviesList.slice(moviesList.length > amountOfCards ?
+          moviesList.length - amountOfCards : 0).map(card => 
+            <Card card={card} key={card.id} />
+          )
+        }
       </div> 
     )
   }
 }
 
-const mapStateToProps = store => ({
-  allCards: store.getAllCards.allCards
-});
-const mapDispatchToProps = dispatch => ({
-  onGetAllCards() {
-    dispatch(getCards())
-  }
-});
-
-export default connect(mapStateToProps,mapDispatchToProps)(CardList)
+export default CardList;

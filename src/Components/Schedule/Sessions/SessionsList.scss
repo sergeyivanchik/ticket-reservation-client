@@ -1,0 +1,77 @@
+@import '../../variables.scss';
+
+
+.sessions-list {
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.session-date {
+  &__date {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 56px;
+    color: $medium-blue;
+    font-weight: bold;
+    font-size: 40px;
+    
+      &:hover {
+        cursor: pointer;
+      }
+  }
+}
+
+.session-cinema{
+  width: 1125px;
+  display: flex;
+  margin-left: 330px;
+    
+    &__info {
+      color: $bright-blue;
+      font-size: 40px;
+      display: flex;
+      width: 50%;
+      padding-bottom: 20px;
+    }
+
+    &__title {
+      margin: 0 50%;
+    
+        &:hover {
+          cursor: pointer;
+          color: $medium-blue;
+          font-size: 45px;
+        }
+    }
+}
+
+.sessions-time {
+  width: 50%;
+  margin-bottom: 30px;
+
+    &__time {
+      font-family: Trattatello, fantasy;
+      border-radius: 10px;
+      font-size: 20px;
+      display: inline-block;
+      border: 1px solid $bright-blue;
+      padding: 5px 0px;
+      width: 60px;
+      text-align: center;
+      margin-right: 10px;
+      margin-bottom: 5px;
+      line-height: initial;
+      color: $bright-blue;
+    
+        &:hover {
+          border-color: $transparent;
+          color: $medium-blue;
+        }
+    }
+
+    &__link-to {
+      text-decoration: none;
+    }
+}

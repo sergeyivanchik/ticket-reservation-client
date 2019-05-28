@@ -1,0 +1,42 @@
+@import '../../variables.scss';
+
+
+@media only screen and (min-width: 1300px) {
+  .movie {
+    display: flex;
+    justify-content: flex-start;
+    margin: 50px 58px;
+    margin-bottom: 0px;
+
+      &__poster {
+        width: 200px;
+        height: 300px;
+        border-radius: 5px;
+      }
+
+      &__info {
+        width: 1200px;
+      }
+
+      &__title {
+        display: flex; 
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 40px;
+        font-weight: bold;
+        color: $medium-blue;
+      }
+
+      &__description {
+        display: flex;
+        align-items: flex-end;
+        font-size: 20px;
+        text-align: justify;
+        text-indent: 20px; 
+        font-family: Snell Roundhand, cursive;
+        margin-left: 20px;
+        color: $bright-blue;
+        line-height: 1.5;
+      }
+  }
+}
