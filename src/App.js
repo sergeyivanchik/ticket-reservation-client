@@ -17,10 +17,10 @@ class App extends Component {
         <div className="router">
           <Route exact path="/" component={MainPage}/>
           <Route path="/movie-profile/:movie" component={MovieProfile}/>
-          <Route path="/hall/:movie/:cinema/:hall/:date/:time" component={Seats}/>
+          <Route path="/hall/:movie/:cinema/:hall/:date" component={Seats}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
-          <Route path="/confirm-ticket/:movie/:date/:cinema/:hall/:time" component={ConfirmTickets}/>
+          <Route path="/confirm-ticket/:movie/:cinema/:hall/:date" component={ConfirmTickets}/>
         </div>
       </Router>
     )

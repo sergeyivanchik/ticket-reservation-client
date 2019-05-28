@@ -29,7 +29,6 @@ class Seats extends React.Component {
             cinema={this.props.match.params.cinema}
             hall={this.props.match.params.hall}
             date={this.props.match.params.date}
-            time={this.props.match.params.time}
             hallSeats={this.seats()}
             chooseSeat={this.props.onSelectSeat}
             selectSeats={this.props.selectSeats}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CinemaList from './CinemaList.js';
-import { getCinemasByMovieAndDate } from '../../../functions/index.js'
+import { getCinemasByMovieAndDate, convertDate } from '../../../functions/index.js'
 
 
 class DateList extends React.Component {
@@ -10,7 +10,7 @@ class DateList extends React.Component {
     return (
       <div className="dates-list">
         <div className="dates-list__date">
-          <span>{date}</span>
+          <span>{convertDate(date)}</span>
         </div> 
           {getCinemasByMovieAndDate(movie, date, sessionsList).map(cinema =>
             <CinemaList
