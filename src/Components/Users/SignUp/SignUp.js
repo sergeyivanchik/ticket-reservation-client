@@ -7,37 +7,37 @@ import './SignUp.scss';
 class SignUp extends React.Component {
   render() {
     return (
-      <div className="signup-form">
-        <form>
-          <label className="signup-form__title">Sign up</label>
+      <div className="signup">
+        <form className="signup__form">
+          <label className="signup__title">Sign up</label>
           <input
             type="text"
-            className="signup-form__name"
+            className="signup__name"
             placeholder="name"
             required
           />
           <input
             type="text"
-            className="signup-form__login"
+            className="signup__login"
             placeholder="login"
             required
           />
           <input
             type="text"
-            className="signup-form__password"
+            className="signup__password"
             placeholder="password"
             required
           />
           <input
             type="text"
-            className="signup-form__email"
+            className="signup__email"
             placeholder="email"
             required
           />
-          <Link to="/login" className='signup-form__link-to'>
+          <Link to="/login" className='signup__link-to'>
             <input
               type="submit"
-              className="signup-form__button"
+              className="signup__button"
               value="Sign up"
             />
           </Link>

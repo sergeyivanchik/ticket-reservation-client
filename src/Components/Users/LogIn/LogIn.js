@@ -7,28 +7,28 @@ import './LogIn.scss'
 class LogIn extends React.Component {
   render() {
     return (
-      <div className="login-form">
-        <form>
-          <label className="login-form__title">Log in</label>
+      <div className="login">
+        <form className="login__form">
+          <label className="login__title">Log in</label>
           <input
             type="text"
-            className="login-form__username"
+            className="login__username"
             placeholder="username"
           />
           <input
             type="password"
-            className="login-form__password"
+            className="login__password"
             placeholder="password"
           />
-          <Link to="/" className='login-form__link-to'>
+          <Link to="/" className='login__link-to'>
             <input
               type="submit"
-              className="login-form__button"
+              className="login__button"
               value="Log in"
             />
           </Link>
-          <Link to="/signup" className='login-form__link-to'>
-            <span className="login-form__signup">Sign up</span>
+          <Link to="/signup" className='login__link-to'>
+            <span className="login__signup">Sign up</span>
           </Link>
         </form>
       </div>
