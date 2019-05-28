@@ -23,12 +23,12 @@ class Seats extends React.Component {
         <div className="seats">
           <TopNavBar/>
           <Hall
-            movie={this.props.match.params.movie}
-            cinema={this.props.match.params.cinema}
+            movieId={this.props.match.params.movieId}
+            cinemaId={this.props.match.params.cinemaId}
             hall={this.props.match.params.hall}
             date={this.props.match.params.date}
             hallSeats={this.props.allCinemas.find(cinema => 
-              cinema.id === this.props.match.params.cinema).halls.find(hall => 
+              cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
                 hall.name === this.props.match.params.hall).places}
             chooseSeat={this.props.onSelectSeat}
             selectSeats={this.props.selectSeats}

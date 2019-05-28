@@ -16,7 +16,7 @@ class MovieProfile extends React.Component {
     this.props.onShowLoader();
     await this.props.onGetCinemas();
     await this.props.onGetSessions();
-    await this.props.onGetMovieById(this.props.match.params.movie);
+    await this.props.onGetMovieById(this.props.match.params.movieId);
     this.props.onHideLoader();
   }
   

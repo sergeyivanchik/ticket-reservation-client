@@ -28,8 +28,8 @@ class ConfirmTickets extends React.Component {
             allCinemas={this.props.allCinemas}
             date={this.props.match.params.date}
             hall={this.props.match.params.hall}
-            movieId={this.props.match.params.movie}
-            cinemaId={this.props.match.params.cinema}
+            movieId={this.props.match.params.movieId}
+            cinemaId={this.props.match.params.cinemaId}
           />
         </div>
     )
