@@ -8,9 +8,9 @@ class DateList extends React.Component {
   render() {
     const { date, movie, sessionsList, cinemasList } = this.props;
     return (
-      <div className="dates-list">
-        <div className="dates-list__date">
-          <span>{convertDate(date)}</span>
+      <div className="session-date">
+        <div className="session-date__date">
+          {convertDate(date)}
         </div> 
           {getCinemasByMovieAndDate(movie, date, sessionsList).map(cinema =>
             <CinemaList

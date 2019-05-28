@@ -12,16 +12,16 @@ class TimeList extends React.Component {
   render() {
     const { movie, date, cinemaId, sessionsList } = this.props;
     return (
-      <div className="times-list">
+      <div className="sessions-time">
         {sortTime(getTimesByMovieAndDateAndCinema(movie, date, cinemaId, sessionsList)).map(
           session =>
             <Link to={ `/hall/${movie}/${cinemaId}/${session.hall}/${date}`
             } 
               key={session.id}
               onClick={() => this.deleteTickets()}
-              className='times-list__link-to'
+              className='sessions-time__link-to'
             >
-              <span className="times-list__movie-time" title={session.hall}>
+              <span className="sessions-time__time" title={session.hall}>
                 {convertTime(session.time)}
               </span>
             </Link>)}

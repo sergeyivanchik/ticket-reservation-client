@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 
-.dates-list {
+.session-date {
   &__date {
     width: 300px;
     display: flex;
@@ -23,12 +23,12 @@
   }
 }
 
-.cinemas-list{
+.session-cinema{
   width: 1125px;
   display: flex;
   margin-left: 330px;
     
-    &__cinema-info {
+    &__info {
       color: $bright-blue;
       font-size: 40px;
       display: flex;
@@ -36,7 +36,7 @@
       padding-bottom: 20px;
     }
 
-    &__cinema-title {
+    &__title {
       margin-left: 50%;
       margin-right: 50%;
     
@@ -48,11 +48,11 @@
     }
 }
 
-.times-list {
+.sessions-time {
   width: 50%;
   margin-bottom: 30px;
 
-    &__movie-time {
+    &__time {
       font-family: Trattatello, fantasy;
       border-radius: 10px;
       font-size: 20px;
