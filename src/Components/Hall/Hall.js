@@ -16,8 +16,7 @@ class Hall extends React.Component {
           selectSeats={this.props.selectSeats}
           hallSeats={this.props.hallSeats}
           chooseSeat={this.props.chooseSeat}
-          sessionId={this.props.sessionId}
-          sessionsList={this.props.sessionsList}
+          boughtSeats={this.props.boughtSeats}
         />
         <label className="hall__choice">Your choice:</label>
         <div className="hall__choice-list">
