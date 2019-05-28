@@ -18,8 +18,7 @@ class Card extends React.Component {
           {card.name}
         </div>
           <div className="card__wrapper-button">
-            <Link
-              to={ `/movie-profile/${card.id}` }
+            <Link to={ `/movie-profile/${card.id}` }
               className="card__button"
             >
               Buy ticket
