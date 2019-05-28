@@ -18,7 +18,7 @@ class Seats extends React.Component {
 
   render() {
     return (
-      !this.props.allCinemas.length || this.props.loading ?
+      !this.props.allCinemas.length || this.props.isLoading ?
         <Loader/> : 
         <div className="seats">
           <TopNavBar/>
@@ -40,7 +40,7 @@ class Seats extends React.Component {
 
 const mapStateToProps = store => ({
   allCinemas: store.getCinemas.allCinemas,
-  loading: store.getLoader.loading,
+  isLoading: store.getLoader.isLoading,
   selectSeats: store.getSeats.selectSeats
 });
 

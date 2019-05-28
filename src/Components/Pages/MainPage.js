@@ -19,7 +19,7 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      this.props.loading ? 
+      this.props.isLoading ? 
       <Loader/> :
       <div className="main-page">
         <TopNavBar/>
@@ -32,7 +32,7 @@ class MainPage extends React.Component {
 const mapStateToProps = store => ({
   allMovies: store.getMovies.allMovies,
   allCinemas: store.getCinemas.allCinemas,
-  loading: store.getLoader.loading
+  isLoading: store.getLoader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

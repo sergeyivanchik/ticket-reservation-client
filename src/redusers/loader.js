@@ -2,19 +2,19 @@ import { SHOW_LOADER, HIDE_LOADER } from '../constants/loader.js';
 
 
 const initialState = {
-  loading: false
+  isLoading: false
 }
 
 export default function getLoader(state = initialState, action) {
   switch (action.type) {
     case SHOW_LOADER:
       return Object.assign({}, state, {
-        loading: true
+        isLoading: true
       })
 
     case HIDE_LOADER: 
       return Object.assign({}, state, {
-        loading: false
+        isLoading: false
       })
       
     default:

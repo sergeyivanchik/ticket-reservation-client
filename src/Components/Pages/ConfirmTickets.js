@@ -18,7 +18,7 @@ class ConfirmTickets extends React.Component {
 
   render() {
     return (
-       !this.props.allCinemas.length || !this.props.allMovies.length || this.props.loading ?
+       !this.props.allCinemas.length || !this.props.allMovies.length || this.props.isLoading ?
         <Loader/> :
         <div className="confirm-ticket">
           <TopNavBar/>
@@ -40,7 +40,7 @@ const mapStateToProps = store => ({
   selectSeats: store.getSeats.selectSeats,
   allCinemas: store.getCinemas.allCinemas,
   allMovies: store.getMovies.allMovies,
-  loading: store.getLoader.loading
+  isLoading: store.getLoader.isLoading
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -22,7 +22,7 @@ class MovieProfile extends React.Component {
   
   render() {
     return (
-        this.props.loading ?
+        this.props.isLoading ?
           <Loader/> :
           <div className="movie-profile">
             <TopNavBar/>
@@ -40,7 +40,7 @@ const mapStateToProps = store => ({
   sessionsList: store.getSessions.sessionsList,
   movieById: store.getMovies.movieById,
   allCinemas: store.getCinemas.allCinemas,
-  loading: store.getLoader.loading
+  isLoading: store.getLoader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
