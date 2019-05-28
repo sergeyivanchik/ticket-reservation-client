@@ -10,7 +10,7 @@ class Seat extends Component {
         occupied={occupied}
         bought={bought}
         price={price}
-        className={`seat ${occupied ? 'seat_occupied' : ''}`}
+        className={`seat ${occupied ? 'seat_occupied' : ''} ${bought ? 'seat_bought' : ''}` }
         title={`row ${row} seat ${seat} price ${price}`}
       >
         {seat}

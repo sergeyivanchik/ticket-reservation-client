@@ -28,7 +28,16 @@
     }
 
     &_occupied {
-      background-color: $dark-blue ;
+      background-color: $dark-blue;
+    }
+
+    &_bought {
+      background-color: $red;
+
+      &:hover {
+        background-color: $red;
+        cursor: default;
+      }
     }
 }
 
