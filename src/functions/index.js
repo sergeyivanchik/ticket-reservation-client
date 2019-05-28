@@ -8,7 +8,7 @@ export const convertDate = date => {
 export const getCinemasByMovieAndDate = (movie, date, sessions) => {
   let cinemasByMovie = [];
   for(let i = 0; i < sessions.length; i++) {
-    if(sessions[i].date === date && 
+    if(convertDate(sessions[i].date) === convertDate(date) && 
       sessions[i].movie === movie) 
         cinemasByMovie.push(sessions[i].cinema); 
     }
@@ -34,7 +34,7 @@ export const convertTime = date => {
 export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, sessions) => {
   let timesByMovie = [];
   for(let i = 0; i < sessions.length; i++ )
-    if(sessions[i].date === date &&
+    if(convertDate(sessions[i].date) === convertDate(date) &&
       cinema === sessions[i].cinema && 
       movie === sessions[i].movie
       ) 
