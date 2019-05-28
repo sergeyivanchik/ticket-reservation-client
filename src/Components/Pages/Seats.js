@@ -6,6 +6,7 @@ import Hall from '../Hall/Hall.js';
 import { selectSeat } from '../../actions/seats.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
+import { getSessionsAsync } from '../../actions/sessions.js';
 import Loader from '../Loader/Loader.js';
 
 
@@ -13,6 +14,7 @@ class Seats extends React.Component {
   async componentDidMount() {
     this.props.onShowLoader();
     await this.props.onGetCinemas();
+    await this.props.onGetSessions();
     this.props.onHideLoader();
   }
 
@@ -26,6 +28,7 @@ class Seats extends React.Component {
               movieId={this.props.match.params.movieId}
               cinemaId={this.props.match.params.cinemaId}
               sessionId={this.props.match.params.sessionId}
+              sessionsList={this.props.sessionsList}
               hall={this.props.match.params.hall}
               date={this.props.match.params.date}
               hallSeats={this.props.allCinemas.find(cinema => 
@@ -42,7 +45,8 @@ class Seats extends React.Component {
 const mapStateToProps = store => ({
   allCinemas: store.getCinemas.allCinemas,
   isLoading: store.getLoader.isLoading,
-  selectSeats: store.getSeats.selectSeats
+  selectSeats: store.getSeats.selectSeats,
+  sessionsList: store.getSessions.sessionsList,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -57,6 +61,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onHideLoader() {
     dispatch(hideLoader())
+  },
+  onGetSessions() {
+    return dispatch(getSessionsAsync())
   }
 });
 
