@@ -25,6 +25,7 @@ class Seats extends React.Component {
             <Hall
               movieId={this.props.match.params.movieId}
               cinemaId={this.props.match.params.cinemaId}
+              sessionId={this.props.match.params.sessionId}
               hall={this.props.match.params.hall}
               date={this.props.match.params.date}
               hallSeats={this.props.allCinemas.find(cinema => 
