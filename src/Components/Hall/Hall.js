@@ -12,41 +12,46 @@ import './Hall.scss';
 class Hall extends React.Component {
   render() { 
     const countOfTickets = 6;
+    const { selectSeats, hallSeats, chooseSeat, movieId, cinemaId, hall, date } = this.props;
     return (
       <div className="hall">
         <Screen/>
         <SeatsList
-          selectSeats={this.props.selectSeats}
-          hallSeats={this.props.hallSeats}
-          chooseSeat={this.props.chooseSeat}
+          selectSeats={selectSeats}
+          hallSeats={hallSeats}
+          chooseSeat={chooseSeat}
         />
         <Legend/>
-        <label className="hall__choice">Your choice:</label>
-        <div className="hall__choice-list">
-          {this.props.selectSeats.map(selectedSeat =>
-            <Choice
-              row={selectedSeat.row}
-              seat={selectedSeat.seat}
-              price={selectedSeat.price}
-              key={selectedSeat}
-            />
-          )}
+        <div className="hall__choice">
+          <label className="hall__choice-text">Your choice:</label>
+          <div className="hall__choice-list">
+            {selectSeats.map(selectedSeat =>
+              <Choice
+                row={selectedSeat.row}
+                seat={selectedSeat.seat}
+                price={selectedSeat.price}
+                key={selectedSeat}
+              />
+            )}
+          </div>
+          <div className={`hall__cost ${(!selectSeats.length)
+                ? 'hall__button_hidden' : 'hall__button_visible'}`}>
+            Cost: {selectSeats.reduce((sum, ticket) => 
+              sum + ticket.price, 0)} $
+          </div>
+          <Link to={`/confirm-ticket/${movieId}/${cinemaId}/${hall}/${date}`}
+            className='hall__link-to'>
+            <Button 
+              variant="contained" 
+              color="primary"
+              className={`hall__button ${(!selectSeats.length)
+                ? 'hall__button_hidden' : 'hall__button_visible'}`}
+              disabled={(selectSeats.length > countOfTickets) ? true : false}
+            >
+              Buy
+            </Button>
+          </Link>
         </div>
-        <div className='hall__cost'>
-          Cost: {this.props.selectSeats.reduce((sum, ticket) => 
-            sum + ticket.price, 0)} $
-        </div>
-        <Link to={`/confirm-ticket/${this.props.movieId}/${this.props.cinemaId}/${this.props.hall}/${this.props.date}`}
-          className='hall__link-to'>
-          <Button 
-            variant="contained" 
-            color="primary"
-            className="hall__button"
-            disabled={(this.props.selectSeats.length > countOfTickets || !this.props.selectSeats.length) ? true : false}
-          >
-            Buy
-          </Button>
-        </Link>
       </div>
     )
   }
