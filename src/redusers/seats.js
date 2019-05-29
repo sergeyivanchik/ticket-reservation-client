@@ -1,11 +1,14 @@
 import {
   SELECT_SEAT,
-  DELETE_SELECTED_SEATS
+  DELETE_SELECTED_SEATS,
+  BUY_SEATS_SUCCESS,
+  BUY_SEATS_FAILURE
 } from '../constants/seats.js';
 
 
 const initialState = {
   selectSeats: [],
+  boughtTickets: [],
   error: ''
 }
 
@@ -22,12 +25,24 @@ export default function getSeats(state = initialState, action) {
         action.payload.seat === seatInfo.seat &&
         action.payload.price === seatInfo.price
       )
-      const boughtTicket = currentSeat
+      const chooseTicket = currentSeat
       ? state.selectSeats.filter(seat => seat !== currentSeat)
       : [...state.selectSeats, action.payload]
 
       return Object.assign({}, state, {
-        selectSeats: boughtTicket
+        selectSeats: chooseTicket
+      })
+    }
+
+    case BUY_SEATS_SUCCESS: {
+      return Object.assign({}, state, {
+        boughtTickets: action.payload
+      })
+    }
+
+    case BUY_SEATS_FAILURE: {
+      return Object.assign({}, state, {
+        error: action.payload
       })
     }
 
