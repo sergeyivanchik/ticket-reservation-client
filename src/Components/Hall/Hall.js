@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Choice from './Choice/Choice.js';
 import SeatsList from './Row/SeatsList.js';
 import Screen from './Screen/Screen.js';
+import Legend from './Legend/Legend.js';
 import Button from '@material-ui/core/Button';
 import './Hall.scss';
 
@@ -19,6 +20,7 @@ class Hall extends React.Component {
           hallSeats={this.props.hallSeats}
           chooseSeat={this.props.chooseSeat}
         />
+        <Legend/>
         <label className="hall__choice">Your choice:</label>
         <div className="hall__choice-list">
           {this.props.selectSeats.map(selectedSeat =>
