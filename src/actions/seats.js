@@ -26,14 +26,15 @@ export const buySeatsFailure = error => ({
   payload: error
 });
 
-export const buySeatsAsync = (sessionId, seats) => {
+export const buySeatsAsync = (sessionId, row, seat, price) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`http://localhost:8080/session/${sessionId}`, { seats });
+      const { data } = await axios.put(`http://localhost:8080/sessions/insert/${sessionId}`, { row, seat, price } );
       dispatch(buySeatsSuccess(data))
     }
     catch (error) {
       dispatch(buySeatsFailure(error));
+      console.log(error)
     }
   }
 } 

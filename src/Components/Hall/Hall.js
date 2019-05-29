@@ -10,16 +10,17 @@ import './Hall.scss';
 class Hall extends React.Component {
   render() { 
     const countOfTickets = 6;
+    const { selectSeats } = this.props;
     return (
       <div className="hall">
         <SeatsList
-          selectSeats={this.props.selectSeats}
+          selectSeats={selectSeats}
           hallSeats={this.props.hallSeats}
           chooseSeat={this.props.chooseSeat}
         />
         <label className="hall__choice">Your choice:</label>
         <div className="hall__choice-list">
-          {this.props.selectSeats.map(selectedSeat =>
+          {selectSeats.map(selectedSeat =>
             <Choice
               row={selectedSeat.row}
               seat={selectedSeat.seat}
@@ -29,16 +30,20 @@ class Hall extends React.Component {
           )}
         </div>
         <div className='hall__cost'>
-          Cost: {this.props.selectSeats.reduce((sum, ticket) => 
+          Cost: {selectSeats.reduce((sum, ticket) => 
             sum + ticket.price, 0)} $
         </div>
         <Link to={`/confirm-ticket/${this.props.movieId}/${this.props.cinemaId}/${this.props.hall}/${this.props.date}`}
           className='hall__link-to'>
           <Button 
+            onClick={() => selectSeats.map(seats => {
+              const { row, seat, price } = seats;
+              return this.props.buySeats(this.props.sessionId, row, seat, price)
+            })}
             variant="contained" 
             color="primary"
             className="hall__button"
-            disabled={(this.props.selectSeats.length > countOfTickets || !this.props.selectSeats.length) ? true : false}
+            disabled={(selectSeats.length > countOfTickets || !selectSeats.length) ? true : false}
           >
             Buy
           </Button>

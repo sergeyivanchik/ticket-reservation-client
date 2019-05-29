@@ -15,7 +15,7 @@ class TimeList extends React.Component {
       <div className="sessions-time">
         {sortTime(getTimesByMovieAndDateAndCinema(movie, date, cinemaId, sessionsList)).map(
           session =>
-            <Link to={ `/hall/${movie}/${cinemaId}/${session.hall}/${date}`
+            <Link to={ `/hall/${session.id}/${movie}/${cinemaId}/${session.hall}/${date}`
             } 
               key={session.id}
               onClick={() => this.deleteTickets()}

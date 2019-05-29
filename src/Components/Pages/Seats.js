@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
-import { selectSeat } from '../../actions/seats.js';
+import { selectSeat, buySeatsAsync } from '../../actions/seats.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js';
@@ -25,6 +25,7 @@ class Seats extends React.Component {
             <Hall
               movieId={this.props.match.params.movieId}
               cinemaId={this.props.match.params.cinemaId}
+              sessionId={this.props.match.params.sessionId}
               hall={this.props.match.params.hall}
               date={this.props.match.params.date}
               hallSeats={this.props.allCinemas.find(cinema => 
@@ -32,6 +33,7 @@ class Seats extends React.Component {
                   hall.name === this.props.match.params.hall).places}
               chooseSeat={this.props.onSelectSeat}
               selectSeats={this.props.selectSeats}
+              buySeats={this.props.onBuySeats}
             />
           </div>
     )
@@ -56,6 +58,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onHideLoader() {
     dispatch(hideLoader())
+  },
+  onBuySeats(sessionId, row, seat,price) {
+    dispatch(buySeatsAsync(sessionId, row, seat, price))
   }
 });
 
