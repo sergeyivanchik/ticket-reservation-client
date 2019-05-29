@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Choice from './Choice/Choice.js';
 import SeatsList from './Row/SeatsList.js';
+import Screen from './Screen/Screen.js';
 import Button from '@material-ui/core/Button';
 import './Hall.scss';
 
@@ -12,6 +13,7 @@ class Hall extends React.Component {
     const countOfTickets = 6;
     return (
       <div className="hall">
+        <Screen/>
         <SeatsList
           selectSeats={this.props.selectSeats}
           hallSeats={this.props.hallSeats}
