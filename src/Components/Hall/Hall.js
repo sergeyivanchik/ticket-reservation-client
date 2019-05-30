@@ -22,6 +22,7 @@ class Hall extends React.Component {
           chooseSeat={chooseSeat}
         />
         <Legend/>
+
         <div className="hall__choice">
           <label className="hall__choice-text">Your choice:</label>
           <div className="hall__choice-list">
@@ -34,13 +35,14 @@ class Hall extends React.Component {
               />
             )}
           </div>
+
           <div className={`hall__cost ${(!selectSeats.length)
                 ? 'hall__button_hidden' : 'hall__button_visible'}`}>
             Cost: {selectSeats.reduce((sum, ticket) => 
               sum + ticket.price, 0)} $
           </div>
-          <Link to={`/confirm-ticket/${movieId}/${cinemaId}/${hall}/${date}`}
-            className='hall__link-to'>
+
+          <Link to={`/confirm-ticket/${movieId}/${cinemaId}/${hall}/${date}`} className='hall__link-to'>
             <Button 
               variant="contained" 
               color="primary"
