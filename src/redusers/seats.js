@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   selectSeats: [],
-  boughtTickets: [],
+  reserveSeats: [],
   error: ''
 }
 
@@ -25,18 +25,18 @@ export default function getSeats(state = initialState, action) {
         action.payload.seat === seatInfo.seat &&
         action.payload.price === seatInfo.price
       )
-      const chooseTicket = currentSeat
+      const chooseSeat = currentSeat
       ? state.selectSeats.filter(seat => seat !== currentSeat)
       : [...state.selectSeats, action.payload]
 
       return Object.assign({}, state, {
-        selectSeats: chooseTicket
+        selectSeats: chooseSeat
       })
     }
 
     case BUY_SEATS_SUCCESS: {
       return Object.assign({}, state, {
-        boughtTickets: action.payload
+        reserveSeats: action.payload
       })
     }
 

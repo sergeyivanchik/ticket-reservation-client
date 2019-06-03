@@ -17,8 +17,11 @@ class Seats extends React.Component {
   }
 
   render() {
+    const seatsList = () => this.props.allCinemas.find(cinema => 
+      cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
+        hall.name === this.props.match.params.hall).places;
     return (
-      !this.props.allCinemas.length || this.props.isLoading
+      this.props.isLoading
         ? <Loader/>
         : <div className="seats">
             <TopNavBar/>
@@ -28,9 +31,7 @@ class Seats extends React.Component {
               sessionId={this.props.match.params.sessionId}
               hall={this.props.match.params.hall}
               date={this.props.match.params.date}
-              hallSeats={this.props.allCinemas.find(cinema => 
-                cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
-                  hall.name === this.props.match.params.hall).places}
+              hallSeats={seatsList()}
               chooseSeat={this.props.onSelectSeat}
               selectSeats={this.props.selectSeats}
               buySeats={this.props.onBuySeats}

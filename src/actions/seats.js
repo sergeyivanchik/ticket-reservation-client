@@ -34,7 +34,6 @@ export const buySeatsAsync = (sessionId, row, seat, price) => {
     }
     catch (error) {
       dispatch(buySeatsFailure(error));
-      console.log(error)
     }
   }
 } 
