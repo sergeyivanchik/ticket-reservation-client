@@ -16,15 +16,14 @@
   color: $white;
   user-select: none;
   background-color: $light-blue;
+  cursor: pointer;
 
     &:hover {
       background-color: $indigo;
-      cursor: pointer;
     }
     
     &:active {
       background-color: $dark-blue;
-      cursor: pointer;
     }
 
     &_occupied {

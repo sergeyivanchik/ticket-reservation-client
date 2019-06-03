@@ -6,23 +6,23 @@ import Seat from './Seat.js'
 class Row extends Component {
   CreateRow(row, countPlaces) {
     let places = [];
-    for(let i = 0; i < countPlaces; i++) {
+    for(let i = 1; i <= countPlaces; i++) {
       places.push(
         <Seat
           row={row}
-          seat={i+1}
+          seat={i}
           price={this.props.price}
           chooseSeat={this.props.chooseSeat}
           occupied={
             this.props.selectSeats.find(ticket => 
               ticket.row === row && 
-              ticket.seat === i+1 && 
+              ticket.seat === i && 
               ticket.price === this.props.price)
           }
           bought={
               this.props.boughtSeats.find(boughtSeat => 
                 boughtSeat.row === row &&
-                boughtSeat.seat === i+1 &&
+                boughtSeat.seat === i &&
                 boughtSeat.price === this.props.price)
           }
           key={i + 1+row}
