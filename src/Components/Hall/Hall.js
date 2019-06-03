@@ -10,7 +10,7 @@ import './Hall.scss';
 
 class Hall extends React.Component {
   render() { 
-    const countOfTickets = 6;
+    const countOfSelectedSeats = 6;
     const { selectSeats, hallSeats, chooseSeat, movieId, cinemaId, hall, date } = this.props;
     return (
       <div className="hall">
@@ -35,8 +35,7 @@ class Hall extends React.Component {
             )}
           </div>
 
-          <div className={`hall__cost ${(!selectSeats.length)
-                ? 'hall__button_hidden' : 'hall__button_visible'}`}>
+          <div className={`hall__cost ${(!selectSeats.length) ? 'hall__cost_hidden' : ''}`}>
             Cost: {selectSeats.reduce((sum, ticket) => 
               sum + ticket.price, 0)} $
           </div>
@@ -45,9 +44,8 @@ class Hall extends React.Component {
             <Button 
               variant="contained" 
               color="primary"
-              className={`hall__button ${(!selectSeats.length)
-                ? 'hall__button_hidden' : 'hall__button_visible'}`}
-              disabled={(selectSeats.length > countOfTickets) ? true : false}
+              className={`hall__button ${(!selectSeats.length) ? 'hall__button_hidden' : ''}`}
+              disabled={(selectSeats.length > countOfSelectedSeats) ? true : false}
             >
               Buy
             </Button>

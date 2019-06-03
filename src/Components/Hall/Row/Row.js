@@ -30,17 +30,11 @@ class Row extends Component {
     const { row, amountOfSeats } = this.props;
     return (
       <div className="row">
-        <div className="row__number" title={`row ${row}`}>
-          {row}
-        </div>
+        <div className="row__number" title={`row ${row}`}>{row}</div>
 
-        <div className="row__seats-list">
-          {this.CreateRow(row, amountOfSeats)}
-        </div>
+        <div className="row__seats-list">{this.CreateRow(row, amountOfSeats)}</div>
 
-        <div className="row__number" title={`row ${row}`}>
-          {row}
-        </div>
+        <div className="row__number" title={`row ${row}`}>{row}</div>
       </div>
     )
   }
