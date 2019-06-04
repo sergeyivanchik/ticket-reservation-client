@@ -15,6 +15,7 @@ class SeatsList extends React.Component {
             amountOfSeats={hallRow.countOfSeats}
             chooseSeat={this.props.chooseSeat}
             price={hallRow.cost}
+            boughtSeats={this.props.boughtSeats}
             key={hallRow.row}
           />
         )}

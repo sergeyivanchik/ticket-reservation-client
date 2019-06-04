@@ -19,6 +19,12 @@ class Row extends Component {
               ticket.seat === i && 
               ticket.price === this.props.price)
           }
+          bought={
+              this.props.boughtSeats.find(boughtSeat => 
+                boughtSeat.row === row &&
+                boughtSeat.seat === i &&
+                boughtSeat.price === this.props.price)
+          }
           key={i+row}
         />
       )
