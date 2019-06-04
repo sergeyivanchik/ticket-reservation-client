@@ -1,0 +1,55 @@
+@import '../../variables.scss';
+
+
+.legend {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+    &__type {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      width: 150px;
+    }
+
+    &__icon {
+      display: flex;
+      width: 30px;
+      height: 28px;
+      border-radius: 0 5px;
+      margin-right: 5px;
+      user-select: none;
+
+      &_free {
+        background-color: $light-blue;
+      }
+
+      &_chosen {
+        background-color: $dark-blue;
+      }
+
+      &_bought {
+        background-color: $black;
+      }
+    }
+
+    &__text {
+      font-size: 30px;
+
+      &_free {
+        color: $light-blue;
+      }
+
+      &_chosen {
+        color: $dark-blue;
+      }
+
+      &_bought {
+        color: $black;
+      }
+    }
+}
