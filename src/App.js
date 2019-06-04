@@ -17,7 +17,7 @@ class App extends Component {
         <div className="router">
           <Route exact path="/" component={MainPage}/>
           <Route path="/movie-profile/:movieId" component={MovieProfile}/>
-          <Route path="/hall/:movieId/:cinemaId/:hall/:date" component={Seats}/>
+          <Route path="/hall/:sessionId/:movieId/:cinemaId/:hall/:date" component={Seats}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
           <Route path="/confirm-ticket/:movieId/:cinemaId/:hall/:date" component={ConfirmTickets}/>

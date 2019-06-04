@@ -41,7 +41,11 @@ class Hall extends React.Component {
           </div>
 
           <Link to={`/confirm-ticket/${movieId}/${cinemaId}/${hall}/${date}`} className='hall__link-to'>
-            <Button 
+            <Button
+              onClick={() => selectSeats.map(seats => {
+               const { row, seat, price } = seats;
+               return this.props.buySeats(this.props.sessionId, row, seat, price)
+            })}
               variant="contained" 
               color="primary"
               className={`hall__button ${(!selectSeats.length) ? 'hall__button_hidden' : ''}`}
@@ -51,6 +55,7 @@ class Hall extends React.Component {
             </Button>
           </Link>
         </div>
+
       </div>
     )
   }
