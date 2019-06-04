@@ -33,7 +33,6 @@ class Seats extends React.Component {
               sessionId={this.props.match.params.sessionId}
               boughtSeats={this.props.sessionsList.find(session => 
                 session.id === this.props.match.params.sessionId).selectedSeats}
-
               hall={this.props.match.params.hall}
               date={this.props.match.params.date}
               hallSeats={seatsList()}
@@ -68,6 +67,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onBuySeats(sessionId, row, seat,price) {
     dispatch(buySeatsAsync(sessionId, row, seat, price))
+  },
   onGetSessions() {
     return dispatch(getSessionsAsync())
   }

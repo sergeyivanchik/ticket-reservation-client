@@ -11,7 +11,7 @@ import './Hall.scss';
 class Hall extends React.Component {
   render() { 
     const countOfSelectedSeats = 6;
-    const { selectSeats, hallSeats, chooseSeat, movieId, cinemaId, hall, date } = this.props;
+    const { selectSeats, hallSeats, chooseSeat, movieId, cinemaId, hall, date, boughtSeats } = this.props;
     return (
       <div className="hall">
         <div className="hall__screen">Screen</div>
@@ -19,6 +19,7 @@ class Hall extends React.Component {
           selectSeats={selectSeats}
           hallSeats={hallSeats}
           chooseSeat={chooseSeat}
+          boughtSeats={boughtSeats}
         />
         <Legend/>
 
