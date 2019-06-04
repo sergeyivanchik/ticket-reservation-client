@@ -6,7 +6,7 @@ import Seat from './Seat.js'
 class Row extends Component {
   CreateRow(row, countPlaces) {
     let places = [];
-    for(let i = 1; i <= countPlaces; i++) {
+    for(let i = 1; i < countPlaces+1; i++) {
       places.push(
         <Seat
           row={row}

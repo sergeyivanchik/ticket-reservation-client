@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
-import { selectSeat } from '../../actions/seats.js';
+import { selectSeat, buySeatsAsync } from '../../actions/seats.js';
 import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import { getSessionsAsync } from '../../actions/sessions.js';
@@ -19,23 +19,27 @@ class Seats extends React.Component {
   }
 
   render() {
+    const seatsList = () => this.props.allCinemas.find(cinema => 
+      cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
+        hall.name === this.props.match.params.hall).places;
     return (
-      !this.props.allCinemas.length || !this.props.sessionsList || this.props.isLoading
+      this.props.isLoading
         ? <Loader/>
         : <div className="seats">
             <TopNavBar/>
             <Hall
               movieId={this.props.match.params.movieId}
               cinemaId={this.props.match.params.cinemaId}
+              sessionId={this.props.match.params.sessionId}
               boughtSeats={this.props.sessionsList.find(session => 
                 session.id === this.props.match.params.sessionId).selectedSeats}
+
               hall={this.props.match.params.hall}
               date={this.props.match.params.date}
-              hallSeats={this.props.allCinemas.find(cinema => 
-                cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
-                  hall.name === this.props.match.params.hall).places}
+              hallSeats={seatsList()}
               chooseSeat={this.props.onSelectSeat}
               selectSeats={this.props.selectSeats}
+              buySeats={this.props.onBuySeats}
             />
           </div>
     )
@@ -62,6 +66,8 @@ const mapDispatchToProps = dispatch => ({
   onHideLoader() {
     dispatch(hideLoader())
   },
+  onBuySeats(sessionId, row, seat,price) {
+    dispatch(buySeatsAsync(sessionId, row, seat, price))
   onGetSessions() {
     return dispatch(getSessionsAsync())
   }

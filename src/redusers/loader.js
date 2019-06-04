@@ -2,7 +2,7 @@ import { SHOW_LOADER, HIDE_LOADER } from '../constants/loader.js';
 
 
 const initialState = {
-  isLoading: false
+  isLoading: true
 }
 
 export default function getLoader(state = initialState, action) {
