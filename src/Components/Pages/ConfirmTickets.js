@@ -14,7 +14,7 @@ class ConfirmTickets extends React.Component {
     await this.props.onGetMovies()
     await this.props.onGetCinemas();
     this.props.onHideLoader();
-}
+  }
 
   render() {
     return (
