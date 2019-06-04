@@ -25,7 +25,7 @@ class Row extends Component {
                 boughtSeat.seat === i &&
                 boughtSeat.price === this.props.price)
           }
-          key={i + 1+row}
+          key={i+row}
         />
       )
     }
