@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import createBrowseHistory from "history/createBrowserHistory";
 
 import MainPage from './Components/Pages/MainPage.js';
 import MovieProfile from './Components/Pages/MovieProfile.js';
@@ -11,19 +12,25 @@ import ConfirmTickets from './Components/Pages/ConfirmTickets.js';
 import SnackBar from './Components/Snackbar/Snackbar.js';
 import './App.scss';
 
+export const history = createBrowseHistory();
 
 class App extends Component {
+  authorizationСheck = () => 
+   localStorage.getItem('token') !== null ? true : false;
+  
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className="router">
           <SnackBar message={this.props.message} isShown={this.props.isShown}/>
           <Route exact path="/" component={MainPage}/>
           <Route path="/movie-profile/:movieId" component={MovieProfile}/>
-          <Route path="/hall/:sessionId/:movieId/:cinemaId/:hall/:date" component={Seats}/>
+          <Route path="/hall/:sessionId/:movieId/:cinemaId/:hall/:date" 
+            component={this.authorizationСheck() ? Seats : LogIn}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
-          <Route path="/confirm-ticket/:movieId/:cinemaId/:hall/:date" component={ConfirmTickets}/>
+          <Route path="/confirm-ticket/:movieId/:cinemaId/:hall/:date" 
+            component={this.authorizationСheck() ? ConfirmTickets : LogIn}/>
         </div>
       </Router>
     )

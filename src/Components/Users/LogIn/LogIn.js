@@ -37,11 +37,7 @@ class LogIn extends React.Component {
             placeholder="password"
             onChange={this.handleInputChange}
           />
-          {/* <Link to="/" className='login__link-to'> */}
-            <span className="login__button" onClick = {() => {
-              this.props.onLogIn(this.state) }
-            }>Log in</span>
-          {/* </Link> */}
+          <span className="login__button" onClick = {() => {this.props.onLogIn(this.state)}}>Log in</span>
           <Link to="/signup" className='login__link-to'>
             <span className="login__signup">Sign up</span>
           </Link>

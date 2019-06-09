@@ -4,6 +4,7 @@ import {
   LOG_IN_FAILURE
 } from '../constants/users.js';
 import { showSnackbar } from '../actions/snackbar.js'
+import { history } from '../App.js';
 
 
 export const logInSuccess = user => ({
@@ -26,6 +27,7 @@ export const logInAsync = (userInfo) => {
         : console.log('token not found');
       dispatch(logInSuccess(data));
       dispatch(showSnackbar('You have successfully logged in!'));
+      history.push('/')
     } catch (error) {
       dispatch(logInFailure(error));
       dispatch(showSnackbar('Please, enter correct data!'));
