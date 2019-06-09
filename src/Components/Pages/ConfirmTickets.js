@@ -37,10 +37,10 @@ class ConfirmTickets extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  selectSeats: store.getSeats.selectSeats,
-  allCinemas: store.getCinemas.allCinemas,
-  allMovies: store.getMovies.allMovies,
-  isLoading: store.getLoader.isLoading
+  selectSeats: store.seats.selectSeats,
+  allCinemas: store.cinemas.allCinemas,
+  allMovies: store.movies.allMovies,
+  isLoading: store.loader.isLoading
 })
 
 const mapDispatchToProps = dispatch => ({

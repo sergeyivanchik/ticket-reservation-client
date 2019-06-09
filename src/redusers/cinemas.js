@@ -6,7 +6,7 @@ const initialState = {
   error: ''
 }
 
-export default function getCinemas(state = initialState, action) {
+export default function cinemas(state = initialState, action) {
   switch (action.type) {
     case GET_CINEMAS_SUCCESS:
       return Object.assign({}, state, {

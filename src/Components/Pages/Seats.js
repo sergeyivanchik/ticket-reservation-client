@@ -46,10 +46,10 @@ class Seats extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allCinemas: store.getCinemas.allCinemas,
-  isLoading: store.getLoader.isLoading,
-  selectSeats: store.getSeats.selectSeats,
-  sessionsList: store.getSessions.sessionsList,
+  allCinemas: store.cinemas.allCinemas,
+  isLoading: store.loader.isLoading,
+  selectSeats: store.seats.selectSeats,
+  sessionsList: store.sessions.sessionsList,
 });
 
 const mapDispatchToProps = dispatch => ({

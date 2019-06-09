@@ -1,18 +1,20 @@
 import { combineReducers } from 'redux';
-import getSeats  from './seats.js';
-import getCinemas from './cinemas.js';
-import getHalls from './halls.js';
-import getMovies from './movies.js';
-import getSessions from './sessions.js';
-import getLoader from './loader.js';
+import seats  from './seats.js';
+import cinemas from './cinemas.js';
+import halls from './halls.js';
+import movies from './movies.js';
+import sessions from './sessions.js';
+import loader from './loader.js';
+import snackbar from './snackbar';
 
 const allReducers = combineReducers ({
-  getSeats,
-  getCinemas,
-  getHalls,
-  getMovies,
-  getSessions,
-  getLoader
+  seats,
+  cinemas,
+  halls,
+  movies,
+  sessions,
+  loader,
+  snackbar
 })
 
 export default allReducers
