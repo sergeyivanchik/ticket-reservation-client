@@ -15,8 +15,7 @@ import './App.scss';
 export const history = createBrowseHistory();
 
 class App extends Component {
-  authorizationСheck = () => 
-   localStorage.getItem('token') !== null ? true : false;
+  сheckAuthorization = () => localStorage.getItem('token') !== null ? true : false;
   
   render() {
     return (
@@ -26,11 +25,11 @@ class App extends Component {
           <Route exact path="/" component={MainPage}/>
           <Route path="/movie-profile/:movieId" component={MovieProfile}/>
           <Route path="/hall/:sessionId/:movieId/:cinemaId/:hall/:date" 
-            component={this.authorizationСheck() ? Seats : LogIn}/>
+            component={this.сheckAuthorization() ? Seats : LogIn}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
           <Route path="/confirm-ticket/:movieId/:cinemaId/:hall/:date" 
-            component={this.authorizationСheck() ? ConfirmTickets : LogIn}/>
+            component={this.сheckAuthorization() ? ConfirmTickets : LogIn}/>
         </div>
       </Router>
     )

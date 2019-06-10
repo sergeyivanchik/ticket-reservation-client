@@ -22,9 +22,10 @@ export const logInAsync = (userInfo) => {
     try {
       const { data } = await axios.post(`http://localhost:8080/users/login`, {...userInfo});
       let token = data.token;
-      token
-        ? localStorage.setItem('token', token)
-        : console.log('token not found');
+      if(token) {
+        localStorage.setItem('token', token);
+        localStorage.setItem('username', data.username);
+      } else console.log('token not found');
       dispatch(logInSuccess(data));
       dispatch(showSnackbar('You have successfully logged in!'));
       history.push('/')
