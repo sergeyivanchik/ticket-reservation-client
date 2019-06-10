@@ -33,23 +33,11 @@
       }
 
       &_bought {
-        background-color: $black;
+        background-color: $red;
       }
     }
 
     &__text {
       font-size: 30px;
-
-      &_free {
-        color: $light-blue;
-      }
-
-      &_chosen {
-        color: $dark-blue;
-      }
-
-      &_bought {
-        color: $black;
-      }
     }
 }

@@ -12,7 +12,7 @@ const initialState = {
   error: ''
 }
 
-export default function getMovies(state = initialState, action) {
+export default function movies(state = initialState, action) {
   switch (action.type) {
     case GET_MOVIES_SUCCESS:
       return Object.assign({}, state, {

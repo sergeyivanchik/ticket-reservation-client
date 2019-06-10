@@ -9,7 +9,7 @@ const initialState = {
   error: ''
 }
 
-export default function getSessions(state = initialState, action) {
+export default function sessions(state = initialState, action) {
   switch (action.type) {
     case GET_SESSIONS_SUCCESS:
       return Object.assign({}, state, {

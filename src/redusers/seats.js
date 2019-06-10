@@ -12,7 +12,7 @@ const initialState = {
   error: ''
 }
 
-export default function getSeats(state = initialState, action) {
+export default function seats(state = initialState, action) {
   switch (action.type) {
     case DELETE_SELECTED_SEATS:
       return Object.assign({}, state, {

@@ -37,10 +37,10 @@ class MovieProfile extends React.Component {
   }
 }
 const mapStateToProps = store => ({
-  sessionsList: store.getSessions.sessionsList,
-  movieById: store.getMovies.movieById,
-  allCinemas: store.getCinemas.allCinemas,
-  isLoading: store.getLoader.isLoading
+  sessionsList: store.sessions.sessionsList,
+  movieById: store.movies.movieById,
+  allCinemas: store.cinemas.allCinemas,
+  isLoading: store.loader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

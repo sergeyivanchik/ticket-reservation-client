@@ -30,9 +30,9 @@ class MainPage extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allMovies: store.getMovies.allMovies,
-  allCinemas: store.getCinemas.allCinemas,
-  isLoading: store.getLoader.isLoading
+  allMovies: store.movies.allMovies,
+  allCinemas: store.cinemas.allCinemas,
+  isLoading: store.loader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

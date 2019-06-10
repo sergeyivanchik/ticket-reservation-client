@@ -21,9 +21,14 @@ function TopNavBar() {
           <Typography variant="h6" color="inherit" className="top-navbar__typography">
             <Link to="/" className='top-navbar__link-to'>Cinema</Link>
           </Typography>
-          <Link to="/login" className='top-navbar__link-to'>
-            <Button color="inherit">Login</Button>
-          </Link>
+            {localStorage.getItem('token') !== null
+              ? <Link to="/login" className='top-navbar__link-to'>
+                  <Button color="inherit">{localStorage.getItem('username') ? localStorage.getItem('username') : 'Profile'}</Button>
+                </Link>
+              : <Link to="/login" className='top-navbar__link-to'>
+                  <Button color="inherit">Login</Button>
+                </Link>
+            }
         </Toolbar>
       </AppBar>
     </div>

@@ -9,7 +9,7 @@ const initialState = {
   error: []
 }
 
-export default function getHalls(state = initialState, action) {
+export default function halls(state = initialState, action) {
   switch (action.type) {
     case GET_HALLS_BY_CINEMA_SUCCESS: 
       return Object.assign({}, state, {

@@ -5,7 +5,7 @@ const initialState = {
   isLoading: true
 }
 
-export default function getLoader(state = initialState, action) {
+export default function loader(state = initialState, action) {
   switch (action.type) {
     case SHOW_LOADER:
       return Object.assign({}, state, {
