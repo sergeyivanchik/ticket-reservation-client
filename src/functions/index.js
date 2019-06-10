@@ -9,8 +9,8 @@ export const getCinemasByMovieAndDate = (movie, date, sessions) => {
   let cinemasByMovie = [];
   for(let i = 0; i < sessions.length; i++) {
     if(convertDate(sessions[i].date) === convertDate(date) && 
-      sessions[i].movie === movie) 
-        cinemasByMovie.push(sessions[i].cinema); 
+      sessions[i].movie.id === movie) 
+        cinemasByMovie.push(sessions[i].cinema.id); 
     }
   return cinemasByMovie.filter((item, pos) => 
     cinemasByMovie.indexOf(item) === pos);	
@@ -18,12 +18,23 @@ export const getCinemasByMovieAndDate = (movie, date, sessions) => {
 
 export const getDatesByMovie = (movie, sessions) => {
   let datesByMovie = [];
+  let check = 0;
   for(let i = 0; i < sessions.length; i++) {
-    if(sessions[i].movie === movie) 
+    check = 0;
+    if(sessions[i].movie.id === movie) {
+      if(datesByMovie.length === 0)
         datesByMovie.push(sessions[i].date);
+      else {
+        for (let j = 0; j < datesByMovie.length; j++) {
+          if (convertDate(datesByMovie[j]) !== convertDate(sessions[i].date))
+            check++
+        }
+        if (check === datesByMovie.length)
+          datesByMovie.push(sessions[i].date); 
+      }
+    } 
   }
-  return datesByMovie.filter((item, pos) => 
-    datesByMovie.indexOf(item) === pos);	
+  return datesByMovie;
 }
 
 export const convertTime = date => {
@@ -35,13 +46,13 @@ export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, sessions) =
   let timesByMovie = [];
   for(let i = 0; i < sessions.length; i++ )
     if(convertDate(sessions[i].date) === convertDate(date) &&
-      cinema === sessions[i].cinema && 
-      movie === sessions[i].movie
+      cinema === sessions[i].cinema.id && 
+      movie === sessions[i].movie.id
       ) 
       timesByMovie.push({
-        time : sessions[i].date, 
-        hall : sessions[i].hall, 
-        id :sessions[i].id
+        time: sessions[i].date, 
+        hall: sessions[i].hall.name, 
+        id: sessions[i].id
       });
   return timesByMovie;
 }

@@ -7,7 +7,7 @@ import './SessionsList.scss';
 
 class SessionsList extends React.Component {
   render() {
-    const { movie, sessionsList, cinemasList } = this.props;
+    const { movie, sessionsList } = this.props;
     return (
       <div className="sessions-list">
         {getDatesByMovie(movie.id, sessionsList).map(date =>
@@ -16,7 +16,6 @@ class SessionsList extends React.Component {
             date={date}
             sessionsList={sessionsList}
             key={date}
-            cinemasList={cinemasList}
             deleteTickets={this.props.deleteTickets}
           />
         ) 

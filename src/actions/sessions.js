@@ -14,10 +14,10 @@ export const getSessionsFailure = error => ({
   payload: error
 });
 
-export const getSessionsAsync = () => {
+export const getSessionsAsync = (movieId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/sessions`);
+      const { data } = await axios.get(`http://localhost:8080/sessions/${movieId}`);
       dispatch(getSessionsSuccess(data))
     }
     catch (error) {

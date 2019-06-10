@@ -6,7 +6,7 @@ import SessionsList from './Sessions/SessionsList.js';
 
 class Schedule extends React.Component {
   render() {
-    const { movie, sessionsList, cinemasList } = this.props;
+    const { movie, sessionsList } = this.props;
     return (
       <div className="schedule">
         <SelectedMovie
@@ -15,7 +15,6 @@ class Schedule extends React.Component {
         <SessionsList
           movie={movie}
           sessionsList={sessionsList}
-          cinemasList={cinemasList}
           deleteTickets={this.props.deleteTickets}
         />
       </div>

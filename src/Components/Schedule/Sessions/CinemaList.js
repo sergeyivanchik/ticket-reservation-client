@@ -5,12 +5,12 @@ import TimeList from './TimeList.js';
 
 class CinemaList extends React.Component {
   render() {
-    const { cinemaId, date, sessionsList, movie, cinemasList } = this.props;
+    const { cinemaId, date, sessionsList, movie } = this.props;
     return(
       <div className="session-cinema">
         <div className="session-cinema__info">
           <span className="session-cinema__title">
-            {cinemasList.find(cinema => cinema.id === cinemaId).name}
+            {sessionsList.find(session => session.cinema.id === cinemaId).cinema.name}
           </span>
         </div>
          <TimeList

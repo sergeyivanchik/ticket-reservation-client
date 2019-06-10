@@ -15,7 +15,7 @@ class MovieProfile extends React.Component {
   async componentDidMount() {
     this.props.onShowLoader();
     await this.props.onGetCinemas();
-    await this.props.onGetSessions();
+    await this.props.onGetSessions(this.props.match.params.movieId);
     await this.props.onGetMovieById(this.props.match.params.movieId);
     this.props.onHideLoader();
   }
@@ -29,7 +29,6 @@ class MovieProfile extends React.Component {
             <Schedule
               movie={this.props.movieById}
               sessionsList={this.props.sessionsList}
-              cinemasList={this.props.allCinemas}
               deleteTickets={this.props.onDeleteTickets}
             />
           </div>
@@ -44,11 +43,11 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetSessions() {
-    return dispatch(getSessionsAsync())
+  onGetSessions(movieId) {
+    return dispatch(getSessionsAsync(movieId))
   },
-  onGetMovieById(id) {
-    return dispatch(getMovieByIdAsync(id))
+  onGetMovieById(movieId) {
+    return dispatch(getMovieByIdAsync(movieId))
   },
   onGetCinemas() {
     return dispatch(getCinemasAsync())
