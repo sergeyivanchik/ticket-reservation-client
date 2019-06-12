@@ -8,9 +8,33 @@ import {
   GET_BOUGHT_SEATS_SUCCESS,
   GET_BOUGHT_SEATS_FAILURE,
   GET_SELECTED_SEATS_SUCCESS,
-  GET_SELECTED_SEATS_FAILURE
+  GET_SELECTED_SEATS_FAILURE,
+  GET_BOUGHT_SEATS_BY_USER_SUCCESS,
+  GET_BOUGHT_SEATS_BY_USER_FAILURE
 } from '../constants/seats.js';
 
+
+export const getBoughtSeatsByUserSucces = selectedSeats => ({
+  type: GET_BOUGHT_SEATS_BY_USER_SUCCESS,
+  payload: selectedSeats
+})
+
+export const getBoughtSeatsByUserFailure = error => ({
+  type: GET_BOUGHT_SEATS_BY_USER_FAILURE,
+  payload: error
+})
+
+export const getBoughtSeatsByUserAsync = userId => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`http://localhost:8080/boughtSeats/${userId}`);
+      dispatch(getBoughtSeatsByUserSucces(data))
+    }
+    catch (error) {
+      dispatch(getBoughtSeatsByUserFailure(error));
+    }
+  }
+}
 
 export const getSelectedSeatsSuccess = selectedSeats => ({
   type: GET_SELECTED_SEATS_SUCCESS,

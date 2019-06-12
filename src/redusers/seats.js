@@ -7,7 +7,9 @@ import {
   GET_BOUGHT_SEATS_SUCCESS,
   GET_BOUGHT_SEATS_FAILURE,
   GET_SELECTED_SEATS_SUCCESS,
-  GET_SELECTED_SEATS_FAILURE
+  GET_SELECTED_SEATS_FAILURE,
+  GET_BOUGHT_SEATS_BY_USER_SUCCESS,
+  GET_BOUGHT_SEATS_BY_USER_FAILURE
 } from '../constants/seats.js';
 
 
@@ -15,6 +17,7 @@ const initialState = {
   selectedSeats: [],
   reserveSeats: [],
   boughtSeats: [],
+  boughtSeatsByUser: [],
   error: ''
 }
 
@@ -82,6 +85,18 @@ export default function seats(state = initialState, action) {
     }
 
     case GET_BOUGHT_SEATS_FAILURE: {
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+    }
+
+    case GET_BOUGHT_SEATS_BY_USER_SUCCESS: {
+      return Object.assign({}, state, {
+        boughtSeatsByUser: action.payload
+      })
+    }
+
+    case GET_BOUGHT_SEATS_BY_USER_FAILURE: {
       return Object.assign({}, state, {
         error: action.payload
       })
