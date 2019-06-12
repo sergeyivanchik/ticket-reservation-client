@@ -1,28 +1,28 @@
 import axios from "axios";
 import { 
-  GET_HALLS_BY_CINEMA_SUCCESS, 
-  GET_HALLS_BY_CINEMA_FAILURE
+  GET_HALL_BY_CINEMA_SUCCESS, 
+  GET_HALL_BY_CINEMA_FAILURE
 } from '../constants/halls.js';
 
 
-export const getHallsByCinemaSuccess = hall => ({
-  type: GET_HALLS_BY_CINEMA_SUCCESS,
+export const getHallByCinemaSuccess = hall => ({
+  type: GET_HALL_BY_CINEMA_SUCCESS,
   payload: hall
 })
 
-export const getHallsByCinemaFailure = error => ({
-  type: GET_HALLS_BY_CINEMA_FAILURE,
+export const getHallByCinemaFailure = error => ({
+  type: GET_HALL_BY_CINEMA_FAILURE,
   payload: error
 })
 
-export const getHallsByCinemaAsync = cinemaId => {
+export const getHallByCinemaAsync = (hallId, cinemaId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/cinemas/${cinemaId}?select=halls`);
-      dispatch(getHallsByCinemaSuccess(data))
+      const { data } = await axios.get(`http://localhost:8080/halls/${hallId}/${cinemaId}`);
+      dispatch(getHallByCinemaSuccess(data))
     }
     catch (error) {
-      dispatch(getHallsByCinemaFailure(error));
+      dispatch(getHallByCinemaFailure(error));
     }
   }
 }
