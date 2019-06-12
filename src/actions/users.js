@@ -3,11 +3,36 @@ import {
   LOG_IN_SUCCESS,
   LOG_IN_FAILURE,
   CHECK_AUTHORIZATION_SUCCESS,
-  CHECK_AUTHORIZATION_FAILURE
+  CHECK_AUTHORIZATION_FAILURE,
+  LOG_OUT_SUCCESS,
+  LOG_OUT_FAILURE
 } from '../constants/users.js';
 import { showSnackbar } from '../actions/snackbar.js'
 import { history } from '../App.js';
 
+
+export const logOutSuccess = () => ({
+  type: LOG_OUT_SUCCESS
+})
+
+export const logOutFailure = error => ({
+  type: LOG_OUT_FAILURE,
+  payload: error
+})
+
+export const logOut = () => {
+  return (dispatch) => {
+    try {
+      localStorage.clear();
+      dispatch(logOutSuccess());
+      dispatch(showSnackbar('You have successfully logged out!'));
+      history.push('/')
+    } catch (error) {
+      dispatch(logOutFailure());
+      dispatch(showSnackbar('You are not logged out!'));
+    }
+  }
+}
 
 export const checkAuthorizationSuccess = currentUser => ({
   type: CHECK_AUTHORIZATION_SUCCESS,
