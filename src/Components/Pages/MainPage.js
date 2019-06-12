@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import CardList from '../CardList/CardList.js';
 import { getMoviesAsync } from '../../actions/movies.js';
-import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js';
 
@@ -13,7 +12,6 @@ class MainPage extends React.Component {
   async componentDidMount() {
     this.props.onShowLoader();
     await this.props.onGetMovies();
-    await this.props.onGetCinemas();
     this.props.onHideLoader();
   }
 
@@ -31,16 +29,12 @@ class MainPage extends React.Component {
 
 const mapStateToProps = store => ({
   allMovies: store.movies.allMovies,
-  allCinemas: store.cinemas.allCinemas,
   isLoading: store.loader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
   onGetMovies() {
     return dispatch(getMoviesAsync())
-  },
-  onGetCinemas() {
-    return dispatch(getCinemasAsync())
   },
   onShowLoader() {
     dispatch(showLoader())

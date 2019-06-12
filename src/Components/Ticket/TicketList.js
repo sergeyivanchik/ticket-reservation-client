@@ -5,10 +5,10 @@ import './TicketList.scss';
 
 class TicketList extends React.Component {
   render() {
-    const { selectSeats, date, hall, movieId, cinemaId, allMovies, allCinemas} = this.props;
+    const { selectedSeats, date, hall, movieId, cinemaId, allMovies, allCinemas} = this.props;
     return (
       <div className="tickets-list">
-        {selectSeats.map(ticket =>
+        {selectedSeats.map(ticket =>
           <Ticket
             row={ticket.row}
             seat={ticket.seat}

@@ -23,7 +23,7 @@ function TopNavBar() {
           </Typography>
             {localStorage.getItem('token') !== null
               ? <Link to="/login" className='top-navbar__link-to'>
-                  <Button color="inherit">{localStorage.getItem('username') ? localStorage.getItem('username') : 'Profile'}</Button>
+                  <Button color="inherit">Profile</Button>
                 </Link>
               : <Link to="/login" className='top-navbar__link-to'>
                   <Button color="inherit">Login</Button>

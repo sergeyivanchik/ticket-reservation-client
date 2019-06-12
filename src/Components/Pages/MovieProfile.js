@@ -6,7 +6,6 @@ import Schedule from '../Schedule/Schedule.js';
 import { deleteSelectedSeats } from '../../actions/seats.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
 import { getSessionsAsync } from '../../actions/sessions.js';
-import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js'; 
 
@@ -14,7 +13,6 @@ import Loader from '../Loader/Loader.js';
 class MovieProfile extends React.Component {
   async componentDidMount() {
     this.props.onShowLoader();
-    await this.props.onGetCinemas();
     await this.props.onGetSessions(this.props.match.params.movieId);
     await this.props.onGetMovieById(this.props.match.params.movieId);
     this.props.onHideLoader();
@@ -38,7 +36,6 @@ class MovieProfile extends React.Component {
 const mapStateToProps = store => ({
   sessionsList: store.sessions.sessionsList,
   movieById: store.movies.movieById,
-  allCinemas: store.cinemas.allCinemas,
   isLoading: store.loader.isLoading
 });
 
@@ -48,9 +45,6 @@ const mapDispatchToProps = dispatch => ({
   },
   onGetMovieById(movieId) {
     return dispatch(getMovieByIdAsync(movieId))
-  },
-  onGetCinemas() {
-    return dispatch(getCinemasAsync())
   },
   onDeleteSeats() {
     dispatch(deleteSelectedSeats())
