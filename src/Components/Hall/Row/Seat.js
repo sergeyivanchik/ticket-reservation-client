@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 
 class Seat extends Component {
   render() {
-    const { row, seat, occupied, price, bought } = this.props;
+    const { session, cinema, hall, movie, row, seat, occupied, cost, bought, user, selectedOtherUser } = this.props;
     return (
       <span 
-        onClick={() => bought ? '' : this.props.chooseSeat({row, seat, price})}
+        onClick={() => this.props.onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})}
         occupied={occupied}
         bought={bought}
-        price={price}
-        className={`seat ${occupied ? 'seat_occupied' : bought ? 'seat_bought' : ''}` }
-        title={`row ${row} seat ${seat} price ${price}`}
+        cost={cost}
+        className={`seat ${occupied ? 'seat_occupied' : bought ? 'seat_bought' : selectedOtherUser ? 'seat_bought' : ''}` }
+        title={`row ${row} seat ${seat} cost ${cost}`}
       >
         {seat}
       </span>

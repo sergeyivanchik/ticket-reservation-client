@@ -6,17 +6,23 @@ import './SeatsList.scss';
 
 class SeatsList extends React.Component {
   render() {
+    const { selectedSeats, hallSeats, onSelectSeat, movie, cinema, hall, user, boughtSeats, session } = this.props;
     return (
       <div className="rows-list">
-        {this.props.hallSeats.map(hallRow =>
+        {hallSeats.map(hallRow =>
           <Row
+            user={user}
             row={hallRow.row}
-            selectSeats={this.props.selectSeats}
+            selectedSeats={selectedSeats}
             amountOfSeats={hallRow.countOfSeats}
-            chooseSeat={this.props.chooseSeat}
-            price={hallRow.cost}
-            boughtSeats={this.props.boughtSeats}
+            onSelectSeat={onSelectSeat}
+            cost={hallRow.cost}
+            boughtSeats={boughtSeats}
             key={hallRow.row}
+            movie={movie}
+            cinema={cinema}
+            session={session}
+            hall={hall}
           />
         )}
       </div>

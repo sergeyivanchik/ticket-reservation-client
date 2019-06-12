@@ -3,42 +3,49 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
-import { selectSeat, buySeatsAsync } from '../../actions/seats.js';
-import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
-import { getSessionsAsync } from '../../actions/sessions.js';
+import { getHallByCinemaAsync } from '../../actions/halls.js';
+import { getBoughtSeatsAsync, getSelectedSeatsAsync, selectSeatAsync } from '../../actions/seats.js';
 import Loader from '../Loader/Loader.js';
 
 
 class Seats extends React.Component {
   async componentDidMount() {
     this.props.onShowLoader();
-    await this.props.onGetCinemas();
-    await this.props.onGetSessions();
+    await this.props.onGetHallByCinema(this.props.match.params.hallId, this.props.match.params.cinemaId)
+    await this.props.onGetBoughtSeats(
+      this.props.match.params.sessionId,
+      this.props.match.params.cinemaId,
+      this.props.match.params.hallId,
+      this.props.match.params.movieId
+    );
+    await this.props.onGetSelectedSeats (
+      this.props.match.params.sessionId,
+      this.props.match.params.cinemaId,
+      this.props.match.params.hallId,
+      this.props.match.params.movieId,
+      this.props.currentUser.id
+    );
     this.props.onHideLoader();
   }
 
   render() {
-    const seatsList = () => this.props.allCinemas.find(cinema => 
-      cinema.id === this.props.match.params.cinemaId).halls.find(hall => 
-        hall.name === this.props.match.params.hall).places;
+    const { hallByCinema, boughtSeats } = this.props;
     return (
       this.props.isLoading
         ? <Loader/>
         : <div className="seats">
             <TopNavBar/>
             <Hall
-              movieId={this.props.match.params.movieId}
-              cinemaId={this.props.match.params.cinemaId}
-              sessionId={this.props.match.params.sessionId}
-              boughtSeats={this.props.sessionsList.find(session => 
-                session.id === this.props.match.params.sessionId).selectedSeats}
-              hall={this.props.match.params.hall}
-              date={this.props.match.params.date}
-              hallSeats={seatsList()}
-              chooseSeat={this.props.onSelectSeat}
-              selectSeats={this.props.selectSeats}
-              buySeats={this.props.onBuySeats}
+              movie={this.props.match.params.movieId}
+              cinema={this.props.match.params.cinemaId}
+              session={this.props.match.params.sessionId}
+              hall={this.props.match.params.hallId}
+              user={this.props.currentUser.id}
+              boughtSeats={boughtSeats}
+              hallSeats={hallByCinema[0].seats}
+              onSelectSeat={this.props.onSelectSeat}
+              selectedSeats={this.props.selectedSeats}
             />
           </div>
     )
@@ -46,18 +53,16 @@ class Seats extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  allCinemas: store.cinemas.allCinemas,
+  hallByCinema: store.halls.hallByCinema,
   isLoading: store.loader.isLoading,
-  selectSeats: store.seats.selectSeats,
-  sessionsList: store.sessions.sessionsList,
+  boughtSeats: store.seats.boughtSeats,
+  selectedSeats: store.seats.selectedSeats,
+  currentUser: store.user.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetCinemas() {
-    return dispatch(getCinemasAsync())
-  },
-  onSelectSeat(ticket) {
-    dispatch(selectSeat(ticket))
+  onSelectSeat(session, cinema, hall, movie, user, row, seat, cost) {
+    dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
   },
   onShowLoader() {
     dispatch(showLoader())
@@ -65,11 +70,14 @@ const mapDispatchToProps = dispatch => ({
   onHideLoader() {
     dispatch(hideLoader())
   },
-  onBuySeats(sessionId, row, seat,price) {
-    dispatch(buySeatsAsync(sessionId, row, seat, price))
+  onGetHallByCinema(hallId, cinemaId) {
+    return dispatch(getHallByCinemaAsync(hallId, cinemaId))
   },
-  onGetSessions() {
-    return dispatch(getSessionsAsync())
+  onGetBoughtSeats(sessionId, cinemaId, hallId, movieId) {
+    return dispatch(getBoughtSeatsAsync(sessionId, cinemaId, hallId, movieId))
+  },
+  onGetSelectedSeats(sessionId, cinemaId, hallId, movieId, userId) {
+    return dispatch(getSelectedSeatsAsync(sessionId, cinemaId, hallId, movieId, userId))
   }
 });
 
