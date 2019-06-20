@@ -10,6 +10,7 @@ import SignUp from './Components/Users/SignUp/SignUp.js';
 import LogIn from './Components/Users/LogIn/LogIn.js';
 import ConfirmTickets from './Components/Pages/ConfirmTickets.js';
 import SnackBar from './Components/Snackbar/Snackbar.js';
+import Profile from './Components/Users/Profile/Profile.js';
 import { checkAuthorizationAsync } from './actions/users.js';
 import './App.scss';
 
@@ -33,7 +34,8 @@ class App extends Component {
             component={this.сheckAuthorization() ? Seats : LogIn}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
-          <Route path="/confirm-ticket/:movieId/:cinemaId/:hallId/:date" 
+          <Route path="/profile" component={Profile}/>
+          <Route path="/confirm-ticket/:sessionId/:movieId/:cinemaId/:hallId/:date" 
             component={this.сheckAuthorization() ? ConfirmTickets : LogIn}/>
         </div>
       </Router>
