@@ -2,30 +2,30 @@
 
 
 .login {
+  display: flex;
+  width: 300px;
+  height: 350px;
+  border: 1px solid $light-blue;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 0px auto;
+  margin-top: 5em;
+  
+
+  &__link-to {
+    text-decoration: none;
+  }
+
+  &__title {
     display: flex;
-    width: 300px;
-    height: 350px;
-    border: 1px solid $light-blue;
-    border-radius: 10px;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color: $light-blue;
     font-weight: bold;
-    margin: 0px auto;
-    margin-top: 5em;
-    
-
-    &__link-to {
-      text-decoration: none;
-    }
-
-    &__title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 40px;
-      font-size: 30px;
-      color: $light-blue;
-      font-weight: bold;
   }
   
   &__signup {

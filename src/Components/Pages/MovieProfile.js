@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { deleteSelectedSeats } from '../../actions/seats.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
 import { getSessionsAsync } from '../../actions/sessions.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
@@ -45,9 +44,6 @@ const mapDispatchToProps = dispatch => ({
   },
   onGetMovieById(movieId) {
     return dispatch(getMovieByIdAsync(movieId))
-  },
-  onDeleteSeats() {
-    dispatch(deleteSelectedSeats())
   },
   onShowLoader() {
     dispatch(showLoader())

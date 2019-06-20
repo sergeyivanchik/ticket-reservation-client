@@ -24,7 +24,6 @@ class Seats extends React.Component {
       this.props.match.params.cinemaId,
       this.props.match.params.hallId,
       this.props.match.params.movieId,
-      this.props.currentUser.id
     );
     this.props.onHideLoader();
   }
@@ -46,6 +45,7 @@ class Seats extends React.Component {
               hallSeats={hallByCinema[0].seats}
               onSelectSeat={this.props.onSelectSeat}
               selectedSeats={this.props.selectedSeats}
+              date={this.props.match.params.date}
             />
           </div>
     )
@@ -76,8 +76,8 @@ const mapDispatchToProps = dispatch => ({
   onGetBoughtSeats(sessionId, cinemaId, hallId, movieId) {
     return dispatch(getBoughtSeatsAsync(sessionId, cinemaId, hallId, movieId))
   },
-  onGetSelectedSeats(sessionId, cinemaId, hallId, movieId, userId) {
-    return dispatch(getSelectedSeatsAsync(sessionId, cinemaId, hallId, movieId, userId))
+  onGetSelectedSeats(sessionId, cinemaId, hallId, movieId) {
+    return dispatch(getSelectedSeatsAsync(sessionId, cinemaId, hallId, movieId))
   }
 });
 

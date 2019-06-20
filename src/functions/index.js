@@ -79,3 +79,13 @@ export const sortTime = timesList => {
     }
   return result;	
 }
+
+export const millisecondsToMinutes = milliseconds => {
+  var minutes = (milliseconds / (1000 * 60));
+  return minutes;
+}
+
+export const minutesToMilliseconds = minutes => {
+  var milliseconds = minutes * 1000 * 60;
+  return milliseconds;
+}

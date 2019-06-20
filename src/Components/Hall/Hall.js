@@ -35,8 +35,8 @@ class Hall extends React.Component {
               <Choice
                 row={selectedSeat.row}
                 seat={selectedSeat.seat}
-                price={selectedSeat.price}
-                key={selectedSeat}
+                cost={selectedSeat.cost}
+                key={selectedSeat.row + selectedSeat.seat + selectedSeat.cost}
               />
             )}
           </div>
@@ -46,16 +46,11 @@ class Hall extends React.Component {
               sum + ticket.cost, 0)} $
           </div>
 
-          <Link to={`/confirm-ticket/${movie}/${cinema}/${hall}/${date}`} className='hall__link-to'>
+          <Link to={`/confirm-ticket/${session}/${movie}/${cinema}/${hall}/${date}`} className='hall__link-to'>
             <Button
-              onClick={() => selectedSeats.map(seats => {
-               const { row, seat, price } = seats;
-               return this.props.buySeats(this.props.sessionId, row, seat, price)
-            })}
               variant="contained" 
               color="primary"
               className={`hall__button ${(!selectedSeats.find(seat => seat.user === user)) ? 'hall__button_hidden' : ''}`}
-              disabled={(selectedSeats.length > countOfSelectedSeats) ? true : false}
             >
               Buy
             </Button>
