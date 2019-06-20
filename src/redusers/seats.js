@@ -1,7 +1,6 @@
 import {
   SELECT_SEAT_SUCCESS,
   SELECT_SEAT_FAILURE,
-  DELETE_SELECTED_SEATS,
   BUY_SEATS_SUCCESS,
   BUY_SEATS_FAILURE,
   GET_BOUGHT_SEATS_SUCCESS,
@@ -9,13 +8,19 @@ import {
   GET_SELECTED_SEATS_SUCCESS,
   GET_SELECTED_SEATS_FAILURE,
   GET_BOUGHT_SEATS_BY_USER_SUCCESS,
-  GET_BOUGHT_SEATS_BY_USER_FAILURE
+  GET_BOUGHT_SEATS_BY_USER_FAILURE,
+  GET_SELECTED_SEATS_BY_USER_SUCCESS,
+  GET_SELECTED_SEATS_BY_USER_FAILURE,
+  DELETE_ADDITIONAL_SERVICES_SUCCESS,
+  DELETE_ADDITIONAL_SERVICES_FAILURE,
+  SELECT_ADDITIONAL_SERVICE_SUCCESS,
+  SELECT_ADDITIONAL_SERVICE_FAILURE
 } from '../constants/seats.js';
 
 
 const initialState = {
   selectedSeats: [],
-  reserveSeats: [],
+  selectedSeatsByUser: [],
   boughtSeats: [],
   boughtSeatsByUser: [],
   error: ''
@@ -23,11 +28,6 @@ const initialState = {
 
 export default function seats(state = initialState, action) {
   switch (action.type) {
-    case DELETE_SELECTED_SEATS:
-      return Object.assign({}, state, {
-        selectedSeats: []
-      })
-
     case SELECT_SEAT_SUCCESS: {
       const currentSeat = state.selectedSeats.find(seatInfo => 
         action.payload.row === seatInfo.row &&
@@ -54,9 +54,33 @@ export default function seats(state = initialState, action) {
       })
     }
 
+    case SELECT_ADDITIONAL_SERVICE_SUCCESS: {
+      return Object.assign({}, state, {
+        error: ''
+      })
+    }
+
+    case SELECT_ADDITIONAL_SERVICE_FAILURE: {
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+    }
+
+    case GET_SELECTED_SEATS_BY_USER_SUCCESS: {
+      return Object.assign({}, state, {
+        selectedSeatsByUser: action.payload
+      })
+    }
+
+    case GET_SELECTED_SEATS_BY_USER_FAILURE: {
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+    }
+
     case BUY_SEATS_SUCCESS: {
       return Object.assign({}, state, {
-        reserveSeats: action.payload
+        boughtSeats: action.payload
       })
     }
 
@@ -97,6 +121,18 @@ export default function seats(state = initialState, action) {
     }
 
     case GET_BOUGHT_SEATS_BY_USER_FAILURE: {
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+    }
+
+    case DELETE_ADDITIONAL_SERVICES_SUCCESS: {
+      return Object.assign({}, state, {
+        error: ''
+      })
+    }
+
+    case DELETE_ADDITIONAL_SERVICES_FAILURE: {
       return Object.assign({}, state, {
         error: action.payload
       })
