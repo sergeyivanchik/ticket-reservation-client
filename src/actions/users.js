@@ -5,7 +5,9 @@ import {
   CHECK_AUTHORIZATION_SUCCESS,
   CHECK_AUTHORIZATION_FAILURE,
   LOG_OUT_SUCCESS,
-  LOG_OUT_FAILURE
+  LOG_OUT_FAILURE,
+  SIGN_UP_SUCCESS,
+  SIGN_UP_FAILURE
 } from '../constants/users.js';
 import { showSnackbar } from '../actions/snackbar.js'
 import { history } from '../App.js';
@@ -78,6 +80,31 @@ export const logInAsync = userInfo => {
       history.push('/')
     } catch (error) {
       dispatch(logInFailure(error));
+      dispatch(showSnackbar('Please, enter correct data!'));
+    }
+  }
+}
+
+export const signUpSuccess = () => ({
+  type: SIGN_UP_SUCCESS
+})
+
+export const signUpFailure = error => ({
+  type: SIGN_UP_FAILURE,
+  payload: error
+})
+
+export const signUpAsync = userInfo => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.post(`http://localhost:8080/users/signup`, {...userInfo});
+      if(data) {
+        dispatch(signUpSuccess());
+        dispatch(showSnackbar('You have successfully signed up!'));
+        history.push('/login')
+      } else console.log('SignUp error!');
+    } catch (error) {
+      dispatch(signUpFailure(error));
       dispatch(showSnackbar('Please, enter correct data!'));
     }
   }

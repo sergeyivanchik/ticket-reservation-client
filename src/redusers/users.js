@@ -4,7 +4,9 @@ import {
   CHECK_AUTHORIZATION_SUCCESS,
   CHECK_AUTHORIZATION_FAILURE,
   LOG_OUT_SUCCESS,
-  LOG_OUT_FAILURE
+  LOG_OUT_FAILURE,
+  SIGN_UP_SUCCESS,
+  SIGN_UP_FAILURE
 } from '../constants/users.js';
 
 
@@ -39,7 +41,15 @@ export default function user(state = initialState, action) {
       return Object.assign({}, state, {
         error: action.payload
       })
-    
+      case SIGN_UP_SUCCESS:
+      return Object.assign({}, state, {
+        error: '',
+      })
+    case SIGN_UP_FAILURE: 
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+
     default:
       return state;
 }}
