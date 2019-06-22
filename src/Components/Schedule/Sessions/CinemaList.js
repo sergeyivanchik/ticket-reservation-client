@@ -18,8 +18,7 @@ class CinemaList extends React.Component {
             cinemaId={cinemaId}
             movie={movie}
             sessionsList={sessionsList}
-            deleteTickets={this.props.deleteTickets}
-            key={date+cinemaId}
+            key={date + cinemaId}
           /> 
       </div>
     )

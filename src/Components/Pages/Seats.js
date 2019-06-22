@@ -12,7 +12,7 @@ import Loader from '../Loader/Loader.js';
 class Seats extends React.Component {
   async componentDidMount() {
     this.props.onShowLoader();
-    await this.props.onGetHallByCinema(this.props.match.params.hallId, this.props.match.params.cinemaId)
+    await this.props.onGetHallByCinema(this.props.match.params.hallId, this.props.match.params.cinemaId);
     await this.props.onGetBoughtSeats(
       this.props.match.params.sessionId,
       this.props.match.params.cinemaId,
@@ -53,25 +53,25 @@ class Seats extends React.Component {
 }
 
 const mapStateToProps = store => ({
+  currentUser: store.user.currentUser,
   hallByCinema: store.halls.hallByCinema,
-  isLoading: store.loader.isLoading,
   boughtSeats: store.seats.boughtSeats,
   selectedSeats: store.seats.selectedSeats,
-  currentUser: store.user.currentUser
+  isLoading: store.loader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSelectSeat(session, cinema, hall, movie, user, row, seat, cost) {
-    dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
-  },
   onShowLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
-    dispatch(hideLoader())
-  },
   onGetHallByCinema(hallId, cinemaId) {
     return dispatch(getHallByCinemaAsync(hallId, cinemaId))
+  },
+  onSelectSeat(session, cinema, hall, movie, user, row, seat, cost) {
+    dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
+  },
+  onHideLoader() {
+    dispatch(hideLoader())
   },
   onGetBoughtSeats(sessionId, cinemaId, hallId, movieId) {
     return dispatch(getBoughtSeatsAsync(sessionId, cinemaId, hallId, movieId))

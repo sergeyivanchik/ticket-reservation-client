@@ -26,7 +26,6 @@ class MovieProfile extends React.Component {
             <Schedule
               movie={this.props.movieById}
               sessionsList={this.props.sessionsList}
-              deleteTickets={this.props.onDeleteTickets}
             />
           </div>
     )
