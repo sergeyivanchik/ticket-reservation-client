@@ -16,10 +16,6 @@
     color: $medium-blue;
     font-weight: bold;
     font-size: 40px;
-    
-      &:hover {
-        cursor: pointer;
-      }
   }
 }
 
@@ -38,18 +34,18 @@
 
     &__title {
       margin: 0 50%;
-    
-        &:hover {
-          cursor: pointer;
-          color: $medium-blue;
-          font-size: 45px;
-        }
     }
 }
 
 .sessions-time {
   width: 50%;
   margin-bottom: 30px;
+
+  &_end:hover{
+    cursor: not-allowed;
+    color: $bright-blue;
+    border: 1px solid $bright-blue;
+  }
 
     &__time {
       font-family: Trattatello, fantasy;
@@ -69,9 +65,18 @@
           border-color: $transparent;
           color: $medium-blue;
         }
+        
+        &_end {
+          opacity: 0.5;
+        }
+       
     }
 
-    &__link-to {
+    &__link {
       text-decoration: none;
+
+      &_end {
+        pointer-events: none;
+      }
     }
 }
