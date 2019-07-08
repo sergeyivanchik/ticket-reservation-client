@@ -17,8 +17,7 @@ class TimeList extends React.Component {
               key={session.id}
               className={`sessions-time__link ${currentTime > session.time ? `sessions-time__link_end` : ``}`}
             >
-              <span className={`sessions-time__time ${currentTime > session.time ? `sessions-time__time_end` : ``}`} 
-                title={session.hall}>
+              <span className="sessions-time__time" title={`hall ${session.hallName}`}>
                 {convertTime(session.time)}
               </span>
             </Link>

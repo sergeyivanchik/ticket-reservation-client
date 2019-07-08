@@ -51,9 +51,9 @@ export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, sessions) =
       ) 
       timesByMovie.push({
         time: sessions[i].date, 
-        hallId: sessions[i].hall.id, 
-        id: sessions[i].id,
-        duration: sessions[i].movie.duration
+        hallId: sessions[i].hall.id,
+        hallName: sessions[i].hall.name,
+        id: sessions[i].id
       });
   return timesByMovie;
 }

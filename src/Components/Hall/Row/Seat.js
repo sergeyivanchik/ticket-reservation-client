@@ -6,12 +6,17 @@ class Seat extends Component {
     const { session, cinema, hall, movie, row, seat, occupied, cost, bought, user, selectedOtherUser } = this.props;
     return (
       <span 
-        onClick={() => this.props.onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})}
+        onClick={(e) => { 
+          if(e.target.className !== 'seat seat_bought'){
+            this.props.onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})
+          }
+        }}
+        on
         occupied={occupied}
         bought={bought}
         cost={cost}
         className={`seat ${occupied ? 'seat_occupied' : bought ? 'seat_bought' : selectedOtherUser ? 'seat_bought' : ''}` }
-        title={`row ${row} seat ${seat} cost ${cost}`}
+        title={`${bought ? 'bought' : selectedOtherUser ? 'bought' : `row ${row} seat ${seat} cost ${cost}`}`}
       >
         {seat}
       </span>
