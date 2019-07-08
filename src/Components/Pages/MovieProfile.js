@@ -11,10 +11,10 @@ import Loader from '../Loader/Loader.js';
 
 class MovieProfile extends React.Component {
   async componentDidMount() {
-    this.props.onShowLoader();
-    await this.props.onGetSessions(this.props.match.params.movieId);
-    await this.props.onGetMovieById(this.props.match.params.movieId);
-    this.props.onHideLoader();
+    this.props.showLoader();
+    await this.props.getSessions(this.props.match.params.movieId);
+    await this.props.getMovieById(this.props.match.params.movieId);
+    this.props.hideLoader();
   }
   
   render() {
@@ -38,16 +38,16 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetSessions(movieId) {
+  getSessions(movieId) {
     return dispatch(getSessionsAsync(movieId))
   },
-  onGetMovieById(movieId) {
+  getMovieById(movieId) {
     return dispatch(getMovieByIdAsync(movieId))
   },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
   }
 });

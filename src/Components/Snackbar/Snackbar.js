@@ -18,7 +18,7 @@ class SnackBar extends React.Component {
     if (reason === 'clickaway') {
       return;
     }
-    this.props.onHideSnackbar();
+    this.props.hideSnackbar();
   };
 
   render() {
@@ -55,7 +55,7 @@ class SnackBar extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onHideSnackbar() {
+  hideSnackbar() {
     dispatch(hideSnackbar());
   }
 });

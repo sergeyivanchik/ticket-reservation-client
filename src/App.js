@@ -17,7 +17,7 @@ export const history = createBrowseHistory();
 
 class App extends Component {
   async componentWillMount() {
-    await this.props.onCheckAuthorization();
+    await this.props.checkAuthorization();
   }
   
   сheckAuthorization = () => localStorage.getItem('token') !== null ? true : false;
@@ -48,7 +48,7 @@ const mapStateToProps = store => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onCheckAuthorization() {
+  checkAuthorization() {
     return dispatch(checkAuthorizationAsync())
   }
 })

@@ -10,9 +10,9 @@ import Loader from '../Loader/Loader.js';
 
 class MainPage extends React.Component {
   async componentDidMount() {
-    this.props.onShowLoader();
-    await this.props.onGetMovies();
-    this.props.onHideLoader();
+    this.props.showLoader();
+    await this.props.getMovies();
+    this.props.hideLoader();
   }
 
   render() {
@@ -33,13 +33,13 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetMovies() {
+  getMovies() {
     return dispatch(getMoviesAsync())
   },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
   }
 });

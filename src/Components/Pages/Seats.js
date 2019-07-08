@@ -11,21 +11,21 @@ import Loader from '../Loader/Loader.js';
 
 class Seats extends React.Component {
   async componentDidMount() {
-    this.props.onShowLoader();
-    await this.props.onGetHallByCinema(this.props.match.params.hallId, this.props.match.params.cinemaId);
-    await this.props.onGetBoughtSeats(
+    this.props.showLoader();
+    await this.props.getHallByCinema(this.props.match.params.hallId, this.props.match.params.cinemaId);
+    await this.props.getBoughtSeats(
       this.props.match.params.sessionId,
       this.props.match.params.cinemaId,
       this.props.match.params.hallId,
       this.props.match.params.movieId
     );
-    await this.props.onGetSelectedSeats (
+    await this.props.getSelectedSeats (
       this.props.match.params.sessionId,
       this.props.match.params.cinemaId,
       this.props.match.params.hallId,
       this.props.match.params.movieId,
     );
-    this.props.onHideLoader();
+    this.props.hideLoader();
   }
 
   render() {
@@ -43,7 +43,7 @@ class Seats extends React.Component {
               user={this.props.currentUser.id}
               boughtSeats={boughtSeats}
               hallSeats={hallByCinema[0].seats}
-              onSelectSeat={this.props.onSelectSeat}
+              onSelectSeat={this.props.selectSeat}
               selectedSeats={this.props.selectedSeats}
               date={this.props.match.params.date}
             />
@@ -61,22 +61,22 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onGetHallByCinema(hallId, cinemaId) {
+  getHallByCinema(hallId, cinemaId) {
     return dispatch(getHallByCinemaAsync(hallId, cinemaId))
   },
-  onSelectSeat(session, cinema, hall, movie, user, row, seat, cost) {
+  selectSeat(session, cinema, hall, movie, user, row, seat, cost) {
     dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
   },
-  onGetBoughtSeats(sessionId, cinemaId, hallId, movieId) {
+  getBoughtSeats(sessionId, cinemaId, hallId, movieId) {
     return dispatch(getBoughtSeatsAsync(sessionId, cinemaId, hallId, movieId))
   },
-  onGetSelectedSeats(sessionId, cinemaId, hallId, movieId) {
+  getSelectedSeats(sessionId, cinemaId, hallId, movieId) {
     return dispatch(getSelectedSeatsAsync(sessionId, cinemaId, hallId, movieId))
   }
 });

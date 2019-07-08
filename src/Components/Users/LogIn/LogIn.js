@@ -40,7 +40,7 @@ class LogIn extends React.Component {
               placeholder="password"
               onChange={this.handleInputChange}
             />
-            <span className="login__button" onClick = {() => {this.props.onLogIn(this.state)}}>Log in</span>
+            <span className="login__button" onClick = {() => {this.props.logIn(this.state)}}>Log in</span>
             <Link to="/signup" className='login__signup'>Sign up</Link>
           </form>
         </div>
@@ -50,7 +50,7 @@ class LogIn extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onLogIn(userInfo) {
+  logIn(userInfo) {
     return dispatch(logInAsync(userInfo))
   }
 });

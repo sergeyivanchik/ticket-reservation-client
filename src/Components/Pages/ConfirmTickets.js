@@ -37,23 +37,23 @@ class ConfirmTickets extends React.Component {
   }
 
   async componentDidMount() {
-    this.props.onShowLoader()
-    await this.props.onCheckAuthorization();
-    await this.props.onDeleteAdditionalServices(
+    this.props.showLoader()
+    await this.props.checkAuthorization();
+    await this.props.deleteAdditionalServices(
       this.props.currentUser.id,
       this.props.match.params.sessionId,
       this.props.match.params.cinemaId,
       this.props.match.params.hallId,
       this.props.match.params.movieId
     );
-    await this.props.onGetSelectedSeatsByUser (
+    await this.props.getSelectedSeatsByUser (
       this.props.currentUser.id,
       this.props.match.params.sessionId,
       this.props.match.params.cinemaId,
       this.props.match.params.hallId,
       this.props.match.params.movieId
     );
-    this.props.onHideLoader();
+    this.props.hideLoader();
   }
 
   render() {
@@ -76,7 +76,7 @@ class ConfirmTickets extends React.Component {
                const seat = seats.seat;
                const cost = seats.cost;
                const additionalServices = seats.additionalServices;
-               return this.props.onBookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices)
+               return this.props.bookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices)
             })}
               variant="contained" 
               color="primary"
@@ -89,7 +89,7 @@ class ConfirmTickets extends React.Component {
               getAdditionalServices={this.getAdditionalServices}
               selectedSeatsByUser={this.props.selectedSeatsByUser}
               user={this.props.currentUser.id}
-              selectAdditionalService={this.props.onSelectAdditionalService}
+              selectAdditionalService={this.props.selectAdditionalService}
             />
         </div>
     )
@@ -104,25 +104,25 @@ const mapStateToProps = store => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onGetSelectedSeatsByUser(userId, sessionId, cinemaId, hallId, movieId) {
+  getSelectedSeatsByUser(userId, sessionId, cinemaId, hallId, movieId) {
     return dispatch(getSelectedSeatsByUserAsync(userId, sessionId, cinemaId, hallId, movieId))
   },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
   },
-  onCheckAuthorization() {
+  checkAuthorization() {
     return dispatch(checkAuthorizationAsync())
   },
-  onSelectAdditionalService(session, cinema, hall, movie, user, row, seat, cost, service) {
+  selectAdditionalService(session, cinema, hall, movie, user, row, seat, cost, service) {
     dispatch(selectAdditionalServiceAsync(session, cinema, hall, movie, user, row, seat, cost, service))
   },
-  onDeleteAdditionalServices(userId, sessionId, cinemaId, hallId, movieId) {
+  deleteAdditionalServices(userId, sessionId, cinemaId, hallId, movieId) {
     return dispatch(deleteAdditionalServicesAsync(userId, sessionId, cinemaId, hallId, movieId))
   },
-  onBookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices) {
+  bookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices) {
     dispatch(bookSeatsAsync(user, session, cinema, hall, movie, row, seat, cost, additionalServices))
   }
 });

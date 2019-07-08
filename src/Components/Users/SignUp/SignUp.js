@@ -22,7 +22,6 @@ class SignUp extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
     const data = this.state;
 
     const rules = {
@@ -40,7 +39,7 @@ class SignUp extends React.Component {
     }
 
     validateAll(data, rules, messages)
-      .then(() => this.props.onSignUp(data))
+      .then(() => this.props.signUp(data))
       .catch(errors => {
         const formattesErrors = {};
         errors.forEach(error => formattesErrors[error.field] = error.message)
@@ -95,7 +94,7 @@ class SignUp extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onSignUp(userInfo) {
+  signUp(userInfo) {
     return dispatch(signUpAsync(userInfo))
   }
 });
