@@ -11,21 +11,24 @@ import Loader from '../Loader/Loader.js';
 
 class MovieProfile extends React.Component {
   async componentDidMount() {
-    this.props.showLoader();
-    await this.props.getSessions(this.props.match.params.movieId);
-    await this.props.getMovieById(this.props.match.params.movieId);
-    this.props.hideLoader();
+    const { movieId } = this.props.match.params;
+    const { showLoader, getSessions, getMovieById, hideLoader } = this.props;
+    showLoader();
+    await getSessions(movieId);
+    await getMovieById(movieId);
+    hideLoader();
   }
   
   render() {
+    const { isLoading, movieById, sessionsList } = this.props;
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="movie-profile">
             <TopNavBar/>
             <Schedule
-              movie={this.props.movieById}
-              sessionsList={this.props.sessionsList}
+              movie={movieById}
+              sessionsList={sessionsList}
             />
           </div>
     )

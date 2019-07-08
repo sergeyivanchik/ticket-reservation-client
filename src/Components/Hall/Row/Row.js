@@ -5,38 +5,39 @@ import Seat from './Seat.js'
 
 class Row extends Component {
   CreateRow(row, countPlaces) {
+    const { user, movie, cinema, session, hall, cost, onSelectSeat, selectedSeats, boughtSeats} = this.props;
     let places = [];
     for(let i = 1; i < countPlaces+1; i++) {
       places.push(
         <Seat
-          user={this.props.user}
-          movie={this.props.movie}
-          cinema={this.props.cinema}
-          session={this.props.session}
-          hall={this.props.hall}
+          user={user}
+          movie={movie}
+          cinema={cinema}
+          session={session}
+          hall={hall}
           row={row}
           seat={i}
-          cost={this.props.cost}
-          onSelectSeat={this.props.onSelectSeat}
+          cost={cost}
+          onSelectSeat={onSelectSeat}
           occupied={
-            this.props.selectedSeats.find(ticket => 
+            selectedSeats.find(ticket => 
               ticket.row === row && 
               ticket.seat === i && 
-              ticket.cost === this.props.cost &&
-              ticket.user === this.props.user)
+              ticket.cost === cost &&
+              ticket.user === user)
           }
           bought={
-            this.props.boughtSeats.find(boughtSeat => 
+            boughtSeats.find(boughtSeat => 
               boughtSeat.row === row &&
               boughtSeat.seat === i &&
-              boughtSeat.cost === this.props.cost)
+              boughtSeat.cost === cost)
           }
           selectedOtherUser={
-            this.props.selectedSeats.find(ticket => 
-              ticket.user !== this.props.user &&
+            selectedSeats.find(ticket => 
+              ticket.user !== user &&
               ticket.row === row && 
               ticket.seat === i && 
-              ticket.cost === this.props.cost)
+              ticket.cost === cost)
           }
           key={i+row}
         />

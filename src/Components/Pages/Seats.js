@@ -11,41 +11,34 @@ import Loader from '../Loader/Loader.js';
 
 class Seats extends React.Component {
   async componentDidMount() {
-    this.props.showLoader();
-    await this.props.getHallByCinema(this.props.match.params.hallId, this.props.match.params.cinemaId);
-    await this.props.getBoughtSeats(
-      this.props.match.params.sessionId,
-      this.props.match.params.cinemaId,
-      this.props.match.params.hallId,
-      this.props.match.params.movieId
-    );
-    await this.props.getSelectedSeats (
-      this.props.match.params.sessionId,
-      this.props.match.params.cinemaId,
-      this.props.match.params.hallId,
-      this.props.match.params.movieId,
-    );
-    this.props.hideLoader();
+    const { hallId, cinemaId, sessionId, movieId } = this.props.match.params;
+    const { showLoader, getHallByCinema, getBoughtSeats, getSelectedSeats, hideLoader } = this.props;
+    showLoader();
+    await getHallByCinema(hallId, cinemaId);
+    await getBoughtSeats(sessionId,cinemaId, hallId, movieId);
+    await getSelectedSeats(sessionId, cinemaId, hallId, movieId,);
+    hideLoader();
   }
 
   render() {
-    const { hallByCinema, boughtSeats } = this.props;
+    const { hallByCinema, boughtSeats, selectSeat, selectedSeats, currentUser, isLoading } = this.props;
+    const { hallId, cinemaId, sessionId, movieId, date } = this.props.match.params;
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="seats">
             <TopNavBar/>
             <Hall
-              movie={this.props.match.params.movieId}
-              cinema={this.props.match.params.cinemaId}
-              session={this.props.match.params.sessionId}
-              hall={this.props.match.params.hallId}
-              user={this.props.currentUser.id}
+              movie={movieId}
+              cinema={cinemaId}
+              session={sessionId}
+              hall={hallId}
+              user={currentUser.id}
               boughtSeats={boughtSeats}
               hallSeats={hallByCinema[0].seats}
-              onSelectSeat={this.props.selectSeat}
-              selectedSeats={this.props.selectedSeats}
-              date={this.props.match.params.date}
+              onSelectSeat={selectSeat}
+              selectedSeats={selectedSeats}
+              date={date}
             />
           </div>
     )

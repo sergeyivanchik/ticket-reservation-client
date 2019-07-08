@@ -20,6 +20,7 @@ class LogIn extends React.Component {
   }
 
   render() {
+    const { logIn } = this.props;
     return (
       <div>
       <TopNavBar/>
@@ -40,7 +41,7 @@ class LogIn extends React.Component {
               placeholder="password"
               onChange={this.handleInputChange}
             />
-            <span className="login__button" onClick = {() => {this.props.logIn(this.state)}}>Log in</span>
+            <span className="login__button" onClick = {() => {logIn(this.state)}}>Log in</span>
             <Link to="/signup" className='login__signup'>Sign up</Link>
           </form>
         </div>

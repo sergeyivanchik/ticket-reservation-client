@@ -12,25 +12,26 @@ class CheckboxLabel extends React.Component {
   }
 
   handleChange = name => event => {
-    const { user, session, cinema, hall, movie, row, seat, cost, service } = this.props;
+    const { user, session, cinema, hall, movie, row, seat, cost, service, getAdditionalServices, selectAdditionalService } = this.props;
     this.setState({ ...this.state, [name]: event.target.checked });
-    this.props.getAdditionalServices({sum: this.props.service.cost, checked: !this.state.checked});
-    this.props.selectAdditionalService({ user, session, cinema, hall, movie, row, seat, cost, service});
+    getAdditionalServices({sum: service.cost, checked: !this.state.checked});
+    selectAdditionalService({ user, session, cinema, hall, movie, row, seat, cost, service});
   };
 
   render() {
+    const { service } = this.props; 
   return (
       <FormControlLabel
         control={
           <Checkbox
             checked={this.state.checked}
             onChange={this.handleChange('checked')}
-            value={this.props.service.id}
+            value={service.id}
             color="primary"
-            key={this.props.service.id}
+            key={service.id}
           />
         }
-        label={this.props.service.name}
+        label={service.name}
       />
   );
 }}

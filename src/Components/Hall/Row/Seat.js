@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 
 class Seat extends Component {
   render() {
-    const { session, cinema, hall, movie, row, seat, occupied, cost, bought, user, selectedOtherUser } = this.props;
+    const { session, cinema, hall, movie, row, seat, occupied, cost, bought, user, selectedOtherUser, onSelectSeat } = this.props;
     return (
       <span 
         onClick={(e) => { 
           if(e.target.className !== 'seat seat_bought'){
-            this.props.onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})
+            onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})
           }
         }}
         on

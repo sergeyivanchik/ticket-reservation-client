@@ -23,10 +23,11 @@ class App extends Component {
   сheckAuthorization = () => localStorage.getItem('token') !== null ? true : false;
   
   render() {
+    const { message, isShown } = this.props;
     return (
       <Router history={history}>
         <div className="router">
-          <SnackBar message={this.props.message} isShown={this.props.isShown}/>
+          <SnackBar message={message} isShown={isShown}/>
           <Route exact path="/" component={MainPage}/>
           <Route path="/movie-profile/:movieId" component={MovieProfile}/>
           <Route path="/hall/:sessionId/:movieId/:cinemaId/:hallId/:date" 

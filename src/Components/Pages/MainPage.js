@@ -10,18 +10,20 @@ import Loader from '../Loader/Loader.js';
 
 class MainPage extends React.Component {
   async componentDidMount() {
-    this.props.showLoader();
-    await this.props.getMovies();
-    this.props.hideLoader();
+    const { showLoader, getMovies, hideLoader } = this.props;
+    showLoader();
+    await getMovies();
+    hideLoader();
   }
 
   render() {
+    const { isLoading, allMovies} = this.props;
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="main-page">
             <TopNavBar/>
-            <CardList moviesList={this.props.allMovies}/>
+            <CardList moviesList={allMovies}/>
           </div>
     )
   }

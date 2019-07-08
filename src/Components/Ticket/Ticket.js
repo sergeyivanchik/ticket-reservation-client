@@ -26,7 +26,9 @@ class Ticket extends React.Component {
   }
 
   render() {
-    const { row, seat, cost, date, hall, cinema, movie, hallId, cinemaId, movieId, sessionId, additionalServices, user } = this.props; 
+    const { row, seat, cost, date, hall, cinema, movie, additionalServices, user,
+      hallId, cinemaId, movieId, sessionId,
+      getAdditionalServices, selectAdditionalService, selectedAdditionalServices } = this.props; 
     return (
       <div className="ticket">
           <div className="ticket__cinema">{cinema}</div>
@@ -47,7 +49,7 @@ class Ticket extends React.Component {
               {additionalServices ? additionalServices.map(service => {
                 return <CheckboxLabel  
                   service={service}
-                  getAdditionalServices={this.props.getAdditionalServices}
+                  getAdditionalServices={getAdditionalServices}
                   row={row}
                   seat={seat}
                   cost={cost}
@@ -57,8 +59,8 @@ class Ticket extends React.Component {
                   movie={movieId}
                   cinema={cinemaId}
                   key={seat + row + cost + hallId}
-                  selectAdditionalService={this.props.selectAdditionalService}
-                  selectedAdditionalServices={this.props.selectedAdditionalServices}
+                  selectAdditionalService={selectAdditionalService}
+                  selectedAdditionalServices={selectedAdditionalServices}
                 />
               }) : ''}
           </div>

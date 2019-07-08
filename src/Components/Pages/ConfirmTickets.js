@@ -37,37 +37,28 @@ class ConfirmTickets extends React.Component {
   }
 
   async componentDidMount() {
-    this.props.showLoader()
-    await this.props.checkAuthorization();
-    await this.props.deleteAdditionalServices(
-      this.props.currentUser.id,
-      this.props.match.params.sessionId,
-      this.props.match.params.cinemaId,
-      this.props.match.params.hallId,
-      this.props.match.params.movieId
-    );
-    await this.props.getSelectedSeatsByUser (
-      this.props.currentUser.id,
-      this.props.match.params.sessionId,
-      this.props.match.params.cinemaId,
-      this.props.match.params.hallId,
-      this.props.match.params.movieId
-    );
-    this.props.hideLoader();
+    const { sessionId, cinemaId, hallId, movieId } = this.props.match.params;
+    const { currentUser, showLoader, checkAuthorization, deleteAdditionalServices, getSelectedSeatsByUser, hideLoader } = this.props;
+    showLoader();
+    await checkAuthorization();
+    await deleteAdditionalServices(currentUser.id, sessionId, cinemaId, hallId, movieId);
+    await getSelectedSeatsByUser(currentUser.id, sessionId, cinemaId, hallId, movieId);
+    hideLoader();
   }
 
   render() {
-    const totalCost = this.props.selectedSeatsByUser.reduce((sum, ticket) =>  
+    const { selectedSeatsByUser, isLoading, currentUser, bookSeats, selectAdditionalService } = this.props;
+    const totalCost = selectedSeatsByUser.reduce((sum, ticket) =>  
     sum + ticket.cost, 0) +  this.state.sum
     return (
-      this.props.isLoading 
+      isLoading 
         ? <Loader/>
         : <div className="confirm-ticket">
             <TopNavBar/>
             {/* <PayForm totalCost={totalCost}/> */}
             <Button
-               onClick={() => this.props.selectedSeatsByUser.map(seats => {
-               const user = this.props.currentUser.id;
+               onClick={() => selectedSeatsByUser.map(seats => {
+               const user = currentUser.id;
                const session = seats.session.id;
                const cinema = seats.cinema.id;
                const hall = seats.hall.id;
@@ -76,7 +67,7 @@ class ConfirmTickets extends React.Component {
                const seat = seats.seat;
                const cost = seats.cost;
                const additionalServices = seats.additionalServices;
-               return this.props.bookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices)
+               return bookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices)
             })}
               variant="contained" 
               color="primary"
@@ -87,9 +78,9 @@ class ConfirmTickets extends React.Component {
             <div className="confirm-ticket__cost">Cost: {totalCost} $</div>
             <TicketList 
               getAdditionalServices={this.getAdditionalServices}
-              selectedSeatsByUser={this.props.selectedSeatsByUser}
-              user={this.props.currentUser.id}
-              selectAdditionalService={this.props.selectAdditionalService}
+              selectedSeatsByUser={selectedSeatsByUser}
+              user={currentUser.id}
+              selectAdditionalService={selectAdditionalService}
             />
         </div>
     )
