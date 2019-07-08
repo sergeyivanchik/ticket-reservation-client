@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { convertDate } from '../../../functions/index.js';
-import { millisecondsToMinutes }from '../../../functions/index.js';
+import { millisecondsToMinutes } from '../../../functions/index.js';
 
 
 class Ticket extends React.Component {
