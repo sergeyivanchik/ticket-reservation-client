@@ -31,8 +31,8 @@ class Profile extends React.Component {
   }
 
   render() { 
-    const { boughtSeatsByUser } = this.props;
-    const activeSessions =  this.props.boughtSeatsByUser.map(boughtSeat => { 
+    const { boughtSeatsByUser, currentUser, isLoading, onLogOut } = this.props;
+    const activeSessions =  boughtSeatsByUser.map(boughtSeat => { 
       if(new Date().getTime() < boughtSeat.session.date) 
        return (
         <Ticket 
@@ -51,7 +51,7 @@ class Profile extends React.Component {
       )
     })
 
-   const completedSessions = this.props.boughtSeatsByUser.map(boughtSeat => { 
+   const completedSessions = boughtSeatsByUser.map(boughtSeat => { 
       if(new Date().getTime() > boughtSeat.session.date) 
        return (
         <Ticket 
@@ -71,34 +71,17 @@ class Profile extends React.Component {
     })
 
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="profile">
-          <span>{this.props.currentUser.username}</span>
-          <span onClick={this.props.onLogOut}>Log Out</span>
+          <span>{currentUser.username}</span>
+          <span onClick={onLogOut}>Log Out</span>
           <div className="profile__tabs">
             <Button className="profile__button" onClick={this.completed}>Passed sessions</Button>
             <Button className="profile__button" onClick={this.active}>Active sessions</Button>
           </div>
           {
             this.state.boughtSeats ? activeSessions : completedSessions
-          //   boughtSeatsByUser.map(boughtSeat => { 
-          //      return (
-          //       <Ticket 
-          //         poster={boughtSeat.movie.poster}
-          //         movie={boughtSeat.movie.name}
-          //         cinema={boughtSeat.cinema.name}
-          //         hall={boughtSeat.hall.name}
-          //         date={boughtSeat.session.date}
-          //         city={boughtSeat.cinema.city}
-          //         row={boughtSeat.row}
-          //         seat={boughtSeat.seat}
-          //         cost={boughtSeat.cost}
-          //         duration={boughtSeat.movie.duration}
-          //         additionalServices={boughtSeat.additionalServices}
-          //       />
-          //     )
-          //   })
           }
           </div>
     )
