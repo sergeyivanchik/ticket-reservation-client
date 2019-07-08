@@ -15,12 +15,8 @@ class Profile extends React.Component {
     boughtSeats: true
   }
 
-  active = () => {
-    this.setState({boughtSeats: true})
-  }
-
-  completed = () => {
-    this.setState({boughtSeats: false})
+  changeSessions = () => {
+    this.setState({boughtSeats: !this.state.boughtSeats})
   }
 
   async componentDidMount() {
@@ -77,8 +73,8 @@ class Profile extends React.Component {
           <span>{currentUser.username}</span>
           <span onClick={onLogOut}>Log Out</span>
           <div className="profile__tabs">
-            <Button className="profile__button" onClick={this.completed}>Passed sessions</Button>
-            <Button className="profile__button" onClick={this.active}>Active sessions</Button>
+            <Button className="profile__button" onClick={this.state.boughtSeats ? this.changeSessions : ''}>Passed sessions</Button>
+            <Button className="profile__button" onClick={!this.state.boughtSeats ? this.changeSessions : ''}>Active sessions</Button>
           </div>
           {
             this.state.boughtSeats ? activeSessions : completedSessions
