@@ -2,8 +2,8 @@ import axios from "axios";
 import {
   SELECT_SEAT_SUCCESS,
   SELECT_SEAT_FAILURE,
-  BUY_SEATS_SUCCESS,
-  BUY_SEATS_FAILURE,
+  BOOK_SEATS_SUCCESS,
+  BOOK_SEATS_FAILURE,
   GET_BOUGHT_SEATS_SUCCESS,
   GET_BOUGHT_SEATS_FAILURE,
   GET_SELECTED_SEATS_SUCCESS,
@@ -177,25 +177,25 @@ export const selectSeatAsync = (user, session, cinema, hall, movie, row, seat, c
   }
 }
 
-export const buySeatsSuccess = seats => ({
-  type: BUY_SEATS_SUCCESS,
+export const bookSeatsSuccess = seats => ({
+  type: BOOK_SEATS_SUCCESS,
   payload: seats
 });
 
-export const buySeatsFailure = error => ({
-  type: BUY_SEATS_FAILURE,
+export const bookSeatsFailure = error => ({
+  type: BOOK_SEATS_FAILURE,
   payload: error
 });
 
-export const buySeatsAsync = (user, session, cinema, hall, movie, row, seat, cost, additionalServices) => {
+export const bookSeatsAsync = (user, session, cinema, hall, movie, row, seat, cost, additionalServices) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put(`http://localhost:8080/boughtSeats`,
         { user, session, cinema, hall, movie, row, seat, cost, additionalServices } );
-      dispatch(buySeatsSuccess(data))
+      dispatch(bookSeatsSuccess(data))
     }
     catch (error) {
-      dispatch(buySeatsFailure(error));
+      dispatch(bookSeatsFailure(error));
     }
   }
 } 

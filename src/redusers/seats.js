@@ -1,8 +1,8 @@
 import {
   SELECT_SEAT_SUCCESS,
   SELECT_SEAT_FAILURE,
-  BUY_SEATS_SUCCESS,
-  BUY_SEATS_FAILURE,
+  BOOK_SEATS_SUCCESS,
+  BOOK_SEATS_FAILURE,
   GET_BOUGHT_SEATS_SUCCESS,
   GET_BOUGHT_SEATS_FAILURE,
   GET_SELECTED_SEATS_SUCCESS,
@@ -78,7 +78,7 @@ export default function seats(state = initialState, action) {
       })
     }
 
-    case BUY_SEATS_SUCCESS: {
+    case BOOK_SEATS_SUCCESS: {
       return Object.assign({}, state, {
         boughtSeats: action.payload
       })
@@ -96,7 +96,7 @@ export default function seats(state = initialState, action) {
       })
     }
 
-    case BUY_SEATS_FAILURE: {
+    case BOOK_SEATS_FAILURE: {
       return Object.assign({}, state, {
         error: action.payload
       })

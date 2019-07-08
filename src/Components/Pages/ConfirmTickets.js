@@ -10,7 +10,7 @@ import {
   getSelectedSeatsByUserAsync,
   selectAdditionalServiceAsync,
   deleteAdditionalServicesAsync,
-  buySeatsAsync
+  bookSeatsAsync
 } from '../../actions/seats.js'
 import { checkAuthorizationAsync } from '../../actions/users.js';
 // import PayForm from '../CheckoutForm/PayForm.js';
@@ -76,7 +76,7 @@ class ConfirmTickets extends React.Component {
                const seat = seats.seat;
                const cost = seats.cost;
                const additionalServices = seats.additionalServices;
-               return this.props.onBuySeat(user, session, cinema, hall, movie, row, seat, cost, additionalServices)
+               return this.props.onBookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices)
             })}
               variant="contained" 
               color="primary"
@@ -122,8 +122,8 @@ const mapDispatchToProps = dispatch => ({
   onDeleteAdditionalServices(userId, sessionId, cinemaId, hallId, movieId) {
     return dispatch(deleteAdditionalServicesAsync(userId, sessionId, cinemaId, hallId, movieId))
   },
-  onBuySeat(user, session, cinema, hall, movie, row, seat, cost, additionalServices) {
-    dispatch(buySeatsAsync(user, session, cinema, hall, movie, row, seat, cost, additionalServices))
+  onBookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices) {
+    dispatch(bookSeatsAsync(user, session, cinema, hall, movie, row, seat, cost, additionalServices))
   }
 });
 
