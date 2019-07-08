@@ -50,7 +50,7 @@ class Hall extends React.Component {
             <Button
               variant="contained" 
               color="primary"
-              className={`hall__button ${(!selectedSeats.find(seat => seat.user === user)) ? 'hall__button_hidden' : ''}`}
+              className={`hall__button ${!selectedSeats.find(seat => seat.user === user) ? 'hall__button_hidden' : ''}`}
             >
               Buy
             </Button>

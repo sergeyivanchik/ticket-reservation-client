@@ -18,12 +18,6 @@ class CheckboxLabel extends React.Component {
     this.props.selectAdditionalService({ user, session, cinema, hall, movie, row, seat, cost, service});
   };
 
-  componentDidMount() {
-    // this.props.selectedAdditionalServices.find(service => service.id === this.props.service.id) 
-    //   ? this.setState({checked: true}) 
-    //   : this.setState({checked: false})
-  }
-
   render() {
   return (
       <FormControlLabel

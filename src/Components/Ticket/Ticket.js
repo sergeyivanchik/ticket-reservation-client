@@ -6,12 +6,9 @@ import CheckboxLabel from './CheckboxLabel.js'
 
 
 class Ticket extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       sum: 0
     }
-  }
 
   getAdditionalServices = data  => {
     const {sum, checked} = data;
