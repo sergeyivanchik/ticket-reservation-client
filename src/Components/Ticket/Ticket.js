@@ -6,25 +6,6 @@ import CheckboxLabel from './CheckboxLabel.js'
 
 
 class Ticket extends React.Component {
-  state = {
-      sum: 0
-    }
-
-  getAdditionalServices = data  => {
-    const {sum, checked} = data;
-    checked
-    ? this.setState(function(prev) {
-        return {
-          sum: prev.sum + sum
-        }
-      })
-    : this.setState(function(prev) {
-        return {
-          sum: prev.sum - sum
-        }
-    })
-  }
-
   render() {
     const { row, seat, cost, date, hall, cinema, movie, additionalServices, user,
       hallId, cinemaId, movieId, sessionId,
@@ -46,23 +27,25 @@ class Ticket extends React.Component {
             Cost :<span className="ticket__choice">{cost}</span>
           </div>
            <div className="additionalSevices">
-              {additionalServices ? additionalServices.map(service => {
-                return <CheckboxLabel  
-                  service={service}
-                  getAdditionalServices={getAdditionalServices}
-                  row={row}
-                  seat={seat}
-                  cost={cost}
-                  hall={hallId}
-                  user={user}
-                  session={sessionId}
-                  movie={movieId}
-                  cinema={cinemaId}
-                  key={seat + row + cost + hallId}
-                  selectAdditionalService={selectAdditionalService}
-                  selectedAdditionalServices={selectedAdditionalServices}
-                />
-              }) : ''}
+              {additionalServices 
+                ? additionalServices.map(service => {
+                  return <CheckboxLabel  
+                    service={service}
+                    getAdditionalServices={getAdditionalServices}
+                    row={row}
+                    seat={seat}
+                    cost={cost}
+                    hall={hallId}
+                    user={user}
+                    session={sessionId}
+                    movie={movieId}
+                    cinema={cinemaId}
+                    key={seat + row + cost + hallId}
+                    selectAdditionalService={selectAdditionalService}
+                    selectedAdditionalServices={selectedAdditionalServices}
+                  />
+                })
+                : ''}
           </div>
         </div>
     )

@@ -24,16 +24,14 @@ class ConfirmTickets extends React.Component {
   getAdditionalServices = data  => {
     const {sum, checked} = data;
     checked
-    ? this.setState(function(prev) {
-        return {
-          sum: prev.sum + sum
+    ? this.setState( {
+          sum: this.state.sum + sum
         }
-      })
-    : this.setState(function(prev) {
-        return {
-          sum: prev.sum - sum
+      )
+    : this.setState( {
+          sum: this.state.sum - sum
         }
-    })
+    )
   }
 
   async componentDidMount() {
