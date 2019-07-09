@@ -11,22 +11,10 @@ class TicketList extends React.Component {
         {selectedSeatsByUser.map(ticket => 
           <Ticket
             user={user}
-            row={ticket.row}
-            seat={ticket.seat}
-            cost={ticket.cost}
-            date={ticket.session.date}
-            sessionId={ticket.session.id}
-            hall={ticket.hall.name}
-            hallId={ticket.hall.id}
-            movie={ticket.movie.name}
-            movieId={ticket.movie.id}
-            cinema={ticket.cinema.name}
-            cinemaId={ticket.cinema.id}
+            ticketInfo={ticket}
             key={ticket.id}
-            additionalServices={ticket.cinema.additionalServices}
             getAdditionalServices={getAdditionalServices}
             selectAdditionalService={selectAdditionalService}
-            selectedAdditionalServices={ticket.additionalServices}
           />
         
         )}
