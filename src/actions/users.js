@@ -47,7 +47,8 @@ export const checkAuthorizationFailure = error => ({
 })
 
 export const checkAuthorizationAsync = () => {
-  axios.defaults.headers['AUTHORIZATION'] = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
+  axios.defaults.headers['AUTHORIZATION'] = token;
   return async (dispatch) => {
     try {
       const currentUser  = await axios.post(`users/user`);
