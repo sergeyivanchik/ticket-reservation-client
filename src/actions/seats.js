@@ -31,7 +31,7 @@ export const deleteAdditionalServicesFailure = error => ({
 export const deleteAdditionalServicesAsync = (userId, sessionId, cinemaId, hallId, movieId) => {
   return async (dispatch) => {
     try {
-      await axios.delete(`http://localhost:8080/selectedSeats/deleteServices/${userId}/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
+      await axios.delete(`selectedSeats/deleteServices/${userId}/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
       dispatch(deleteAdditionalServicesSuccess());
     }
     catch (error) {
@@ -53,7 +53,7 @@ export const selectAdditionalServiceFailure = error => ({
 export const selectAdditionalServiceAsync = (user, session, cinema, hall, movie, row, seat, cost, service) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`http://localhost:8080/selectedSeats/addService`, 
+      const { data } = await axios.put(`selectedSeats/addService`, 
         { user, session, cinema, hall, movie, row, seat, cost, service }
       );
       dispatch(selectAdditionalServiceSuccess(data));
@@ -78,7 +78,7 @@ export const getSelectedSeatsByUserFailure = error => ({
 export const getSelectedSeatsByUserAsync = (userId, sessionId, cinemaId, hallId, movieId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/selectedSeats/${userId}/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
+      const { data } = await axios.get(`selectedSeats/${userId}/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
       dispatch(getSelectedSeatsByUserSuccess(data))
     }
     catch (error) {
@@ -100,7 +100,7 @@ export const getBoughtSeatsByUserFailure = error => ({
 export const getBoughtSeatsByUserAsync = userId => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/boughtSeats/${userId}`);
+      const { data } = await axios.get(`boughtSeats/${userId}`);
       dispatch(getBoughtSeatsByUserSucces(data))
     }
     catch (error) {
@@ -122,7 +122,7 @@ export const getSelectedSeatsFailure = error => ({
 export const getSelectedSeatsAsync = (sessionId, cinemaId, hallId, movieId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/selectedSeats/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
+      const { data } = await axios.get(`selectedSeats/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
       dispatch(getSelectedSeatsSuccess(data))
     }
     catch (error) {
@@ -144,7 +144,7 @@ export const getBoughtSeatsFailure = error => ({
 export const getBoughtSeatsAsync = (sessionId, cinemaId, hallId, movieId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/boughtSeats/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
+      const { data } = await axios.get(`boughtSeats/${sessionId}/${cinemaId}/${hallId}/${movieId}`);
       dispatch(getBoughtSeatsSucces(data))
     }
     catch (error) {
@@ -166,7 +166,7 @@ export const selectSeatFailure = error => ({
 export const selectSeatAsync = (user, session, cinema, hall, movie, row, seat, cost) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`http://localhost:8080/selectedSeats`, 
+      const { data } = await axios.put(`selectedSeats`, 
         { user, session, cinema, hall, movie, row, seat, cost }
       );
       dispatch(selectSeatSuccess(data));
@@ -190,7 +190,7 @@ export const bookSeatsFailure = error => ({
 export const bookSeatsAsync = (user, session, cinema, hall, movie, row, seat, cost, additionalServices) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`http://localhost:8080/boughtSeats`,
+      const { data } = await axios.put(`boughtSeats`,
         { user, session, cinema, hall, movie, row, seat, cost, additionalServices } );
       dispatch(bookSeatsSuccess(data))
     }

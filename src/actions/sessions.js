@@ -17,7 +17,7 @@ export const getSessionsFailure = error => ({
 export const getSessionsAsync = (movieId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/sessions/${movieId}`);
+      const { data } = await axios.get(`sessions/${movieId}`);
       dispatch(getSessionsSuccess(data))
     }
     catch (error) {
