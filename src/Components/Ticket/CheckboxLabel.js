@@ -4,16 +4,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 
 class CheckboxLabel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: false
-    }
+  state = {
+    checked: false
   }
 
-  handleChange = name => event => {
+  handleChange = event => {
     const { user, session, cinema, hall, movie, row, seat, cost, service, getAdditionalServices, selectAdditionalService } = this.props;
-    this.setState({ ...this.state, [name]: event.target.checked });
+    this.setState( {checked: event.target.checked} );
     getAdditionalServices({sum: service.cost, checked: !this.state.checked});
     selectAdditionalService({ user, session, cinema, hall, movie, row, seat, cost, service});
   };
@@ -25,7 +22,7 @@ class CheckboxLabel extends React.Component {
         control={
           <Checkbox
             checked={this.state.checked}
-            onChange={this.handleChange('checked')}
+            onChange={this.handleChange}
             value={service.id}
             color="primary"
             key={service.id}
