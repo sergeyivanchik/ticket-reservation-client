@@ -39,12 +39,12 @@ export default function seats(state = initialState, action) {
         action.payload.hall === seatInfo.hall &&
         action.payload.movie === seatInfo.movie
       )
-      const selectedSeat = currentSeat
+      const selectedSeats = currentSeat
       ? state.selectedSeats.filter(seat => seat !== currentSeat)
       : [...state.selectedSeats, action.payload]
 
       return Object.assign({}, state, {
-        selectedSeats: selectedSeat
+        selectedSeats: selectedSeats
       })
     }
 
