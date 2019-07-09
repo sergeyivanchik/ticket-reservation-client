@@ -38,16 +38,16 @@ class ConfirmTickets extends React.Component {
 
   async componentDidMount() {
     const { sessionId, cinemaId, hallId, movieId } = this.props.match.params;
-    const { currentUser, showLoader, checkAuthorization, deleteAdditionalServices, getSelectedSeatsByUser, hideLoader } = this.props;
+    const { showLoader, checkAuthorization, deleteAdditionalServices, getSelectedSeatsByUser, hideLoader } = this.props;
     showLoader();
     await checkAuthorization();
-    await deleteAdditionalServices(currentUser.id, sessionId, cinemaId, hallId, movieId);
-    await getSelectedSeatsByUser(currentUser.id, sessionId, cinemaId, hallId, movieId);
+    await deleteAdditionalServices(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
+    await getSelectedSeatsByUser(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
     hideLoader();
   }
 
   render() {
-    const { selectedSeatsByUser, isLoading, currentUser, bookSeats, selectAdditionalService } = this.props;
+    const { selectedSeatsByUser, isLoading, bookSeats, selectAdditionalService } = this.props;
     const totalCost = selectedSeatsByUser.reduce((sum, ticket) =>  
     sum + ticket.cost, 0) +  this.state.sum
     return (
@@ -58,7 +58,7 @@ class ConfirmTickets extends React.Component {
             {/* <PayForm totalCost={totalCost}/> */}
             <Button
                onClick={() => selectedSeatsByUser.map(seats => {
-               const user = currentUser.id;
+               const user = this.props.currentUser.id;
                const session = seats.session.id;
                const cinema = seats.cinema.id;
                const hall = seats.hall.id;
@@ -79,7 +79,7 @@ class ConfirmTickets extends React.Component {
             <TicketList 
               getAdditionalServices={this.getAdditionalServices}
               selectedSeatsByUser={selectedSeatsByUser}
-              user={currentUser.id}
+              user={this.props.currentUser.id}
               selectAdditionalService={selectAdditionalService}
             />
         </div>

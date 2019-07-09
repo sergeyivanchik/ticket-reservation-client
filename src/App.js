@@ -34,7 +34,7 @@ class App extends Component {
             component={this.сheckAuthorization() ? Seats : LogIn}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
-          <Route path="/confirm-ticket/:movieId/:cinemaId/:hallId/:date" 
+          <Route path="/confirm-ticket/:sessionId/:movieId/:cinemaId/:hallId/:date" 
             component={this.сheckAuthorization() ? ConfirmTickets : LogIn}/>
         </div>
       </Router>

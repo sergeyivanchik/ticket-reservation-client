@@ -21,7 +21,7 @@ class Seats extends React.Component {
   }
 
   render() {
-    const { hallByCinema, boughtSeats, selectSeat, selectedSeats, currentUser, isLoading } = this.props;
+    const { hallByCinema, boughtSeats, selectSeat, selectedSeats, isLoading } = this.props;
     const { hallId, cinemaId, sessionId, movieId, date } = this.props.match.params;
     return (
       isLoading
@@ -33,7 +33,7 @@ class Seats extends React.Component {
               cinema={cinemaId}
               session={sessionId}
               hall={hallId}
-              user={currentUser.id}
+              user={this.props.currentUser.id}
               boughtSeats={boughtSeats}
               hallSeats={hallByCinema[0].seats}
               onSelectSeat={selectSeat}
