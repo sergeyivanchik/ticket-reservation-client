@@ -12,11 +12,10 @@ import Loader from '../Loader/Loader.js';
 class MovieProfile extends React.Component {
   async componentDidMount() {
     const { movieId } = this.props.match.params;
-    const { showLoader, getSessions, getMovieById, hideLoader } = this.props;
-    showLoader();
-    await getSessions(movieId);
-    await getMovieById(movieId);
-    hideLoader();
+    this.props.showLoader();
+    await this.props.getSessions(movieId);
+    await this.props.getMovieById(movieId);
+    this.props.hideLoader();
   }
   
   render() {

@@ -12,12 +12,11 @@ import Loader from '../Loader/Loader.js';
 class Seats extends React.Component {
   async componentDidMount() {
     const { hallId, cinemaId, sessionId, movieId } = this.props.match.params;
-    const { showLoader, getHallByCinema, getBoughtSeats, getSelectedSeats, hideLoader } = this.props;
-    showLoader();
-    await getHallByCinema(hallId, cinemaId);
-    await getBoughtSeats(sessionId,cinemaId, hallId, movieId);
-    await getSelectedSeats(sessionId, cinemaId, hallId, movieId,);
-    hideLoader();
+    this.props.showLoader();
+    await this.props.getHallByCinema(hallId, cinemaId);
+    await this.props.getBoughtSeats(sessionId,cinemaId, hallId, movieId);
+    await this.props.getSelectedSeats(sessionId, cinemaId, hallId, movieId,);
+    this.props.hideLoader();
   }
 
   render() {

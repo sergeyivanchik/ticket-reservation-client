@@ -36,18 +36,17 @@ class ConfirmTickets extends React.Component {
 
   async componentDidMount() {
     const { sessionId, cinemaId, hallId, movieId } = this.props.match.params;
-    const { showLoader, checkAuthorization, deleteAdditionalServices, getSelectedSeatsByUser, hideLoader } = this.props;
-    showLoader();
-    await checkAuthorization();
-    await deleteAdditionalServices(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
-    await getSelectedSeatsByUser(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
-    hideLoader();
+    this.props.showLoader();
+    await this.props.checkAuthorization();
+    await this.props.deleteAdditionalServices(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
+    await this.props.getSelectedSeatsByUser(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
+    this.props.hideLoader();
   }
 
   render() {
     const { selectedSeatsByUser, isLoading, bookSeats, selectAdditionalService } = this.props;
     const totalCost = selectedSeatsByUser.reduce((sum, ticket) =>  
-    sum + ticket.cost, 0) +  this.state.sum
+      sum + ticket.cost, 0) +  this.state.sum
     return (
       isLoading 
         ? <Loader/>

@@ -10,10 +10,9 @@ import Loader from '../Loader/Loader.js';
 
 class MainPage extends React.Component {
   async componentDidMount() {
-    const { showLoader, getMovies, hideLoader } = this.props;
-    showLoader();
-    await getMovies();
-    hideLoader();
+    this.props.showLoader();
+    await this.props.getMovies();
+    this.props.hideLoader();
   }
 
   render() {
