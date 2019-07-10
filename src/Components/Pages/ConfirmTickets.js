@@ -13,7 +13,6 @@ import {
   bookSeatsAsync
 } from '../../actions/seats.js'
 import { checkAuthorizationAsync } from '../../actions/users.js';
-// import PayForm from '../CheckoutForm/PayForm.js';
 
 
 class ConfirmTickets extends React.Component {
@@ -52,27 +51,30 @@ class ConfirmTickets extends React.Component {
         ? <Loader/>
         : <div className="confirm-ticket">
             <TopNavBar/>
-            {/* <PayForm totalCost={totalCost}/> */}
+
             <Button
-               onClick={() => selectedSeatsByUser.map(seats => {
-               const user = this.props.currentUser.id;
-               const session = seats.session.id;
-               const cinema = seats.cinema.id;
-               const hall = seats.hall.id;
-               const movie = seats.movie.id;
-               const row = seats.row;
-               const seat = seats.seat;
-               const cost = seats.cost;
-               const additionalServices = seats.additionalServices;
-               return bookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices)
-            })}
+              onClick={() => selectedSeatsByUser.map(seats => 
+                bookSeats(
+                  this.props.currentUser.id,
+                  seats.session.id,
+                  seats.cinema.id,
+                  seats.hall.id,
+                  seats.movie.id,
+                  seats.row,
+                  seats.seat,
+                  seats.cost,
+                  seats.additionalServices
+                )
+            )}
               variant="contained" 
               color="primary"
               className="confirm-ticket__button"
             >
               Buy
             </Button>
+
             <div className="confirm-ticket__cost">Cost: {totalCost} $</div>
+
             <TicketList 
               getAdditionalServices={this.getAdditionalServices}
               selectedSeatsByUser={selectedSeatsByUser}
