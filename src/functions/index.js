@@ -81,12 +81,6 @@ export const sortTime = timesList => {
   return result;	
 }
 
-export const millisecondsToMinutes = milliseconds => {
-  var minutes = (milliseconds / (1000 * 60));
-  return minutes;
-}
+export const millisecondsToMinutes = milliseconds => milliseconds / (1000 * 60);
 
-export const minutesToMilliseconds = minutes => {
-  var milliseconds = minutes * 1000 * 60;
-  return milliseconds;
-}
+export const minutesToMilliseconds = minutes =>  minutes * 1000 * 60;
