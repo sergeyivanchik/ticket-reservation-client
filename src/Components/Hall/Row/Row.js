@@ -4,6 +4,32 @@ import Seat from './Seat.js'
 
 
 class Row extends Component {
+  occupied = (row, seat, cost, user) => 
+    this.props.selectedSeats.find(ticket => 
+      ticket.row === row && 
+      ticket.seat === seat && 
+      ticket.cost === cost &&
+      ticket.user === user) 
+    ? true 
+    : false; 
+
+  bought = (row, seat, cost) => 
+    this.props.boughtSeats.find(boughtSeat => 
+      boughtSeat.row === row &&
+      boughtSeat.seat === seat &&
+      boughtSeat.cost === cost)
+    ? true
+    : false
+
+  selectedOtherUser = (user, row, seat, cost) =>
+    this.props.selectedSeats.find(ticket => 
+      ticket.user !== user &&
+      ticket.row === row && 
+      ticket.seat === seat && 
+      ticket.cost === cost)
+    ? true
+    : false
+
   CreateRow(row, countPlaces) {
     const { user, movie, cinema, session, hall, hallRow, onSelectSeat, selectedSeats, boughtSeats} = this.props;
     let places = [];
@@ -19,26 +45,9 @@ class Row extends Component {
           seat={i}
           cost={hallRow.cost}
           onSelectSeat={onSelectSeat}
-          occupied={
-            selectedSeats.find(ticket => 
-              ticket.row === row && 
-              ticket.seat === i && 
-              ticket.cost === hallRow.cost &&
-              ticket.user === user)
-          }
-          bought={
-            boughtSeats.find(boughtSeat => 
-              boughtSeat.row === row &&
-              boughtSeat.seat === i &&
-              boughtSeat.cost === hallRow.cost)
-          }
-          selectedOtherUser={
-            selectedSeats.find(ticket => 
-              ticket.user !== user &&
-              ticket.row === row && 
-              ticket.seat === i && 
-              ticket.cost === hallRow.cost)
-          }
+          occupied={this.occupied(row, i, hallRow.cost, user)}
+          bought={this.bought(row, i, hallRow.cost)}
+          selectedOtherUser={this.selectedOtherUser(user, row, i, hallRow.cost)}
           key={i+row}
         />
       )
