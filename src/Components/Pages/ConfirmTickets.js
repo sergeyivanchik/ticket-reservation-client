@@ -13,7 +13,6 @@ import {
   buySeatsAsync
 } from '../../actions/seats.js'
 import { checkAuthorizationAsync } from '../../actions/users.js';
-import PayForm from '../CheckoutForm/PayForm.js';
 
 
 class ConfirmTickets extends React.Component {
@@ -68,7 +67,6 @@ class ConfirmTickets extends React.Component {
         ? <Loader/>
         : <div className="confirm-ticket">
             <TopNavBar/>
-            <PayForm totalCost={totalCost}/>
             <Button
                onClick={() => this.props.selectedSeatsByUser.map(seats => {
                const user = this.props.currentUser.id;
@@ -85,7 +83,6 @@ class ConfirmTickets extends React.Component {
               variant="contained" 
               color="primary"
               className="confirm-ticket__button"
-              //disabled={(selectedSeats.length > countOfSelectedSeats) ? true : false}
             >
               Buy
             </Button>

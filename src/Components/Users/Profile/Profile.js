@@ -19,6 +19,48 @@ class Profile extends React.Component {
     this.setState({boughtSeats: !this.state.boughtSeats})
   }
 
+  activeSessions = () => {
+    let bookSeats = [];
+    this.props.boughtSeatsByUser.map(bookSeat => { 
+      if(new Date().getTime() < bookSeat.session.date) {
+        bookSeats.push(bookSeat)
+      } 
+    })
+    return bookSeats;
+  }
+
+  completedSessions = () => {
+    let boughtSeats = [];
+    this.props.boughtSeatsByUser.map(bookSeat => { 
+      if(new Date().getTime() > bookSeat.session.date) {
+        boughtSeats.push(bookSeat)
+      }
+    })
+  return boughtSeats;
+  }
+
+  getTickets = tickets => {
+    let boughtTickets = [];
+    tickets.map(bookSeat => {
+      boughtTickets.push(
+        <Ticket 
+          poster={bookSeat.movie.poster}
+          movie={bookSeat.movie.name}
+          cinema={bookSeat.cinema.name}
+          hall={bookSeat.hall.name}
+          date={bookSeat.session.date}
+          city={bookSeat.cinema.city}
+          row={bookSeat.row}
+          seat={bookSeat.seat}
+          cost={bookSeat.cost}
+          duration={bookSeat.movie.duration}
+          additionalServices={bookSeat.additionalServices}
+        />
+      )
+    })
+    return boughtTickets;
+  }
+
   async componentDidMount() {
     this.props.onShowLoader();
     await this.props.onCheckAuthorization();
@@ -27,44 +69,7 @@ class Profile extends React.Component {
   }
 
   render() { 
-    const { boughtSeatsByUser, currentUser, isLoading, onLogOut } = this.props;
-    const activeSessions =  boughtSeatsByUser.map(boughtSeat => { 
-      if(new Date().getTime() < boughtSeat.session.date) 
-       return (
-        <Ticket 
-          poster={boughtSeat.movie.poster}
-          movie={boughtSeat.movie.name}
-          cinema={boughtSeat.cinema.name}
-          hall={boughtSeat.hall.name}
-          date={boughtSeat.session.date}
-          city={boughtSeat.cinema.city}
-          row={boughtSeat.row}
-          seat={boughtSeat.seat}
-          cost={boughtSeat.cost}
-          duration={boughtSeat.movie.duration}
-          additionalServices={boughtSeat.additionalServices}
-        />
-      )
-    })
-
-   const completedSessions = boughtSeatsByUser.map(boughtSeat => { 
-      if(new Date().getTime() > boughtSeat.session.date) 
-       return (
-        <Ticket 
-          poster={boughtSeat.movie.poster}
-          movie={boughtSeat.movie.name}
-          cinema={boughtSeat.cinema.name}
-          hall={boughtSeat.hall.name}
-          date={boughtSeat.session.date}
-          city={boughtSeat.cinema.city}
-          row={boughtSeat.row}
-          seat={boughtSeat.seat}
-          cost={boughtSeat.cost}
-          duration={boughtSeat.movie.duration}
-          additionalServices={boughtSeat.additionalServices}
-        />
-      )
-    })
+    const { currentUser, isLoading, onLogOut } = this.props;
 
     return (
       isLoading
@@ -73,11 +78,11 @@ class Profile extends React.Component {
           <span>{currentUser.username}</span>
           <span onClick={onLogOut}>Log Out</span>
           <div className="profile__tabs">
-            <Button className="profile__button" onClick={this.state.boughtSeats ? this.changeSessions : ''}>Passed sessions</Button>
-            <Button className="profile__button" onClick={!this.state.boughtSeats ? this.changeSessions : ''}>Active sessions</Button>
+            <Button className="profile__button" onClick={this.state.boughtSeats ? this.changeSessions : null}>Passed sessions</Button>
+            <Button className="profile__button" onClick={!this.state.boughtSeats ? this.changeSessions : null}>Active sessions</Button>
           </div>
           {
-            this.state.boughtSeats ? activeSessions : completedSessions
+            this.state.boughtSeats ? this.getTickets(this.activeSessions()) : this.getTickets(this.completedSessions())
           }
           </div>
     )
