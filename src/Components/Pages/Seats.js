@@ -15,7 +15,7 @@ class Seats extends React.Component {
     this.props.showLoader();
     await this.props.getHallByCinema(hallId, cinemaId);
     await this.props.getBoughtSeats(sessionId,cinemaId, hallId, movieId);
-    await this.props.getSelectedSeats(sessionId, cinemaId, hallId, movieId,);
+    await this.props.getSelectedSeats(sessionId, cinemaId, hallId, movieId);
     this.props.hideLoader();
   }
 
