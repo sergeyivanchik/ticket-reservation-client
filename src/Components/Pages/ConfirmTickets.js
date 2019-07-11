@@ -54,19 +54,7 @@ class ConfirmTickets extends React.Component {
             <TopNavBar/>
 
             <Button
-              onClick={() => selectedSeatsByUser.map(seats => 
-                bookSeats(
-                  this.props.currentUser.id,
-                  seats.session.id,
-                  seats.cinema.id,
-                  seats.hall.id,
-                  seats.movie.id,
-                  seats.row,
-                  seats.seat,
-                  seats.cost,
-                  seats.additionalServices
-                )
-            )}
+              onClick={() => bookSeats(selectedSeatsByUser)}
               variant="contained" 
               color="primary"
               className="confirm-ticket__button"
@@ -113,8 +101,8 @@ const mapDispatchToProps = dispatch => ({
   deleteAdditionalServices(userId, sessionId, cinemaId, hallId, movieId) {
     return dispatch(deleteAdditionalServicesAsync(userId, sessionId, cinemaId, hallId, movieId))
   },
-  bookSeats(user, session, cinema, hall, movie, row, seat, cost, additionalServices) {
-    dispatch(bookSeatsAsync(user, session, cinema, hall, movie, row, seat, cost, additionalServices))
+   bookSeats(seats) {
+    dispatch(bookSeatsAsync(seats))
   }
 });
 

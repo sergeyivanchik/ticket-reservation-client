@@ -187,15 +187,15 @@ export const bookSeatsFailure = error => ({
   payload: error
 });
 
-export const bookSeatsAsync = (user, session, cinema, hall, movie, row, seat, cost, additionalServices) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.put(`boughtSeats`,
-        { user, session, cinema, hall, movie, row, seat, cost, additionalServices } );
-      dispatch(bookSeatsSuccess(data))
-    }
-    catch (error) {
-      dispatch(bookSeatsFailure(error));
+export const bookSeatsAsync = seats => {
+    return async (dispatch) => {
+      try {
+        const { data } = await axios.put(`boughtSeats`,
+          { seats } );
+        dispatch(bookSeatsSuccess(data))
+      }
+      catch (error) {
+        dispatch(bookSeatsFailure(error));
+      }
     }
   }
-} 
