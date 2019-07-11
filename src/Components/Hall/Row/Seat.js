@@ -11,10 +11,7 @@ class Seat extends Component {
             onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})
           }
         }}
-        occupied={occupied}
-        bought={bought}
-        cost={cost}
-        className={`seat ${occupied ? 'seat_occupied' : bought ? 'seat_bought' : selectedOtherUser ? 'seat_bought' : ''}` }
+        className={`seat ${occupied ? 'seat_occupied' : bought || selectedOtherUser ? 'seat_bought' : ''}` }
         title={`${bought || selectedOtherUser ? 'bought' : `row ${row} seat ${seat} cost ${cost}`}`}
       >
         {seat}
