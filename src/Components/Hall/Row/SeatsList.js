@@ -12,11 +12,9 @@ class SeatsList extends React.Component {
         {hallSeats.map(hallRow =>
           <Row
             user={user}
-            row={hallRow.row}
+            hallRow={hallRow}
             selectedSeats={selectedSeats}
-            amountOfSeats={hallRow.countOfSeats}
             onSelectSeat={onSelectSeat}
-            cost={hallRow.cost}
             boughtSeats={boughtSeats}
             key={hallRow.row}
             movie={movie}

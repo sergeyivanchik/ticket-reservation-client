@@ -18,17 +18,19 @@ function TopNavBar() {
           <IconButton className="top-navbar__menu" color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
+
           <Typography variant="h6" color="inherit" className="top-navbar__typography">
             <Link to="/" className='top-navbar__link-to'>Cinema</Link>
           </Typography>
-            {localStorage.getItem('token') !== null
-              ? <Link to="/profile" className='top-navbar__link-to'>
-                  <Button color="inherit">Profile</Button>
-                </Link>
-              : <Link to="/login" className='top-navbar__link-to'>
-                  <Button color="inherit">Login</Button>
-                </Link>
-            }
+
+          {localStorage.getItem('token') !== null
+            ? <Link to="/profile" className='top-navbar__link-to'>
+                <Button color="inherit">Profile</Button>
+              </Link>
+            : <Link to="/login" className='top-navbar__link-to'>
+                <Button color="inherit">Login</Button>
+              </Link>
+          }
         </Toolbar>
       </AppBar>
     </div>

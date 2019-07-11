@@ -12,6 +12,7 @@ class DateList extends React.Component {
         <div className="session-date__date">
           {convertDate(date)}
         </div> 
+        
           {getCinemasByMovieAndDate(movie, date, sessionsList).map(cinema =>
             <CinemaList
               cinemaId={cinema}

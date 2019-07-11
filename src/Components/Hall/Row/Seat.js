@@ -11,7 +11,6 @@ class Seat extends Component {
             onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})
           }
         }}
-        on
         occupied={occupied}
         bought={bought}
         cost={cost}

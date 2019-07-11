@@ -26,10 +26,12 @@ class Hall extends React.Component {
           session={session}
           hall={hall}
         />
+
         <Legend/>
 
         <div className="hall__choice">
           <label className="hall__choice-text">Your choice:</label>
+          
           <div className="hall__choice-list">
             {selectedSeats.filter(seat => seat.user === user).map(selectedSeat => 
               <Choice

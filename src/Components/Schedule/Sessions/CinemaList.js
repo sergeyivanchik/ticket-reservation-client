@@ -13,6 +13,7 @@ class CinemaList extends React.Component {
             {sessionsList.find(session => session.cinema.id === cinemaId).cinema.name}
           </span>
         </div>
+        
          <TimeList
             date={date}
             cinemaId={cinemaId}
