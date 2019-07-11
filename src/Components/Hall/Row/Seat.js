@@ -15,7 +15,7 @@ class Seat extends Component {
         bought={bought}
         cost={cost}
         className={`seat ${occupied ? 'seat_occupied' : bought ? 'seat_bought' : selectedOtherUser ? 'seat_bought' : ''}` }
-        title={`${bought ? 'bought' : selectedOtherUser ? 'bought' : `row ${row} seat ${seat} cost ${cost}`}`}
+        title={`${bought || selectedOtherUser ? 'bought' : `row ${row} seat ${seat} cost ${cost}`}`}
       >
         {seat}
       </span>
