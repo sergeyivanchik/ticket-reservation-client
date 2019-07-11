@@ -6,8 +6,8 @@ class Seat extends Component {
     const { session, cinema, hall, movie, row, seat, occupied, cost, bought, user, selectedOtherUser, onSelectSeat } = this.props;
     return (
       <span 
-        onClick={(e) => { 
-          if(e.target.className !== 'seat seat_bought'){
+        onClick={event => { 
+          if(event.target.className !== 'seat seat_bought'){
             onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})
           }
         }}
