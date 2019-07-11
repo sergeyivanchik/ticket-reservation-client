@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from  'react-redux';
 
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import TicketList from '../Ticket/TicketList.js';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
