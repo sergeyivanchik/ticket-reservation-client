@@ -22,13 +22,16 @@ class TopNavBar extends React.Component {
             <IconButton className="top-navbar__menu" color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
+
             <Typography variant="h6" color="inherit" className="top-navbar__typography">
               <Link to="/" className='top-navbar__link-to'>Cinema</Link>
             </Typography>
-              {localStorage.getItem('token') !== null
-                ? <Button color="inherit" onClick={() => this.redirect('/profile')}>Profile</Button>
-                : <Button color="inherit" onClick={() => this.redirect('/login')}>Login</Button>
-              }
+
+            {localStorage.getItem('token') !== null
+              ? <Button color="inherit" onClick={() => this.redirect('/profile')}>Profile</Button>
+              : <Button color="inherit" onClick={() => this.redirect('/login')}>Login</Button>
+            }
+
           </Toolbar>
         </AppBar>
       </div>

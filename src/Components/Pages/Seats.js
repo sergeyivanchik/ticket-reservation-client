@@ -11,41 +11,33 @@ import Loader from '../Loader/Loader.js';
 
 class Seats extends React.Component {
   async componentDidMount() {
-    this.props.onShowLoader();
-    await this.props.onGetHallByCinema(this.props.match.params.hallId, this.props.match.params.cinemaId)
-    await this.props.onGetBoughtSeats(
-      this.props.match.params.sessionId,
-      this.props.match.params.cinemaId,
-      this.props.match.params.hallId,
-      this.props.match.params.movieId
-    );
-    await this.props.onGetSelectedSeats (
-      this.props.match.params.sessionId,
-      this.props.match.params.cinemaId,
-      this.props.match.params.hallId,
-      this.props.match.params.movieId,
-    );
-    this.props.onHideLoader();
+    const { hallId, cinemaId, sessionId, movieId } = this.props.match.params;
+    this.props.showLoader();
+    await this.props.getHallByCinema(hallId, cinemaId);
+    await this.props.getBoughtSeats(sessionId,cinemaId, hallId, movieId);
+    await this.props.getSelectedSeats(sessionId, cinemaId, hallId, movieId);
+    this.props.hideLoader();
   }
 
   render() {
-    const { hallByCinema, boughtSeats } = this.props;
+    const { hallByCinema, boughtSeats, selectSeat, selectedSeats, isLoading } = this.props;
+    const { hallId, cinemaId, sessionId, movieId, date } = this.props.match.params;
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="seats">
             <TopNavBar/>
             <Hall
-              movie={this.props.match.params.movieId}
-              cinema={this.props.match.params.cinemaId}
-              session={this.props.match.params.sessionId}
-              hall={this.props.match.params.hallId}
+              movie={movieId}
+              cinema={cinemaId}
+              session={sessionId}
+              hall={hallId}
               user={this.props.currentUser.id}
               boughtSeats={boughtSeats}
               hallSeats={hallByCinema[0].seats}
-              onSelectSeat={this.props.onSelectSeat}
-              selectedSeats={this.props.selectedSeats}
-              date={this.props.match.params.date}
+              onSelectSeat={selectSeat}
+              selectedSeats={selectedSeats}
+              date={date}
             />
           </div>
     )
@@ -53,30 +45,30 @@ class Seats extends React.Component {
 }
 
 const mapStateToProps = store => ({
+  currentUser: store.user.currentUser,
   hallByCinema: store.halls.hallByCinema,
-  isLoading: store.loader.isLoading,
   boughtSeats: store.seats.boughtSeats,
   selectedSeats: store.seats.selectedSeats,
-  currentUser: store.user.currentUser
+  isLoading: store.loader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSelectSeat(session, cinema, hall, movie, user, row, seat, cost) {
-    dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
-  },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
-    dispatch(hideLoader())
-  },
-  onGetHallByCinema(hallId, cinemaId) {
+  getHallByCinema(hallId, cinemaId) {
     return dispatch(getHallByCinemaAsync(hallId, cinemaId))
   },
-  onGetBoughtSeats(sessionId, cinemaId, hallId, movieId) {
+  selectSeat(session, cinema, hall, movie, user, row, seat, cost) {
+    dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
+  },
+  hideLoader() {
+    dispatch(hideLoader())
+  },
+  getBoughtSeats(sessionId, cinemaId, hallId, movieId) {
     return dispatch(getBoughtSeatsAsync(sessionId, cinemaId, hallId, movieId))
   },
-  onGetSelectedSeats(sessionId, cinemaId, hallId, movieId) {
+  getSelectedSeats(sessionId, cinemaId, hallId, movieId) {
     return dispatch(getSelectedSeatsAsync(sessionId, cinemaId, hallId, movieId))
   }
 });

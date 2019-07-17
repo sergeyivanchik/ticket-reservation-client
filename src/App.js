@@ -18,16 +18,17 @@ export const history = createBrowseHistory();
 
 class App extends Component {
   async componentWillMount() {
-    await this.props.onCheckAuthorization();
+    await this.props.checkAuthorization();
   }
   
   сheckAuthorization = () => localStorage.getItem('token') !== null ? true : false;
   
   render() {
+    const { message, isShown } = this.props;
     return (
       <Router history={history}>
         <div className="router">
-          <SnackBar message={this.props.message} isShown={this.props.isShown}/>
+          <SnackBar message={message} isShown={isShown}/>
           <Route exact path="/" component={MainPage}/>
           <Route path="/movie-profile/:movieId" component={MovieProfile}/>
           <Route path="/hall/:sessionId/:movieId/:cinemaId/:hallId/:date" 
@@ -50,7 +51,7 @@ const mapStateToProps = store => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onCheckAuthorization() {
+  checkAuthorization() {
     return dispatch(checkAuthorizationAsync())
   }
 })

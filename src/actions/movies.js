@@ -19,7 +19,7 @@ export const getMoviesFailure = error => ({
 export const getMoviesAsync = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/movies`);
+      const { data } = await axios.get(`movies`);
       dispatch(getMoviesSuccess(data))
       }
     catch (error) {
@@ -41,7 +41,7 @@ export const getMovieByIdFailure = error => ({
 export const getMovieByIdAsync = movieId => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/movies/${movieId}`);
+      const { data } = await axios.get(`movies/${movieId}`);
       dispatch(getMovieByIdSuccess(data))
     }
     catch (error) {

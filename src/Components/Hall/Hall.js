@@ -26,10 +26,12 @@ class Hall extends React.Component {
           session={session}
           hall={hall}
         />
+
         <Legend/>
 
         <div className="hall__choice">
           <label className="hall__choice-text">Your choice:</label>
+          
           <div className="hall__choice-list">
             {selectedSeats.filter(seat => seat.user === user).map(selectedSeat => 
               <Choice
@@ -50,7 +52,7 @@ class Hall extends React.Component {
             <Button
               variant="contained" 
               color="primary"
-              className={`hall__button ${(!selectedSeats.find(seat => seat.user === user)) ? 'hall__button_hidden' : ''}`}
+              className={`hall__button ${!selectedSeats.find(seat => seat.user === user) ? 'hall__button_hidden' : ''}`}
             >
               Buy
             </Button>

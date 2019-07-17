@@ -13,13 +13,13 @@ class CinemaList extends React.Component {
             {sessionsList.find(session => session.cinema.id === cinemaId).cinema.name}
           </span>
         </div>
+        
          <TimeList
             date={date}
             cinemaId={cinemaId}
             movie={movie}
             sessionsList={sessionsList}
-            deleteTickets={this.props.deleteTickets}
-            key={date+cinemaId}
+            key={date + cinemaId}
           /> 
       </div>
     )

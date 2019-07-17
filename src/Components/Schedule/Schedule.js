@@ -15,7 +15,6 @@ class Schedule extends React.Component {
         <SessionsList
           movie={movie}
           sessionsList={sessionsList}
-          deleteTickets={this.props.deleteTickets}
         />
       </div>
     )

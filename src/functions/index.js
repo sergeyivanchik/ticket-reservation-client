@@ -5,23 +5,23 @@ export const convertDate = date => {
       `${convertDate.toLocaleString('en', {weekday: 'long'})}`.toLowerCase()
 };
 
-export const getCinemasByMovieAndDate = (movie, date, sessions) => {
+export const getCinemasByMovieAndDate = (movieId, date, sessions) => {
   let cinemasByMovie = [];
   for(let i = 0; i < sessions.length; i++) {
     if(convertDate(sessions[i].date) === convertDate(date) && 
-      sessions[i].movie.id === movie) 
+      sessions[i].movie.id === movieId) 
         cinemasByMovie.push(sessions[i].cinema.id); 
     }
   return cinemasByMovie.filter((item, pos) => 
     cinemasByMovie.indexOf(item) === pos);	
 }
 
-export const getDatesByMovie = (movie, sessions) => {
+export const getDatesByMovie = (movieId, sessions) => {
   let datesByMovie = [];
   let check = 0;
   for(let i = 0; i < sessions.length; i++) {
     check = 0;
-    if(sessions[i].movie.id === movie) {
+    if(sessions[i].movie.id === movieId) {
       if(datesByMovie.length === 0)
         datesByMovie.push(sessions[i].date);
       else {
@@ -42,16 +42,17 @@ export const convertTime = date => {
   return `${currentDate.toLocaleString('ru', {hour:'2-digit', minute:'2-digit'})}`;	
 }
 
-export const getTimesByMovieAndDateAndCinema = (movie, date, cinema, sessions) => {
+export const getTimesByMovieAndDateAndCinema = (movieId, date, cinemaId, sessions) => {
   let timesByMovie = [];
   for(let i = 0; i < sessions.length; i++ )
     if(convertDate(sessions[i].date) === convertDate(date) &&
-      cinema === sessions[i].cinema.id && 
-      movie === sessions[i].movie.id
+      cinemaId === sessions[i].cinema.id && 
+      movieId === sessions[i].movie.id
       ) 
       timesByMovie.push({
         time: sessions[i].date, 
-        hallId: sessions[i].hall.id, 
+        hallId: sessions[i].hall.id,
+        hallName: sessions[i].hall.name,
         id: sessions[i].id
       });
   return timesByMovie;
@@ -80,12 +81,6 @@ export const sortTime = timesList => {
   return result;	
 }
 
-export const millisecondsToMinutes = milliseconds => {
-  var minutes = (milliseconds / (1000 * 60));
-  return minutes;
-}
+export const millisecondsToMinutes = milliseconds => milliseconds / (1000 * 60);
 
-export const minutesToMilliseconds = minutes => {
-  var milliseconds = minutes * 1000 * 60;
-  return milliseconds;
-}
+export const minutesToMilliseconds = minutes =>  minutes * 1000 * 60;

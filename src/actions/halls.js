@@ -18,7 +18,7 @@ export const getHallByCinemaFailure = error => ({
 export const getHallByCinemaAsync = (hallId, cinemaId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/halls/${hallId}/${cinemaId}`);
+      const { data } = await axios.get(`halls/${hallId}/${cinemaId}`);
       dispatch(getHallByCinemaSuccess(data))
     }
     catch (error) {

@@ -11,22 +11,23 @@ import Loader from '../Loader/Loader.js';
 
 class MovieProfile extends React.Component {
   async componentDidMount() {
-    this.props.onShowLoader();
-    await this.props.onGetSessions(this.props.match.params.movieId);
-    await this.props.onGetMovieById(this.props.match.params.movieId);
-    this.props.onHideLoader();
+    const { movieId } = this.props.match.params;
+    this.props.showLoader();
+    await this.props.getSessions(movieId);
+    await this.props.getMovieById(movieId);
+    this.props.hideLoader();
   }
   
   render() {
+    const { isLoading, movieById, sessionsList } = this.props;
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="movie-profile">
             <TopNavBar/>
             <Schedule
-              movie={this.props.movieById}
-              sessionsList={this.props.sessionsList}
-              deleteTickets={this.props.onDeleteTickets}
+              movie={movieById}
+              sessionsList={sessionsList}
             />
           </div>
     )
@@ -39,16 +40,16 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetSessions(movieId) {
+  getSessions(movieId) {
     return dispatch(getSessionsAsync(movieId))
   },
-  onGetMovieById(movieId) {
+  getMovieById(movieId) {
     return dispatch(getMovieByIdAsync(movieId))
   },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
   }
 });

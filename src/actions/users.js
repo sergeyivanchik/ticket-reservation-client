@@ -47,10 +47,11 @@ export const checkAuthorizationFailure = error => ({
 })
 
 export const checkAuthorizationAsync = () => {
-  axios.defaults.headers['AUTHORIZATION'] = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
+  axios.defaults.headers['AUTHORIZATION'] = token;
   return async (dispatch) => {
     try {
-      const currentUser  = await axios.post(`http://localhost:8080/users/user`);
+      const currentUser  = await axios.post(`users/user`);
       dispatch(checkAuthorizationSuccess(currentUser.data));
     } catch (error) {
       dispatch(checkAuthorizationFailure(error));
@@ -70,7 +71,7 @@ export const logInFailure = error => ({
 export const logInAsync = userInfo => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(`http://localhost:8080/users/login`, {...userInfo});
+      const { data } = await axios.post(`users/login`, {...userInfo});
       const { token } = data;
       if(token) {
         localStorage.setItem('token', token);
@@ -97,7 +98,7 @@ export const signUpFailure = error => ({
 export const signUpAsync = userInfo => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(`http://localhost:8080/users/signup`, {...userInfo});
+      const { data } = await axios.post(`users/signup`, {...userInfo});
       if(data) {
         dispatch(signUpSuccess());
         dispatch(showSnackbar('You have successfully signed up!'));

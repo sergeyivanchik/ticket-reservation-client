@@ -20,6 +20,7 @@ class LogIn extends React.Component {
   }
 
   render() {
+    const { logIn } = this.props;
     return (
       <div>
       <TopNavBar/>
@@ -40,10 +41,8 @@ class LogIn extends React.Component {
               placeholder="password"
               onChange={this.handleInputChange}
             />
-            <span className="login__button" onClick = {() => {this.props.onLogIn(this.state)}}>Log in</span>
-            <Link to="/signup" className='login__link-to'>
-              <span className="login__signup">Sign up</span>
-            </Link>
+            <span className="login__button" onClick = {() => logIn(this.state)}>Log in</span>
+            <Link to="/signup" className='login__signup'>Sign up</Link>
           </form>
         </div>
       </div>
@@ -52,7 +51,7 @@ class LogIn extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onLogIn(userInfo) {
+  logIn(userInfo) {
     return dispatch(logInAsync(userInfo))
   }
 });
