@@ -8,6 +8,8 @@ import axios from 'axios';
 
 import App from './App'
 import allReducers from './redusers';
+import { StripeProvider } from 'react-stripe-elements';
+import { stripePublishablekey } from './configs/payment';
 import './index.scss'
 
 
@@ -15,8 +17,10 @@ const store = createStore (allReducers, composeWithDevTools(applyMiddleware(thun
 axios.defaults.baseURL = 'http://localhost:8080/';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>, 
+  <StripeProvider apiKey={stripePublishablekey}>
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  </StripeProvider>, 
   document.getElementById('root')
 );

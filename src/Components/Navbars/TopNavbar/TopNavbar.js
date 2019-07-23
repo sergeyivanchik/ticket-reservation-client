@@ -12,7 +12,7 @@ import './TopNavbar.scss';
 
 
 class TopNavBar extends React.Component {
-  redirect = url => history.push(url)
+  redirect = url => history.push(url);
 
   render() {
     return (
@@ -31,6 +31,7 @@ class TopNavBar extends React.Component {
               ? <Button color="inherit" onClick={() => this.redirect('/profile')}>Profile</Button>
               : <Button color="inherit" onClick={() => this.redirect('/login')}>Login</Button>
             }
+
           </Toolbar>
         </AppBar>
       </div>
