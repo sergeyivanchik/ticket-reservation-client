@@ -12,13 +12,13 @@ class DateList extends React.Component {
         <div className="session-date__date">
           {convertDate(date)}
         </div> 
+        
           {getCinemasByMovieAndDate(movie, date, sessionsList).map(cinema =>
             <CinemaList
               cinemaId={cinema}
               movie={movie}
               date={date}
               sessionsList={sessionsList}
-              deleteTickets={this.props.deleteTickets}
               key={movie+date+cinema}
             />
           )}

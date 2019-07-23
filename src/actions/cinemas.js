@@ -18,7 +18,7 @@ export const getCinemasFailure = error => ({
 export const getCinemasAsync = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get('http://localhost:8080/cinemas');
+      const { data } = await axios.get('cinemas');
       dispatch(getCinemasSuccess(data))
     }
     catch (error) {

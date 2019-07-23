@@ -14,9 +14,11 @@ class Card extends React.Component {
           title={card.name}
           alt={card.name}>
         </img>
+
         <div className="card__tittle">
           {card.name}
         </div>
+        
           <div className="card__wrapper-button">
             <Link to={ `/movie-profile/${card.id}` }
               className="card__button"

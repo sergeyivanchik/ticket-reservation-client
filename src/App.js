@@ -10,6 +10,7 @@ import SignUp from './Components/Users/SignUp/SignUp.js';
 import LogIn from './Components/Users/LogIn/LogIn.js';
 import ConfirmTickets from './Components/Pages/ConfirmTickets.js';
 import SnackBar from './Components/Snackbar/Snackbar.js';
+import Profile from './Components/Users/Profile/Profile.js';
 import { checkAuthorizationAsync } from './actions/users.js';
 import './App.scss';
 
@@ -17,22 +18,24 @@ export const history = createBrowseHistory();
 
 class App extends Component {
   async componentWillMount() {
-    await this.props.onCheckAuthorization();
+    await this.props.checkAuthorization();
   }
   
   сheckAuthorization = () => localStorage.getItem('token') !== null ? true : false;
   
   render() {
+    const { message, isShown } = this.props;
     return (
       <Router history={history}>
         <div className="router">
-          <SnackBar message={this.props.message} isShown={this.props.isShown}/>
+          <SnackBar message={message} isShown={isShown}/>
           <Route exact path="/" component={MainPage}/>
           <Route path="/movie-profile/:movieId" component={MovieProfile}/>
           <Route path="/hall/:sessionId/:movieId/:cinemaId/:hallId/:date" 
             component={this.сheckAuthorization() ? Seats : LogIn}/>
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
+          <Route path="/profile" component={Profile}/>
           <Route path="/confirm-ticket/:sessionId/:movieId/:cinemaId/:hallId/:date" 
             component={this.сheckAuthorization() ? ConfirmTickets : LogIn}/>
         </div>
@@ -48,7 +51,7 @@ const mapStateToProps = store => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onCheckAuthorization() {
+  checkAuthorization() {
     return dispatch(checkAuthorizationAsync())
   }
 })

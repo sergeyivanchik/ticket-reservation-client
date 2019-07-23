@@ -6,11 +6,9 @@ import './CardList.scss';
 class CardList extends Component {
   render() {
     const { moviesList } = this.props;
-    const amountOfCards = 6;
     return (
       <div className="card-list">
-        {moviesList.slice(moviesList.length > amountOfCards ?
-          moviesList.length - amountOfCards : 0).map(card => 
+        {moviesList.map(card => 
             <Card card={card} key={card.id} />
           )
         }
