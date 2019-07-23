@@ -18,11 +18,11 @@ class SnackBar extends React.Component {
     if (reason === 'clickaway') {
       return;
     }
-    this.props.onHideSnackbar();
+    this.props.hideSnackbar();
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, isShown, message } = this.props;
     return (
       <div>
         <Snackbar
@@ -30,13 +30,13 @@ class SnackBar extends React.Component {
             vertical: 'bottom',
             horizontal: 'left',
           }}
-          open={this.props.isShown}
+          open={isShown}
           autoHideDuration={6000}
           onClose={this.handleClose}
           ContentProps={{
             'aria-describedby': 'message-id',
           }}
-          message={<span id="message-id">{this.props.message}</span>}
+          message={<span id="message-id">{message}</span>}
           action={[
             <IconButton
               key="close"
@@ -55,7 +55,7 @@ class SnackBar extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onHideSnackbar() {
+  hideSnackbar() {
     dispatch(hideSnackbar());
   }
 });

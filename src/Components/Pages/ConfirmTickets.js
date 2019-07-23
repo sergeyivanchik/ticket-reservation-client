@@ -1,35 +1,74 @@
 import React from 'react';
 import { connect } from  'react-redux';
 
-import { getCinemasAsync } from '../../actions/cinemas.js';
-import { getMoviesAsync } from '../../actions/movies.js';
+import { Button } from '@material-ui/core';
 import TicketList from '../Ticket/TicketList.js';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js';
+import {
+  getSelectedSeatsByUserAsync,
+  selectAdditionalServiceAsync,
+  deleteAdditionalServicesAsync,
+  bookSeatsAsync
+} from '../../actions/seats.js'
+import { checkAuthorizationAsync } from '../../actions/users.js';
+
 
 class ConfirmTickets extends React.Component {
+  state = {
+    sum: 0
+  }
+  
+  getAdditionalServices = data  => {
+    const {sum, checked} = data;
+    checked
+    ? this.setState( {
+          sum: this.state.sum + sum
+        }
+      )
+    : this.setState( {
+          sum: this.state.sum - sum
+        }
+    )
+  }
+
   async componentDidMount() {
-    this.props.onShowLoader()
-    await this.props.onGetMovies()
-    await this.props.onGetCinemas();
-    this.props.onHideLoader();
+    const { sessionId, cinemaId, hallId, movieId } = this.props.match.params;
+
+    this.props.showLoader();
+    await this.props.checkAuthorization();
+    await this.props.deleteAdditionalServices(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
+    await this.props.getSelectedSeatsByUser(this.props.currentUser.id, sessionId, cinemaId, hallId, movieId);
+    this.props.hideLoader();
   }
 
   render() {
+    const { selectedSeatsByUser, isLoading, bookSeats, selectAdditionalService } = this.props;
+    const costForSeat = selectedSeatsByUser.reduce((sum, ticket) => sum + ticket.cost, 0)
+    const totalCost = costForSeat + this.state.sum;
     return (
-      !this.props.allCinemas.length || !this.props.allMovies.length || this.props.isLoading 
+      isLoading 
         ? <Loader/>
         : <div className="confirm-ticket">
             <TopNavBar/>
+
+            <Button
+              onClick={() => bookSeats(selectedSeatsByUser)}
+              variant="contained" 
+              color="primary"
+              className="confirm-ticket__button"
+            >
+              Buy
+            </Button>
+
+            <div className="confirm-ticket__cost">Cost: {totalCost} $</div>
+
             <TicketList 
-              selectSeats={this.props.selectSeats}
-              allMovies={this.props.allMovies}
-              allCinemas={this.props.allCinemas}
-              date={this.props.match.params.date}
-              hall={this.props.match.params.hall}
-              movieId={this.props.match.params.movieId}
-              cinemaId={this.props.match.params.cinemaId}
+              getAdditionalServices={this.getAdditionalServices}
+              selectedSeatsByUser={selectedSeatsByUser}
+              user={this.props.currentUser.id}
+              selectAdditionalService={selectAdditionalService}
             />
         </div>
     )
@@ -37,24 +76,33 @@ class ConfirmTickets extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  selectSeats: store.seats.selectSeats,
-  allCinemas: store.cinemas.allCinemas,
-  allMovies: store.movies.allMovies,
-  isLoading: store.loader.isLoading
+  selectedSeatsByUser: store.seats.selectedSeatsByUser,
+  boughtSeats: store.seats.boughtSeats,
+  isLoading: store.loader.isLoading,
+  currentUser: store.user.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
-  onGetMovies() {
-    return dispatch(getMoviesAsync())
+  getSelectedSeatsByUser(userId, sessionId, cinemaId, hallId, movieId) {
+    return dispatch(getSelectedSeatsByUserAsync(userId, sessionId, cinemaId, hallId, movieId))
   },
-  onGetCinemas() {
-    return dispatch(getCinemasAsync())
-  },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
+  },
+  checkAuthorization() {
+    return dispatch(checkAuthorizationAsync())
+  },
+  selectAdditionalService(session, cinema, hall, movie, user, row, seat, cost, service) {
+    dispatch(selectAdditionalServiceAsync(session, cinema, hall, movie, user, row, seat, cost, service))
+  },
+  deleteAdditionalServices(userId, sessionId, cinemaId, hallId, movieId) {
+    return dispatch(deleteAdditionalServicesAsync(userId, sessionId, cinemaId, hallId, movieId))
+  },
+   bookSeats(seats) {
+    dispatch(bookSeatsAsync(seats))
   }
 });
 

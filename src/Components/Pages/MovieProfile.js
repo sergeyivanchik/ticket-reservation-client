@@ -3,34 +3,31 @@ import { connect } from 'react-redux';
 
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Schedule from '../Schedule/Schedule.js';
-import { deleteSelectedSeats } from '../../actions/seats.js';
 import { getMovieByIdAsync } from '../../actions/movies.js';
 import { getSessionsAsync } from '../../actions/sessions.js';
-import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js'; 
 
 
 class MovieProfile extends React.Component {
   async componentDidMount() {
-    this.props.onShowLoader();
-    await this.props.onGetCinemas();
-    await this.props.onGetSessions();
-    await this.props.onGetMovieById(this.props.match.params.movieId);
-    this.props.onHideLoader();
+    const { movieId } = this.props.match.params;
+    this.props.showLoader();
+    await this.props.getSessions(movieId);
+    await this.props.getMovieById(movieId);
+    this.props.hideLoader();
   }
   
   render() {
+    const { isLoading, movieById, sessionsList } = this.props;
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="movie-profile">
             <TopNavBar/>
             <Schedule
-              movie={this.props.movieById}
-              sessionsList={this.props.sessionsList}
-              cinemasList={this.props.allCinemas}
-              deleteTickets={this.props.onDeleteTickets}
+              movie={movieById}
+              sessionsList={sessionsList}
             />
           </div>
     )
@@ -39,27 +36,20 @@ class MovieProfile extends React.Component {
 const mapStateToProps = store => ({
   sessionsList: store.sessions.sessionsList,
   movieById: store.movies.movieById,
-  allCinemas: store.cinemas.allCinemas,
   isLoading: store.loader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetSessions() {
-    return dispatch(getSessionsAsync())
+  getSessions(movieId) {
+    return dispatch(getSessionsAsync(movieId))
   },
-  onGetMovieById(id) {
-    return dispatch(getMovieByIdAsync(id))
+  getMovieById(movieId) {
+    return dispatch(getMovieByIdAsync(movieId))
   },
-  onGetCinemas() {
-    return dispatch(getCinemasAsync())
-  },
-  onDeleteSeats() {
-    dispatch(deleteSelectedSeats())
-  },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
   }
 });

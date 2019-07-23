@@ -6,6 +6,7 @@ import movies from './movies.js';
 import sessions from './sessions.js';
 import loader from './loader.js';
 import snackbar from './snackbar';
+import user from './users.js';
 
 const allReducers = combineReducers ({
   seats,
@@ -14,7 +15,8 @@ const allReducers = combineReducers ({
   movies,
   sessions,
   loader,
-  snackbar
+  snackbar,
+  user
 })
 
 export default allReducers

@@ -7,20 +7,23 @@ import './SessionsList.scss';
 
 class SessionsList extends React.Component {
   render() {
-    const { movie, sessionsList, cinemasList } = this.props;
+    const { movie, sessionsList } = this.props;
     return (
       <div className="sessions-list">
-        {getDatesByMovie(movie.id, sessionsList).map(date =>
-          <DateList
-            movie={movie.id}
-            date={date}
-            sessionsList={sessionsList}
-            key={date}
-            cinemasList={cinemasList}
-            deleteTickets={this.props.deleteTickets}
-          />
-        ) 
-      }  
+        {getDatesByMovie(movie.id, sessionsList).map(date => {
+          if(new Date().getFullYear() <= new Date(date).getFullYear() 
+            && new Date().getMonth() <= new Date(date).getMonth()
+            &&  ((new Date().getMonth() <= new Date(date).getMonth() && new Date().getDate() <= new Date(date).getDate())
+                  || (new Date().getMonth() < new Date(date).getMonth() && new Date().getDate() >= new Date(date).getDate())
+                ))
+            return <DateList
+                movie={movie.id}
+                date={date}
+                sessionsList={sessionsList}
+                key={date}
+              />
+        }) 
+        }  
       </div> 
     )
   }

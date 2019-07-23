@@ -4,26 +4,25 @@ import { connect } from 'react-redux';
 import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import CardList from '../CardList/CardList.js';
 import { getMoviesAsync } from '../../actions/movies.js';
-import { getCinemasAsync } from '../../actions/cinemas.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import Loader from '../Loader/Loader.js';
 
 
 class MainPage extends React.Component {
   async componentDidMount() {
-    this.props.onShowLoader();
-    await this.props.onGetMovies();
-    await this.props.onGetCinemas();
-    this.props.onHideLoader();
+    this.props.showLoader();
+    await this.props.getMovies();
+    this.props.hideLoader();
   }
 
   render() {
+    const { isLoading, allMovies} = this.props;
     return (
-      this.props.isLoading
+      isLoading
         ? <Loader/>
         : <div className="main-page">
             <TopNavBar/>
-            <CardList moviesList={this.props.allMovies}/>
+            <CardList moviesList={allMovies}/>
           </div>
     )
   }
@@ -31,21 +30,17 @@ class MainPage extends React.Component {
 
 const mapStateToProps = store => ({
   allMovies: store.movies.allMovies,
-  allCinemas: store.cinemas.allCinemas,
   isLoading: store.loader.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  onGetMovies() {
+  getMovies() {
     return dispatch(getMoviesAsync())
   },
-  onGetCinemas() {
-    return dispatch(getCinemasAsync())
-  },
-  onShowLoader() {
+  showLoader() {
     dispatch(showLoader())
   },
-  onHideLoader() {
+  hideLoader() {
     dispatch(hideLoader())
   }
 });

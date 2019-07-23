@@ -4,27 +4,50 @@ import Seat from './Seat.js'
 
 
 class Row extends Component {
+  occupied = (row, seat, cost, user) => 
+    this.props.selectedSeats.find(ticket => 
+      ticket.row === row && 
+      ticket.seat === seat && 
+      ticket.cost === cost &&
+      ticket.user === user) 
+    ? true 
+    : false; 
+
+  bought = (row, seat, cost) => 
+    this.props.boughtSeats.find(boughtSeat => 
+      boughtSeat.row === row &&
+      boughtSeat.seat === seat &&
+      boughtSeat.cost === cost)
+    ? true
+    : false
+
+  selectedOtherUser = (user, row, seat, cost) =>
+    this.props.selectedSeats.find(ticket => 
+      ticket.user !== user &&
+      ticket.row === row && 
+      ticket.seat === seat && 
+      ticket.cost === cost)
+    ? true
+    : false
+
   CreateRow(row, countPlaces) {
+    const { user, movie, cinema, session, hall, hallRow, onSelectSeat} = this.props;
     let places = [];
     for(let i = 1; i < countPlaces+1; i++) {
       places.push(
         <Seat
+          user={user}
+          movie={movie}
+          cinema={cinema}
+          session={session}
+          hall={hall}
           row={row}
           seat={i}
-          price={this.props.price}
-          chooseSeat={this.props.chooseSeat}
-          occupied={
-            this.props.selectSeats.find(ticket => 
-              ticket.row === row && 
-              ticket.seat === i && 
-              ticket.price === this.props.price)
-          }
-          bought={
-              this.props.boughtSeats.find(boughtSeat => 
-                boughtSeat.row === row &&
-                boughtSeat.seat === i &&
-                boughtSeat.price === this.props.price)
-          }
+          cost={hallRow.cost}
+          onSelectSeat={onSelectSeat}
+          occupied={this.occupied(row, i, hallRow.cost, user)}
+          bought={this.bought(row, i, hallRow.cost)}
+          selectedOtherUser={this.selectedOtherUser(user, row, i, hallRow.cost)}
           key={i+row}
         />
       )
@@ -33,14 +56,14 @@ class Row extends Component {
   }
   
   render() {
-    const { row, amountOfSeats } = this.props;
+    const { hallRow } = this.props;
     return (
       <div className="row">
-        <div className="row__number" title={`row ${row}`}>{row}</div>
+        <div className="row__number" title={`row ${hallRow.row}`}>{hallRow.row}</div>
 
-        <div className="row__seats-list">{this.CreateRow(row, amountOfSeats)}</div>
+        <div className="row__seats-list">{this.CreateRow(hallRow.row, hallRow.countOfSeats)}</div>
 
-        <div className="row__number" title={`row ${row}`}>{row}</div>
+        <div className="row__number" title={`row ${hallRow.row}`}>{hallRow.row}</div>
       </div>
     )
   }

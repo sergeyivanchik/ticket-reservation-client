@@ -5,22 +5,18 @@ import './TicketList.scss';
 
 class TicketList extends React.Component {
   render() {
-    const { selectSeats, date, hall, movieId, cinemaId, allMovies, allCinemas} = this.props;
+    const { selectedSeatsByUser, user, getAdditionalServices, selectAdditionalService,  } = this.props;
     return (
       <div className="tickets-list">
-        {selectSeats.map(ticket =>
+        {selectedSeatsByUser.map(ticket => 
           <Ticket
-            row={ticket.row}
-            seat={ticket.seat}
-            price={ticket.price}
-            date={date}
-            hall={hall}
-            movieId={movieId}
-            cinemaId={cinemaId}
-            allMovies={allMovies}
-            allCinemas={allCinemas}
-            key={ticket}
+            user={user}
+            ticketInfo={ticket}
+            key={ticket.id}
+            getAdditionalServices={getAdditionalServices}
+            selectAdditionalService={selectAdditionalService}
           />
+        
         )}
       </div>
     )
