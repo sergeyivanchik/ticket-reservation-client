@@ -10,11 +10,12 @@ import App from './App'
 import allReducers from './redusers';
 import { StripeProvider } from 'react-stripe-elements';
 import { stripePublishablekey } from './configs/payment';
+import { baseUrl } from './configs/url'
 import './index.scss'
 
 
 const store = createStore (allReducers, composeWithDevTools(applyMiddleware(thunk)))
-axios.defaults.baseURL = 'http://localhost:8080/';
+axios.defaults.baseURL = baseUrl;
 
 ReactDOM.render(
   <StripeProvider apiKey={stripePublishablekey}>
