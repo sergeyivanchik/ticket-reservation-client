@@ -3,7 +3,7 @@ import { sendToServer } from '../../../socket';
 
 class Seat extends Component {
   render() {
-    const { session, cinema, hall, movie, row, seat, occupied, cost, bought, user, selectedOtherUser, onSelectSeat } = this.props;
+    const { session, cinema, hall, movie, row, seat, occupied, cost, bought, user, selectedOtherUser } = this.props;
     return (
       <span 
         onClick={event => { 

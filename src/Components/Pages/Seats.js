@@ -5,7 +5,7 @@ import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import { getHallByCinemaAsync } from '../../actions/halls.js';
-import { getBoughtSeatsAsync, getSelectedSeatsAsync, selectSeatAsync } from '../../actions/seats.js';
+import { getBoughtSeatsAsync, getSelectedSeatsAsync } from '../../actions/seats.js';
 import Loader from '../Loader/Loader.js';
 
 
@@ -20,7 +20,7 @@ class Seats extends React.Component {
   }
 
   render() {
-    const { hallByCinema, boughtSeats, selectSeat, selectedSeats, isLoading } = this.props;
+    const { hallByCinema, boughtSeats, selectedSeats, isLoading } = this.props;
     const { hallId, cinemaId, sessionId, movieId, date } = this.props.match.params;
     return (
       isLoading
@@ -35,7 +35,6 @@ class Seats extends React.Component {
               user={this.props.currentUser.id}
               boughtSeats={boughtSeats}
               hallSeats={hallByCinema[0].seats}
-              onSelectSeat={selectSeat}
               selectedSeats={selectedSeats}
               date={date}
             />
@@ -58,9 +57,6 @@ const mapDispatchToProps = dispatch => ({
   },
   getHallByCinema(hallId, cinemaId) {
     return dispatch(getHallByCinemaAsync(hallId, cinemaId))
-  },
-  selectSeat(session, cinema, hall, movie, user, row, seat, cost) {
-    dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
   },
   hideLoader() {
     dispatch(hideLoader())
