@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { sendToServer } from '../../../socket';
 
 class Seat extends Component {
   render() {
@@ -8,7 +8,7 @@ class Seat extends Component {
       <span 
         onClick={event => { 
           if(event.target.className !== 'seat seat_bought'){
-            onSelectSeat({user, session, cinema, hall, movie, row, seat, cost})
+            sendToServer({user, session, cinema, hall, movie, row, seat, cost});
           }
         }}
         className={`seat ${occupied ? 'seat_occupied' : bought || selectedOtherUser ? 'seat_bought' : ''}` }
