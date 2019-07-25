@@ -6,7 +6,7 @@ import './SeatsList.scss';
 
 class SeatsList extends React.Component {
   render() {
-    const { selectedSeats, hallSeats, movie, cinema, hall, user, boughtSeats, session } = this.props;
+    const { selectedSeats, hallSeats, movie, cinema, hall, user, boughtSeats, session, showSnackbar } = this.props;
     return (
       <div className="rows-list">
         {hallSeats.map(hallRow =>
@@ -20,6 +20,7 @@ class SeatsList extends React.Component {
             cinema={cinema}
             session={session}
             hall={hall}
+            showSnackbar={showSnackbar}
           />
         )}
       </div>

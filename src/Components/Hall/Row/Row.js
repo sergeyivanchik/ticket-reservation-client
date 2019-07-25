@@ -31,7 +31,7 @@ class Row extends Component {
     : false
 
   CreateRow(row, countPlaces) {
-    const { user, movie, cinema, session, hall, hallRow} = this.props;
+    const { user, movie, cinema, session, hall, hallRow, selectedSeats, showSnackbar } = this.props;
     let places = [];
     for(let i = 1; i < countPlaces+1; i++) {
       places.push(
@@ -47,6 +47,8 @@ class Row extends Component {
           occupied={this.occupied(row, i, hallRow.cost, user)}
           bought={this.bought(row, i, hallRow.cost)}
           selectedOtherUser={this.selectedOtherUser(user, row, i, hallRow.cost)}
+          selectedSeats={selectedSeats}
+          showSnackbar={showSnackbar}
           key={i+row}
         />
       )
