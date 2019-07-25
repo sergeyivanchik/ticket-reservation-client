@@ -8,12 +8,14 @@ import { getHallByCinemaAsync } from '../../actions/halls.js';
 import { getBoughtSeatsAsync, getSelectedSeatsAsync } from '../../actions/seats.js';
 import { showSnackbar } from '../../actions/snackbar.js'
 import Loader from '../Loader/Loader.js';
+import { checkAuthorizationAsync } from '../../actions/users.js';
 
 
 class Seats extends React.Component {
   async componentDidMount() {
-    const { hallId, cinemaId, sessionId, movieId } = this.props.match.params;
     this.props.showLoader();
+    const { hallId, cinemaId, sessionId, movieId } = this.props.match.params;
+    await this.props.checkAuthorization();
     await this.props.getHallByCinema(hallId, cinemaId);
     await this.props.getBoughtSeats(sessionId,cinemaId, hallId, movieId);
     await this.props.getSelectedSeats(sessionId, cinemaId, hallId, movieId);
@@ -71,6 +73,9 @@ const mapDispatchToProps = dispatch => ({
   },
   showSnackbar(message) {
     dispatch(showSnackbar(message))
+  },
+  checkAuthorization() {
+    return dispatch(checkAuthorizationAsync())
   }
 });
 
