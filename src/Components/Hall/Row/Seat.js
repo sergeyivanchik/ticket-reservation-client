@@ -15,9 +15,9 @@ class Seat extends Component {
             (event.target.className === 'seat seat_occupied' && selectedSeatsByUser.length === countOfSelectedSeats)) {
               sendToServer({user, session, cinema, hall, movie, row, seat, cost});
             }
-          else {
-            showSnackbar("You cannot select more than 6 seats!")
-          }
+          else if(event.target.className === 'seat seat_bought'){
+            showSnackbar("You cannot select book seat!")
+          } else showSnackbar("You cannot select more than 6 seats!")
         }}
         className={`seat ${occupied ? 'seat_occupied' : bought || selectedOtherUser ? 'seat_bought' : ''}` }
         title={`${bought || selectedOtherUser ? 'bought' : `row ${row} seat ${seat} cost ${cost}`}`}
