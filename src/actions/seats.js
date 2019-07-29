@@ -163,13 +163,10 @@ export const selectSeatFailure = error => ({
   payload: error
 })
 
-export const selectSeatAsync = (user, session, cinema, hall, movie, row, seat, cost) => {
+export const selectSeatAsync = seat => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`selectedSeats`, 
-        { user, session, cinema, hall, movie, row, seat, cost }
-      );
-      dispatch(selectSeatSuccess(data));
+      dispatch(selectSeatSuccess(seat));
     }
     catch (error) {
       dispatch(selectSeatFailure(error));

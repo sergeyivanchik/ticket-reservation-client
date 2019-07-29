@@ -5,14 +5,17 @@ import TopNavBar from '../Navbars/TopNavbar/TopNavbar.js';
 import Hall from '../Hall/Hall.js';
 import { showLoader, hideLoader } from '../../actions/loader.js';
 import { getHallByCinemaAsync } from '../../actions/halls.js';
-import { getBoughtSeatsAsync, getSelectedSeatsAsync, selectSeatAsync } from '../../actions/seats.js';
+import { getBoughtSeatsAsync, getSelectedSeatsAsync } from '../../actions/seats.js';
+import { showSnackbar } from '../../actions/snackbar.js'
 import Loader from '../Loader/Loader.js';
+import { checkAuthorizationAsync } from '../../actions/users.js';
 
 
 class Seats extends React.Component {
   async componentDidMount() {
-    const { hallId, cinemaId, sessionId, movieId } = this.props.match.params;
     this.props.showLoader();
+    const { hallId, cinemaId, sessionId, movieId } = this.props.match.params;
+    await this.props.checkAuthorization();
     await this.props.getHallByCinema(hallId, cinemaId);
     await this.props.getBoughtSeats(sessionId,cinemaId, hallId, movieId);
     await this.props.getSelectedSeats(sessionId, cinemaId, hallId, movieId);
@@ -20,7 +23,7 @@ class Seats extends React.Component {
   }
 
   render() {
-    const { hallByCinema, boughtSeats, selectSeat, selectedSeats, isLoading } = this.props;
+    const { hallByCinema, boughtSeats, selectedSeats, isLoading, showSnackbar } = this.props;
     const { hallId, cinemaId, sessionId, movieId, date } = this.props.match.params;
     return (
       isLoading
@@ -35,9 +38,9 @@ class Seats extends React.Component {
               user={this.props.currentUser.id}
               boughtSeats={boughtSeats}
               hallSeats={hallByCinema[0].seats}
-              onSelectSeat={selectSeat}
               selectedSeats={selectedSeats}
               date={date}
+              showSnackbar={showSnackbar}
             />
           </div>
     )
@@ -59,9 +62,6 @@ const mapDispatchToProps = dispatch => ({
   getHallByCinema(hallId, cinemaId) {
     return dispatch(getHallByCinemaAsync(hallId, cinemaId))
   },
-  selectSeat(session, cinema, hall, movie, user, row, seat, cost) {
-    dispatch(selectSeatAsync(session, cinema, hall, movie, user, row, seat, cost))
-  },
   hideLoader() {
     dispatch(hideLoader())
   },
@@ -70,6 +70,12 @@ const mapDispatchToProps = dispatch => ({
   },
   getSelectedSeats(sessionId, cinemaId, hallId, movieId) {
     return dispatch(getSelectedSeatsAsync(sessionId, cinemaId, hallId, movieId))
+  },
+  showSnackbar(message) {
+    dispatch(showSnackbar(message))
+  },
+  checkAuthorization() {
+    return dispatch(checkAuthorizationAsync())
   }
 });
 
